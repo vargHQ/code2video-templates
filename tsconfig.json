@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "jsxImportSource": "vargai",
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "paths": {
+      "vargai": ["./sdk/src/index.ts"],
+      "vargai/ai": ["./sdk/src/ai-sdk/index.ts"],
+      "vargai/react": ["./sdk/src/react/index.ts"],
+      "vargai/core": ["./sdk/src/core/index.ts"],
+      "vargai/providers": ["./sdk/src/providers/index.ts"],
+      "vargai/definitions": ["./sdk/src/definitions/index.ts"],
+      "vargai/studio": ["./sdk/src/studio/index.ts"],
+      "vargai/jsx-runtime": ["./sdk/src/react/runtime/jsx-runtime.ts"],
+      "vargai/jsx-dev-runtime": ["./sdk/src/react/runtime/jsx-dev-runtime.ts"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", "sdk"]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "varg-templates",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "render": "bun run sdk/src/cli/index.ts render",
+    "studio": "bun run sdk/src/cli/index.ts studio"
+  },
+  "workspaces": [
+    "sdk"
+  ],
+  "dependencies": {
+    "@vargai/gateway": "^0.1.6"
+  }
+}
