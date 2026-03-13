@@ -11,8 +11,10 @@
 //   SCENE_INDEX=1 bun run render templates/adventure-showcase.tsx   # renders scene 1 (arctic)
 //   SCENE_INDEX=2 bun run render templates/adventure-showcase.tsx   # renders scene 2 (desert)
 
-import { elevenlabs, fal, higgsfield } from "vargai/ai";
 import { Clip, Image, Music, Packshot, Render, Video } from "vargai/react";
+import { createVarg } from "@vargai/gateway";
+
+const varg = createVarg({ apiKey: process.env.VARG_API_KEY! });
 
 // ── Character ───────────────────────────────────────────────────────────
 // Generate a consistent character once, reused across all shots.
@@ -20,8 +22,9 @@ const CHAR = "Use the provided character reference. Maximum consistency with the
 
 const character = Image({
   prompt: "Athletic woman, early 30s, sun-kissed skin, dark brown hair pulled back in a ponytail, strong jaw, determined expression. Portrait, neutral background, photorealistic",
-  model: higgsfield.imageModel("soul", { styleId: higgsfield.styles.REALISTIC }),
+  model: varg.imageModel("soul"),
   aspectRatio: "9:16",
+  providerOptions: { varg: { style: "1cb4b936-77bf-4f9a-9039-f3d349a4cdbe" } },
 });
 
 // ── Scene Definitions ───────────────────────────────────────────────────
@@ -84,19 +87,19 @@ const SCENE_INDEX = parseInt(process.env.SCENE_INDEX ?? "0", 10);
 const scene = SCENES[SCENE_INDEX] ?? SCENES[0];
 
 // ── Generate images with reference chaining ─────────────────────────────
-const imgA = Image({ prompt: { text: scene.a.image, images: [character] }, model: fal.imageModel("nano-banana-pro/edit"), aspectRatio: "9:16", providerOptions: { fal: { resolution: "2K" } } });
-const imgB = Image({ prompt: { text: scene.b.image, images: [character, imgA] }, model: fal.imageModel("nano-banana-pro/edit"), aspectRatio: "9:16", providerOptions: { fal: { resolution: "2K" } } });
-const imgC = Image({ prompt: { text: scene.c.image, images: [character, imgA] }, model: fal.imageModel("nano-banana-pro/edit"), aspectRatio: "9:16", providerOptions: { fal: { resolution: "2K" } } });
+const imgA = Image({ prompt: { text: scene.a.image, images: [character] }, model: varg.imageModel("nano-banana-pro/edit"), aspectRatio: "9:16", providerOptions: { varg: { resolution: "2K" } } });
+const imgB = Image({ prompt: { text: scene.b.image, images: [character, imgA] }, model: varg.imageModel("nano-banana-pro/edit"), aspectRatio: "9:16", providerOptions: { varg: { resolution: "2K" } } });
+const imgC = Image({ prompt: { text: scene.c.image, images: [character, imgA] }, model: varg.imageModel("nano-banana-pro/edit"), aspectRatio: "9:16", providerOptions: { varg: { resolution: "2K" } } });
 
 // ── Animate each shot ───────────────────────────────────────────────────
-const vidA = Video({ prompt: { text: scene.a.motion, images: [imgA] }, model: fal.videoModel("kling-v2.5"), duration: 5 });
-const vidB = Video({ prompt: { text: scene.b.motion, images: [imgB] }, model: fal.videoModel("kling-v2.5"), duration: 5 });
-const vidC = Video({ prompt: { text: scene.c.motion, images: [imgC] }, model: fal.videoModel("kling-v2.5"), duration: 5 });
+const vidA = Video({ prompt: { text: scene.a.motion, images: [imgA] }, model: varg.videoModel("kling-v2.5"), duration: 5 });
+const vidB = Video({ prompt: { text: scene.b.motion, images: [imgB] }, model: varg.videoModel("kling-v2.5"), duration: 5 });
+const vidC = Video({ prompt: { text: scene.c.motion, images: [imgC] }, model: varg.videoModel("kling-v2.5"), duration: 5 });
 
 // ── Final Render — fast cuts + packshot ─────────────────────────────────
 export default (
   <Render width={1080} height={1920}>
-    <Music prompt={scene.music} model={elevenlabs.musicModel()} volume={0.5} />
+    <Music prompt={scene.music} model={varg.musicModel("music_v1")} volume={0.5} />
 
     {/* Shot A: Wide / establishing — fast cut */}
     <Clip cutFrom={0.3} cutTo={2.0}>{vidA}</Clip>

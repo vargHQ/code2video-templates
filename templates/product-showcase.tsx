@@ -11,8 +11,10 @@
 //
 // Usage: bun run render templates/product-showcase.tsx
 
-import { elevenlabs, fal, higgsfield } from "vargai/ai";
 import { Captions, Clip, Image, Music, Packshot, Render, Speech, Title, Video } from "vargai/react";
+import { createVarg } from "@vargai/gateway";
+
+const varg = createVarg({ apiKey: process.env.VARG_API_KEY! });
 
 // ── Config — change these to match your product ─────────────────────────
 const CONFIG = {
@@ -32,33 +34,34 @@ const CONFIG = {
 // ── Character for lifestyle & result scenes ─────────────────────────────
 const character = Image({
   prompt: `${CONFIG.character}, photorealistic portrait, neutral expression, studio lighting`,
-  model: higgsfield.imageModel("soul", { styleId: higgsfield.styles.REALISTIC }),
+  model: varg.imageModel("soul"),
   aspectRatio: "16:9",
+  providerOptions: { varg: { style: "1cb4b936-77bf-4f9a-9039-f3d349a4cdbe" } },
 });
 
 // ── Scene 1: Hero — Product alone ───────────────────────────────────────
 const heroImage = Image({
   prompt: `Product photography. ${CONFIG.productDescription}. Sleek matte black finish. Centered on a clean white marble surface. Soft gradient background. Single dramatic spotlight from above. Subtle reflection on surface. Shot on 100mm macro, f/2.8, studio lighting. Premium commercial aesthetic.`,
-  model: fal.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano-banana-pro"),
   aspectRatio: "16:9",
 });
 
 const heroVideo = Video({
   prompt: { text: "Slow 360-degree rotation revealing product details, dramatic lighting shifts, premium commercial feel", images: [heroImage] },
-  model: fal.videoModel("kling-v2.5"),
+  model: varg.videoModel("kling-v2.5"),
   duration: 5,
 });
 
 // ── Scene 2: Features — Text overlay ────────────────────────────────────
 const featuresBg = Image({
   prompt: { text: `Soft dreamy background with the product floating slightly off-center, shallow depth of field, bokeh light orbs, dark moody atmosphere, premium commercial aesthetic`, images: [heroImage] },
-  model: fal.imageModel("nano-banana-pro/edit"),
+  model: varg.imageModel("nano-banana-pro/edit"),
   aspectRatio: "16:9",
 });
 
 const featuresVideo = Video({
   prompt: { text: "Product gently floating with subtle rotation, ambient particles drifting, dreamy atmosphere", images: [featuresBg] },
-  model: fal.videoModel("kling-v2.5"),
+  model: varg.videoModel("kling-v2.5"),
   duration: 5,
 });
 
@@ -68,13 +71,13 @@ const lifestyleImage = Image({
     text: `Same person from the first reference wearing the headphones from the second reference. Sitting at a modern desk in a bright loft apartment, eyes closed, enjoying music. Natural window light, warm afternoon glow. Photorealistic, editorial quality.`,
     images: [character, heroImage],
   },
-  model: fal.imageModel("nano-banana-pro/edit"),
+  model: varg.imageModel("nano-banana-pro/edit"),
   aspectRatio: "16:9",
 });
 
 const lifestyleVideo = Video({
   prompt: { text: "Person nods gently to music, opens eyes and smiles, touches headphone ear cup, relaxed natural movement", images: [lifestyleImage] },
-  model: fal.videoModel("kling-v2.5"),
+  model: varg.videoModel("kling-v2.5"),
   duration: 5,
 });
 
@@ -84,19 +87,19 @@ const resultImage = Image({
     text: `Close-up of the same person wearing the headphones, peaceful expression, eyes closed, slight smile. Shallow depth of field, warm backlight creating rim light on hair and headphones. Premium lifestyle photography.`,
     images: [character, heroImage],
   },
-  model: fal.imageModel("nano-banana-pro/edit"),
+  model: varg.imageModel("nano-banana-pro/edit"),
   aspectRatio: "16:9",
 });
 
 const resultVideo = Video({
   prompt: { text: "Person slowly opens eyes, peaceful smile, camera pulls back slightly revealing the full headphone design", images: [resultImage] },
-  model: fal.videoModel("kling-v2.5"),
+  model: varg.videoModel("kling-v2.5"),
   duration: 5,
 });
 
 // ── Voiceover ───────────────────────────────────────────────────────────
 const voiceover = Speech({
-  model: elevenlabs.speechModel("eleven_v3"),
+  model: varg.speechModel("eleven_v3"),
   voice: "adam",
   children: CONFIG.voiceover,
 });
@@ -104,7 +107,7 @@ const voiceover = Speech({
 // ── Final Render ────────────────────────────────────────────────────────
 export default (
   <Render width={1920} height={1080}>
-    <Music prompt={CONFIG.musicPrompt} model={elevenlabs.musicModel()} volume={0.15} ducking />
+    <Music prompt={CONFIG.musicPrompt} model={varg.musicModel("music_v1")} volume={0.15} ducking />
 
     {/* Scene 1: Hero */}
     <Clip duration={3.5} transition={{ name: "fade", duration: 0.5 }}>

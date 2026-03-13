@@ -13,7 +13,7 @@ templates/             # Reusable video templates
   ├── product-showcase.tsx    # 4-scene product video
   ├── adventure-showcase.tsx  # Multi-environment showcase (SCENE_INDEX)
   ├── fashion-photoshoot.tsx  # Clothing brand photoshoot
-  ├── cinematic-tribute.tsx   # 8-scene montage (gateway)
+  ├── cinematic-tribute.tsx   # 8-scene montage
   └── VIDEO-PROMPTS.md        # Prompt engineering guide
 sdk/                   # Varg SDK (git submodule)
 ```
@@ -31,41 +31,84 @@ bun run studio <path-to-file.tsx>
 SCENE_INDEX=1 bun run render templates/adventure-showcase.tsx
 ```
 
-## Two API Styles
+## IMPORTANT: Always Render in the Background
 
-### Direct providers (most templates use this)
+**Video generation MUST run as a background process, never on the main thread.**
+
+Render jobs take 3-15+ minutes (image generation, video generation, lipsync, ffmpeg composition). Running them synchronously blocks the entire agent — the user cannot interact, ask questions, or request changes while waiting.
+
+### How to run renders in the background
+
+```bash
+# Run render in background, redirect output to log file
+nohup bun run render hello.tsx > output/render.log 2>&1 &
+echo "Render started (PID: $!). Check output/render.log for progress."
+
+# Check if still running
+ps -p <PID> > /dev/null && echo "Still rendering..." || echo "Done!"
+
+# Tail the log to check progress
+tail -20 output/render.log
+```
+
+### Rules for AI agents
+
+1. **Always** spawn `bun run render` as a background process (`&` or subprocess)
+2. **Never** `await` or block on a render command — return control to the user immediately
+3. **Log output** to a file so progress can be checked later
+4. **Report the PID** so the user can monitor or kill the job
+5. **Continue working** on other tasks (editing templates, answering questions) while renders run
+6. **Check completion** by polling the PID or checking for the output file
+
+### Why this matters
+
+- A single template render costs $1-10+ in API credits and takes 3-15 minutes
+- The SDK already parallelizes internally (3 concurrent clips, all layers within a clip in parallel)
+- Blocking the main thread wastes the user's time and prevents iteration on prompts/code while waiting
+
+## API — Gateway Only
+
+All templates use the varg gateway (`createVarg`) — a single `VARG_API_KEY` replaces separate provider keys.
+
 ```tsx
 /** @jsxImportSource vargai */
-import { fal, elevenlabs, higgsfield } from "vargai/ai";
 import { Render, Clip, Image, Video } from "vargai/react";
-
-export default (
-  <Render width={1080} height={1920}>
-    <Clip duration={5}>
-      <Video prompt="..." model={fal.videoModel("kling-v2.5")} />
-    </Clip>
-  </Render>
-);
-```
-Requires individual API keys: `FAL_KEY`, `ELEVENLABS_API_KEY`, etc.
-
-### Gateway (cinematic-tribute.tsx uses this)
-```tsx
-import { render, Render, Clip, Image, Video } from "vargai/react";
 import { createVarg } from "@vargai/gateway";
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! });
 
-await render(
+const img = Image({ prompt: "a sunset", model: varg.imageModel("nano-banana-pro") });
+
+export default (
   <Render width={1080} height={1920}>
     <Clip duration={5}>
-      <Video prompt="..." model={varg.videoModel("kling-v3")} />
+      <Video prompt={{ text: "clouds moving", images: [img] }} model={varg.videoModel("kling-v2.5")} />
     </Clip>
-  </Render>,
-  { output: "output/video.mp4" },
+  </Render>
 );
 ```
-Requires only `VARG_API_KEY`. Supports `defaults` to set models once.
+
+### Gateway model methods
+
+| Method | Example |
+|--------|---------|
+| `varg.imageModel(id)` | `varg.imageModel("nano-banana-pro")`, `varg.imageModel("soul")` |
+| `varg.videoModel(id)` | `varg.videoModel("kling-v2.5")`, `varg.videoModel("sync-v2-pro")` |
+| `varg.speechModel(id)` | `varg.speechModel("eleven_v3")` |
+| `varg.musicModel(id)` | `varg.musicModel("music_v1")` |
+
+### Provider options
+
+Pass provider-specific options using the `varg` namespace (NOT `fal`):
+
+```tsx
+// CORRECT
+Image({ ..., providerOptions: { varg: { resolution: "2K" } } });
+Image({ ..., providerOptions: { varg: { style: "1cb4b936-77bf-4f9a-9039-f3d349a4cdbe" } } });
+
+// WRONG — fal namespace is ignored by gateway
+Image({ ..., providerOptions: { fal: { resolution: "2K" } } });
+```
 
 ## Key Components
 
@@ -91,7 +134,7 @@ Requires only `VARG_API_KEY`. Supports `defaults` to set models once.
 ### Define media with function calls, NOT JSX
 ```tsx
 // CORRECT
-const img = Image({ prompt: "a cat", model: fal.imageModel("nano-banana-pro") });
+const img = Image({ prompt: "a cat", model: varg.imageModel("nano-banana-pro") });
 
 // WRONG -- does not work
 const img = <Image prompt="a cat" />;
@@ -144,12 +187,14 @@ Generated clips have ~0.3s of static at the start. Trim with `cutFrom`:
 
 ### Character consistency: ref -> edit -> animate
 ```tsx
+const varg = createVarg({ apiKey: process.env.VARG_API_KEY! });
+
 // 1. Generate reference
-const ref = Image({ prompt: "character description", model: fal.imageModel("nano-banana-pro") });
+const ref = Image({ prompt: "character description", model: varg.imageModel("nano-banana-pro") });
 // 2. Place in scene via /edit
-const scene = Image({ prompt: { text: "scene description", images: [ref] }, model: fal.imageModel("nano-banana-pro/edit") });
+const scene = Image({ prompt: { text: "scene description", images: [ref] }, model: varg.imageModel("nano-banana-pro/edit") });
 // 3. Animate
-const vid = Video({ prompt: { text: "motion", images: [scene] }, model: fal.videoModel("kling-v2.5") });
+const vid = Video({ prompt: { text: "motion", images: [scene] }, model: varg.videoModel("kling-v2.5") });
 ```
 
 ### Reference chaining for multi-shot consistency
@@ -182,9 +227,9 @@ const CHARACTER = process.env.CHARACTER_URL ?? defaultCharacter;
 
 ### Lipsync pipeline
 ```tsx
-const voiceover = Speech({ voice: "rachel", model: elevenlabs.speechModel("eleven_v3"), children: "Text" });
-const character = Video({ prompt: { text: "speaking", images: [img] }, model: fal.videoModel("kling-v2.5") });
-const lipsynced = Video({ prompt: { video: character, audio: voiceover }, model: fal.videoModel("sync-v2-pro") });
+const voiceover = Speech({ voice: "rachel", model: varg.speechModel("eleven_v3"), children: "Text" });
+const character = Video({ prompt: { text: "speaking", images: [img] }, model: varg.videoModel("kling-v2.5") });
+const lipsynced = Video({ prompt: { video: character, audio: voiceover }, model: varg.videoModel("sync-v2-pro") });
 ```
 
 ### Gateway defaults

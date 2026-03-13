@@ -5,7 +5,7 @@
 // across 8 scenes, clip trimming, fade transitions, music with ducking,
 // voiceover, and TikTok-style captions.
 //
-// This uses the gateway (`createVarg`) for all AI calls — a single VARG_API_KEY
+// Uses the gateway (`createVarg`) for all AI calls — a single VARG_API_KEY
 // replaces separate fal/elevenlabs/replicate keys.
 //
 // Usage: bun run render templates/cinematic-tribute.tsx
@@ -16,7 +16,7 @@
 //   - ducking: auto-lowers music volume when speech is playing
 //   - Non-sequential ordering: clips arranged for editorial pacing, not generation order
 
-import { render, Render, Clip, Image, Video, Speech, Music, Captions } from "vargai/react";
+import { Render, Clip, Image, Video, Speech, Music, Captions } from "vargai/react";
 import { createVarg } from "@vargai/gateway";
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! });
@@ -106,7 +106,7 @@ const speech = Speech({
 // Clips are ordered for editorial pacing (not generation order):
 // intimate → studio → anguish → guitar detail → stage energy → thrash → contemplation → solitude
 
-await render(
+export default (
   <Render width={1080} height={1920}>
     <Music
       prompt="dark melancholic rock instrumental, distorted guitar, heavy atmosphere, building crescendo"
@@ -150,6 +150,5 @@ await render(
     </Clip>
 
     <Captions src={speech} style="tiktok" position="bottom" />
-  </Render>,
-  { output: "output/cinematic-tribute.mp4" },
+  </Render>
 );

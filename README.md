@@ -12,36 +12,24 @@ cd templates
 # Install dependencies
 bun install
 
-# Copy env template and add your API keys
+# Copy env template and add your API key
 cp .env.example .env
+# Edit .env and set VARG_API_KEY
 
 # Render your first video
 bun run render hello.tsx
 ```
 
-### API Keys
+### API Key
 
-There are two ways to authenticate:
-
-**Option A: Single gateway key (recommended)**
-
-One key replaces all provider keys. The gateway pools provider credentials server-side.
+All templates use the varg gateway -- one key covers all AI providers (fal, elevenlabs, higgsfield, replicate).
 
 ```bash
 # .env
 VARG_API_KEY=varg_xxx
 ```
 
-Get it at [varg.ai](https://varg.ai). Templates using the gateway import `createVarg` from `@vargai/gateway`.
-
-**Option B: Individual provider keys**
-
-| Key | Provider | Required | Features |
-|-----|----------|----------|----------|
-| `FAL_KEY` | [fal.ai](https://fal.ai/dashboard/keys) | Yes | Image + video generation |
-| `ELEVENLABS_API_KEY` | [ElevenLabs](https://elevenlabs.io/app/settings/api-keys) | Optional | Voice, music |
-| `REPLICATE_API_TOKEN` | [Replicate](https://replicate.com/account/api-tokens) | Optional | Lipsync |
-| `GROQ_API_KEY` | [Groq](https://console.groq.com/keys) | Optional | Transcription |
+Get it at [varg.ai](https://varg.ai).
 
 ## Templates
 
@@ -63,7 +51,7 @@ Full production pipeline: character generation, video animation, voiceover, lips
 bun run render templates/talking-head.tsx
 ```
 
-**Demonstrates:** Higgsfield character gen, ElevenLabs TTS, lipsync via sync-v2-pro, `<Captions>`, `<Music>`
+**Demonstrates:** Character gen via `soul`, ElevenLabs TTS, lipsync via `sync-v2-pro`, `<Captions>`, `<Music>`
 
 ---
 
@@ -138,15 +126,15 @@ CHARACTER_URL="https://..." PRODUCT_URL="https://..." bun run render templates/f
 
 ---
 
-### `templates/cinematic-tribute.tsx` -- Cinematic Montage (Gateway)
+### `templates/cinematic-tribute.tsx` -- Cinematic Montage
 
-Production-level 8-scene character montage with voiceover, music with ducking, captions, and non-sequential clip ordering. Uses the **gateway** (`createVarg`) for all AI calls.
+Production-level 8-scene character montage with voiceover, music with ducking, captions, and non-sequential clip ordering.
 
 ```bash
 bun run render templates/cinematic-tribute.tsx
 ```
 
-**Demonstrates:** Gateway integration (`createVarg`), 8-scene reference-based character consistency, `cutFrom`/`cutTo` warm-up trimming, fade transitions, `ducking`, `loop`, non-sequential editorial pacing
+**Demonstrates:** 8-scene reference-based character consistency, `cutFrom`/`cutTo` warm-up trimming, fade transitions, `ducking`, `loop`, non-sequential editorial pacing
 
 ---
 
@@ -214,7 +202,7 @@ Media elements (`Image`, `Video`, `Speech`, `Music`) must be defined as variable
 
 ```tsx
 // Correct
-const img = Image({ prompt: "a cat", model: fal.imageModel("nano-banana-pro") });
+const img = Image({ prompt: "a cat", model: varg.imageModel("nano-banana-pro") });
 
 // Wrong
 const img = <Image prompt="a cat" />;
@@ -252,20 +240,16 @@ Never generate scene images from scratch -- always edit from the reference.
 
 When modifying a render, keep unchanged prompts **exactly** the same (same text, same model, same params). Unchanged assets hit the cache at zero cost.
 
-### Gateway defaults
+### Provider options
 
-Set default models once so you don't repeat them on every element:
+Pass provider-specific options using the `varg` namespace:
 
 ```tsx
-await render(<Render>...</Render>, {
-  output: "video.mp4",
-  defaults: {
-    video: varg.videoModel("kling-v3"),
-    image: varg.imageModel("nano-banana-pro"),
-    speech: varg.speechModel("eleven_turbo_v2"),
-    music: varg.musicModel("music_v1"),
-  },
-});
+// Resolution override (passed to fal)
+Image({ ..., providerOptions: { varg: { resolution: "2K" } } });
+
+// Higgsfield style ID
+Image({ ..., model: varg.imageModel("soul"), providerOptions: { varg: { style: "1cb4b936-77bf-4f9a-9039-f3d349a4cdbe" } } });
 ```
 
 ## All Components
@@ -333,7 +317,7 @@ templates/
   ├── product-showcase.tsx         # 4-scene product video
   ├── adventure-showcase.tsx       # Multi-environment showcase
   ├── fashion-photoshoot.tsx       # Clothing brand photoshoot
-  ├── cinematic-tribute.tsx        # 8-scene montage (gateway)
+  ├── cinematic-tribute.tsx        # 8-scene montage
   └── VIDEO-PROMPTS.md            # Prompt engineering guide
 sdk/                               # varg SDK (git submodule)
 package.json                       # Bun workspace
@@ -344,5 +328,4 @@ tsconfig.json                      # TypeScript + JSX config
 ## Learn More
 
 - [varg SDK](https://github.com/vargHQ/sdk) -- Core SDK documentation
-- [Gateway Quick Start](https://gist.github.com/SecurityQQ/2fbdc2f76f0d26f593eac449356211b8) -- Full gateway API reference
 - [varg.ai](https://varg.ai) -- Platform homepage

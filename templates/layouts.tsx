@@ -6,8 +6,10 @@
 //
 // Usage: bun run render templates/layouts.tsx
 
-import { elevenlabs, fal, higgsfield } from "vargai/ai";
 import { Clip, Grid, Image, Music, Packshot, Render, Slider, Split, Title, Video } from "vargai/react";
+import { createVarg } from "@vargai/gateway";
+
+const varg = createVarg({ apiKey: process.env.VARG_API_KEY! });
 
 // ── Shared style ────────────────────────────────────────────────────────
 const CHARACTER = "woman in her 30s, brown hair, green eyes";
@@ -18,18 +20,19 @@ const CHARACTER = "woman in her 30s, brown hair, green eyes";
 
 const beforeImage = Image({
   prompt: `${CHARACTER}, tired expression, messy hair, oversized grey sweatshirt, dim bedroom, morning light, photorealistic`,
-  model: higgsfield.imageModel("soul", { styleId: higgsfield.styles.REALISTIC }),
+  model: varg.imageModel("soul"),
   aspectRatio: "9:16",
+  providerOptions: { varg: { style: "1cb4b936-77bf-4f9a-9039-f3d349a4cdbe" } },
 });
 
 const afterImage = Image({
   prompt: { text: `${CHARACTER}, confident smile, styled hair, fitted black blazer, bright modern office, photorealistic`, images: [beforeImage] },
-  model: fal.imageModel("nano-banana-pro/edit"),
+  model: varg.imageModel("nano-banana-pro/edit"),
   aspectRatio: "9:16",
 });
 
-const beforeVideo = Video({ prompt: { text: "woman sighs, rubs eyes, looks tired", images: [beforeImage] }, model: fal.videoModel("kling-v2.5"), duration: 5 });
-const afterVideo = Video({ prompt: { text: "woman smiles confidently, adjusts blazer collar, proud posture", images: [afterImage] }, model: fal.videoModel("kling-v2.5"), duration: 5 });
+const beforeVideo = Video({ prompt: { text: "woman sighs, rubs eyes, looks tired", images: [beforeImage] }, model: varg.videoModel("kling-v2.5"), duration: 5 });
+const afterVideo = Video({ prompt: { text: "woman smiles confidently, adjusts blazer collar, proud posture", images: [afterImage] }, model: varg.videoModel("kling-v2.5"), duration: 5 });
 
 // ════════════════════════════════════════════════════════════════════════
 // SECTION 2: Video Grid (2x2 Four Elements)
@@ -43,15 +46,15 @@ const elements = [
 ];
 
 const elementVideos = elements.map((e) =>
-  Video({ prompt: e.prompt, model: fal.videoModel("kling-v2.5"), duration: 5 })
+  Video({ prompt: e.prompt, model: varg.videoModel("kling-v2.5"), duration: 5 })
 );
 
 // ════════════════════════════════════════════════════════════════════════
 // SECTION 3: Slider (Day vs Night)
 // ════════════════════════════════════════════════════════════════════════
 
-const dayCity = Video({ prompt: "Busy city street at noon, bright sunlight, people walking, modern skyscrapers, cinematic wide shot", model: fal.videoModel("kling-v2.5"), duration: 5 });
-const nightCity = Video({ prompt: "Same city street at night, neon lights reflecting on wet pavement, moody atmosphere, cinematic wide shot", model: fal.videoModel("kling-v2.5"), duration: 5 });
+const dayCity = Video({ prompt: "Busy city street at noon, bright sunlight, people walking, modern skyscrapers, cinematic wide shot", model: varg.videoModel("kling-v2.5"), duration: 5 });
+const nightCity = Video({ prompt: "Same city street at night, neon lights reflecting on wet pavement, moody atmosphere, cinematic wide shot", model: varg.videoModel("kling-v2.5"), duration: 5 });
 
 // ════════════════════════════════════════════════════════════════════════
 // SECTION 4: Packshot (End Card)
@@ -59,7 +62,7 @@ const nightCity = Video({ prompt: "Same city street at night, neon lights reflec
 
 const packshotBg = Image({
   prompt: "Abstract gradient background, deep navy blue to warm orange, smooth transitions, clean minimal",
-  model: fal.imageModel("nano-banana-pro"),
+  model: varg.imageModel("nano-banana-pro"),
   aspectRatio: "16:9",
 });
 
@@ -69,7 +72,7 @@ const packshotBg = Image({
 
 export default (
   <Render width={1920} height={1080}>
-    <Music prompt="modern ambient electronic, cinematic, building energy" model={elevenlabs.musicModel()} volume={0.3} />
+    <Music prompt="modern ambient electronic, cinematic, building energy" model={varg.musicModel("music_v1")} volume={0.3} />
 
     {/* Split Screen: Before / After */}
     <Clip duration={4}>
