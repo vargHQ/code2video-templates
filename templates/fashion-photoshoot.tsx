@@ -11,7 +11,7 @@
 // Usage: bun run render templates/fashion-photoshoot.tsx
 
 import { Clip, Image, Render, Video } from "vargai/react";
-import { createVarg } from "@vargai/gateway";
+import { createVarg } from "vargai/ai";
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! });
 

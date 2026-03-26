@@ -12,7 +12,7 @@
 // Usage: bun run render templates/product-showcase.tsx
 
 import { Captions, Clip, Image, Music, Packshot, Render, Speech, Title, Video } from "vargai/react";
-import { createVarg } from "@vargai/gateway";
+import { createVarg } from "vargai/ai";
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! });
 

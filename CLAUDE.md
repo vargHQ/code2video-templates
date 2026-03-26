@@ -68,12 +68,12 @@ tail -20 output/render.log
 
 ## API — Gateway Only
 
-All templates use the varg gateway (`createVarg`) — a single `VARG_API_KEY` replaces separate provider keys.
+All templates use `createVarg` from the SDK — a single `VARG_API_KEY` replaces separate provider keys.
 
 ```tsx
 /** @jsxImportSource vargai */
 import { Render, Clip, Image, Video } from "vargai/react";
-import { createVarg } from "@vargai/gateway";
+import { createVarg } from "vargai/ai";
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! });
 
