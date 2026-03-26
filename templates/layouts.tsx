@@ -7,7 +7,7 @@
 // Usage: bun run render templates/layouts.tsx
 
 import { Clip, Grid, Image, Music, Packshot, Render, Slider, Split, Title, Video } from "vargai/react";
-import { createVarg } from "@vargai/gateway";
+import { createVarg } from "vargai/ai";
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! });
 

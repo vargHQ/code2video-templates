@@ -1,6 +1,6 @@
 /** @jsxImportSource vargai */
 import { Render, Clip, Image, Video, assets } from "vargai/react";
-import { createVarg } from "@vargai/gateway";
+import { createVarg } from "vargai/ai";
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! });
 

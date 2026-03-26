@@ -10,7 +10,5 @@
   "workspaces": [
     "sdk"
   ],
-  "dependencies": {
-    "@vargai/gateway": "^0.1.6"
-  }
+  "dependencies": {}
 }
