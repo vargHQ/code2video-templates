@@ -7,7 +7,7 @@
     },
     "sdk": {
       "name": "vargai",
-      "version": "0.4.0-alpha83",
+      "version": "0.4.0-alpha104",
       "bin": {
         "vargai": "./src/cli/index.ts",
       },
