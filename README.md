@@ -22,7 +22,7 @@ bun run render hello.tsx
 
 ### API Key
 
-All templates use the varg gateway -- one key covers all AI providers (fal, elevenlabs, higgsfield, replicate).
+All templates use the varg API (`api.varg.ai`) -- one key covers all AI providers (fal, elevenlabs, higgsfield, heygen, piapi, and more).
 
 ```bash
 # .env

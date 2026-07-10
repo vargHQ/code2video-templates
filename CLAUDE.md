@@ -66,9 +66,9 @@ tail -20 output/render.log
 - The SDK already parallelizes internally (3 concurrent clips, all layers within a clip in parallel)
 - Blocking the main thread wastes the user's time and prevents iteration on prompts/code while waiting
 
-## API — Gateway Only
+## API — varg API Only
 
-All templates use `createVarg` from the SDK — a single `VARG_API_KEY` replaces separate provider keys.
+All templates use `createVarg` from the SDK — a single `VARG_API_KEY` replaces separate provider keys. All calls go through the varg API at `api.varg.ai` (v2).
 
 ```tsx
 /** @jsxImportSource vargai */
@@ -88,7 +88,7 @@ export default (
 );
 ```
 
-### Gateway model methods
+### Model methods
 
 | Method | Example |
 |--------|---------|
@@ -106,7 +106,7 @@ Pass provider-specific options using the `varg` namespace (NOT `fal`):
 Image({ ..., providerOptions: { varg: { resolution: "2K" } } });
 Image({ ..., providerOptions: { varg: { style: "1cb4b936-77bf-4f9a-9039-f3d349a4cdbe" } } });
 
-// WRONG — fal namespace is ignored by gateway
+// WRONG — fal namespace is ignored by the varg API
 Image({ ..., providerOptions: { fal: { resolution: "2K" } } });
 ```
 
@@ -232,7 +232,7 @@ const character = Video({ prompt: { text: "speaking", images: [img] }, model: va
 const lipsynced = Video({ prompt: { video: character, audio: voiceover }, model: varg.videoModel("sync-v2-pro") });
 ```
 
-### Gateway defaults
+### Render defaults
 ```tsx
 await render(<Render>...</Render>, {
   output: "video.mp4",
