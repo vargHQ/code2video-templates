@@ -166,6 +166,23 @@
       ]
     },
     {
+      "slug": "ugc-product-review",
+      "name": "UGC Product Review",
+      "description": "Whiteboard-style guru product review. Energetic presenter holds the product, delivers a fast-paced testimonial with product b-roll intercuts. Vertical 9:16 for TikTok/Reels/Shorts.",
+      "file": "templates/ugc-product-review.tsx",
+      "category": "ugc",
+      "tags": ["ugc", "product-review", "lipsync", "guru", "testimonial", "tiktok"],
+      "variables": [
+        { "name": "productName", "type": "string", "description": "Product name (used in prompts and voiceover)", "required": true },
+        { "name": "productDescription", "type": "string", "description": "Product description for image generation and script context", "required": true },
+        { "name": "character", "type": "string", "description": "Guru/presenter character appearance description", "required": false, "default": "athletic man, early 30s, short brown hair, energetic expression, whiteboard behind" },
+        { "name": "scriptSegments", "type": "string[]", "description": "Voiceover segments (array of phrases, each gets its own lipsync or b-roll clip)", "required": false },
+        { "name": "voice", "type": "string", "description": "ElevenLabs voice name or ID", "required": false, "default": "TX3LPaxmHKxFdv7VOQHJ" },
+        { "name": "musicPrompt", "type": "string", "description": "Background music description", "required": false, "default": "upbeat energetic lo-fi hip hop, fast-paced tutorial vibes" },
+        { "name": "captionStyle", "type": "string", "description": "Caption style", "required": false, "default": "tiktok" }
+      ]
+    },
+    {
       "slug": "negative-marketing",
       "name": "Negative Marketing",
       "description": "Fear-hook product advertisement. Expert talking head delivers alarming opener, dramatic b-roll intercuts, then product solution reveal with packshot and CTA.",
