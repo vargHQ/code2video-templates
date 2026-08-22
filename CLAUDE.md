@@ -163,6 +163,35 @@ const vid = Video({ ..., duration: 5 });
 <Clip duration={3}>{vid}</Clip>  // mismatch -- timing issues
 ```
 
+### Video audio is kept by default -- mute it when you add a voiceover
+Since `vargai@0.4.0-alpha120`, a `Video()` keeps its own audio track whenever the
+source actually has one (auto-detected via ffprobe). Models like `kling-v3` and
+`seedance-2-preview` generate audio, so if you also mount a `Speech()` voiceover
+the two mix at full volume and you get two voices at once.
+
+Rule: if a voiceover is mounted anywhere in the tree, set `keepAudio: false` on
+every generated `Video()` it plays over.
+```tsx
+const audio = await Speech({ voice: "josh", model: varg.speechModel("eleven_v3"), children: "..." });
+
+const broll = Video({
+  prompt: { text: "...", images: [scene] },
+  model: varg.videoModel("kling-v3"),
+  keepAudio: false, // MUTED -- the VO owns the audio track
+  duration: 5,
+});
+
+export default (
+  <Render width={1080} height={1920}>
+    <Clip duration={5}>{broll}</Clip>
+    {audio}
+  </Render>
+);
+```
+Conversely, when the video's own dialogue *is* the soundtrack (native-audio
+models, lipsync output), leave the default alone or set `keepAudio: true`
+explicitly, and caption it with `<Captions src={vid.audio} />`.
+
 ### Always set duration on Music
 Without `duration`, ElevenLabs generates ~60s of audio, extending the video. Set it to match total video length:
 ```tsx
