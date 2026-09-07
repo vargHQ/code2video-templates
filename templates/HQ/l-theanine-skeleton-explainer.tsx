@@ -35,7 +35,7 @@
 //     No { audio, segments } wrapper.
 //   - No <Overlay>. Speech and Captions sit directly in the Clip.
 //   - One <Video> per <Clip> — reusing one across Clips bills it per Clip.
-//   - Seedance prompt caps at 2000 chars. Measure before sending.
+//   - Seedance prompt caps at 4000 chars. Measure before sending.
 //   - Seedance duration must be 5, 10 or 15.
 
 import { Captions, Clip, Music, Render, Speech, Video } from "vargai/react";
