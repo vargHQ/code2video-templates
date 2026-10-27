@@ -40,6 +40,7 @@ Every template at the root is a folder named after it, holding the code that mak
 | [`apple-notes-video/`](apple-notes-video/) | Any text typed live in an iPhone Apple Notes screen | Bun + Chrome + ffmpeg, local, no credits |
 | [`stamp-carousel/`](stamp-carousel/) | iPhone mockup swiping through your pictures as postage stamps | Python + ffmpeg, local, no credits |
 | [`liquid-thorn-logo/`](liquid-thorn-logo/) | Any word as a black-metal chrome logo that a cursor smears with liquid | Bun + Chrome + ffmpeg, local, no credits |
+| [`card-catalog-explainer/`](card-catalog-explainer/) | A 56 s explainer: a wall of code-made videos, then one request walked through a card catalog to its source and the mp4. Every string in a config | Bun + HyperFrames + ffmpeg, local, no credits |
 
 ### `apple-notes-video/` -- Apple Notes typing video
 
@@ -78,6 +79,18 @@ bun render.ts --text "NOCTURNE" --size 1080x1920 --logo-only
 ```
 
 See [`liquid-thorn-logo/README.md`](liquid-thorn-logo/README.md).
+
+### `card-catalog-explainer/` -- Card catalog explainer
+
+<a href="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_18fb39ebfaa8.mp4"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_40bf292107cb.webp" width="640" alt="Card catalog explainer: a wall of five code-made videos under the line Each one is a template an agent can run"></a>
+
+Opens on five real renders from this repo, then follows one request through a library card catalog. An agent searches the drawer, pulls an index card and follows its call number to the source shelf. It installs from there and renders the mp4. Everything on screen comes from `config.json`, so it can explain any catalog, registry or marketplace. English by default, Russian in `examples/`.
+
+```bash
+cd card-catalog-explainer && bash make.command      # out/card-catalog-explainer-en.mp4
+```
+
+See [`card-catalog-explainer/README.md`](card-catalog-explainer/README.md).
 
 ## varg JSX templates (`varg_jsx/`)
 
