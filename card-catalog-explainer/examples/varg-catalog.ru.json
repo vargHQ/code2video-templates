@@ -1,0 +1,241 @@
+{
+  "output": {
+    "name": "card-catalog-explainer-ru",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "lang": "ru"
+  },
+  "colors": {
+    "ground": "#0b0b0c",
+    "desk": "#111113",
+    "ink": "#f4f4f5",
+    "muted": "#8d8d96",
+    "accent": "#ff5315",
+    "accentInk": "#b8390d",
+    "paper": "#f1ece1",
+    "paperInk": "#1f1c18",
+    "paperMuted": "#5c554b",
+    "rule": "#c4d0e2"
+  },
+  "showcase": {
+    "clips": [
+      {
+        "src": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_05f9e4dd2ebe.mp4",
+        "label": "anime-triple-split"
+      },
+      {
+        "src": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_3f6cd2780fb8.mp4",
+        "label": "liquid-thorn-logo"
+      },
+      {
+        "src": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_c6330e74989b.mp4",
+        "label": "stamp-carousel"
+      },
+      {
+        "src": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_bc279caf37a2.mp4",
+        "label": "anime-jp-subtitles"
+      },
+      {
+        "src": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_dd649716aa54.mp4",
+        "label": "talking-head"
+      }
+    ],
+    "line1": [
+      "Каждый кадр здесь — *код*"
+    ],
+    "line2": [
+      "Каждый ролик — шаблон, *который запустит агент*"
+    ]
+  },
+  "request": {
+    "agent": "claude",
+    "text": "Сделай видео, где телефон листает обложки моих альбомов",
+    "line": [
+      "Где агент возьмёт *шаблон?*"
+    ]
+  },
+  "catalog": {
+    "label": "varg skills",
+    "count": "294 карточки",
+    "tabs": [
+      "ads",
+      "native-ui",
+      "music",
+      "explainers",
+      "talking-head",
+      "product",
+      "captions",
+      "brand-motion"
+    ],
+    "line": [
+      "В каталоге *294* карточки",
+      "и ни одного файла скилла"
+    ]
+  },
+  "search": {
+    "command": "varg search \"phone swiping through album covers\"",
+    "results": [
+      {
+        "publisher": "heygen-com",
+        "name": "phone carousel"
+      },
+      {
+        "publisher": "vargHQ",
+        "name": "stamp-carousel"
+      },
+      {
+        "publisher": "wanted",
+        "name": "app POV demo"
+      }
+    ],
+    "pick": 1,
+    "line": [
+      "Агент ищет и получает *три карточки*"
+    ]
+  },
+  "card": {
+    "title": "STAMP CAROUSEL",
+    "repo": "vargHQ/templates",
+    "path": "stamp-carousel",
+    "sha": "8499952",
+    "fields": [
+      [
+        "что делает",
+        "Телефон листает картинки как почтовые марки"
+      ],
+      [
+        "цена",
+        "без кредитов · ~1.5 мин"
+      ],
+      [
+        "агенты",
+        "Claude Code · Codex · Cursor"
+      ]
+    ],
+    "install": "npx skills add vargHQ/templates --skill stamp-carousel",
+    "line": [
+      "Карточка говорит,",
+      "*где лежит* скилл"
+    ]
+  },
+  "shelves": [
+    {
+      "repo": "vargHQ/templates",
+      "own": true,
+      "spines": [
+        "stamp-carousel",
+        "apple-notes-video",
+        "anime-jp-subtitles",
+        "anime-triple-split",
+        "flo-captions",
+        "claymation-ugc",
+        "talking-head",
+        "slideshow",
+        "layouts",
+        "podcast"
+      ]
+    },
+    {
+      "repo": "vargHQ/skills",
+      "own": true,
+      "spines": [
+        "varg-ai",
+        "varg-previz",
+        "varg-music-video",
+        "varg-characters"
+      ]
+    },
+    {
+      "repo": "heygen-com/hyperframes",
+      "own": false,
+      "spines": [
+        "hyperframes",
+        "hyperframes-cli",
+        "hyperframes-registry",
+        "media-use"
+      ],
+      "repo2": "remotion-dev/skills",
+      "spines2": [
+        "remotion-best-practices",
+        "remotion-maps"
+      ]
+    }
+  ],
+  "install": {
+    "tag": "npx skills add",
+    "line": [
+      "Скилл ставится из источника,",
+      "*мимо каталога*"
+    ]
+  },
+  "sync": {
+    "to": "fd25c47",
+    "line": [
+      "Скилл обновился,",
+      "синк *переписал карточку*"
+    ]
+  },
+  "result": {
+    "lines": [
+      {
+        "kind": "cmd",
+        "text": "npx skills add vargHQ/templates --skill stamp-carousel"
+      },
+      {
+        "kind": "ok",
+        "text": "stamp-carousel → ./stamp-carousel"
+      },
+      {
+        "kind": "cmd",
+        "text": "bash make.command"
+      },
+      {
+        "kind": "progress",
+        "text": "render"
+      },
+      {
+        "kind": "ok",
+        "text": "out/stamp-carousel.mp4 · 1080×1350 · 30 fps"
+      }
+    ],
+    "covers": [
+      [
+        "#2f5bea",
+        "#f7c948"
+      ],
+      [
+        "#e8466b",
+        "#fde2e4"
+      ],
+      [
+        "#1f8a70",
+        "#f2ede3"
+      ],
+      [
+        "#f08a24",
+        "#1d1b18"
+      ]
+    ],
+    "line": [
+      "Готово: mp4 за полторы минуты,",
+      "*без кредитов*"
+    ]
+  },
+  "end": {
+    "line": [
+      "Каталог хранит *карточки.*",
+      "Скиллы живут у авторов."
+    ]
+  },
+  "timing": {
+    "showcase": 7.0,
+    "ask": 5.0,
+    "drawer": 6.0,
+    "search": 7.0,
+    "card": 9.0,
+    "shelf": 10.5,
+    "result": 7.0,
+    "end": 4.5
+  }
+}

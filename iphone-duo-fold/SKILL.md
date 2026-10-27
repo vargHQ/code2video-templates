@@ -25,11 +25,11 @@ metadata:
 
 # iPhone Duo fold
 
-Everything lives in this skill's folder, `iphone-duo-fold/` in [vargHQ/templates](https://github.com/vargHQ/templates).
+Everything lives in this skill's folder, `iphone-duo-fold/` in [vargHQ/code2video-templates](https://github.com/vargHQ/code2video-templates).
 `page/` is the three.js scene, `render.ts` turns it into a video, `settings.json` holds the defaults, `examples/`
 has screens to copy (`trips-*.html`) and a full look (`aurora.json`). `README.md` is the user-facing doc.
 If the folder is missing, get it with
-`git clone --depth 1 https://github.com/vargHQ/templates && cd templates/iphone-duo-fold`.
+`git clone --depth 1 https://github.com/vargHQ/code2video-templates && cd code2video-templates/iphone-duo-fold`.
 
 ## Gates (read first)
 

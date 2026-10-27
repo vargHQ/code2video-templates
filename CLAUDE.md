@@ -1,6 +1,8 @@
-# Varg SDK Templates Repository
+# varg code2video templates
 
-Public templates and examples for the varg AI video generation SDK.
+Public code2video templates: every root folder renders an MP4 from code. `AGENTS.md` is the index agents read
+first; `varg_jsx/` holds the varg SDK JSX templates (AI footage, costs credits), documented below and in
+`varg_jsx/README.md`.
 
 ## Structure
 
@@ -11,8 +13,16 @@ the video, a `README.md` and a `SKILL.md` for agents (read it before using the t
 apple-notes-video/     # Any text -> iPhone Apple Notes typing video. Bun + Chrome + ffmpeg, local, no credits
 stamp-carousel/        # iPhone stamp swipe of the user's pictures, background + alpha outputs. Python + ffmpeg, local.
                        #   Skill: .claude/skills/stamp-carousel
+anime-jp-subtitles/    # Japanese anime captions (fansub+karaoke, telop, tategaki, katakana SFX). Python + HyperFrames, local.
+anime-triple-split/    # Manga three-panel split screen on the beat. Python + HyperFrames, local, no credits
+varg-music-video/      # Skill + scripts: song map, beat-grid storyboard, Seedance scenes, frame-exact cut, graphics (credits)
+varg-previz/           # Skill + three.js grey-box previz app -> Seedance 2.5 video-to-video packs (generation costs credits)
+                       #   Skills for these four: .claude/skills/<name> -> ../../<name> (SKILL.md in each folder)
 liquid-thorn-logo/     # Any word -> black-metal chrome logo smeared by a WebGL fluid under a cursor. Bun + Chrome + ffmpeg,
                        #   local, no credits. Skill: .claude/skills/liquid-thorn-logo -> ../../liquid-thorn-logo
+card-catalog-explainer/ # Config-driven HyperFrames explainer: a wall of template renders, then one request through a card
+                       #   catalog to its source and the mp4. Bun + HyperFrames, local, no credits.
+                       #   Skill: .claude/skills/card-catalog-explainer -> ../../card-catalog-explainer
 iphone-duo-fold/       # Your screens on the foldable iPhone Duo, unfolding in 3D (three.js port of jadon7/iphone-duo).
                        #   Bun + Chrome + ffmpeg, local, no credits. Skill: .claude/skills/iphone-duo-fold -> ../../iphone-duo-fold
 varg_jsx/              # varg SDK JSX templates (one .tsx per video, rendered through the varg API, costs credits)
