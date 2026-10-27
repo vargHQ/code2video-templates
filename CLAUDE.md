@@ -13,6 +13,11 @@ the video, a `README.md` and a `SKILL.md` for agents (read it before using the t
 apple-notes-video/     # Any text -> iPhone Apple Notes typing video. Bun + Chrome + ffmpeg, local, no credits
 stamp-carousel/        # iPhone stamp swipe of the user's pictures, background + alpha outputs. Python + ffmpeg, local.
                        #   Skill: .claude/skills/stamp-carousel
+anime-jp-subtitles/    # Japanese anime captions (fansub+karaoke, telop, tategaki, katakana SFX). Python + HyperFrames, local.
+anime-triple-split/    # Manga three-panel split screen on the beat. Python + HyperFrames, local, no credits
+varg-music-video/      # Skill + scripts: song map, beat-grid storyboard, Seedance scenes, frame-exact cut, graphics (credits)
+varg-previz/           # Skill + three.js grey-box previz app -> Seedance 2.5 video-to-video packs (generation costs credits)
+                       #   Skills for these four: .claude/skills/<name> -> ../../<name> (SKILL.md in each folder)
 liquid-thorn-logo/     # Any word -> black-metal chrome logo smeared by a WebGL fluid under a cursor. Bun + Chrome + ffmpeg,
                        #   local, no credits. Skill: .claude/skills/liquid-thorn-logo -> ../../liquid-thorn-logo
 card-catalog-explainer/ # Config-driven HyperFrames explainer: a wall of template renders, then one request through a card
