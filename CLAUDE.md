@@ -14,8 +14,11 @@ templates/             # Reusable video templates
   ├── adventure-showcase.tsx  # Multi-environment showcase (SCENE_INDEX)
   ├── fashion-photoshoot.tsx  # Clothing brand photoshoot
   ├── cinematic-tribute.tsx   # 8-scene montage
+  ├── stamp-carousel/         # NOT an SDK render: local Python+ffmpeg iPhone stamp swipe of the user's pictures,
+  │                           #   with background + transparent (alpha) outputs. Skill: .claude/skills/stamp-carousel
   └── VIDEO-PROMPTS.md        # Prompt engineering guide
 sdk/                   # Varg SDK (git submodule)
+.claude/skills/        # Agent skills for templates in this repo (read SKILL.md before using the template)
 ```
 
 ## Commands
