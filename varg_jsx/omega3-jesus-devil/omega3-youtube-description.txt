@@ -1,0 +1,34 @@
+9 out of 10 people are Omega-3 deficient - and it's destroying your heart
+
+Every claim in this video is grounded in real research. The Devil's arguments sound convincing - that's the point. The truth segments correct the record.
+
+CHAPTERS
+00:00 - Is Omega-3 even important?
+02:26 - Does it help your heart?
+05:12 - Brain, dementia, Alzheimer's
+07:48 - Can you take too much?
+10:24 - Fish oil vs algae
+12:53 - How much should you take?
+
+KEY SOURCES
+VITAL trial (28% fewer heart attacks): https://www.youtube.com/watch?v=owQKjQOudoQ
+Bill Harris Omega-3 Index (35% lower risk): https://www.youtube.com/watch?v=0eOXsc3SvKo
+Dr. Michael Nelson - glial cells, Alzheimer's: https://www.youtube.com/watch?v=0eOXsc3SvKo
+Siim Land - atrial fibrillation risk: https://www.youtube.com/watch?v=OVUiZPSWVG4
+Siim Land - biogenic amines, algae oil: https://www.youtube.com/watch?v=9GLbTEYewUs
+Physionic - 47 studies reviewed: https://www.youtube.com/watch?v=IBTV4MXsGXY
+Dr. Layne Norton - PUFA meta-analysis: https://www.youtube.com/watch?v=nZJQykD5DWQ
+Rhonda Patrick and Peter Attia: https://www.youtube.com/watch?v=3nJooYCw6dI
+Dr. Mark Hyman - Omega-3 deficiency: https://www.youtube.com/watch?v=EZdFpV3wuE8
+Dr. Sara Gottfried - hormone testing: https://www.youtube.com/watch?v=FyMgcA1CYPw
+
+MADE WITH
+Video: MiniMax H3 Max (native speech synthesis, no separate TTS)
+Captions: Whisper Large v3 via varg API
+Thumbnail: nano_banana_2
+All generation through varg API at api.varg.ai
+
+DISCLAIMER
+Educational purposes only. The Devil deliberately presents misleading arguments. Consult your doctor before starting any supplement.
+
+#Omega3 #FishOil #DHA #BrainHealth #HeartHealth #Supplements #Longevity #AIvideo #VargAI

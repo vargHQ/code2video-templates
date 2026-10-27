@@ -1,0 +1,774 @@
+{
+  "collection": "launch-characters",
+  "version": "2026-09-03",
+  "count": 29,
+  "notes": {
+    "shape": "Mirrors be_presets columns. `character` is a new kind — needs a migration widening be_presets_kind_check / type_check and a be_preset_mappings row (see delivery).",
+    "delivery": {
+      "image (nano-banana-2 edit)": "provider_params.reference_image_url → files[0].url  (or prompt.images[0] in render)",
+      "video (seedance_2_5 omni_reference)": "provider_params.reference_image_url → files[] ; reference it in prompt as @imageN by position"
+    },
+    "card_prompt": "Keep this exact character or subject — identical design, face, outfit, colors, pose, proportions and expression — and re-render as a clean full-body reference card: remove the game-show stage, screens and crowd entirely; place the subject standing on a seamless neutral charcoal-grey studio backdrop (#1a1a1c) with soft even key light and a faint warm orange rim light from behind. Head-to-toe framing, centered, crisp detail, natural texture. No text, no logos, no other people.",
+    "card_model": "nano_banana_2 (google route), 1364×768, aspect 16:9",
+    "moderation": "video_safe=false → PiAPI rejects any Seedance request containing this reference.",
+    "board": "vargHQ/rnd/footer-loop-board.html",
+    "templates": [
+      "vargHQ/templates/footer-loop-hypercars.tsx",
+      "vargHQ/templates/footer-photoshoot-series.tsx"
+    ]
+  },
+  "presets": [
+    {
+      "id": "preset_2de4f77c92c1",
+      "kind": "character",
+      "type": "character",
+      "key": "woman-red",
+      "namespace": "varg",
+      "display_name": "Woman in Red",
+      "description": "Young woman, dark bob haircut with bangs, red cropped knit sweater, black wide-leg trousers, black boots; calm direct gaze.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_c5a9c0d62fc5.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_f0ef788a481a.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_c5a9c0d62fc5.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/1.png",
+        "video_safe": true,
+        "tags": [
+          "human",
+          "female",
+          "fashion"
+        ],
+        "identity_anchor": "Young woman, dark bob haircut with bangs, red cropped knit sweater, black wide-leg trousers, black boots; calm direct gaze."
+      }
+    },
+    {
+      "id": "preset_07e8d4d05de3",
+      "kind": "character",
+      "type": "character",
+      "key": "blazer-woman",
+      "namespace": "varg",
+      "display_name": "Woman in Grey Blazer",
+      "description": "Woman with voluminous curly dark hair, oversized grey blazer over white tee, dark jeans, boots; composed, corporate-cool.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_8ab21dd958f8.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_1893f210e2e9.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_8ab21dd958f8.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/2.png",
+        "video_safe": true,
+        "tags": [
+          "human",
+          "female",
+          "corporate"
+        ],
+        "identity_anchor": "Woman with voluminous curly dark hair, oversized grey blazer over white tee, dark jeans, boots; composed, corporate-cool."
+      }
+    },
+    {
+      "id": "preset_3822992d68c2",
+      "kind": "character",
+      "type": "character",
+      "key": "leather-girl",
+      "namespace": "varg",
+      "display_name": "Leather Jacket Girl",
+      "description": "Young woman, long straight dark hair, black leather jacket, white crop top, black track pants with white stripes; deadpan attitude.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_691e96310507.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_4e1f3fadf446.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_691e96310507.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/3.png",
+        "video_safe": true,
+        "tags": [
+          "human",
+          "female",
+          "streetwear"
+        ],
+        "identity_anchor": "Young woman, long straight dark hair, black leather jacket, white crop top, black track pants with white stripes; deadpan attitude."
+      }
+    },
+    {
+      "id": "preset_6fe0d940c79d",
+      "kind": "character",
+      "type": "character",
+      "key": "hoodie-guy",
+      "namespace": "varg",
+      "display_name": "Hoodie Guy",
+      "description": "Young man, curly light-brown hair, light-blue hoodie, blue jeans, white sneakers; easygoing grin.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_f47a48b6d48d.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_f59cf2964128.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_f47a48b6d48d.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/4.png",
+        "video_safe": true,
+        "tags": [
+          "human",
+          "male",
+          "casual"
+        ],
+        "identity_anchor": "Young man, curly light-brown hair, light-blue hoodie, blue jeans, white sneakers; easygoing grin."
+      }
+    },
+    {
+      "id": "preset_f9df96d9e517",
+      "kind": "character",
+      "type": "character",
+      "key": "bathrobe-woman",
+      "namespace": "varg",
+      "display_name": "Bathrobe Woman",
+      "description": "Woman in a white spa bathrobe with a white towel turban, pink slippers; spa-day, unbothered.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_d9993c4d26c4.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_7a3e19eceb15.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_d9993c4d26c4.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/5.png",
+        "video_safe": true,
+        "tags": [
+          "human",
+          "female",
+          "comedy"
+        ],
+        "identity_anchor": "Woman in a white spa bathrobe with a white towel turban, pink slippers; spa-day, unbothered."
+      }
+    },
+    {
+      "id": "preset_59b1482e9573",
+      "kind": "character",
+      "type": "character",
+      "key": "muscle-man",
+      "namespace": "varg",
+      "display_name": "Muscle Man",
+      "description": "Huge muscular Black man, shaved head, white tank top, red shorts, white sneakers; explosive energy. NOTE: rejected by Seedance/PiAPI moderation (real-face likeness) — image use only.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_772a758d0792.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_48030bf11609.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_772a758d0792.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/6.png",
+        "video_safe": false,
+        "tags": [
+          "human",
+          "male",
+          "comedy"
+        ],
+        "identity_anchor": "Huge muscular Black man, shaved head, white tank top, red shorts, white sneakers; explosive energy."
+      }
+    },
+    {
+      "id": "preset_846160b01f33",
+      "kind": "character",
+      "type": "character",
+      "key": "rainbow-shirt",
+      "namespace": "varg",
+      "display_name": "Rainbow Shirt Guy",
+      "description": "Black man in a rainbow-striped shirt and leopard-print pants; disco flamboyance.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_1921f04628e4.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_0603f9b46e3c.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_1921f04628e4.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/7.png",
+        "video_safe": true,
+        "tags": [
+          "human",
+          "male",
+          "comedy",
+          "disco"
+        ],
+        "identity_anchor": "Black man in a rainbow-striped shirt and leopard-print pants; disco flamboyance."
+      }
+    },
+    {
+      "id": "preset_82b6db40135e",
+      "kind": "character",
+      "type": "character",
+      "key": "burger-guy",
+      "namespace": "varg",
+      "display_name": "Burger Guy",
+      "description": "Man in a plain white tee and jeans holding a burger with both hands; wholesome, slightly confused.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_0e3e2f8fb1f5.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_33b3ea1d07d9.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_0e3e2f8fb1f5.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/8.png",
+        "video_safe": true,
+        "tags": [
+          "human",
+          "male",
+          "food"
+        ],
+        "identity_anchor": "Man in a plain white tee and jeans holding a burger with both hands; wholesome, slightly confused."
+      }
+    },
+    {
+      "id": "preset_2def63c01747",
+      "kind": "character",
+      "type": "character",
+      "key": "sandwich",
+      "namespace": "varg",
+      "display_name": "Walking Sandwich",
+      "description": "Anthropomorphic slice-of-bread sandwich with lettuce and tomato, cartoon face with round eyes, thin arms and legs; expressive.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_5ab7ba96dcbb.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_495407e9ffac.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_5ab7ba96dcbb.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/9.png",
+        "video_safe": true,
+        "tags": [
+          "mascot",
+          "food",
+          "creature"
+        ],
+        "identity_anchor": "Anthropomorphic slice-of-bread sandwich with lettuce and tomato, cartoon face with round eyes, thin arms and legs; expressive."
+      }
+    },
+    {
+      "id": "preset_409efbbbd00c",
+      "kind": "character",
+      "type": "character",
+      "key": "ghost",
+      "namespace": "varg",
+      "display_name": "Bedsheet Ghost",
+      "description": "Classic white bedsheet ghost with two dark eye holes, no visible body underneath.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_459db52154d7.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_9321e2951b65.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_459db52154d7.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/10.png",
+        "video_safe": true,
+        "tags": [
+          "mascot",
+          "creature",
+          "comedy"
+        ],
+        "identity_anchor": "Classic white bedsheet ghost with two dark eye holes, no visible body underneath."
+      }
+    },
+    {
+      "id": "preset_7a0f7ce08872",
+      "kind": "character",
+      "type": "character",
+      "key": "donut",
+      "namespace": "varg",
+      "display_name": "Smiling Donut",
+      "description": "Anthropomorphic glazed donut with a cartoon smiling face, small arms and legs.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_b383724c4be9.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_2e62c399bd16.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_b383724c4be9.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/11.png",
+        "video_safe": true,
+        "tags": [
+          "mascot",
+          "food",
+          "creature"
+        ],
+        "identity_anchor": "Anthropomorphic glazed donut with a cartoon smiling face, small arms and legs."
+      }
+    },
+    {
+      "id": "preset_01b12f8e85b0",
+      "kind": "character",
+      "type": "character",
+      "key": "hawaiian-man",
+      "namespace": "varg",
+      "display_name": "Hawaiian Shirt Man",
+      "description": "Big heavyset man in a colorful Hawaiian shirt and shorts, sandals; loud, host energy.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_1fe66a206fd0.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_6869b3af21dd.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_1fe66a206fd0.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/12.png",
+        "video_safe": true,
+        "tags": [
+          "human",
+          "male",
+          "comedy"
+        ],
+        "identity_anchor": "Big heavyset man in a colorful Hawaiian shirt and shorts, sandals; loud, host energy."
+      }
+    },
+    {
+      "id": "preset_b7c44f5f92cc",
+      "kind": "character",
+      "type": "character",
+      "key": "red-latex",
+      "namespace": "varg",
+      "display_name": "Red Latex Woman",
+      "description": "Woman in a shiny full-body red latex outfit, posing by a pole; fierce, editorial.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_cd2f3b7ba203.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_aea55dc3d3e5.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_cd2f3b7ba203.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/13.png",
+        "video_safe": true,
+        "tags": [
+          "human",
+          "female",
+          "fashion"
+        ],
+        "identity_anchor": "Woman in a shiny full-body red latex outfit, posing by a pole; fierce, editorial."
+      }
+    },
+    {
+      "id": "preset_114c4d300a0d",
+      "kind": "character",
+      "type": "character",
+      "key": "fastfood-uniform",
+      "namespace": "varg",
+      "display_name": "Fast-Food Uniform Guy",
+      "description": "Young man in a red fast-food crew uniform with cap and apron; earnest, athletic (juggles anything).",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_ff6e273b544f.jpg",
+        "original_image_url": "https://uu.varg.ai/1788395227924_y4ol4945.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_ff6e273b544f.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/14.png",
+        "video_safe": true,
+        "tags": [
+          "human",
+          "male",
+          "comedy"
+        ],
+        "identity_anchor": "Young man in a red fast-food crew uniform with cap and apron; earnest, athletic (juggles anything)."
+      }
+    },
+    {
+      "id": "preset_3836e138764d",
+      "kind": "character",
+      "type": "character",
+      "key": "wheelchair-plumber",
+      "namespace": "varg",
+      "display_name": "Wheelchair Plumber",
+      "description": "Mustached man in a red cap and blue overalls, sitting in a wheelchair; cheerful, pops wheelies.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_7b889283bfbc.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_267b11b81507.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_7b889283bfbc.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/15.png",
+        "video_safe": true,
+        "tags": [
+          "human",
+          "male",
+          "comedy"
+        ],
+        "identity_anchor": "Mustached man in a red cap and blue overalls, sitting in a wheelchair; cheerful, pops wheelies."
+      }
+    },
+    {
+      "id": "preset_f1489ac73e9b",
+      "kind": "character",
+      "type": "character",
+      "key": "ostrich",
+      "namespace": "varg",
+      "display_name": "Ostrich",
+      "description": "Real ostrich, long neck, big eyes; stares into the lens, photobombs.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_aed3e7296be2.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_8f458fdf1347.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_aed3e7296be2.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/16.png",
+        "video_safe": true,
+        "tags": [
+          "animal",
+          "comedy"
+        ],
+        "identity_anchor": "Real ostrich, long neck, big eyes; stares into the lens, photobombs."
+      }
+    },
+    {
+      "id": "preset_d46bbcf9c17b",
+      "kind": "character",
+      "type": "character",
+      "key": "microwave-hamster",
+      "namespace": "varg",
+      "display_name": "Microwave with Hamster",
+      "description": "White countertop microwave with a hamster sitting inside (NOTE: original shows a hamster; photoshoot prompts said 'cat' — align before reuse).",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_6880287ba6a7.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_06206ae6c4bd.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_6880287ba6a7.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/17.png",
+        "video_safe": true,
+        "tags": [
+          "object",
+          "animal",
+          "comedy"
+        ],
+        "identity_anchor": "White countertop microwave with a hamster sitting inside (NOTE: original shows a hamster; photoshoot prompts said 'cat' — align before reuse)."
+      }
+    },
+    {
+      "id": "preset_a974993aef18",
+      "kind": "character",
+      "type": "character",
+      "key": "yellow-bunny",
+      "namespace": "varg",
+      "display_name": "Yellow Bunny Plush",
+      "description": "Small yellow plush toy character with bunny ears and a mischievous grin.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_dfe9b838d903.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_7f198afcb77e.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_dfe9b838d903.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/18.png",
+        "video_safe": true,
+        "tags": [
+          "mascot",
+          "toy"
+        ],
+        "identity_anchor": "Small yellow plush toy character with bunny ears and a mischievous grin."
+      }
+    },
+    {
+      "id": "preset_f2b8b214df9d",
+      "kind": "character",
+      "type": "character",
+      "key": "dachshund",
+      "namespace": "varg",
+      "display_name": "Dachshund",
+      "description": "Black-and-tan dachshund; zooms in circles, steals every scene.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_c5a37bd6f737.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_a35c97002c4e.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_c5a37bd6f737.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/19.png",
+        "video_safe": true,
+        "tags": [
+          "animal",
+          "comedy"
+        ],
+        "identity_anchor": "Black-and-tan dachshund; zooms in circles, steals every scene."
+      }
+    },
+    {
+      "id": "preset_1b705c978dea",
+      "kind": "character",
+      "type": "character",
+      "key": "pink-gorilla",
+      "namespace": "varg",
+      "display_name": "Pink Gorilla (Jimmy)",
+      "description": "Large fluffy pink gorilla, expressive face; deadpan straight man of the cast.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_1eea7ddb50e7.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_a4243ffa065a.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_1eea7ddb50e7.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/20.png",
+        "video_safe": true,
+        "tags": [
+          "creature",
+          "mascot",
+          "comedy"
+        ],
+        "identity_anchor": "Large fluffy pink gorilla, expressive face; deadpan straight man of the cast."
+      }
+    },
+    {
+      "id": "preset_6315f2055812",
+      "kind": "character",
+      "type": "character",
+      "key": "logo-ball-man",
+      "namespace": "varg",
+      "display_name": "Logo Ball Man",
+      "description": "Round man whose entire body is covered in orange varg logos (reads as carrots), jeans, sneakers.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_72ed4d4a808f.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_8ad931f8f59c.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_72ed4d4a808f.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/21.png",
+        "video_safe": true,
+        "tags": [
+          "human",
+          "male",
+          "brand",
+          "comedy"
+        ],
+        "identity_anchor": "Round man whose entire body is covered in orange varg logos (reads as carrots), jeans, sneakers."
+      }
+    },
+    {
+      "id": "preset_f1afedea3095",
+      "kind": "character",
+      "type": "character",
+      "key": "knight",
+      "namespace": "varg",
+      "display_name": "Armored Knight",
+      "description": "Figure in dark futuristic plate armor holding a glowing blue energy sword. NOTE: any 'severed/cut-off' gag next to the sword is rejected by moderation.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_8243871210c1.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_205645673254.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_8243871210c1.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/22.png",
+        "video_safe": true,
+        "tags": [
+          "human",
+          "male",
+          "scifi"
+        ],
+        "identity_anchor": "Figure in dark futuristic plate armor holding a glowing blue energy sword."
+      }
+    },
+    {
+      "id": "preset_c2e88eeaec38",
+      "kind": "character",
+      "type": "character",
+      "key": "octopus-jar",
+      "namespace": "varg",
+      "display_name": "Octopus in a Jar",
+      "description": "Large glass mason jar with a live octopus curled inside, tentacle sometimes poking out of the lid.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_5e4f802332f4.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_7a8c16bf6b45.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_5e4f802332f4.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/23.png",
+        "video_safe": true,
+        "tags": [
+          "animal",
+          "object",
+          "comedy"
+        ],
+        "identity_anchor": "Large glass mason jar with a live octopus curled inside, tentacle sometimes poking out of the lid."
+      }
+    },
+    {
+      "id": "preset_0fba13a26a17",
+      "kind": "character",
+      "type": "character",
+      "key": "deity",
+      "namespace": "varg",
+      "display_name": "Robed Deity",
+      "description": "Bearded man in red-and-gold robes with a golden halo glow; benevolent, meme-pointing.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_bcdf017517ae.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_c654f31673b6.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_bcdf017517ae.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/24.png",
+        "video_safe": true,
+        "tags": [
+          "human",
+          "male",
+          "comedy"
+        ],
+        "identity_anchor": "Bearded man in red-and-gold robes with a golden halo glow; benevolent, meme-pointing."
+      }
+    },
+    {
+      "id": "preset_dc3422dbbaca",
+      "kind": "character",
+      "type": "character",
+      "key": "android",
+      "namespace": "varg",
+      "display_name": "Helmet Android",
+      "description": "Humanoid figure in a dark full-face helmet with smooth visor and dark tactical suit; robot-dance capable. Pass its card explicitly in video or the helmet drifts.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_b7c6a3871b83.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_5e2da5177209.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_b7c6a3871b83.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/25.png",
+        "video_safe": true,
+        "tags": [
+          "human",
+          "scifi"
+        ],
+        "identity_anchor": "Humanoid figure in a dark full-face helmet with smooth visor and dark tactical suit; robot-dance capable. Pass its card explicitly in video or the helmet drifts."
+      }
+    },
+    {
+      "id": "preset_37031ac4cc91",
+      "kind": "character",
+      "type": "character",
+      "key": "conjoined-twins",
+      "namespace": "varg",
+      "display_name": "Conjoined Two-Headed Woman",
+      "description": "ONE person with ONE torso, ONE red-and-blue leather jacket, ONE pair of black jeans, TWO arms and TWO heads with curly dark hair on the SAME shoulders. Always describe anatomically — 'two-headed woman' renders as two women.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_a5ca4e68ce6b.jpg",
+        "original_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_c9650b6053e5.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_a5ca4e68ce6b.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/26.png",
+        "video_safe": true,
+        "tags": [
+          "human",
+          "female",
+          "comedy"
+        ],
+        "identity_anchor": "ONE person with ONE torso, ONE red-and-blue leather jacket, ONE pair of black jeans, TWO arms and TWO heads with curly dark hair on the SAME shoulders."
+      }
+    },
+    {
+      "id": "preset_6d74a6e42276",
+      "kind": "character",
+      "type": "character",
+      "key": "claude-code-redhead",
+      "namespace": "varg",
+      "display_name": "Red-Haired Dev",
+      "description": "Red-haired man in a blue tee with 'CLAUDE CODE' print, jeans; nerdy, mischievous.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_38cbe7b9b96b.jpg",
+        "original_image_url": "https://uu.varg.ai/1788395246144_p2bjaa0d.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_38cbe7b9b96b.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/27.png",
+        "video_safe": true,
+        "tags": [
+          "human",
+          "male",
+          "tech"
+        ],
+        "identity_anchor": "Red-haired man in a blue tee with 'CLAUDE CODE' print, jeans; nerdy, mischievous."
+      }
+    },
+    {
+      "id": "preset_8c383ff3b6ab",
+      "kind": "character",
+      "type": "character",
+      "key": "blonde-mint",
+      "namespace": "varg",
+      "display_name": "Blonde in Mint",
+      "description": "Blonde woman in a mint-green two-piece outfit, heels; bubbly, loud.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_5a90a5a769f1.jpg",
+        "original_image_url": "https://uu.varg.ai/1788395217581_lkta39oc.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_5a90a5a769f1.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/28.png",
+        "video_safe": true,
+        "tags": [
+          "human",
+          "female",
+          "fashion"
+        ],
+        "identity_anchor": "Blonde woman in a mint-green two-piece outfit, heels; bubbly, loud."
+      }
+    },
+    {
+      "id": "preset_31fd7a628a19",
+      "kind": "character",
+      "type": "character",
+      "key": "beige-suit",
+      "namespace": "varg",
+      "display_name": "Beige Suit Man",
+      "description": "Blond man in a beige suit with sunglasses, jeans, brown shoes; smooth, corporate.",
+      "provider_params": {
+        "reference_image_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_2dd6a34e30bd.jpg",
+        "original_image_url": "https://uu.varg.ai/1788395236847_qzhzykyp.png"
+      },
+      "preview_url": "https://s3.varg.ai/files/db4ef430-d0c7-403e-a8e2-722292a92e8c/file_2dd6a34e30bd.jpg",
+      "source": "curated",
+      "metadata": {
+        "collection": "launch-characters",
+        "source_file": "launch/chars/29.png",
+        "video_safe": true,
+        "tags": [
+          "human",
+          "male",
+          "corporate"
+        ],
+        "identity_anchor": "Blond man in a beige suit with sunglasses, jeans, brown shoes; smooth, corporate."
+      }
+    }
+  ]
+}
