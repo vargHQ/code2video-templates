@@ -1,0 +1,18 @@
+{
+  "title": "you just stopped scrolling.",
+  "lines": [
+    "for a note.",
+    "not an ad.",
+    "except this is an ad.",
+    "the best ones don't look like ads.",
+    "they look like this.",
+    "lowercase. honest. yours.",
+    { "text": "Now, varg will make these Apple Notes ads for any text.", "pause": 0.9 }
+  ],
+  "end_card": {
+    "kicker": "apple notes ads",
+    "title": "Now in\nvarg.",
+    "url": "varg.ai",
+    "seconds": 3.5
+  }
+}
