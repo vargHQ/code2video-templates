@@ -1,0 +1,13 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "varg code2video templates",
+  "description": "Open-source code2video templates for AI agents: each folder renders an MP4 from code (HyperFrames HTML, WebGL, Python, varg JSX with AI models).",
+  "folders": ["apple-notes-video", "stamp-carousel", "liquid-thorn-logo", "card-catalog-explainer", "varg_jsx", ".claude/skills"],
+  "excludeFolders": ["sdk", "node_modules", "output", "varg_jsx/omega3-jesus-devil"],
+  "rules": [
+    "Read the template's SKILL.md first; change the inputs and config it names, not the engine.",
+    "Render in the background and check a few frames before handing over the MP4.",
+    "varg_jsx templates spend varg credits: estimate first and ask the user before generating.",
+    "Never commit media files; host previews on s3.varg.ai and link them."
+  ]
+}

@@ -1,6 +1,26 @@
 {
   "name": "varg-templates",
   "version": "1.0.0",
+  "description": "Open-source code2video templates for AI agents: each folder renders an MP4 from code (HyperFrames, WebGL, varg JSX).",
+  "license": "MIT",
+  "keywords": [
+    "code2video",
+    "video-as-code",
+    "programmatic-video",
+    "video-templates",
+    "hyperframes",
+    "html-to-video",
+    "motion-graphics",
+    "ai-video",
+    "claude-code",
+    "agent-skills",
+    "varg"
+  ],
+  "homepage": "https://github.com/vargHQ/templates",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vargHQ/templates.git"
+  },
   "private": true,
   "type": "module",
   "scripts": {
