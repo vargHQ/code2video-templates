@@ -49,3 +49,7 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+# Local only: licensed fonts and internal ops scripts
+assets/
+scripts/

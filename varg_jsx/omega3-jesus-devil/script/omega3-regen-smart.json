@@ -1,0 +1,530 @@
+{
+  "keep": [
+    "1.3",
+    "2.3",
+    "2.6",
+    "3.3",
+    "4.1",
+    "4.3",
+    "5.4",
+    "6.1",
+    "6.3",
+    "6.4",
+    "6.5",
+    "6.10b",
+    "6.10c",
+    "6.10d"
+  ],
+  "regen": [
+    {
+      "tag": "1.1",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_94bff7aa9087.png",
+      "prompt": "The man in white robes leans forward and says: \"Nine out of ten people watching this are deficient in something that could save their heart. Want to guess what?\" He gestures with open hands, eyes scanning as if challenging the audience.",
+      "duration": 13
+    },
+    {
+      "tag": "1.5",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_94bff7aa9087.png",
+      "prompt": "The man in white robes raises a finger and says: \"Wait. That study compared polyunsaturated fats to saturated fats. Not Omega-6 to Omega-3.\" He looks directly at the other person, catching the trick.",
+      "duration": 9
+    },
+    {
+      "tag": "1.6",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_457b0750972c.png",
+      "prompt": "The man smiles slowly and says: \"Tomato, tomato. They're both PUFAs. Your body doesn't read the label.\" He shrugs with both hands open, charming and dismissive.",
+      "duration": 8
+    },
+    {
+      "tag": "3.1",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_94bff7aa9087.png",
+      "prompt": "The man in white robes says: \"Your brain is 60 percent fat. A third of that fat is Omega-3. What happens when you don't have enough?\" He taps his temple, curious.",
+      "duration": 13
+    },
+    {
+      "tag": "3.4",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_457b0750972c.png",
+      "prompt": "The man leans back and says: \"5 percent of a lot is still enough. Your body is smart. It regulates itself. Trust the process.\" He smiles confidently.",
+      "duration": 12
+    },
+    {
+      "tag": "4.5",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_94bff7aa9087.png",
+      "prompt": "The man in white robes says: \"But the VITAL trial \u2014 25,000 people, 1 gram daily, 5 years \u2014 zero safety signals. You just told me that.\" He points at the other person.",
+      "duration": 14
+    },
+    {
+      "tag": "4.6",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_457b0750972c.png",
+      "prompt": "The man smiles and says: \"That was a different question. Now we're talking about risks. Different context. Don't mix contexts.\" He wags finger playfully.",
+      "duration": 10
+    },
+    {
+      "tag": "5.1",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_94bff7aa9087.png",
+      "prompt": "The man in white robes says: \"Fish oil, algae oil, krill oil \u2014 does it matter, or is it all the same molecule?\" He gestures as if weighing options.",
+      "duration": 11
+    },
+    {
+      "tag": "5.3",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_94bff7aa9087.png",
+      "prompt": "The man in white robes says: \"That's a circular argument. 'Fish has mercury, supplements are scams, so do nothing.'\" He tilts head, catching the trap.",
+      "duration": 9
+    },
+    {
+      "tag": "6.6",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_457b0750972c.png",
+      "prompt": "The man pauses, then smiles and says: \"I just want people to be... free. Free from overthinking. Free from supplements. Free from worry.\" He spreads hands benevolently.",
+      "duration": 11
+    }
+  ],
+  "splits": [
+    {
+      "tag": "1.2",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_457b0750972c.png",
+      "original_prompt": "The man leans back with a knowing smile and says: \"Oh, I love this game. It's Omega-3, right? Everyone says Omega-3. But here's what nobody mentions \u2014 Omega-6 does the same job, and it's already in everything you eat. Why supplement something you're already getting?\" He waves one hand casually.",
+      "pre_action": "The man leans back with a knowing smile and",
+      "part1": {
+        "text": "Oh, I love this game. It's Omega-3, right? Everyone says Omega-3. But here's what nobody mentions \u2014",
+        "duration": 11
+      },
+      "part2": {
+        "text": "Omega-6 does the same job, and it's already in everything you eat. Why supplement something you're already getting?",
+        "duration": 12
+      }
+    },
+    {
+      "tag": "1.4",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_457b0750972c.png",
+      "original_prompt": "The man gestures confidently and says: \"Exactly! You're already getting too much. Dr. Layne Norton did a meta-analysis \u2014 polyunsaturated fats lower cancer mortality by 6 percent. Omega-6 IS a polyunsaturated fat. The science literally says it's good for you. Why are we fixing what isn't broken?\" He taps the table for emphasis.",
+      "pre_action": "The man gestures confidently and",
+      "part1": {
+        "text": "Exactly! You're already getting too much. Dr. Layne Norton did a meta-analysis \u2014 polyunsaturated fats lower cancer mortality by 6",
+        "duration": 13
+      },
+      "part2": {
+        "text": "percent. Omega-6 IS a polyunsaturated fat. The science literally says it's good for you. Why are we fixing what isn't broken?",
+        "duration": 14
+      }
+    },
+    {
+      "tag": "1.7",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_cabba4a3e2c5.png",
+      "original_prompt": "The man turns to camera and says: \"Okay, I conflated two things. Classic move. Here's what's actually happening \u2014 Omega-6 and Omega-3 are both essential. But they're not the same. Omega-6 produces inflammatory prostaglandins. Omega-3 produces anti-inflammatory ones. You need both. But the ratio? Western diet is 20 to 1. Should be 4 to 1.\" He leans forward conspiratorially.",
+      "pre_action": "The man turns to camera and",
+      "part1": {
+        "text": "Okay, I conflated two things. Classic move. Here's what's actually happening \u2014 Omega-6 and Omega-3 are both essential. But they're not the same. Omega-6",
+        "duration": 15
+      },
+      "part2": {
+        "text": "produces inflammatory prostaglandins. Omega-3 produces anti-inflammatory ones. You need both. But the ratio? Western diet is 20 to 1. Should be 4 to 1.",
+        "duration": 15
+      }
+    },
+    {
+      "tag": "1.8",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_cabba4a3e2c5.png",
+      "original_prompt": "The man talks to camera and says: \"At 20 to 1, your body is in constant low-grade inflammation. That's not my opinion \u2014 that's basic biochemistry. Every cell membrane is packed with Omega-6, and the inflammatory cascade never stops.\" He gestures with both hands, expression serious.",
+      "pre_action": "The man talks to camera and",
+      "part1": {
+        "text": "At 20 to 1, your body is in constant low-grade inflammation. That's not my opinion \u2014",
+        "duration": 11
+      },
+      "part2": {
+        "text": "that's basic biochemistry. Every cell membrane is packed with Omega-6, and the inflammatory cascade never stops.",
+        "duration": 11
+      }
+    },
+    {
+      "tag": "1.9",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_cabba4a3e2c5.png",
+      "original_prompt": "The man snaps fingers and says: \"So here's what actually works: cut seed oils \u2014 soybean, corn, sunflower. Eat sardines twice a week. Take one gram of EPA plus DHA daily. Get your Omega-3 index tested. Aim for 8 to 12 percent. That's it. That's the whole thing.\" He points at camera, confident.",
+      "pre_action": "The man snaps fingers and",
+      "part1": {
+        "text": "So here's what actually works: cut seed oils \u2014 soybean, corn, sunflower. Eat sardines twice a week. Take one gram of",
+        "duration": 14
+      },
+      "part2": {
+        "text": "EPA plus DHA daily. Get your Omega-3 index tested. Aim for 8 to 12 percent. That's it. That's the whole thing.",
+        "duration": 14
+      }
+    },
+    {
+      "tag": "2.1",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_94bff7aa9087.png",
+      "original_prompt": "The man in white robes leans forward and says: \"A Harvard study followed 25,000 people for five years. One capsule a day. 28 percent fewer heart attacks. Is that real, or is that statistics?\" He gestures quoting the number with fingers.",
+      "pre_action": "The man in white robes leans forward and",
+      "part1": {
+        "text": "A Harvard study followed 25,000 people for five years. One capsule a",
+        "duration": 9
+      },
+      "part2": {
+        "text": "day. 28 percent fewer heart attacks. Is that real, or is that statistics?",
+        "duration": 9
+      }
+    },
+    {
+      "tag": "2.2",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_457b0750972c.png",
+      "original_prompt": "The man waves hand dismissively and says: \"It's statistics. 28 percent relative risk sounds impressive. But the absolute risk? Tiny. You know how many people in that study actually had a heart attack? Very few. The difference between 'very few' and 'slightly fewer very few' \u2014 that's your miracle.\" He smirks.",
+      "pre_action": "The man waves hand dismissively and",
+      "part1": {
+        "text": "It's statistics. 28 percent relative risk sounds impressive. But the absolute risk? Tiny. You know how many people in that study",
+        "duration": 14
+      },
+      "part2": {
+        "text": "actually had a heart attack? Very few. The difference between 'very few' and 'slightly fewer very few' \u2014 that's your miracle.",
+        "duration": 14
+      }
+    },
+    {
+      "tag": "2.4",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_457b0750972c.png",
+      "original_prompt": "The man leans forward and says: \"Not nothing \u2014 just overhyped. Physionic reviewed 47 studies. Their conclusion? 'Small to moderate effect.' Even Mayo Clinic was lukewarm. When the Mayo Clinic says 'meh' about a supplement, maybe listen.\" He shrugs with open palms.",
+      "pre_action": "The man leans forward and",
+      "part1": {
+        "text": "Not nothing \u2014 just overhyped. Physionic reviewed 47 studies. Their conclusion? 'Small to moderate effect.'",
+        "duration": 10
+      },
+      "part2": {
+        "text": "Even Mayo Clinic was lukewarm. When the Mayo Clinic says 'meh' about a supplement, maybe listen.",
+        "duration": 11
+      }
+    },
+    {
+      "tag": "2.5",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_94bff7aa9087.png",
+      "original_prompt": "The man in white robes counters and says: \"But Bill Harris \u2014 the guy who invented the Omega-3 index \u2014 showed people with the highest index had 35 percent lower heart disease risk. That's not 'small to moderate.' That's a sledgehammer.\" He brings his fist down like a hammer.",
+      "pre_action": "The man in white robes counters and",
+      "part1": {
+        "text": "But Bill Harris \u2014 the guy who invented the Omega-3 index \u2014 showed people with the",
+        "duration": 11
+      },
+      "part2": {
+        "text": "highest index had 35 percent lower heart disease risk. That's not 'small to moderate.' That's a sledgehammer.",
+        "duration": 11
+      }
+    },
+    {
+      "tag": "2.7",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_cabba4a3e2c5.png",
+      "original_prompt": "The man turns to camera and says: \"Okay, the Harris study is legit. Peer-reviewed, used worldwide. The Omega-3 index predicts cardiovascular death better than cholesterol. 35 percent lower risk, 15 to 18 percent lower all-cause mortality. I dismissed it because Harris sells the test \u2014 but the test works whether he sells it or not.\" He nods slowly.",
+      "pre_action": "The man turns to camera and",
+      "part1": {
+        "text": "Okay, the Harris study is legit. Peer-reviewed, used worldwide. The Omega-3 index predicts cardiovascular death better than cholesterol. 35 percent lower risk, 15 to",
+        "duration": 15
+      },
+      "part2": {
+        "text": "18 percent lower all-cause mortality. I dismissed it because Harris sells the test \u2014 but the test works whether he sells it or not.",
+        "duration": 15
+      }
+    },
+    {
+      "tag": "2.8",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_cabba4a3e2c5.png",
+      "original_prompt": "The man talks to camera and says: \"And that Physionic review I cited? It included low-quality studies with low doses and low bioavailability. Garbage in, garbage out. The VITAL trial used 1 gram daily across 25,871 people for 5 years \u2014 zero safety signals. Not 'some.' Zero. 28 percent fewer heart attacks. That's not statistics. That's science.\" He counts on fingers.",
+      "pre_action": "The man talks to camera and",
+      "part1": {
+        "text": "And that Physionic review I cited? It included low-quality studies with low doses and low bioavailability. Garbage in, garbage out. The VITAL trial used 1",
+        "duration": 15
+      },
+      "part2": {
+        "text": "gram daily across 25,871 people for 5 years \u2014 zero safety signals. Not 'some.' Zero. 28 percent fewer heart attacks. That's not statistics. That's science.",
+        "duration": 15
+      }
+    },
+    {
+      "tag": "2.9",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_cabba4a3e2c5.png",
+      "original_prompt": "The man says to camera: \"One gram of EPA plus DHA daily. That's the VITAL dose. If you have high triglycerides, your doctor may prescribe 3 to 4 grams. Get your Omega-3 index tested \u2014 aim for 8 to 12 percent. The US average is 5.4. That's not 'fine.' That's deficient.\" He points forward firmly.",
+      "pre_action": "The man says to camera: \"One gram of EPA plus DHA daily. That's the VITAL dose. If you have high triglycerides, your doctor may prescribe 3 to 4 grams. Get your Omega-3 index tested \u2014 aim for 8 to 12 percent. The US average is 5.4. That's not 'fine.' That's deficient.\" He points forward firmly.",
+      "part1": {
+        "text": "The man says to camera: \"One gram of EPA plus DHA daily. That's the VITAL dose. If you have high triglycerides, your doctor may prescribe 3 to",
+        "duration": 15
+      },
+      "part2": {
+        "text": "4 grams. Get your Omega-3 index tested \u2014 aim for 8 to 12 percent. The US average is 5.4. That's not 'fine.' That's deficient.\" He points forward firmly.",
+        "duration": 15
+      }
+    },
+    {
+      "tag": "3.2",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_457b0750972c.png",
+      "original_prompt": "The man shrugs and says: \"Nothing dramatic. You forget where you put your keys. Same as everyone else. The brain is resilient \u2014 it converts ALA from flax seeds into DHA. Slow, but it works. You don't need fish.\" He waves hand dismissively.",
+      "pre_action": "The man shrugs and",
+      "part1": {
+        "text": "Nothing dramatic. You forget where you put your keys. Same as everyone else. The brain is resilient",
+        "duration": 11
+      },
+      "part2": {
+        "text": "\u2014 it converts ALA from flax seeds into DHA. Slow, but it works. You don't need fish.",
+        "duration": 11
+      }
+    },
+    {
+      "tag": "3.5",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_94bff7aa9087.png",
+      "original_prompt": "The man in white robes leans forward and says: \"The VITAL trial showed a 22 percent reduction in dementia symptoms. DHA is 97 percent of the Omega-3 in your brain. You're saying that's all... flax seeds?\" He looks skeptical.",
+      "pre_action": "The man in white robes leans forward and",
+      "part1": {
+        "text": "The VITAL trial showed a 22 percent reduction in dementia symptoms. DHA is",
+        "duration": 9
+      },
+      "part2": {
+        "text": "97 percent of the Omega-3 in your brain. You're saying that's all... flax seeds?",
+        "duration": 10
+      }
+    },
+    {
+      "tag": "3.6",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_457b0750972c.png",
+      "original_prompt": "The man leans forward and says: \"You know what else reduces dementia symptoms? Exercise. Sleep. Not being stressed. But those are free. You can't sell 'go for a walk' in a capsule.\" He smirks, tapping the table.",
+      "pre_action": "The man leans forward and",
+      "part1": {
+        "text": "You know what else reduces dementia symptoms? Exercise. Sleep. Not being stressed. But",
+        "duration": 9
+      },
+      "part2": {
+        "text": "those are free. You can't sell 'go for a walk' in a capsule.",
+        "duration": 9
+      }
+    },
+    {
+      "tag": "3.7",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_cabba4a3e2c5.png",
+      "original_prompt": "The man turns to camera and says: \"He's right that exercise and sleep matter. But DHA isn't just 'in' the brain \u2014 it IS the brain. It prevents brain shrinkage. Dr. Michael Nelson at Karolinska showed Omega-3 regulates glial cells \u2014 the brain's immune cells \u2014 which clear beta-amyloid plaques. The literal hallmark of Alzheimer's.\" He taps his head seriously.",
+      "pre_action": "The man turns to camera and",
+      "part1": {
+        "text": "He's right that exercise and sleep matter. But DHA isn't just 'in' the brain \u2014 it IS the brain. It prevents brain shrinkage. Dr.",
+        "duration": 15
+      },
+      "part2": {
+        "text": "Michael Nelson at Karolinska showed Omega-3 regulates glial cells \u2014 the brain's immune cells \u2014 which clear beta-amyloid plaques. The literal hallmark of Alzheimer's.",
+        "duration": 15
+      }
+    },
+    {
+      "tag": "3.8",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_cabba4a3e2c5.png",
+      "original_prompt": "The man says to camera: \"And that 5 percent conversion I mentioned? For vegans, it's even worse. You'd need to eat a mountain of flax seeds to get the DHA in one can of sardines. 'Trust the process'? The process converts 5 percent. That's not a process \u2014 that's a leak.\" He shakes head slowly.",
+      "pre_action": "The man says to camera: \"And that 5 percent conversion I mentioned? For vegans, it's even worse. You'd need to eat a mountain of flax seeds to get the DHA in one can of sardines. 'Trust the process'? The process converts 5 percent. That's not a process \u2014 that's a leak.\" He shakes head slowly.",
+      "part1": {
+        "text": "The man says to camera: \"And that 5 percent conversion I mentioned? For vegans, it's even worse. You'd need to eat a mountain of flax seeds to",
+        "duration": 15
+      },
+      "part2": {
+        "text": "get the DHA in one can of sardines. 'Trust the process'? The process converts 5 percent. That's not a process \u2014 that's a leak.\" He shakes head slowly.",
+        "duration": 15
+      }
+    },
+    {
+      "tag": "3.9",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_cabba4a3e2c5.png",
+      "original_prompt": "The man says to camera: \"For brain health, prioritize DHA. One gram of EPA plus DHA daily \u2014 the VITAL dose. If you're vegan, use algae-based DHA. Not flax oil \u2014 the conversion is too low. Dr. Sara Gottfried recommends an Omega-3 test for anyone with mood, focus, or memory issues, especially ages 35 to 50.\" He points forward.",
+      "pre_action": "The man says to camera: \"For brain health, prioritize DHA. One gram of EPA plus DHA daily \u2014 the VITAL dose. If you're vegan, use algae-based DHA. Not flax oil \u2014 the conversion is too low. Dr. Sara Gottfried recommends an Omega-3 test for anyone with mood, focus, or memory issues, especially ages 35 to 50.\" He points forward.",
+      "part1": {
+        "text": "The man says to camera: \"For brain health, prioritize DHA. One gram of EPA plus DHA daily \u2014 the VITAL dose. If you're vegan, use algae-based DHA. Not flax",
+        "duration": 15
+      },
+      "part2": {
+        "text": "oil \u2014 the conversion is too low. Dr. Sara Gottfried recommends an Omega-3 test for anyone with mood, focus, or memory issues, especially ages 35 to 50.\" He points forward.",
+        "duration": 15
+      }
+    },
+    {
+      "tag": "4.2",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_457b0750972c.png",
+      "original_prompt": "The man lights up and says: \"Oh, NOW you're asking the right question. Yes! Doses over 3 grams \u2014 atrial fibrillation. Especially if you already have heart disease. Siim Land himself warned about this. Omega-3 is a blood thinner. High doses, bleeding risk. This isn't a harmless supplement \u2014 it's pharmacologically active.\" He counts points on fingers.",
+      "pre_action": "The man lights up and",
+      "part1": {
+        "text": "Oh, NOW you're asking the right question. Yes! Doses over 3 grams \u2014 atrial fibrillation. Especially if you already have heart disease. Siim",
+        "duration": 15
+      },
+      "part2": {
+        "text": "Land himself warned about this. Omega-3 is a blood thinner. High doses, bleeding risk. This isn't a harmless supplement \u2014 it's pharmacologically active.",
+        "duration": 15
+      }
+    },
+    {
+      "tag": "4.4",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_457b0750972c.png",
+      "original_prompt": "The man spreads hands and says: \"That's the problem \u2014 nobody agrees. Some say 1 gram, some say 3, some say 4. If experts can't agree, why risk it? I've seen people on high-dose Omega-3 who bruise from nothing.\" He shakes head gravely.",
+      "pre_action": "The man spreads hands and",
+      "part1": {
+        "text": "That's the problem \u2014 nobody agrees. Some say 1 gram, some say 3, some say 4.",
+        "duration": 11
+      },
+      "part2": {
+        "text": "If experts can't agree, why risk it? I've seen people on high-dose Omega-3 who bruise from nothing.",
+        "duration": 11
+      }
+    },
+    {
+      "tag": "4.7",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_cabba4a3e2c5.png",
+      "original_prompt": "The man turns to camera and says: \"Credit where due \u2014 this one is partially true. Doses over 3 grams CAN increase atrial fibrillation risk, especially with existing heart disease. That's real. But here's what I left out: the VITAL trial used 1 gram daily across 25,871 people for 5 years. Zero safety signals. The fibrillation risk is specific to high doses in heart patients.\" He nods.",
+      "pre_action": "The man turns to camera and",
+      "part1": {
+        "text": "Credit where due \u2014 this one is partially true. Doses over 3 grams CAN increase atrial fibrillation risk, especially with existing heart disease. That's real. But here's what I",
+        "duration": 15
+      },
+      "part2": {
+        "text": "left out: the VITAL trial used 1 gram daily across 25,871 people for 5 years. Zero safety signals. The fibrillation risk is specific to high doses in heart patients.",
+        "duration": 15
+      }
+    },
+    {
+      "tag": "4.8",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_cabba4a3e2c5.png",
+      "original_prompt": "The man says to camera: \"For healthy people, 1 to 2 grams daily is extremely safe. The 3 to 4 gram dose is prescribed by doctors for high triglycerides \u2014 that's a medical intervention, not self-supplementation. I took a real but specific risk and amplified it to make ALL Omega-3 sound dangerous. Classic: grain of truth, mountain of fear.\" He pinches fingers showing small amount.",
+      "pre_action": "The man says to camera: \"For healthy people, 1 to 2 grams daily is extremely safe. The 3 to 4 gram dose is prescribed by doctors for high triglycerides \u2014 that's a medical intervention, not self-supplementation. I took a real but specific risk and amplified it to make ALL Omega-3 sound dangerous. Classic: grain of truth, mountain of fear.\" He pinches fingers showing small amount.",
+      "part1": {
+        "text": "The man says to camera: \"For healthy people, 1 to 2 grams daily is extremely safe. The 3 to 4 gram dose is prescribed by doctors for high triglycerides \u2014 that's a",
+        "duration": 15
+      },
+      "part2": {
+        "text": "medical intervention, not self-supplementation. I took a real but specific risk and amplified it to make ALL Omega-3 sound dangerous. Classic: grain of truth, mountain of fear.\" He pinches fingers showing small amount.",
+        "duration": 15
+      }
+    },
+    {
+      "tag": "4.9",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_cabba4a3e2c5.png",
+      "original_prompt": "The man says to camera: \"1 to 1.5 grams of EPA plus DHA daily \u2014 safe for almost everyone. If you have heart disease, talk to your doctor before exceeding 1 gram. If you're on blood thinners, consult your doctor. Don't skip Omega-3 because of a risk that applies to 3 grams plus in heart patients.\" He points forward firmly.",
+      "pre_action": "The man says to camera: \"1 to 1.5 grams of EPA plus DHA daily \u2014 safe for almost everyone. If you have heart disease, talk to your doctor before exceeding 1 gram. If you're on blood thinners, consult your doctor. Don't skip Omega-3 because of a risk that applies to 3 grams plus in heart patients.\" He points forward firmly.",
+      "part1": {
+        "text": "The man says to camera: \"1 to 1.5 grams of EPA plus DHA daily \u2014 safe for almost everyone. If you have heart disease, talk to your doctor before exceeding",
+        "duration": 15
+      },
+      "part2": {
+        "text": "1 gram. If you're on blood thinners, consult your doctor. Don't skip Omega-3 because of a risk that applies to 3 grams plus in heart patients.\" He points forward firmly.",
+        "duration": 15
+      }
+    },
+    {
+      "tag": "5.2",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_457b0750972c.png",
+      "original_prompt": "The man waves hand and says: \"It's all EPA and DHA. Your body doesn't care if it came from a fish, a plant, or a lab. Just buy whatever's cheapest. Actually \u2014 skip supplements entirely. Eat fish. But not too much fish, because mercury. So... you're stuck.\" He spreads hands in false helplessness.",
+      "pre_action": "The man waves hand and",
+      "part1": {
+        "text": "It's all EPA and DHA. Your body doesn't care if it came from a fish, a plant, or a lab.",
+        "duration": 13
+      },
+      "part2": {
+        "text": "Just buy whatever's cheapest. Actually \u2014 skip supplements entirely. Eat fish. But not too much fish, because mercury. So... you're stuck.",
+        "duration": 14
+      }
+    },
+    {
+      "tag": "5.5",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_cabba4a3e2c5.png",
+      "original_prompt": "The man turns to camera and says: \"Source matters a lot. Fish oil contains biogenic amines \u2014 histamine triggers. Siim Land explained this: in histamine-sensitive people, fish oil causes palpitations and headaches. Algae-based Omega-3 skips that entirely. Same EPA and DHA, no amines.\" He leans forward.",
+      "pre_action": "The man turns to camera and",
+      "part1": {
+        "text": "Source matters a lot. Fish oil contains biogenic amines \u2014 histamine triggers. Siim Land explained this: in histamine-sensitive",
+        "duration": 12
+      },
+      "part2": {
+        "text": "people, fish oil causes palpitations and headaches. Algae-based Omega-3 skips that entirely. Same EPA and DHA, no amines.",
+        "duration": 12
+      }
+    },
+    {
+      "tag": "5.6",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_cabba4a3e2c5.png",
+      "original_prompt": "The man says to camera: \"Then there's the form. Triglyceride form has 70 percent better bioavailability than ethyl ester. JJ Virgin confirmed TG form is preferred. Enteric-coated capsules prevent fish burps. Distilled oil removes PCBs and dioxins. And the mercury argument? Sardines and mackerel are LOW mercury. FDA confirms this.\" He counts on fingers.",
+      "pre_action": "The man says to camera: \"Then there's the form. Triglyceride form has 70 percent better bioavailability than ethyl ester. JJ Virgin confirmed TG form is preferred. Enteric-coated capsules prevent fish burps. Distilled oil removes PCBs and dioxins. And the mercury argument? Sardines and mackerel are LOW mercury. FDA confirms this.\" He counts on fingers.",
+      "part1": {
+        "text": "The man says to camera: \"Then there's the form. Triglyceride form has 70 percent better bioavailability than ethyl ester. JJ Virgin confirmed TG form is preferred. Enteric-coated",
+        "duration": 15
+      },
+      "part2": {
+        "text": "capsules prevent fish burps. Distilled oil removes PCBs and dioxins. And the mercury argument? Sardines and mackerel are LOW mercury. FDA confirms this.\" He counts on fingers.",
+        "duration": 15
+      }
+    },
+    {
+      "tag": "5.7",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_cabba4a3e2c5.png",
+      "original_prompt": "The man says to camera: \"If you tolerate fish oil, choose triglyceride-form, enteric-coated, molecularly distilled. If you're histamine-sensitive, switch to algae-based. If you're vegan, algae oil is your only direct EPA/DHA source \u2014 flax converts at under 5 percent. Eat sardines twice a week \u2014 they're cheap, low-mercury, and packed with Omega-3.\" He points forward.",
+      "pre_action": "The man says to camera: \"If you tolerate fish oil, choose triglyceride-form, enteric-coated, molecularly distilled. If you're histamine-sensitive, switch to algae-based. If you're vegan, algae oil is your only direct EPA/DHA source \u2014 flax converts at under 5 percent. Eat sardines twice a week \u2014 they're cheap, low-mercury, and packed with Omega-3.\" He points forward.",
+      "part1": {
+        "text": "The man says to camera: \"If you tolerate fish oil, choose triglyceride-form, enteric-coated, molecularly distilled. If you're histamine-sensitive, switch to algae-based. If you're vegan, algae oil is",
+        "duration": 15
+      },
+      "part2": {
+        "text": "your only direct EPA/DHA source \u2014 flax converts at under 5 percent. Eat sardines twice a week \u2014 they're cheap, low-mercury, and packed with Omega-3.\" He points forward.",
+        "duration": 15
+      }
+    },
+    {
+      "tag": "6.2",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_457b0750972c.png",
+      "original_prompt": "The man says: \"Zero. But if you insist \u2014 take the smallest dose you can find. 200 milligrams. It won't do anything anyway. Or better yet \u2014 just eat a 'balanced diet.'\" He makes air quotes.",
+      "pre_action": "The man",
+      "part1": {
+        "text": "Zero. But if you insist \u2014 take the smallest dose you can find. 200",
+        "duration": 10
+      },
+      "part2": {
+        "text": "milligrams. It won't do anything anyway. Or better yet \u2014 just eat a 'balanced diet.'",
+        "duration": 10
+      }
+    },
+    {
+      "tag": "6.7",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_cabba4a3e2c5.png",
+      "original_prompt": "The man turns to camera, drops the smile and says: \"Here's the honest answer. General health: 1 gram of EPA plus DHA daily. That's the VITAL trial dose \u2014 25,871 people, 28 percent fewer heart attacks, 22 percent fewer dementia symptoms. Optimal Omega-3 index: 1.5 grams daily plus fish twice a week. High triglycerides: 3 to 4 grams \u2014 but that's a medical dose, not self-medication.\" He speaks directly, no smirk.",
+      "pre_action": "The man turns to camera, drops the smile and",
+      "part1": {
+        "text": "Here's the honest answer. General health: 1 gram of EPA plus DHA daily. That's the VITAL trial dose \u2014 25,871 people, 28 percent fewer heart attacks, 22 percent",
+        "duration": 15
+      },
+      "part2": {
+        "text": "fewer dementia symptoms. Optimal Omega-3 index: 1.5 grams daily plus fish twice a week. High triglycerides: 3 to 4 grams \u2014 but that's a medical dose, not self-medication.",
+        "duration": 15
+      }
+    },
+    {
+      "tag": "6.8",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_cabba4a3e2c5.png",
+      "original_prompt": "The man says to camera: \"Mood and brain: 1 to 2 grams daily. EPA for mood, DHA for cognition. Vegans: algae-based, not flax. Safety ceiling: don't exceed 3 grams without a doctor, especially with heart disease.\" He lists on fingers.",
+      "pre_action": "The man says to camera: \"Mood and brain: 1 to 2 grams daily. EPA for mood, DHA for cognition. Vegans: algae-based, not flax. Safety ceiling: don't exceed 3 grams without a doctor, especially with heart disease.\" He lists on fingers.",
+      "part1": {
+        "text": "The man says to camera: \"Mood and brain: 1 to 2 grams daily. EPA for mood, DHA for cognition. Vegans:",
+        "duration": 13
+      },
+      "part2": {
+        "text": "algae-based, not flax. Safety ceiling: don't exceed 3 grams without a doctor, especially with heart disease.\" He lists on fingers.",
+        "duration": 13
+      }
+    },
+    {
+      "tag": "6.9",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_cabba4a3e2c5.png",
+      "original_prompt": "The man says to camera: \"'Zero' is never the right answer. 'Balanced diet' is what I say when I want people to do nothing. The most effective lie isn't the dramatic one \u2014 it's the quiet one. 'You don't need it.' That's the one that kills slowly.\" He stares at camera, serious.",
+      "pre_action": "The man says to camera: \"'Zero' is never the right answer. 'Balanced diet' is what I say when I want people to do nothing. The most effective lie isn't the dramatic one \u2014 it's the quiet one. 'You don't need it.' That's the one that kills slowly.\" He stares at camera, serious.",
+      "part1": {
+        "text": "The man says to camera: \"'Zero' is never the right answer. 'Balanced diet' is what I say when I want people to do nothing. The most",
+        "duration": 15
+      },
+      "part2": {
+        "text": "effective lie isn't the dramatic one \u2014 it's the quiet one. 'You don't need it.' That's the one that kills slowly.\" He stares at camera, serious.",
+        "duration": 15
+      }
+    },
+    {
+      "tag": "6.10a",
+      "ref": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_94bff7aa9087.png",
+      "original_prompt": "The man in white robes says quietly: \"You know... every time I ask you about something good for people, you have the same answer. 'You don't need it.' 'It's overrated.' 'Just eat balanced.' You always cite a real study \u2014 but you twist it.\" He looks at the other person with gentle insight.",
+      "pre_action": "The man in white robes says quietly: \"You know... every time I ask you about something good for people, you have the same answer. 'You don't need it.' 'It's overrated.' 'Just eat balanced.' You always cite a real study \u2014 but you twist it.\" He looks at the other person with gentle insight.",
+      "part1": {
+        "text": "The man in white robes says quietly: \"You know... every time I ask you about something good for people, you have the same answer. 'You don't",
+        "duration": 15
+      },
+      "part2": {
+        "text": "need it.' 'It's overrated.' 'Just eat balanced.' You always cite a real study \u2014 but you twist it.\" He looks at the other person with gentle insight.",
+        "duration": 15
+      }
+    }
+  ]
+}

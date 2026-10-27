@@ -1,0 +1,392 @@
+[
+  {
+    "tag": "1.1",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_821ed11185d6.mp4",
+    "duration": 13
+  },
+  {
+    "tag": "1.2a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e24d7f18b8da.mp4",
+    "duration": 11
+  },
+  {
+    "tag": "1.2b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_7012204c8e23.mp4",
+    "duration": 12
+  },
+  {
+    "tag": "1.3",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e6ca58fc826f.mp4",
+    "duration": 5
+  },
+  {
+    "tag": "1.4a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_5a894632b8ed.mp4",
+    "duration": 13
+  },
+  {
+    "tag": "1.4b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_bc0e302e3d93.mp4",
+    "duration": 14
+  },
+  {
+    "tag": "1.5",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_0580fe41f70c.mp4",
+    "duration": 9
+  },
+  {
+    "tag": "1.6",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_fdf1e73f4414.mp4",
+    "duration": 8
+  },
+  {
+    "tag": "1.7a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_03e1b30f99c7.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "1.7b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_bea772c9a3ec.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "1.8a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e5f68c2da782.mp4",
+    "duration": 11
+  },
+  {
+    "tag": "1.9a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_6b9f5552df8c.mp4",
+    "duration": 14
+  },
+  {
+    "tag": "1.9b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_b5ad1c57a3f3.mp4",
+    "duration": 14
+  },
+  {
+    "tag": "2.1a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_da54a0173028.mp4",
+    "duration": 9
+  },
+  {
+    "tag": "2.1b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_96301b5d13ef.mp4",
+    "duration": 9
+  },
+  {
+    "tag": "2.2a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_9e1c7aee9035.mp4",
+    "duration": 14
+  },
+  {
+    "tag": "2.2b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_60e52c9bc2a5.mp4",
+    "duration": 14
+  },
+  {
+    "tag": "2.3",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e400afd43b95.mp4",
+    "duration": 5
+  },
+  {
+    "tag": "2.4a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_c7ee4bb88d5d.mp4",
+    "duration": 10
+  },
+  {
+    "tag": "2.4b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_196888534032.mp4",
+    "duration": 11
+  },
+  {
+    "tag": "2.5a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_3216aebf6957.mp4",
+    "duration": 11
+  },
+  {
+    "tag": "2.5b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_b075f61c941e.mp4",
+    "duration": 11
+  },
+  {
+    "tag": "2.6",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_90223d3b2602.mp4",
+    "duration": 5
+  },
+  {
+    "tag": "2.7a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_f55159dc9e47.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "2.7b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_425a6df4923c.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "2.8a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_d8484cf8c90c.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "2.8b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_7de3ef5e3043.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "2.9a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_9eba8bb4dac5.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "3.1",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_18de24ebb7ae.mp4",
+    "duration": 13
+  },
+  {
+    "tag": "3.2a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e6e3f7d7b6bd.mp4",
+    "duration": 11
+  },
+  {
+    "tag": "3.2b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_238eaeb51a51.mp4",
+    "duration": 11
+  },
+  {
+    "tag": "3.3",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_f612efb9426a.mp4",
+    "duration": 5
+  },
+  {
+    "tag": "3.4",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_56903bd2a4f5.mp4",
+    "duration": 12
+  },
+  {
+    "tag": "3.5a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_9cce5a491d5b.mp4",
+    "duration": 9
+  },
+  {
+    "tag": "3.5b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_b4169844bdf5.mp4",
+    "duration": 10
+  },
+  {
+    "tag": "3.6a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_74ae28f86fd5.mp4",
+    "duration": 9
+  },
+  {
+    "tag": "3.6b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_57eb8f949848.mp4",
+    "duration": 9
+  },
+  {
+    "tag": "3.7a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_ec0f1fe72abc.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "3.7b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_2923b511f9a1.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "3.8a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_f914ff15ec21.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "3.8b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_bd5cf09ce404.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "4.1",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_c87e0774023a.mp4",
+    "duration": 5
+  },
+  {
+    "tag": "4.2a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_8432cc48efb4.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "4.2b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_562574baded6.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "4.3",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_b643a0c5710b.mp4",
+    "duration": 5
+  },
+  {
+    "tag": "4.4a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_091427c920fc.mp4",
+    "duration": 11
+  },
+  {
+    "tag": "4.4b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_dad70ac2fe04.mp4",
+    "duration": 11
+  },
+  {
+    "tag": "4.5",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_094bbb951bad.mp4",
+    "duration": 14
+  },
+  {
+    "tag": "4.6",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_a13075f3b40e.mp4",
+    "duration": 10
+  },
+  {
+    "tag": "4.7a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_7cb67150ab29.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "4.7b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_d94a4032ea5b.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "4.8a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_1b610ab3eb16.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "4.8b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_6afa66d2b12c.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "5.1",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_adc6cd4297d9.mp4",
+    "duration": 11
+  },
+  {
+    "tag": "5.2a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_f3a757898b29.mp4",
+    "duration": 13
+  },
+  {
+    "tag": "5.2b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_5d502cc2ae03.mp4",
+    "duration": 14
+  },
+  {
+    "tag": "5.3",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_97776e3c61ab.mp4",
+    "duration": 9
+  },
+  {
+    "tag": "5.4",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_a814d2c16a96.mp4",
+    "duration": 5
+  },
+  {
+    "tag": "5.5a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_2d866061dabf.mp4",
+    "duration": 12
+  },
+  {
+    "tag": "5.5b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_7ff0405af534.mp4",
+    "duration": 12
+  },
+  {
+    "tag": "5.6a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_8f93b4c420e6.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "5.6b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_847a7841ab15.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "5.7a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_ee8f66293a16.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "6.1",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e6d609175706.mp4",
+    "duration": 6
+  },
+  {
+    "tag": "6.2a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_782301df38e7.mp4",
+    "duration": 10
+  },
+  {
+    "tag": "6.2b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_68b129dea2c1.mp4",
+    "duration": 10
+  },
+  {
+    "tag": "6.3",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_b62f32c0479c.mp4",
+    "duration": 5
+  },
+  {
+    "tag": "6.4",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_61606332fa58.mp4",
+    "duration": 5
+  },
+  {
+    "tag": "6.5",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_ee1ce55f84c9.mp4",
+    "duration": 5
+  },
+  {
+    "tag": "6.6",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_27ec609a8505.mp4",
+    "duration": 11
+  },
+  {
+    "tag": "6.7a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_0ef391dd84b5.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "6.7b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_b6afbc5486c1.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "6.8a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_7e0bde8844dc.mp4",
+    "duration": 13
+  },
+  {
+    "tag": "6.8b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_4f36981d5980.mp4",
+    "duration": 13
+  },
+  {
+    "tag": "6.9a",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_920236498b70.mp4",
+    "duration": 15
+  },
+  {
+    "tag": "6.10b",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_4fdbd80900cf.mp4",
+    "duration": 5
+  },
+  {
+    "tag": "6.10c",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_7bbb8487dcd5.mp4",
+    "duration": 5
+  },
+  {
+    "tag": "6.10d",
+    "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_03674835a64f.mp4",
+    "duration": 5
+  }
+]
