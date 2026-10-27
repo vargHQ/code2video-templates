@@ -4,9 +4,15 @@ Public templates and examples for the varg AI video generation SDK.
 
 ## Structure
 
+Main templates live at the root, one folder per template named after it. Each folder holds the code that makes
+the video, a `README.md` and a `SKILL.md` for agents (read it before using the template). New templates go here.
+
 ```
-hello.tsx              # Hello world — simplest possible template
-templates/             # Reusable video templates
+apple-notes-video/     # Any text -> iPhone Apple Notes typing video. Bun + Chrome + ffmpeg, local, no credits
+stamp-carousel/        # iPhone stamp swipe of the user's pictures, background + alpha outputs. Python + ffmpeg, local.
+                       #   Skill: .claude/skills/stamp-carousel
+varg_jsx/              # varg SDK JSX templates (one .tsx per video, rendered through the varg API, costs credits)
+  ├── hello.tsx               # Hello world — simplest possible template
   ├── talking-head.tsx        # Lipsync talking head + captions
   ├── slideshow.tsx           # Data-driven array slideshow
   ├── layouts.tsx             # Split, grid, slider, packshot layouts
@@ -14,9 +20,15 @@ templates/             # Reusable video templates
   ├── adventure-showcase.tsx  # Multi-environment showcase (SCENE_INDEX)
   ├── fashion-photoshoot.tsx  # Clothing brand photoshoot
   ├── cinematic-tribute.tsx   # 8-scene montage
+  ├── HQ/, clients/, characters/
   └── VIDEO-PROMPTS.md        # Prompt engineering guide
 sdk/                   # Varg SDK (git submodule)
+.claude/skills/        # Agent skills for templates in this repo
 ```
+
+Published gallery templates store their source path (`metadata.source`) in the database relative to this repo,
+e.g. `templates/HQ/h01-giant-can.tsx`. Since the move those files live under `varg_jsx/` with the leading
+`templates/` dropped (`varg_jsx/HQ/h01-giant-can.tsx`).
 
 ## Commands
 
@@ -28,7 +40,7 @@ bun run render <path-to-file.tsx>
 bun run studio <path-to-file.tsx>
 
 # Render with env var override
-SCENE_INDEX=1 bun run render templates/adventure-showcase.tsx
+SCENE_INDEX=1 bun run render varg_jsx/adventure-showcase.tsx
 ```
 
 ## IMPORTANT: Always Render in the Background
@@ -41,7 +53,7 @@ Render jobs take 3-15+ minutes (image generation, video generation, lipsync, ffm
 
 ```bash
 # Run render in background, redirect output to log file
-nohup bun run render hello.tsx > output/render.log 2>&1 &
+nohup bun run render varg_jsx/hello.tsx > output/render.log 2>&1 &
 echo "Render started (PID: $!). Check output/render.log for progress."
 
 # Check if still running
@@ -66,14 +78,14 @@ tail -20 output/render.log
 - The SDK already parallelizes internally (3 concurrent clips, all layers within a clip in parallel)
 - Blocking the main thread wastes the user's time and prevents iteration on prompts/code while waiting
 
-## API — Gateway Only
+## API — varg API Only
 
-All templates use the varg gateway (`createVarg`) — a single `VARG_API_KEY` replaces separate provider keys.
+All templates use `createVarg` from the SDK — a single `VARG_API_KEY` replaces separate provider keys. All calls go through the varg API at `api.varg.ai` (v2).
 
 ```tsx
 /** @jsxImportSource vargai */
 import { Render, Clip, Image, Video } from "vargai/react";
-import { createVarg } from "@vargai/gateway";
+import { createVarg } from "vargai/ai";
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! });
 
@@ -88,7 +100,7 @@ export default (
 );
 ```
 
-### Gateway model methods
+### Model methods
 
 | Method | Example |
 |--------|---------|
@@ -106,7 +118,7 @@ Pass provider-specific options using the `varg` namespace (NOT `fal`):
 Image({ ..., providerOptions: { varg: { resolution: "2K" } } });
 Image({ ..., providerOptions: { varg: { style: "1cb4b936-77bf-4f9a-9039-f3d349a4cdbe" } } });
 
-// WRONG — fal namespace is ignored by gateway
+// WRONG — fal namespace is ignored by the varg API
 Image({ ..., providerOptions: { fal: { resolution: "2K" } } });
 ```
 
@@ -162,6 +174,35 @@ const vid = Video({ ..., duration: 5 });
 <Clip duration={5}>{vid}</Clip>  // correct
 <Clip duration={3}>{vid}</Clip>  // mismatch -- timing issues
 ```
+
+### Video audio is kept by default -- mute it when you add a voiceover
+Since `vargai@0.4.0-alpha120`, a `Video()` keeps its own audio track whenever the
+source actually has one (auto-detected via ffprobe). Models like `kling-v3` and
+`seedance-2-preview` generate audio, so if you also mount a `Speech()` voiceover
+the two mix at full volume and you get two voices at once.
+
+Rule: if a voiceover is mounted anywhere in the tree, set `keepAudio: false` on
+every generated `Video()` it plays over.
+```tsx
+const audio = await Speech({ voice: "josh", model: varg.speechModel("eleven_v3"), children: "..." });
+
+const broll = Video({
+  prompt: { text: "...", images: [scene] },
+  model: varg.videoModel("kling-v3"),
+  keepAudio: false, // MUTED -- the VO owns the audio track
+  duration: 5,
+});
+
+export default (
+  <Render width={1080} height={1920}>
+    <Clip duration={5}>{broll}</Clip>
+    {audio}
+  </Render>
+);
+```
+Conversely, when the video's own dialogue *is* the soundtrack (native-audio
+models, lipsync output), leave the default alone or set `keepAudio: true`
+explicitly, and caption it with `<Captions src={vid.audio} />`.
 
 ### Always set duration on Music
 Without `duration`, ElevenLabs generates ~60s of audio, extending the video. Set it to match total video length:
@@ -232,7 +273,7 @@ const character = Video({ prompt: { text: "speaking", images: [img] }, model: va
 const lipsynced = Video({ prompt: { video: character, audio: voiceover }, model: varg.videoModel("sync-v2-pro") });
 ```
 
-### Gateway defaults
+### Render defaults
 ```tsx
 await render(<Render>...</Render>, {
   output: "video.mp4",

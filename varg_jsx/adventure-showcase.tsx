@@ -12,7 +12,7 @@
 //   SCENE_INDEX=2 bun run render templates/adventure-showcase.tsx   # renders scene 2 (desert)
 
 import { Clip, Image, Music, Packshot, Render, Video } from "vargai/react";
-import { createVarg } from "@vargai/gateway";
+import { createVarg } from "vargai/ai";
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! });
 

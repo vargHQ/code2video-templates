@@ -1,0 +1,20 @@
+{
+  "name": "apple-notes-video",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "playwright": "^1.64.1"
+  },
+  "bin": {
+    "apple-notes-video": "notes-video.ts"
+  },
+  "scripts": {
+    "render": "bun notes-video.ts"
+  }
+}

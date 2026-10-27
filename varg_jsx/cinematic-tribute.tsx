@@ -17,7 +17,7 @@
 //   - Non-sequential ordering: clips arranged for editorial pacing, not generation order
 
 import { Render, Clip, Image, Video, Speech, Music, Captions } from "vargai/react";
-import { createVarg } from "@vargai/gateway";
+import { createVarg } from "vargai/ai";
 
 const varg = createVarg({ apiKey: process.env.VARG_API_KEY! });
 
