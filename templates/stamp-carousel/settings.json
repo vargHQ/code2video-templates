@@ -1,0 +1,17 @@
+{
+  "title": "Cover & Poster",
+  "placeholder": "Add note...",
+  "time": "09:41",
+
+  "variant": "both",
+  "page_bg": "#FDFDFD",
+  "alpha_formats": ["mov", "webm", "hevc"],
+
+  "timing": "reference",
+  "hold": 0.5,
+  "border": "auto",
+
+  "overrides": {
+    "example.png": { "bg": "#6b0009", "note": "Text under this card", "border": "#ffffff", "rot": -1.5 }
+  }
+}
