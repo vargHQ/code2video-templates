@@ -39,6 +39,14 @@ Every template at the root is a folder named after it, holding the code that mak
 |----------|-------|------|
 | [`apple-notes-video/`](apple-notes-video/) | Any text typed live in an iPhone Apple Notes screen | Bun + Chrome + ffmpeg, local, no credits |
 | [`stamp-carousel/`](stamp-carousel/) | iPhone mockup swiping through your pictures as postage stamps | Python + ffmpeg, local, no credits |
+| [`anime-jp-subtitles/`](anime-jp-subtitles/) | Japanese anime subtitles on a video: fansub, telop, tategaki, katakana SFX | HyperFrames, local, no credits |
+| [`anime-triple-split/`](anime-triple-split/) | Anime / manga triple split screen slamming three panels on the beat | HyperFrames, local, no credits |
+| [`varg-music-video/`](varg-music-video/) | AI music video from a song: beat grid, story, Seedance scenes, lyrics | varg API (credits) + HyperFrames |
+| [`varg-previz/`](varg-previz/) | three.js grey-box previz of a multi-shot video, then Seedance video-to-video | Browser + varg API (credits) |
+| [`anime-jp-subtitles/`](anime-jp-subtitles/) | Japanese anime captions over any video: fansub + karaoke, TV telop, tategaki, katakana SFX | Python + HyperFrames + ffmpeg, local, no credits |
+| [`anime-triple-split/`](anime-triple-split/) | Manga three-panel split screen that slams in on the beat | Python + HyperFrames + ffmpeg, local, no credits |
+| [`varg-music-video/`](varg-music-video/) | An AI music video from a song: beat grid, story, Seedance scenes, frame-exact cut, graphics | Agent skill + Python scripts; generations cost credits |
+| [`varg-previz/`](varg-previz/) | A three.js grey-box previz of every shot, then Seedance 2.5 video-to-video per scene | Python + browser, local; generations cost credits |
 
 ### `apple-notes-video/` -- Apple Notes typing video
 
@@ -64,6 +72,56 @@ cd stamp-carousel && bash make.command
 ```
 
 See [`stamp-carousel/README.md`](stamp-carousel/README.md).
+
+### `anime-jp-subtitles/` -- Japanese anime subtitles
+
+<img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_998a68490f83.gif" width="270" alt="Japanese subtitles: fansub karaoke, TV telop, tategaki column, katakana SFX">
+
+Japanese captions in four anime styles from one `subs.json`: fansub lines with an English line and a karaoke colour sweep, Japanese TV "telop" with popping letters and double outlines, a vertical tategaki narration column, and katakana SFX stamps (ドン!!, ゴゴゴ). Dela Gothic One and Noto Sans JP (OFL) are downloaded and subset to the characters used. Renders with HyperFrames, no API calls.
+
+```bash
+cd anime-jp-subtitles && bash make.command
+```
+
+See [`anime-jp-subtitles/README.md`](anime-jp-subtitles/README.md).
+
+### `anime-triple-split/` -- Anime triple split
+
+<img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_52b6b86d50c2.gif" width="270" alt="Triple split, rows layout"> <img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_f4b14bc28468.gif" width="270" alt="Triple split, columns layout">
+
+Three live video panels slam onto screentone paper one per beat, with ink borders, slanted gutters, an impact flash and a katakana SFX stamp, then the page tears away. Layouts: `rows` (9:16), `columns`, `staircase`. Renders with HyperFrames, no API calls.
+
+```bash
+cd anime-triple-split && bash make.command
+```
+
+See [`anime-triple-split/README.md`](anime-triple-split/README.md).
+
+### `varg-music-video/` -- AI music video from a song
+
+<img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_5e78548332d5.gif" width="270" alt="Highlights of a 99 s anime music video made with this workflow">
+
+The workflow behind a 99 s, 36-shot anime music video, as an agent skill with scripts: a song map (beats, downbeats, word timings), a five-move story on the beat grid, character and location anchors, short Seedance scenes with QA, a frame-exact cut on the song, lyrics and graphics in HyperFrames, director rounds, and a small export for Telegram.
+
+```bash
+python3 varg-music-video/scripts/songmap.py assets/song.mp3 --lyrics lyrics.txt --out songmap.json
+python3 varg-music-video/scripts/rough_cut.py storyboard.json place.json renders/cut.mp4 --clips out/ --audio assets/song.mp3
+```
+
+See [`varg-music-video/README.md`](varg-music-video/README.md).
+
+### `varg-previz/` -- three.js previz → Seedance video-to-video
+
+<img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_3a16e502c737.gif" width="480" alt="three.js grey-box previz next to the Seedance 2.5 result made from it">
+
+Block every shot of a multi-shot video in a schematic 3D previz on the timeline (auto cameras from storyboard words, a posable mannequin, START/END camera editing), approve it, then export clean previz clips as `@video1` references and generate one short Seedance 2.5 video-to-video run per scene. Includes story structure, character sheet and scene grouping guides.
+
+```bash
+python3 varg-previz/scripts/new_previz.py ~/videos/my-ad --aspect 9:16
+python3 ~/videos/my-ad/previz/serve.py   # http://localhost:8765/previz/
+```
+
+See [`varg-previz/README.md`](varg-previz/README.md).
 
 ## varg JSX templates (`varg_jsx/`)
 

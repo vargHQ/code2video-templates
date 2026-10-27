@@ -11,6 +11,15 @@ the video, a `README.md` and a `SKILL.md` for agents (read it before using the t
 apple-notes-video/     # Any text -> iPhone Apple Notes typing video. Bun + Chrome + ffmpeg, local, no credits
 stamp-carousel/        # iPhone stamp swipe of the user's pictures, background + alpha outputs. Python + ffmpeg, local.
                        #   Skill: .claude/skills/stamp-carousel
+anime-jp-subtitles/    # Japanese anime captions (fansub+karaoke, telop, tategaki, katakana SFX). Python + HyperFrames, local.
+anime-triple-split/    # Manga three-panel split screen on the beat. Python + HyperFrames, local, no credits
+varg-music-video/      # Skill + scripts: song map, beat-grid storyboard, Seedance scenes, frame-exact cut, graphics (credits)
+varg-previz/           # Skill + three.js grey-box previz app -> Seedance 2.5 video-to-video packs (generation costs credits)
+                       #   Skills for these four: .claude/skills/<name> -> ../../<name> (SKILL.md in each folder)
+anime-jp-subtitles/    # Japanese anime subtitles / telop / katakana SFX over a video. HyperFrames, local
+anime-triple-split/    # Anime / manga triple split screen on the beat. HyperFrames, local
+varg-music-video/      # AI music video from a song (beat grid, Seedance scenes, lyrics). varg API + HyperFrames
+varg-previz/           # three.js grey-box previz -> Seedance video-to-video. Browser + varg API
 varg_jsx/              # varg SDK JSX templates (one .tsx per video, rendered through the varg API, costs credits)
   ├── hello.tsx               # Hello world — simplest possible template
   ├── talking-head.tsx        # Lipsync talking head + captions
