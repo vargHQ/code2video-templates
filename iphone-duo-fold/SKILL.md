@@ -20,13 +20,16 @@ metadata:
   varg.engine: "three.js + headless Chrome + ffmpeg"
   varg.legal: "Downloads Apple's iPhone Duo AR model from apple.com on first run (never bundled); Apple and iPhone are Apple trademarks"
   varg.source: "port of jadon7/iphone-duo (MIT)"
-  varg.preview: "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_695d8ac900d3.webp"
+  varg.preview: "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e5051dc3c9fb.webp"
 ---
 
 # iPhone Duo fold
 
-Everything lives in `iphone-duo-fold/`. `page/` is the three.js scene, `render.ts` turns it into a video,
-`settings.json` holds the defaults, `examples/` has two HTML screens to copy. `README.md` is the user-facing doc.
+Everything lives in this skill's folder, `iphone-duo-fold/` in [vargHQ/templates](https://github.com/vargHQ/templates).
+`page/` is the three.js scene, `render.ts` turns it into a video, `settings.json` holds the defaults, `examples/`
+has screens to copy (`trips-*.html`) and a full look (`aurora.json`). `README.md` is the user-facing doc.
+If the folder is missing, get it with
+`git clone --depth 1 https://github.com/vargHQ/templates && cd templates/iphone-duo-fold`.
 
 ## Gates (read first)
 
@@ -106,6 +109,7 @@ for batches, run in the background (`nohup bun render.ts ... > out/render.log 2>
 | endless fold / unfold loop | `--preset loop` (8.6 s, loops cleanly) |
 | hero spin from the back, then unfold | `--preset reveal` (8 s; shows the Apple logo on the back) |
 | longer / shorter | `--duration 9`: the preset timing stretches to fit |
+| a polished, dark "keynote" look | start from `examples/aurora.json`: `bun render.ts --config examples/aurora.json --screen your.png` |
 | custom choreography | `--keys '{"open":[[0,0],[1,0],[3,180]],"yaw":[[0,-20],[3,0]],"pitch":[[0,6],[3,0]],"zoom":[[0,1],[5,1.06]]}'` |
 | vertical / feed | `--size 1080x1920`, `--size 1080x1350`, `--size 1080x1080`. The open phone is landscape, so in 9:16 it takes the full width and about a third of the height. The folded phone is taller, and a title sits just above the phone. To fill more, add a subtitle, use `--keys '{"zoom":[[0,1.15]]}'`, or prefer 4:5 |
 | dark phone | `--finish night-sky` (default `star-white`) |

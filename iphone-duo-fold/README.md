@@ -1,6 +1,9 @@
 # iPhone Duo fold
 
-<img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_3c5532f7160a.webp" width="560" alt="iPhone Duo fold: a folded phone with a travel app lock screen opens into the full app, the moving half blurring as it turns">
+<img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_78fc62c86c30.webp" width="600" alt="iPhone Duo fold: a folded phone shows a lock screen with an aurora over a desert cabin, then opens to the whole horizon, the moving half blurring as it turns">
+
+[GIF](https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_a8fdfb18c0b9.gif) · [MP4 16:9](https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_d308f2e74e3b.mp4) · [MP4 9:16](https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_30c23042acea.mp4). Rendered from this folder:
+`bun render.ts --config examples/aurora.json` (add `--size 1080x1920` for the vertical cut).
 
 Put your app on Apple's foldable iPhone and render the fold as a video. The phone opens in 3D and the moving half
 blurs and darkens toward its edge as it turns, the effect from Apple's iPhone Duo launch. Your screens stay locked in

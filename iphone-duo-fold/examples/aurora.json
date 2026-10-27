@@ -1,0 +1,12 @@
+{
+  "preset": "unfold",
+  "duration": 7,
+  "screen": "aurora.html",
+  "finish": "star-white",
+  "title": "Unfold the whole view.",
+  "subtitle": "Folded, a lock screen. Open, the entire horizon.",
+  "ink": "#f4f4f6",
+  "background": "radial-gradient(120% 90% at 50% 28%, #1a2236 0%, #0a0d15 55%, #040509 100%)",
+  "size": "1920x1080",
+  "fps": 60
+}
