@@ -17,7 +17,7 @@ cp .env.example .env
 # Edit .env and set VARG_API_KEY
 
 # Render your first video
-bun run render hello.tsx
+bun run render varg_jsx/hello.tsx
 ```
 
 ### API Key
@@ -33,120 +33,144 @@ Get it at [varg.ai](https://varg.ai).
 
 ## Templates
 
-### `hello.tsx` -- Hello World
+Every template at the root is a folder named after it, holding the code that makes the video, a `README.md` and a `SKILL.md` that tells an agent how to use it.
 
-The simplest possible template. Generates a character image and animates it waving hello.
+| Template | Makes | Runs |
+|----------|-------|------|
+| [`apple-notes-video/`](apple-notes-video/) | Any text typed live in an iPhone Apple Notes screen | Bun + Chrome + ffmpeg, local, no credits |
+| [`stamp-carousel/`](stamp-carousel/) | iPhone mockup swiping through your pictures as postage stamps | Python + ffmpeg, local, no credits |
 
-```bash
-bun run render hello.tsx
-```
+### `apple-notes-video/` -- Apple Notes typing video
 
----
+<img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_c18871a17715.webp" width="270" alt="Apple Notes video: a lowercase ad note typed line by line, then an end card">
 
-### `templates/talking-head.tsx` -- Talking Head with Lipsync
-
-Full production pipeline: character generation, video animation, voiceover, lipsync, and auto-generated TikTok-style captions with background music.
-
-```bash
-bun run render templates/talking-head.tsx
-```
-
-**Demonstrates:** Character gen via `soul`, ElevenLabs TTS, lipsync via `sync-v2-pro`, `<Captions>`, `<Music>`
-
----
-
-### `templates/slideshow.tsx` -- Data-Driven Slideshow
-
-Array-based scene generation. Define items in a list, generate images for each, animate and stitch into a video with music.
+Any text becomes a 9:16 video of the note being typed over the iOS keyboard, with key clicks, optional music and an end card.
 
 ```bash
-bun run render templates/slideshow.tsx
+cd apple-notes-video && bun install
+bun notes-video.ts --script examples/goose-style.json --out out/note.mp4
 ```
 
-**Demonstrates:** `Array.map()` pattern, data-driven clips, `<Music>`
+See [`apple-notes-video/README.md`](apple-notes-video/README.md).
 
----
-
-### `templates/layouts.tsx` -- Layout Components
-
-Four layout patterns in one template: split-screen (before/after), 2x2 video grid, comparison slider, and packshot end card.
-
-```bash
-bun run render templates/layouts.tsx
-```
-
-**Demonstrates:** `<Split>`, `<Grid>`, `<Slider>`, `<Packshot>`, `<Title>`
-
----
-
-### `templates/product-showcase.tsx` -- Product Video
-
-4-scene product advertising video following the classic formula: hero shot, features overlay, lifestyle usage, close-up result, and branded packshot.
-
-```bash
-bun run render templates/product-showcase.tsx
-```
-
-**Demonstrates:** Multi-scene composition, `<Title>` for features, `<Packshot>`, voiceover with `<Captions>`, fade transitions, character + product dual-reference prompting
-
----
-
-### `templates/adventure-showcase.tsx` -- Multi-Environment Showcase
-
-A single template that renders different environments (skydiving, arctic expedition, desert journey) based on the `SCENE_INDEX` env var. Each environment has 3 shots with image reference chaining, fast cuts, and a packshot.
-
-```bash
-# Render skydiving (default)
-bun run render templates/adventure-showcase.tsx
-
-# Render arctic expedition
-SCENE_INDEX=1 bun run render templates/adventure-showcase.tsx
-
-# Render desert journey
-SCENE_INDEX=2 bun run render templates/adventure-showcase.tsx
-```
-
-**Demonstrates:** `SCENE_INDEX` env var, reference chaining (A -> B -> C), `cutFrom`/`cutTo` trimming, slow-motion via duration override, `<Packshot>`
-
----
-
-### `templates/fashion-photoshoot.tsx` -- Fashion Catalog
-
-Generates studio and editorial photos of a character wearing a product. Uses dual-reference prompting for character + garment consistency. Supports batch generation via env vars.
-
-```bash
-# Default (generates character + product inline)
-bun run render templates/fashion-photoshoot.tsx
-
-# Batch mode: override character and product
-CHARACTER_URL="https://..." PRODUCT_URL="https://..." bun run render templates/fashion-photoshoot.tsx
-```
-
-**Demonstrates:** Dual-reference prompting (character fidelity + garment fidelity), studio vs editorial photography, env var parameterization for batch runs, 2K resolution, `cutFrom`/`cutTo`
-
----
-
-### `templates/cinematic-tribute.tsx` -- Cinematic Montage
-
-Production-level 8-scene character montage with voiceover, music with ducking, captions, and non-sequential clip ordering.
-
-```bash
-bun run render templates/cinematic-tribute.tsx
-```
-
-**Demonstrates:** 8-scene reference-based character consistency, `cutFrom`/`cutTo` warm-up trimming, fade transitions, `ducking`, `loop`, non-sequential editorial pacing
-
-### `templates/stamp-carousel/` -- Stamp Carousel in an iPhone
+### `stamp-carousel/` -- Stamp Carousel in an iPhone
 
 ![Stamp carousel](https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_dd29b8bcc93a.gif)
 
 Drop pictures in a folder, get an iPhone mockup that swipes through them as perforated stamps, with a screen colour that follows each stamp. Renders on a page background (MP4) and on a transparent background (ProRes 4444 / WebM / HEVC with alpha). Local Python + ffmpeg, no API calls.
 
 ```bash
-cd templates/stamp-carousel && bash make.command
+cd stamp-carousel && bash make.command
 ```
 
-See [`templates/stamp-carousel/README.md`](templates/stamp-carousel/README.md).
+See [`stamp-carousel/README.md`](stamp-carousel/README.md).
+
+## varg JSX templates (`varg_jsx/`)
+
+The original SDK templates: one `.tsx` per video, generated through the varg API with `bun run render varg_jsx/<file>.tsx`. Generations cost credits.
+
+### `varg_jsx/hello.tsx` -- Hello World
+
+The simplest possible template. Generates a character image and animates it waving hello.
+
+```bash
+bun run render varg_jsx/hello.tsx
+```
+
+---
+
+### `varg_jsx/talking-head.tsx` -- Talking Head with Lipsync
+
+Full production pipeline: character generation, video animation, voiceover, lipsync, and auto-generated TikTok-style captions with background music.
+
+```bash
+bun run render varg_jsx/talking-head.tsx
+```
+
+**Demonstrates:** Character gen via `soul`, ElevenLabs TTS, lipsync via `sync-v2-pro`, `<Captions>`, `<Music>`
+
+---
+
+### `varg_jsx/slideshow.tsx` -- Data-Driven Slideshow
+
+Array-based scene generation. Define items in a list, generate images for each, animate and stitch into a video with music.
+
+```bash
+bun run render varg_jsx/slideshow.tsx
+```
+
+**Demonstrates:** `Array.map()` pattern, data-driven clips, `<Music>`
+
+---
+
+### `varg_jsx/layouts.tsx` -- Layout Components
+
+Four layout patterns in one template: split-screen (before/after), 2x2 video grid, comparison slider, and packshot end card.
+
+```bash
+bun run render varg_jsx/layouts.tsx
+```
+
+**Demonstrates:** `<Split>`, `<Grid>`, `<Slider>`, `<Packshot>`, `<Title>`
+
+---
+
+### `varg_jsx/product-showcase.tsx` -- Product Video
+
+4-scene product advertising video following the classic formula: hero shot, features overlay, lifestyle usage, close-up result, and branded packshot.
+
+```bash
+bun run render varg_jsx/product-showcase.tsx
+```
+
+**Demonstrates:** Multi-scene composition, `<Title>` for features, `<Packshot>`, voiceover with `<Captions>`, fade transitions, character + product dual-reference prompting
+
+---
+
+### `varg_jsx/adventure-showcase.tsx` -- Multi-Environment Showcase
+
+A single template that renders different environments (skydiving, arctic expedition, desert journey) based on the `SCENE_INDEX` env var. Each environment has 3 shots with image reference chaining, fast cuts, and a packshot.
+
+```bash
+# Render skydiving (default)
+bun run render varg_jsx/adventure-showcase.tsx
+
+# Render arctic expedition
+SCENE_INDEX=1 bun run render varg_jsx/adventure-showcase.tsx
+
+# Render desert journey
+SCENE_INDEX=2 bun run render varg_jsx/adventure-showcase.tsx
+```
+
+**Demonstrates:** `SCENE_INDEX` env var, reference chaining (A -> B -> C), `cutFrom`/`cutTo` trimming, slow-motion via duration override, `<Packshot>`
+
+---
+
+### `varg_jsx/fashion-photoshoot.tsx` -- Fashion Catalog
+
+Generates studio and editorial photos of a character wearing a product. Uses dual-reference prompting for character + garment consistency. Supports batch generation via env vars.
+
+```bash
+# Default (generates character + product inline)
+bun run render varg_jsx/fashion-photoshoot.tsx
+
+# Batch mode: override character and product
+CHARACTER_URL="https://..." PRODUCT_URL="https://..." bun run render varg_jsx/fashion-photoshoot.tsx
+```
+
+**Demonstrates:** Dual-reference prompting (character fidelity + garment fidelity), studio vs editorial photography, env var parameterization for batch runs, 2K resolution, `cutFrom`/`cutTo`
+
+---
+
+### `varg_jsx/cinematic-tribute.tsx` -- Cinematic Montage
+
+Production-level 8-scene character montage with voiceover, music with ducking, captions, and non-sequential clip ordering.
+
+```bash
+bun run render varg_jsx/cinematic-tribute.tsx
+```
+
+**Demonstrates:** 8-scene reference-based character consistency, `cutFrom`/`cutTo` warm-up trimming, fade transitions, `ducking`, `loop`, non-sequential editorial pacing
 
 ---
 
@@ -321,8 +345,10 @@ Image({ ..., model: varg.imageModel("soul"), providerOptions: { varg: { style: "
 ## Project Structure
 
 ```
-hello.tsx                          # Hello world starter
-templates/
+apple-notes-video/                 # Template: any text -> Apple Notes typing video (README + SKILL.md)
+stamp-carousel/                    # Template: iPhone stamp swipe of your pictures (README; skill in .claude/skills)
+varg_jsx/                          # varg SDK JSX templates, render with `bun run render varg_jsx/<file>.tsx`
+  ├── hello.tsx                    # Hello world starter
   ├── talking-head.tsx             # Lipsync talking head + captions
   ├── slideshow.tsx                # Data-driven array slideshow
   ├── layouts.tsx                  # Split, grid, slider, packshot
@@ -330,7 +356,8 @@ templates/
   ├── adventure-showcase.tsx       # Multi-environment showcase
   ├── fashion-photoshoot.tsx       # Clothing brand photoshoot
   ├── cinematic-tribute.tsx        # 8-scene montage
-  └── VIDEO-PROMPTS.md            # Prompt engineering guide
+  ├── HQ/, clients/, characters/   # More SDK templates
+  └── VIDEO-PROMPTS.md             # Prompt engineering guide
 sdk/                               # varg SDK (git submodule)
 package.json                       # Bun workspace
 tsconfig.json                      # TypeScript + JSX config

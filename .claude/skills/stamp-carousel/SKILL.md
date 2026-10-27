@@ -1,16 +1,16 @@
 ---
 name: stamp-carousel
-description: Render the "stamp carousel" template (templates/stamp-carousel/). An iPhone mockup swipes through the user's pictures shown as perforated postage stamps, with a 3D tilt and a screen gradient that follows each stamp's colour. The output is 1080x1350 at 30 fps, as an MP4 on a page background and/or transparent ProRes 4444, WebM or HEVC. Local Python + ffmpeg, with no API calls or credits. Use when asked for a phone carousel or swipe of posters, covers, stamps or artworks, a "Cover & Poster" style animation, a transparent iPhone mockup video of pictures, or to copy this stamp-swipe animation. Russian triggers include "марки в айфоне", "карусель постеров/обложек", "листание картинок в телефоне" and "айфон с прозрачным фоном".
+description: Render the "stamp carousel" template (stamp-carousel/). An iPhone mockup swipes through the user's pictures shown as perforated postage stamps, with a 3D tilt and a screen gradient that follows each stamp's colour. The output is 1080x1350 at 30 fps, as an MP4 on a page background and/or transparent ProRes 4444, WebM or HEVC. Local Python + ffmpeg, with no API calls or credits. Use when asked for a phone carousel or swipe of posters, covers, stamps or artworks, a "Cover & Poster" style animation, a transparent iPhone mockup video of pictures, or to copy this stamp-swipe animation. Russian triggers include "марки в айфоне", "карусель постеров/обложек", "листание картинок в телефоне" and "айфон с прозрачным фоном".
 ---
 
 # Stamp carousel template
 
-Everything lives in `templates/stamp-carousel/`. Read its `README.md` for the user-facing docs. The engine is `engine/render.py`, and every measured number is in `engine/preset.json`: swipe curve, card geometry, gradient, UI tint.
+Everything lives in `stamp-carousel/`. Read its `README.md` for the user-facing docs. The engine is `engine/render.py`, and every measured number is in `engine/preset.json`: swipe curve, card geometry, gradient, UI tint.
 
 ## Fast path
 
 ```bash
-cd templates/stamp-carousel
+cd stamp-carousel
 cp /path/to/pictures/* images/          # filename order = play order
 bash make.command                        # -> out/stamp-carousel.mp4 + out/stamp-carousel-alpha.{mov,webm} + -alpha-hevc.mov
 ```
