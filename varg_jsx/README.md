@@ -15,8 +15,8 @@ Folders: `ads/` (12 Seedance ad formats, a product-card swap), `HQ/` (production
 
 ```bash
 # Clone with SDK submodule
-git clone --recursive https://github.com/vargHQ/templates.git
-cd templates
+git clone --recursive https://github.com/vargHQ/code2video-templates.git
+cd code2video-templates
 
 # Install dependencies
 bun install

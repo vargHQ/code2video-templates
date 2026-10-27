@@ -1,4 +1,4 @@
-# vargHQ/templates
+# vargHQ/code2video-templates
 
 > Open-source code2video templates for AI agents. Each folder turns a request into a finished MP4. HTML, WebGL and Python templates render locally with HyperFrames, headless Chrome and ffmpeg, without credits. JSX templates generate footage with Seedance, Kling, Veo, nano-banana and ElevenLabs through the varg API.
 
@@ -6,21 +6,21 @@ Read a template's SKILL.md before using it. AGENTS.md has the index and the rule
 
 ## Templates
 
-- [apple-notes-video](https://github.com/vargHQ/templates/tree/master/apple-notes-video): any text typed live in an iPhone Apple Notes screen, 9:16, local, no credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/templates/master/apple-notes-video/SKILL.md)
-- [stamp-carousel](https://github.com/vargHQ/templates/tree/master/stamp-carousel): an iPhone swiping through your pictures as postage stamps, with or without background, local, no credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/templates/master/.claude/skills/stamp-carousel/SKILL.md)
-- [liquid-thorn-logo](https://github.com/vargHQ/templates/tree/master/liquid-thorn-logo): any word as a black-metal chrome logo smeared by a WebGL fluid, any size, local, no credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/templates/master/liquid-thorn-logo/SKILL.md)
-- [anime-jp-subtitles](https://github.com/vargHQ/templates/tree/master/anime-jp-subtitles): Japanese anime captions over any video: fansub + karaoke, TV telop, tategaki, katakana SFX, local, no credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/templates/master/anime-jp-subtitles/SKILL.md)
-- [anime-triple-split](https://github.com/vargHQ/templates/tree/master/anime-triple-split): manga three-panel split screen that slams in on the beat, local, no credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/templates/master/anime-triple-split/SKILL.md)
-- [varg-music-video](https://github.com/vargHQ/templates/tree/master/varg-music-video): AI music video from a song: song map, beat-grid storyboard, Seedance scenes, frame-exact cut, generations cost credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/templates/master/varg-music-video/SKILL.md)
-- [varg-previz](https://github.com/vargHQ/templates/tree/master/varg-previz): three.js grey-box previz of every shot, then Seedance 2.5 video-to-video per scene, generations cost credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/templates/master/varg-previz/SKILL.md)
-- [card-catalog-explainer](https://github.com/vargHQ/templates/tree/master/card-catalog-explainer): a 56 s HyperFrames explainer of a catalog, registry or marketplace, driven by one config.json, local, no credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/templates/master/card-catalog-explainer/SKILL.md)
+- [apple-notes-video](https://github.com/vargHQ/code2video-templates/tree/master/apple-notes-video): any text typed live in an iPhone Apple Notes screen, 9:16, local, no credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/code2video-templates/master/apple-notes-video/SKILL.md)
+- [stamp-carousel](https://github.com/vargHQ/code2video-templates/tree/master/stamp-carousel): an iPhone swiping through your pictures as postage stamps, with or without background, local, no credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/code2video-templates/master/.claude/skills/stamp-carousel/SKILL.md)
+- [liquid-thorn-logo](https://github.com/vargHQ/code2video-templates/tree/master/liquid-thorn-logo): any word as a black-metal chrome logo smeared by a WebGL fluid, any size, local, no credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/code2video-templates/master/liquid-thorn-logo/SKILL.md)
+- [anime-jp-subtitles](https://github.com/vargHQ/code2video-templates/tree/master/anime-jp-subtitles): Japanese anime captions over any video: fansub + karaoke, TV telop, tategaki, katakana SFX, local, no credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/code2video-templates/master/anime-jp-subtitles/SKILL.md)
+- [anime-triple-split](https://github.com/vargHQ/code2video-templates/tree/master/anime-triple-split): manga three-panel split screen that slams in on the beat, local, no credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/code2video-templates/master/anime-triple-split/SKILL.md)
+- [varg-music-video](https://github.com/vargHQ/code2video-templates/tree/master/varg-music-video): AI music video from a song: song map, beat-grid storyboard, Seedance scenes, frame-exact cut, generations cost credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/code2video-templates/master/varg-music-video/SKILL.md)
+- [varg-previz](https://github.com/vargHQ/code2video-templates/tree/master/varg-previz): three.js grey-box previz of every shot, then Seedance 2.5 video-to-video per scene, generations cost credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/code2video-templates/master/varg-previz/SKILL.md)
+- [card-catalog-explainer](https://github.com/vargHQ/code2video-templates/tree/master/card-catalog-explainer): a 56 s HyperFrames explainer of a catalog, registry or marketplace, driven by one config.json, local, no credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/code2video-templates/master/card-catalog-explainer/SKILL.md)
 
 ## AI footage (varg JSX)
 
-- [varg_jsx/README.md](https://raw.githubusercontent.com/vargHQ/templates/master/varg_jsx/README.md): about 50 `.tsx` templates for the varg SDK (UGC ads, talking heads, product videos, explainers). Generation costs varg credits.
+- [varg_jsx/README.md](https://raw.githubusercontent.com/vargHQ/code2video-templates/master/varg_jsx/README.md): about 50 `.tsx` templates for the varg SDK (UGC ads, talking heads, product videos, explainers). Generation costs varg credits.
 
 ## Optional
 
-- [AGENTS.md](https://raw.githubusercontent.com/vargHQ/templates/master/AGENTS.md): index and rules for agents
+- [AGENTS.md](https://raw.githubusercontent.com/vargHQ/code2video-templates/master/AGENTS.md): index and rules for agents
 - [varg model specs](https://varg.ai/models/llms.txt): current model ids, inputs and limits
 - [vargHQ/sdk](https://github.com/vargHQ/sdk): the TypeScript SDK and CLI

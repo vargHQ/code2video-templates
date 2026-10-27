@@ -1,6 +1,6 @@
 # AGENTS.md
 
-vargHQ/templates is a library of code2video templates. Each top-level folder renders a finished MP4 from code.
+vargHQ/code2video-templates is a library of code2video templates. Each top-level folder renders a finished MP4 from code.
 
 ## Use a template
 
