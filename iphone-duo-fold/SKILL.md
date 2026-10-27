@@ -20,7 +20,7 @@ metadata:
   varg.engine: "three.js + headless Chrome + ffmpeg"
   varg.legal: "Downloads Apple's iPhone Duo AR model from apple.com on first run (never bundled); Apple and iPhone are Apple trademarks"
   varg.source: "port of jadon7/iphone-duo (MIT)"
-  varg.preview: "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_69ae20d6759f.webp"
+  varg.preview: "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_695d8ac900d3.webp"
 ---
 
 # iPhone Duo fold
@@ -43,12 +43,13 @@ Everything lives in `iphone-duo-fold/`. `page/` is the three.js scene, `render.t
 
 ```bash
 cd iphone-duo-fold && bun install                                   # once (also fetches the model on first render)
-bun render.ts --screen app.png --still 3.2                          # one frame mid-unfold: check before rendering
+bun render.ts --screen app.png --still 2.4                          # one frame mid-unfold: check before rendering
 bun render.ts --screen app.png --title "Meet Foldy" --out out/foldy.mp4   # 6 s, 1920x1080, 60 fps
 ```
 
-A 6 s 1080p60 clip renders in about 20–40 s on an M-series Mac. Run anything longer than ~30 s in the background:
-`nohup bun render.ts ... > out/render.log 2>&1 &`.
+A still takes about 2 s. A 6 s clip at 1080p60 (either orientation) takes about 20 s on an M-series Mac. The run
+prints the output path as its last line and exits. That path means the file is complete. For clips over ~15 s or
+for batches, run in the background (`nohup bun render.ts ... > out/render.log 2>&1 &`) and wait for that line.
 
 ## Workflow
 
@@ -58,8 +59,18 @@ A 6 s 1080p60 clip renders in about 20–40 s on an M-series Mac. Run anything l
 2. **Prepare the screens** (sizes below). No assets? Write HTML screens: copy `examples/trips-inner.html` and
    `examples/trips-cover.html` and change them. Plain HTML and CSS work best, and so do local images next to the file.
    Or pass `--screen builtin` for a wallpaper with a lock-screen clock.
-3. **Check stills.** Render 2–3 frames and read the PNGs: folded (`--still 0.5`), mid-fold (unfold: `3.2`) and the
-   end. Show them to the user and fix framing, text and crops before the full render.
+3. **Check stills.** Render 3 frames with `--still S --out out/check-S.png` and read the PNGs. Show them to the
+   user and fix framing, text and crops before the full render. Times for each preset at its default length:
+
+   | preset | closed (cover) | mid-fold, blur strongest | open |
+   |---|---|---|---|
+   | `unfold` (6 s) | 0.5 | 2.4 | 5.9 |
+   | `fold` (6 s) | 5.9 | 2.7 | 0.5 |
+   | `loop` (8.6 s) | 4.9 | 2.75 | 0.5 |
+   | `reveal` (8 s) | 3.4 (0–3 s shows the back) | 4.9 | 7.9 |
+
+   With `--duration D`, scale the times by D / default length. The caption fades in over 0.6 s from `--caption-in`
+   (default 0.3 s), so it is missing or faint before about 1 s. Judge its colour on a later frame.
 4. **Render** the clip. Pull 2–3 frames back out to check it:
    `ffmpeg -ss 3 -i out/x.mp4 -frames:v 1 out/check.png`.
 5. **Deliver** the file path(s). For several formats, run once per `--size` with a different `--out`.
@@ -71,8 +82,13 @@ A 6 s 1080p60 clip renders in about 20–40 s on an M-series Mac. Run anything l
 | inner | `--inner` or `--screen` | open | 1.42 : 1 landscape | 2400×1688 | 1200×844 |
 | cover | `--outer` | folded | 0.69 : 1 portrait | 1161×1688 | 581×844 |
 
-- `--screen X` puts one picture across the inner screen, and the cover shows its **right half**. That's the
-  upstream "Custom" mode: the folded view continues straight into the open one. Put what matters folded on the right.
+- `--screen X` puts one picture across the inner screen, and the cover shows half of it: the **right half** by default.
+  That's the upstream "Custom" mode: the folded view continues straight into the open one.
+  - Typical app screenshots have a sidebar and left-aligned text, so the right half cuts words.
+  - Use `--cover-x center` (25–75 % of the width) or `--cover-x left`, or a number from 0 to 0.5 (where the cover
+    window starts). Check the folded still.
+  - Or cut a proper cover yourself and pass both screens:
+    `ffmpeg -i app.png -vf "scale=2400:1688,crop=1161:1688:X:0" cover.png`, then `--inner app.png --outer cover.png`.
 - `--inner X --outer Y` gives each screen its own picture: a lock-screen or widget on the cover, the app inside.
 - X can be `.png/.jpg/.webp/.avif`, a video (`.mp4/.mov/.webm`), an `.html` page or an `https://` URL.
   Videos play from the first frame and hold their last frame, so make them at least as long as the clip. Their
@@ -91,9 +107,9 @@ A 6 s 1080p60 clip renders in about 20–40 s on an M-series Mac. Run anything l
 | hero spin from the back, then unfold | `--preset reveal` (8 s; shows the Apple logo on the back) |
 | longer / shorter | `--duration 9`: the preset timing stretches to fit |
 | custom choreography | `--keys '{"open":[[0,0],[1,0],[3,180]],"yaw":[[0,-20],[3,0]],"pitch":[[0,6],[3,0]],"zoom":[[0,1],[5,1.06]]}'` |
-| vertical / feed | `--size 1080x1920`, `--size 1080x1350`, `--size 1080x1080` |
+| vertical / feed | `--size 1080x1920`, `--size 1080x1350`, `--size 1080x1080`. The open phone is landscape, so in 9:16 it takes the full width and about a third of the height. The folded phone is taller, and a title sits just above the phone. To fill more, add a subtitle, use `--keys '{"zoom":[[0,1.15]]}'`, or prefer 4:5 |
 | dark phone | `--finish night-sky` (default `star-white`) |
-| headline over the phone | `--title "..." --subtitle "..."`, `--caption-at bottom`, `--ink "#fff"` on dark backgrounds |
+| headline over the phone | `--title "..." --subtitle "..."`, `--caption-at bottom`, `--ink "#fff"` on dark backgrounds. `--caption-in 0` shows it from the first frame |
 | background | `--background "#0c0d10"` or any CSS gradient: `--background "linear-gradient(#fdf6ec, #e9dccb)"` |
 | transparent, for editing | `--background transparent --out out/duo.mov` (ProRes 4444) or `.webm` (VP9 alpha) |
 | music | `--audio track.mp3` (cut to length, 1 s fade-out). Generate one with varg `generate_music` if needed |
@@ -102,7 +118,8 @@ A 6 s 1080p60 clip renders in about 20–40 s on an M-series Mac. Run anything l
 Keyframes are `[seconds, value]` pairs with cosine easing between them. `open` is the hinge angle (0 = closed,
 180 = flat), `yaw` and `pitch` orbit the camera in degrees, `zoom` scales the automatic framing. Keys you leave out
 come from the preset. Settings keys: `blur` (72 = upstream), `fill` (how much of the frame the phone takes, 0.78),
-`follow` (1 keeps the folded phone centred), `caption_in` (seconds), `clock` (`{time, date}` for the built-in screen).
+`follow` (1 keeps the folded phone centred), `cover_x`, `caption_in` (start of the 0.6 s fade-in), `clock`
+(`{time, date}` for the built-in screen).
 
 ## Checks
 
@@ -111,8 +128,8 @@ come from the preset. Settings keys: `blur` (72 = upstream), `fill` (how much of
   re-exported the model (the setup prints a SHA-256 warning). Tell the user; the mesh names in `page/duo.js` would need updating.
 - `page error` lines or a blank phone mean WebGL failed. On Linux, rendering falls back to SwiftShader, which
   works but slowly.
-- A cover that looks cropped wrong in `--screen` mode means the key content is in the left half. Move it right, or
-  pass a separate `--outer`.
+- A cover that looks cropped wrong in `--screen` mode means the key content is outside the cover window. Change
+  `--cover-x`, or pass a separate `--outer`.
 
 ## How it works
 

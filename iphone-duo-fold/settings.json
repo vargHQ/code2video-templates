@@ -5,6 +5,7 @@
   "inner": "examples/trips-inner.html",
   "outer": "examples/trips-cover.html",
   "fit": "cover",
+  "cover_x": "right",
   "finish": "star-white",
   "title": "",
   "subtitle": "",

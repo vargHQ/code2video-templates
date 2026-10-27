@@ -37,6 +37,8 @@ const { values: cli } = parseArgs({
     outer: { type: "string" },
     fit: { type: "string" },
     finish: { type: "string" },
+    "cover-x": { type: "string" },
+    "caption-in": { type: "string" },
     title: { type: "string" },
     subtitle: { type: "string" },
     "caption-at": { type: "string" },
@@ -64,14 +66,18 @@ if (cli.help) {
                            ("builtin" = the built-in wallpaper and clock; any screen flag replaces settings.json screens)
   --inner FILE --outer FILE   a picture per screen (cover = what you see while folded)
                            FILE: png/jpg/webp/avif, a video (mp4/mov/webm), an .html page, or an https URL
+  --cover-x right          with --screen: the part shown on the cover. right (default: the folded view continues
+                           into the open one), left, center, or 0..0.5 = where it starts across the picture
   --fit cover|contain      how pictures fill the screens
   --finish NAME            star-white | night-sky (the two colours in Apple's model)
   --title S --subtitle S   caption over the phone     --caption-at top|bottom   --ink #111
+  --caption-in SECONDS     when the caption starts its 0.6 s fade-in (default 0.3; 0 = there from the start)
   --background CSS         "#f2f1ed", a CSS gradient, or "transparent" (renders .mov ProRes 4444 or .webm VP9)
   --keys JSON              custom keyframes, e.g. '{"open":[[0,0],[2,180]],"yaw":[[0,-20],[2,0]]}'
   --size 1920x1080 --fps 60 --crf 16
   --audio FILE             music under the clip (cut to length, 1 s fade-out)
-  --out out/name.mp4       --still SECONDS   write one PNG instead of a video
+  --out FILE               where to write the video (or the PNG with --still)
+  --still SECONDS          write one PNG at that time instead of a video
   --serve                  open a live preview server instead of rendering
   --chrome PATH            Chrome/Chromium binary (or set CHROME_PATH)`);
   process.exit(0);
@@ -98,6 +104,8 @@ const s = {
   outer: screenArg("outer"),
   fit: String(pick(cli.fit, "fit", "cover")),
   finish: String(pick(cli.finish, "finish", "star-white")),
+  coverX: String(pick(cli["cover-x"], "cover_x", "right")),
+  captionIn: Number(pick(cli["caption-in"], "caption_in", "0.3")),
   title: String(pick(cli.title, "title", "")),
   subtitle: String(pick(cli.subtitle, "subtitle", "")),
   captionAt: String(pick(cli["caption-at"], "caption_at", "top")),
@@ -225,8 +233,8 @@ const pageConfig = {
   title: s.title,
   subtitle: s.subtitle,
   caption_at: s.captionAt,
-  caption_in: cfg.caption_in,
-  caption_band: cfg.caption_band,
+  caption_in: s.captionIn,
+  cover_x: s.coverX,
   title_size: cfg.title_size,
   subtitle_size: cfg.subtitle_size,
   ink: s.ink,
@@ -323,12 +331,12 @@ try {
       await ff.stdin.flush();
       if (f % s.fps === s.fps - 1 || f === frames - 1) {
         const sec = (performance.now() - started) / 1000;
-        process.stdout.write(`\rframe ${f + 1}/${frames}  ${((f + 1) / sec).toFixed(1)} fps`);
+        process.stdout.write(`${process.stdout.isTTY ? "\r" : ""}frame ${f + 1}/${frames}  ${((f + 1) / sec).toFixed(1)} fps${process.stdout.isTTY ? "" : "\n"}`);
       }
     }
     ff.stdin.end();
     const code = await ff.exited;
-    process.stdout.write("\n");
+    if (process.stdout.isTTY) process.stdout.write("\n");
     if (code !== 0) throw new Error(`ffmpeg exited with ${code}`);
     console.log(out);
   }
@@ -337,3 +345,5 @@ try {
   server.stop(true);
   rmSync(work, { recursive: true, force: true });
 }
+// puppeteer leaves sockets that keep Bun alive for a while after the video is written; the work is done.
+process.exit(0);

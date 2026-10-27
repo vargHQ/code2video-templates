@@ -1,6 +1,6 @@
 # iPhone Duo fold
 
-<img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_a8638c0ff4e9.webp" width="560" alt="iPhone Duo fold: a folded phone with a travel app lock screen opens into the full app, the moving half blurring as it turns">
+<img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_3c5532f7160a.webp" width="560" alt="iPhone Duo fold: a folded phone with a travel app lock screen opens into the full app, the moving half blurring as it turns">
 
 Put your app on Apple's foldable iPhone and render the fold as a video. The phone opens in 3D and the moving half
 blurs and darkens toward its edge as it turns, the effect from Apple's iPhone Duo launch. Your screens stay locked in
@@ -42,7 +42,8 @@ bun render.ts --help
 | `--duration` | preset length | the preset timing stretches to fit |
 | `--keys JSON` | | your own keyframes: `{"open":[[0,0],[2,180]],"yaw":[[0,-20],[2,0]],"pitch":[[0,6],[2,0]],"zoom":[[0,1],[4,1.05]]}` |
 | `--finish` | `star-white` | or `night-sky`, the two colours in Apple's model |
-| `--title`, `--subtitle` | | caption above the phone (`--caption-at bottom` to move it, `--ink` for its colour) |
+| `--cover-x` | `right` | with `--screen`: which half the cover shows. `right` continues into the open view; also `left`, `center` or 0–0.5 |
+| `--title`, `--subtitle` | | caption hugging the phone (`--caption-at bottom` to move it, `--ink` for its colour, `--caption-in` for when it fades in) |
 | `--background` | `#f2f1ed` | any CSS colour or gradient, or `transparent` |
 | `--size` | `1920x1080` | `1080x1920`, `1080x1350`, `1080x1080`, … |
 | `--fps`, `--crf` | `60`, `16` | `--fps 30` renders twice as fast |
@@ -55,7 +56,7 @@ bun render.ts --help
 - `blur`: blur radius in source pixels, 72 like upstream.
 - `fill`: how much of the frame the phone fills, 0.78.
 - `follow`: 1 keeps the folded phone centred.
-- `caption_in`: when the caption fades in, in seconds.
+- `caption_in`: when the caption's 0.6 s fade-in starts, in seconds (0.3).
 - `clock`: the time and date on the built-in screen.
 
 Keyframes are `[seconds, value]` and ease between each other. `open` is the hinge angle (0 closed, 180 flat),

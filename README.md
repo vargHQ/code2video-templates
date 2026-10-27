@@ -82,7 +82,7 @@ See [`liquid-thorn-logo/README.md`](liquid-thorn-logo/README.md).
 
 ### `iphone-duo-fold/` -- iPhone Duo fold
 
-<img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_a8638c0ff4e9.webp" width="480" alt="iPhone Duo fold: a folded phone opens into a travel app, the moving half blurring as it turns">
+<img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_3c5532f7160a.webp" width="480" alt="iPhone Duo fold: a folded phone opens into a travel app, the moving half blurring as it turns">
 
 Your screens on Apple's foldable iPhone, rendered in 3D. The cover shows while it's folded and the inner screen
 when it's open, and the moving half blurs and darkens as it turns. Screens can be images, screen recordings, HTML

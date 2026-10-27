@@ -57,7 +57,6 @@ const captionAt = cfg.caption_at === 'bottom' ? 'bottom' : 'top';
 const captionIn = Number(cfg.caption_in ?? 0.3);
 if (hasCaption) {
   caption.hidden = false;
-  caption.classList.add(captionAt);
   if (cfg.ink) document.body.style.setProperty('--ink', cfg.ink);
 }
 
@@ -95,10 +94,14 @@ const blurPx = Number(cfg.blur ?? 72); // upstream: 72 source pixels on a 1125 p
 
 // ---------- screens ----------
 // inner + outer given → each screen shows its own picture ("pair").
-// only inner given     → one picture across the inner screen; the cover shows its right half ("single", upstream Custom).
+// only inner given     → one picture across the inner screen; the cover shows its right half ("single", upstream Custom),
+//                        or the part that starts at `cover_x` (0 = left edge, 0.5 = right half).
 // nothing given        → the built-in wallpaper and clock.
 const sources = { inner: cfg.screens?.inner ?? null, outer: cfg.screens?.outer ?? null };
 const single = Boolean(sources.inner) && !sources.outer;
+const COVER_X = { left: 0, center: 0.25, right: 0.5 };
+const coverStart = COVER_X[cfg.cover_x] ?? Number(cfg.cover_x ?? 0.5);
+const coverX = Number.isFinite(coverStart) ? THREE.MathUtils.clamp(coverStart, 0, 0.5) : 0.5;
 const canvases = { inner: makeCanvas(INNER), outer: makeCanvas(OUTER) };
 if (!sources.inner && !sources.outer) {
   const built = defaultScreens(cfg.clock ?? {});
@@ -116,7 +119,7 @@ for (const kind of ['inner', 'outer']) {
     canvas, texture,
     material: new THREE.MeshBasicMaterial({ map: texture, toneMapped: false }),
     frame: { value: (pairOuter ? outerUIFrame : innerUIFrame).clone() },
-    gradient: { value: new THREE.Vector2(pairOuter ? 0 : 0.5, kind === 'inner' ? 0 : 1) },
+    gradient: { value: kind === 'inner' ? new THREE.Vector2(0.5, 0) : single ? new THREE.Vector2(coverX, coverX + 0.5) : new THREE.Vector2(0, 1) },
     pixel: { value: new THREE.Vector2(1 / canvas.width, 1 / canvas.height) },
     blur: { value: blurPx * canvas.height / 1125 },
   };
@@ -341,12 +344,24 @@ function place(t) {
   const c = Math.cos(bend.value);
   phone.position.set(-follow * halfW * (1 - c) / 4, 0, -HINGE_Z);
 
-  // Reserve the caption band, then fit the phone footprint into the rest of the frame.
+  // With a caption, the caption and the open phone form one block centred in the frame, so the title sits right
+  // above (or below) the phone at any aspect. The block is laid out for the open phone, then every pose is fitted
+  // into the room the caption leaves.
   const { width, height } = size;
-  const band = hasCaption ? (cfg.caption_band ?? 0.2) * height : 0;
-  const areaH = height - band;
+  const openFit = fill / (2 * halfW);
+  let centerY = height / 2, maxPhoneH = height * fill;
+  if (hasCaption) {
+    const margin = 0.09 * height, gap = 0.05 * height, capH = caption.offsetHeight;
+    const phoneH = Math.min(width * openFit * 2 * halfH, height - 2 * margin - capH - gap);
+    const top = (height - capH - gap - phoneH) / 2;
+    caption.style.top = `${captionAt === 'top' ? top : top + phoneH + gap}px`;
+    centerY = captionAt === 'top' ? top + capH + gap + phoneH / 2 : top + phoneH / 2;
+    // A folded phone may grow (in portrait it is narrower than the open one) but keeps half the gap to the caption.
+    const room = phoneH / 2 + gap / 2;
+    maxPhoneH = 2 * (captionAt === 'top' ? Math.min(room, height - margin - centerY) : Math.min(centerY - margin, room));
+  }
   const footW = 2 * halfW * (1 - follow) + halfW * (1.5 + 0.5 * c) * follow;
-  const pixelsPerUnit = Math.min(width * fill / footW, areaH * fill / (2 * halfH)) * zoom;
+  const pixelsPerUnit = Math.min(width * fill / footW, maxPhoneH / (2 * halfH)) * zoom;
   const visibleH = height / pixelsPerUnit;
   const distance = visibleH / 2 / Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
   camera.position.set(
@@ -355,8 +370,8 @@ function place(t) {
     distance * Math.cos(yaw) * Math.cos(pitch),
   );
   camera.lookAt(0, 0, 0);
-  const shift = band / 2 * (captionAt === 'top' ? -1 : 1);
-  if (band) camera.setViewOffset(width, height, 0, shift, width, height);
+  const shift = height / 2 - centerY;
+  if (shift) camera.setViewOffset(width, height, 0, shift, width, height);
   else camera.clearViewOffset();
   camera.updateProjectionMatrix();
 

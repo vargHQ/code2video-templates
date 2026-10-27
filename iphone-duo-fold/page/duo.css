@@ -6,8 +6,6 @@ body { background: var(--bg, #f2f1ed); font-family: -apple-system, "SF Pro Displ
 #viewport canvas { display: block; width: 100% !important; height: 100% !important; }
 
 #caption { position: absolute; left: 0; right: 0; text-align: center; padding: 0 6%; color: var(--ink, #111); pointer-events: none; }
-#caption.top { top: var(--cap-offset, 7%); }
-#caption.bottom { bottom: var(--cap-offset, 7%); }
 #title { font-size: var(--title-size, 64px); font-weight: 650; letter-spacing: -0.025em; line-height: 1.05; }
 #subtitle { margin-top: 0.45em; font-size: var(--sub-size, 30px); font-weight: 450; letter-spacing: -0.01em; opacity: 0.62; line-height: 1.25; }
 #title:empty, #subtitle:empty { display: none; }
