@@ -136,6 +136,18 @@ bun run render templates/cinematic-tribute.tsx
 
 **Demonstrates:** 8-scene reference-based character consistency, `cutFrom`/`cutTo` warm-up trimming, fade transitions, `ducking`, `loop`, non-sequential editorial pacing
 
+### `templates/stamp-carousel/` -- Stamp Carousel in an iPhone
+
+![Stamp carousel](https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_dd29b8bcc93a.gif)
+
+Drop pictures in a folder, get an iPhone mockup that swipes through them as perforated stamps, with a screen colour that follows each stamp. Renders on a page background (MP4) and on a transparent background (ProRes 4444 / WebM / HEVC with alpha). Local Python + ffmpeg, no API calls.
+
+```bash
+cd templates/stamp-carousel && bash make.command
+```
+
+See [`templates/stamp-carousel/README.md`](templates/stamp-carousel/README.md).
+
 ---
 
 ## Available Models

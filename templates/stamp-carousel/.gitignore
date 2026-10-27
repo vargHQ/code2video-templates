@@ -1,0 +1,7 @@
+out/*
+!out/.gitkeep
+images/*
+!images/.gitkeep
+engine/.venv/
+engine/__pycache__/
+audio.*
