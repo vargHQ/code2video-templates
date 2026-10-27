@@ -5,7 +5,7 @@
       "slug": "hello",
       "name": "Hello World",
       "description": "Simplest possible varg template. Generates a character portrait and animates a hello wave. Great starting point.",
-      "file": "hello.tsx",
+      "file": "varg_jsx/hello.tsx",
       "category": "demo",
       "tags": ["demo", "minimal", "getting-started"],
       "variables": [
@@ -18,7 +18,7 @@
       "slug": "talking-head",
       "name": "Talking Head",
       "description": "AI-generated talking head with lipsync, voiceover, captions, and background music. Full pipeline: character generation, speech, lipsync, and composition.",
-      "file": "templates/talking-head.tsx",
+      "file": "varg_jsx/talking-head.tsx",
       "category": "ugc",
       "tags": ["talking-head", "lipsync", "captions", "tts", "character", "ugc"],
       "variables": [
@@ -35,7 +35,7 @@
       "slug": "talking-head-with-logo",
       "name": "Talking Head with Logo",
       "description": "Talking head with VEED lipsync plus a picture-in-picture logo overlay. Includes captions and background music.",
-      "file": "templates/talking-head-varg-promo.tsx",
+      "file": "varg_jsx/talking-head-varg-promo.tsx",
       "category": "ugc",
       "tags": ["talking-head", "lipsync", "logo", "overlay", "promo"],
       "variables": [
@@ -53,7 +53,7 @@
       "slug": "product-showcase",
       "name": "Product Showcase",
       "description": "4-scene product advertisement: hero shot, features overlay, lifestyle scene, result reveal, and packshot with CTA. Classic commercial formula.",
-      "file": "templates/product-showcase.tsx",
+      "file": "varg_jsx/product-showcase.tsx",
       "category": "commercial",
       "tags": ["product", "commercial", "showcase", "packshot", "features", "advertisement"],
       "variables": [
@@ -72,7 +72,7 @@
       "slug": "slideshow",
       "name": "Slideshow",
       "description": "Data-driven array slideshow. Define items in a list, generate images for each, animate them, and stitch together with background music and a finale group shot.",
-      "file": "templates/slideshow.tsx",
+      "file": "varg_jsx/slideshow.tsx",
       "category": "creative",
       "tags": ["slideshow", "array", "data-driven", "animation", "montage"],
       "variables": [
@@ -87,7 +87,7 @@
       "slug": "adventure-showcase",
       "name": "Adventure Showcase",
       "description": "Multi-environment character showcase. 3 dramatic shots per scene (wide, close-up, hero) across different environments like skydiving, arctic, desert. Batch-renderable via sceneIndex.",
-      "file": "templates/adventure-showcase.tsx",
+      "file": "varg_jsx/adventure-showcase.tsx",
       "category": "creative",
       "tags": ["adventure", "showcase", "multi-scene", "character", "environments", "packshot"],
       "variables": [
@@ -103,7 +103,7 @@
       "slug": "fashion-photoshoot",
       "name": "Fashion Photoshoot",
       "description": "Studio + editorial fashion photography pipeline. Generates character and garment reference images, then produces 3 studio shots and 3 editorial shots with animation. Dual-reference consistency.",
-      "file": "templates/fashion-photoshoot.tsx",
+      "file": "varg_jsx/fashion-photoshoot.tsx",
       "category": "fashion",
       "tags": ["fashion", "photoshoot", "studio", "editorial", "catalog", "garment", "clothing"],
       "variables": [
@@ -119,7 +119,7 @@
       "slug": "cinematic-tribute",
       "name": "Cinematic Tribute",
       "description": "8-scene character montage with reference-based consistency, per-clip trimming, fade transitions, dramatic voiceover, and TikTok-style captions. Vintage film grain aesthetic.",
-      "file": "templates/cinematic-tribute.tsx",
+      "file": "varg_jsx/cinematic-tribute.tsx",
       "category": "creative",
       "tags": ["cinematic", "tribute", "montage", "character", "voiceover", "captions", "film"],
       "variables": [
@@ -136,7 +136,7 @@
       "slug": "claymation-ugc",
       "name": "Claymation UGC",
       "description": "Plasticine stop-motion product testimonial. 8 scenes with a character-consistent clay figure, voiceover-synced fast cuts, and warm vintage aesthetic.",
-      "file": "templates/claymation-ugc.tsx",
+      "file": "varg_jsx/claymation-ugc.tsx",
       "category": "ugc",
       "tags": ["claymation", "ugc", "stop-motion", "clay", "testimonial", "product"],
       "variables": [
@@ -152,7 +152,7 @@
       "slug": "ugc-testimonial",
       "name": "UGC Testimonial",
       "description": "Influencer-style product testimonial with segmented voiceover, per-segment lipsync, b-roll product intercuts, and TikTok captions. Portrait format for social.",
-      "file": "templates/ugc-testimonial.tsx",
+      "file": "varg_jsx/ugc-testimonial.tsx",
       "category": "ugc",
       "tags": ["ugc", "testimonial", "lipsync", "product", "influencer", "tiktok", "social"],
       "variables": [
@@ -169,7 +169,7 @@
       "slug": "negative-marketing",
       "name": "Negative Marketing",
       "description": "Fear-hook product advertisement. Expert talking head delivers alarming opener, dramatic b-roll intercuts, then product solution reveal with packshot and CTA.",
-      "file": "templates/negative-marketing.tsx",
+      "file": "varg_jsx/negative-marketing.tsx",
       "category": "commercial",
       "tags": ["negative-marketing", "fear-hook", "product", "lipsync", "talking-head", "packshot", "commercial"],
       "variables": [
@@ -186,7 +186,7 @@
       "slug": "podcast",
       "name": "Podcast",
       "description": "Two AI characters in a podcast conversation. Per-line speech generation with different voices, VEED Fabric lipsync, alternating speaker close-ups with fade transitions.",
-      "file": "templates/podcast.tsx",
+      "file": "varg_jsx/podcast.tsx",
       "category": "content",
       "tags": ["podcast", "conversation", "two-speakers", "lipsync", "dialogue"],
       "variables": [
@@ -201,7 +201,7 @@
       "slug": "biodance-reporter",
       "name": "Breaking News Reporter",
       "description": "9-scene breaking news UGC format. Reporter character breaks from serious news delivery to rave about a product. Intercut with crowd b-roll and product closeups.",
-      "file": "templates/HQ/biodance-reporter.tsx",
+      "file": "varg_jsx/HQ/biodance-reporter.tsx",
       "category": "ugc",
       "tags": ["reporter", "news", "ugc", "lipsync", "b-roll", "product", "comedy"],
       "variables": [
@@ -218,7 +218,7 @@
       "slug": "layouts",
       "name": "Layout Demos",
       "description": "Demonstrates Split, Grid, Slider, and Packshot layout components. Four layout patterns in sequence: before/after split, 2x2 grid, side-by-side slider, and branded packshot.",
-      "file": "templates/layouts.tsx",
+      "file": "varg_jsx/layouts.tsx",
       "category": "demo",
       "tags": ["layouts", "split", "grid", "slider", "packshot", "demo"],
       "variables": [
@@ -235,7 +235,7 @@
       "slug": "phota-single",
       "name": "Phota Single Clip",
       "description": "Single image-to-video clip for testing different model combinations. Select image model and video model via variables.",
-      "file": "templates/phota-single.tsx",
+      "file": "varg_jsx/phota-single.tsx",
       "category": "demo",
       "tags": ["phota", "model-test", "single-clip", "comparison"],
       "variables": [
@@ -249,7 +249,7 @@
       "slug": "phota-comparison",
       "name": "Phota Comparison Grid",
       "description": "Full 3x2 model comparison grid. Tests 3 image models x 2 video models = 6 labeled clips with music.",
-      "file": "templates/phota-comparison.tsx",
+      "file": "varg_jsx/phota-comparison.tsx",
       "category": "demo",
       "tags": ["phota", "comparison", "grid", "model-test", "benchmark"],
       "variables": [
@@ -262,7 +262,7 @@
       "slug": "phota-elements",
       "name": "Phota Elements",
       "description": "Image generation + edit showcase. Generates a base scene then transforms into elemental variants (water, lava) and animates as a fast-cut montage.",
-      "file": "templates/phota-elements.tsx",
+      "file": "varg_jsx/phota-elements.tsx",
       "category": "demo",
       "tags": ["phota", "elements", "edit", "transformation", "montage"],
       "variables": [
@@ -275,7 +275,7 @@
       "slug": "sync-comparison",
       "name": "Lipsync Comparison",
       "description": "Lipsync model comparison. Tests VEED Fabric base with optional sync-v2/v3 re-lipsync at different framing distances (extreme-closeup, mid, far).",
-      "file": "templates/sync-comparison.tsx",
+      "file": "varg_jsx/sync-comparison.tsx",
       "category": "demo",
       "tags": ["lipsync", "sync", "comparison", "test", "veed"],
       "variables": [
@@ -289,7 +289,7 @@
       "slug": "sync-v3-test",
       "name": "Sync v3 Test",
       "description": "Full-body lipsync test. Generates a base talking video then re-lipsyncs with different text using sync-v3.",
-      "file": "templates/sync-v3-test.tsx",
+      "file": "varg_jsx/sync-v3-test.tsx",
       "category": "demo",
       "tags": ["sync-v3", "lipsync", "test"],
       "variables": [
