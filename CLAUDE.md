@@ -4,9 +4,15 @@ Public templates and examples for the varg AI video generation SDK.
 
 ## Structure
 
+Main templates live at the root, one folder per template named after it. Each folder holds the code that makes
+the video, a `README.md` and a `SKILL.md` for agents (read it before using the template). New templates go here.
+
 ```
-hello.tsx              # Hello world — simplest possible template
-templates/             # Reusable video templates
+apple-notes-video/     # Any text -> iPhone Apple Notes typing video. Bun + Chrome + ffmpeg, local, no credits
+stamp-carousel/        # iPhone stamp swipe of the user's pictures, background + alpha outputs. Python + ffmpeg, local.
+                       #   Skill: .claude/skills/stamp-carousel
+varg_jsx/              # varg SDK JSX templates (one .tsx per video, rendered through the varg API, costs credits)
+  ├── hello.tsx               # Hello world — simplest possible template
   ├── talking-head.tsx        # Lipsync talking head + captions
   ├── slideshow.tsx           # Data-driven array slideshow
   ├── layouts.tsx             # Split, grid, slider, packshot layouts
@@ -14,12 +20,15 @@ templates/             # Reusable video templates
   ├── adventure-showcase.tsx  # Multi-environment showcase (SCENE_INDEX)
   ├── fashion-photoshoot.tsx  # Clothing brand photoshoot
   ├── cinematic-tribute.tsx   # 8-scene montage
-  ├── stamp-carousel/         # NOT an SDK render: local Python+ffmpeg iPhone stamp swipe of the user's pictures,
-  │                           #   with background + transparent (alpha) outputs. Skill: .claude/skills/stamp-carousel
+  ├── HQ/, clients/, characters/
   └── VIDEO-PROMPTS.md        # Prompt engineering guide
 sdk/                   # Varg SDK (git submodule)
-.claude/skills/        # Agent skills for templates in this repo (read SKILL.md before using the template)
+.claude/skills/        # Agent skills for templates in this repo
 ```
+
+Published gallery templates store their source path (`metadata.source`) in the database relative to this repo,
+e.g. `templates/HQ/h01-giant-can.tsx`. Since the move those files live under `varg_jsx/` with the leading
+`templates/` dropped (`varg_jsx/HQ/h01-giant-can.tsx`).
 
 ## Commands
 
@@ -31,7 +40,7 @@ bun run render <path-to-file.tsx>
 bun run studio <path-to-file.tsx>
 
 # Render with env var override
-SCENE_INDEX=1 bun run render templates/adventure-showcase.tsx
+SCENE_INDEX=1 bun run render varg_jsx/adventure-showcase.tsx
 ```
 
 ## IMPORTANT: Always Render in the Background
@@ -44,7 +53,7 @@ Render jobs take 3-15+ minutes (image generation, video generation, lipsync, ffm
 
 ```bash
 # Run render in background, redirect output to log file
-nohup bun run render hello.tsx > output/render.log 2>&1 &
+nohup bun run render varg_jsx/hello.tsx > output/render.log 2>&1 &
 echo "Render started (PID: $!). Check output/render.log for progress."
 
 # Check if still running
