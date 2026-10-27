@@ -133,6 +133,11 @@ One folder at the root, named after the template, on a `template/<name>` branch:
 - the code and one command that renders it (`make.command`, `bun render.ts`, …);
 - a link in `.claude/skills/<name>` → `../../<name>` and a row in `AGENTS.md`, `llms.txt` and this table.
 
+## License
+
+MIT, see [LICENSE](LICENSE). Third-party code keeps its own license next to it (for example
+`apple-notes-video/vendor/LICENSE-gooseworks`).
+
 ## Links
 
 - [varg.ai](https://varg.ai), the platform; model specs at [varg.ai/models/llms.txt](https://varg.ai/models/llms.txt)
