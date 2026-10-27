@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calisthenics Gym — Blue Silhouettes</title>
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --card: #141414;
+    --border: #222;
+    --text: #e8e8e8;
+    --muted: #888;
+    --accent: #0040ff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    padding: 32px 16px;
+    min-height: 100vh;
+  }
+  header {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    text-align: center;
+  }
+  header h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
+  header p { color: var(--muted); margin-top: 8px; font-size: 14px; }
+  .section-title {
+    max-width: 1200px;
+    margin: 0 auto 16px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+  .section { margin-bottom: 48px; }
+  .grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 16px;
+  }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-6 { grid-template-columns: repeat(3, 1fr); }
+  .triple-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .card:hover { transform: translateY(-2px); border-color: #333; }
+  .card a { display: block; text-decoration: none; color: inherit; }
+  .card img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 9/16;
+    object-fit: cover;
+    background: #000;
+  }
+  .card .label { padding: 12px 14px; font-size: 13px; font-weight: 500; }
+  .card .label small {
+    display: block; color: var(--muted); font-weight: 400;
+    margin-top: 2px; font-size: 11px;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 10px; font-weight: 700;
+    padding: 2px 6px; border-radius: 4px;
+    margin-left: 6px; vertical-align: middle;
+  }
+  .badge-blue { background: var(--accent); color: #fff; }
+  .badge-pose { background: #2a2a2a; color: #ccc; border: 1px solid #333; }
+  .pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .pair:hover { transform: translateY(-2px); border-color: #333; }
+  .pair-item { position: relative; }
+  .pair-item img {
+    width: 100%; display: block; aspect-ratio: 9/16; object-fit: cover; background: #000;
+  }
+  .pair-item .tag {
+    position: absolute; top: 8px; left: 8px;
+    font-size: 10px; font-weight: 700;
+    padding: 3px 8px; border-radius: 4px;
+    backdrop-filter: blur(4px);
+  }
+  .pair-item .tag-pose { background: rgba(0,0,0,0.6); color: #ccc; }
+  .pair-item .tag-sil { background: rgba(0,64,255,0.8); color: #fff; }
+  .pair-item .tag-anim { background: rgba(0,180,0,0.8); color: #fff; }
+  .pair-item video {
+    width: 100%; display: block; aspect-ratio: 9/16; object-fit: cover; background: #000;
+  }
+  .triple {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .triple:hover { transform: translateY(-2px); border-color: #333; }
+  .triple .label {
+    padding: 12px 14px; font-size: 13px; font-weight: 500;
+    grid-column: 1 / -1;
+  }
+  .triple .label small {
+    display: block; color: var(--muted); font-weight: 400;
+    margin-top: 2px; font-size: 11px;
+  }
+  .pair .label {
+    padding: 12px 14px; font-size: 13px; font-weight: 500;
+    grid-column: 1 / -1;
+  }
+  .pair .label small {
+    display: block; color: var(--muted); font-weight: 400;
+    margin-top: 2px; font-size: 11px;
+  }
+  footer {
+    max-width: 1200px; margin: 48px auto 0;
+    text-align: center; color: var(--muted); font-size: 12px;
+  }
+  @media (max-width: 768px) {
+    .grid-3, .grid-6 { grid-template-columns: repeat(2, 1fr); }
+    .triple-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .grid-3, .grid-6, .triple-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Calisthenics Gym — Blue Silhouettes</h1>
+  <p>Один зал · 6 упражнений · поза → синий силуэт → анимация H3 Max</p>
+</header>
+
+<div class="section">
+  <div class="section-title">Зал</div>
+  <div class="grid grid-3">
+    <div class="card">
+      <a href="output/01-gym-empty.png" target="_blank">
+        <img src="output/01-gym-empty.png" alt="Пустой зал" loading="lazy">
+        <div class="label">Пустой зал<small>text-to-image · 9:16</small></div>
+      </a>
+    </div>
+    <div class="card">
+      <a href="output/03-guy-in-gym.png" target="_blank">
+        <img src="output/03-guy-in-gym.png" alt="Парень в зале" loading="lazy">
+        <div class="label">Парень в зале<small>edit: ref + gym</small></div>
+      </a>
+    </div>
+    <div class="card">
+      <a href="output/02-character-blue.png" target="_blank">
+        <img src="output/02-character-blue.png" alt="Персонаж на синем" loading="lazy">
+        <div class="label">Персонаж на синем<small>chroma-key (старый вариант)</small></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">6 упражнений: поза → синий силуэт → анимация H3 Max</div>
+  <div class="triple-grid">
+
+    <div class="triple">
+      <a href="output/pose-pushups.png" target="_blank" class="pair-item">
+        <img src="output/pose-pushups.png" alt="Отжимания поза" loading="lazy">
+        <span class="tag tag-pose">POSE</span>
+      </a>
+      <a href="output/sil-pushups.png" target="_blank" class="pair-item">
+        <img src="output/sil-pushups.png" alt="Отжимания силуэт" loading="lazy">
+        <span class="tag tag-sil">SILHOUETTE</span>
+      </a>
+      <a href="output/anim-pushups.mp4" target="_blank" class="pair-item">
+        <video src="output/anim-pushups.mp4" autoplay loop muted playsinline></video>
+        <span class="tag tag-anim">H3 MAX</span>
+      </a>
+      <div class="label">Отжимания<small>push-ups · pose → silhouette → H3 Max animation</small></div>
+    </div>
+
+    <div class="triple">
+      <a href="output/pose-pullups.png" target="_blank" class="pair-item">
+        <img src="output/pose-pullups.png" alt="Подтягивания поза" loading="lazy">
+        <span class="tag tag-pose">POSE</span>
+      </a>
+      <a href="output/sil-pullups.png" target="_blank" class="pair-item">
+        <img src="output/sil-pullups.png" alt="Подтягивания силуэт" loading="lazy">
+        <span class="tag tag-sil">SILHOUETTE</span>
+      </a>
+      <a href="output/anim-pullups.mp4" target="_blank" class="pair-item">
+        <video src="output/anim-pullups.mp4" autoplay loop muted playsinline></video>
+        <span class="tag tag-anim">H3 MAX</span>
+      </a>
+      <div class="label">Подтягивания<small>pull-ups · pose → silhouette → H3 Max animation</small></div>
+    </div>
+
+    <div class="triple">
+      <a href="output/pose-squats.png" target="_blank" class="pair-item">
+        <img src="output/pose-squats.png" alt="Приседания поза" loading="lazy">
+        <span class="tag tag-pose">POSE</span>
+      </a>
+      <a href="output/sil-squats.png" target="_blank" class="pair-item">
+        <img src="output/sil-squats.png" alt="Приседания силуэт" loading="lazy">
+        <span class="tag tag-sil">SILHOUETTE</span>
+      </a>
+      <a href="output/anim-squats.mp4" target="_blank" class="pair-item">
+        <video src="output/anim-squats.mp4" autoplay loop muted playsinline></video>
+        <span class="tag tag-anim">H3 MAX</span>
+      </a>
+      <div class="label">Приседания<small>squats · pose → silhouette → H3 Max animation</small></div>
+    </div>
+
+    <div class="triple">
+      <a href="output/pose-australian-pullups.png" target="_blank" class="pair-item">
+        <img src="output/pose-australian-pullups.png" alt="Австр. подтягивания поза" loading="lazy">
+        <span class="tag tag-pose">POSE</span>
+      </a>
+      <a href="output/sil-australian-pullups.png" target="_blank" class="pair-item">
+        <img src="output/sil-australian-pullups.png" alt="Австр. подтягивания силуэт" loading="lazy">
+        <span class="tag tag-sil">SILHOUETTE</span>
+      </a>
+      <a href="output/anim-australian-pullups.mp4" target="_blank" class="pair-item">
+        <video src="output/anim-australian-pullups.mp4" autoplay loop muted playsinline></video>
+        <span class="tag tag-anim">H3 MAX</span>
+      </a>
+      <div class="label">Австр. подтягивания<small>australian pull-ups · pose → silhouette → H3 Max animation</small></div>
+    </div>
+
+    <div class="triple">
+      <a href="output/pose-leg-raises.png" target="_blank" class="pair-item">
+        <img src="output/pose-leg-raises.png" alt="Подъём ног поза" loading="lazy">
+        <span class="tag tag-pose">POSE</span>
+      </a>
+      <a href="output/sil-leg-raises.png" target="_blank" class="pair-item">
+        <img src="output/sil-leg-raises.png" alt="Подъём ног силуэт" loading="lazy">
+        <span class="tag tag-sil">SILHOUETTE</span>
+      </a>
+      <a href="output/anim-leg-raises.mp4" target="_blank" class="pair-item">
+        <video src="output/anim-leg-raises.mp4" autoplay loop muted playsinline></video>
+        <span class="tag tag-anim">H3 MAX</span>
+      </a>
+      <div class="label">Подъём ног<small>hanging leg raises · pose → silhouette → H3 Max animation</small></div>
+    </div>
+
+    <div class="triple">
+      <a href="output/pose-dips.png" target="_blank" class="pair-item">
+        <img src="output/pose-dips.png" alt="Брусья поза" loading="lazy">
+        <span class="tag tag-pose">POSE</span>
+      </a>
+      <a href="output/sil-dips.png" target="_blank" class="pair-item">
+        <img src="output/sil-dips.png" alt="Брусья силуэт" loading="lazy">
+        <span class="tag tag-sil">SILHOUETTE</span>
+      </a>
+      <a href="output/anim-dips.mp4" target="_blank" class="pair-item">
+        <video src="output/anim-dips.mp4" autoplay loop muted playsinline></video>
+        <span class="tag tag-anim">H3 MAX</span>
+      </a>
+      <div class="label">Брусья<small>dips · pose → silhouette → H3 Max animation</small></div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  ref.jpg + 01-gym-empty.png → nano-banana-2/edit (12 images) + minimax_h3_max (6 videos) · ~$3.48 total
+</footer>
+
+</body>
+</html>

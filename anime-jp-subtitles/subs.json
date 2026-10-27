@@ -1,0 +1,14 @@
+{
+  "video": "examples/demo.mp4",
+  "width": 1080,
+  "height": 1920,
+  "seed": 7,
+  "out": "out/hf",
+  "subs": [
+    { "style": "fansub", "start": 0.2, "end": 2.45, "jp": "またプロバイダーが落ちた", "en": "Provider died on me again", "karaoke": true },
+    { "style": "telop", "start": 2.5, "end": 4.15, "jp": "シーダンス、どう呼ぶ？", "color": "#ffd23d", "outline": "#e3122f", "size": 112, "shake": true },
+    { "style": "sfx", "start": 2.77, "end": 3.6, "jp": "ドン!!", "x": 90, "y": 250, "size": 230 },
+    { "style": "tategaki", "start": 4.2, "end": 5.95, "jp": "鍵はどこだ、いつなんだ", "side": "right", "size": 66, "y": 260 },
+    { "style": "fansub", "start": 6.0, "end": 7.9, "jp": "ヘイジェン、ヘイジェン、僕の声は？", "en": "HeyGen, HeyGen, where's my voice?", "karaoke": true, "karaoke_color": "#3fe0ff", "size": 68 }
+  ]
+}
