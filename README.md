@@ -39,6 +39,7 @@ Every template at the root is a folder named after it, holding the code that mak
 |----------|-------|------|
 | [`apple-notes-video/`](apple-notes-video/) | Any text typed live in an iPhone Apple Notes screen | Bun + Chrome + ffmpeg, local, no credits |
 | [`stamp-carousel/`](stamp-carousel/) | iPhone mockup swiping through your pictures as postage stamps | Python + ffmpeg, local, no credits |
+| [`liquid-thorn-logo/`](liquid-thorn-logo/) | Any word as a black-metal chrome logo that a cursor smears with liquid | Bun + Chrome + ffmpeg, local, no credits |
 
 ### `apple-notes-video/` -- Apple Notes typing video
 
@@ -64,6 +65,19 @@ cd stamp-carousel && bash make.command
 ```
 
 See [`stamp-carousel/README.md`](stamp-carousel/README.md).
+
+### `liquid-thorn-logo/` -- Liquid thorn logo
+
+<img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_6c082ea3d212.webp" width="480" alt="Liquid thorn logo: a black chrome word with thorns and barbed wire, smeared blue by a cursor">
+
+Any word becomes a black-metal logo in glossy black chrome with thorns, horns and barbed wire. A cursor drags a WebGL fluid through it, so the letters smear and flood with colour, then settle back. Any size, a loopable clip, optional captions and music.
+
+```bash
+cd liquid-thorn-logo && bun install
+bun render.ts --text "NOCTURNE" --size 1080x1920 --logo-only
+```
+
+See [`liquid-thorn-logo/README.md`](liquid-thorn-logo/README.md).
 
 ## varg JSX templates (`varg_jsx/`)
 

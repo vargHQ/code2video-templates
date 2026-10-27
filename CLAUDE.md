@@ -11,6 +11,8 @@ the video, a `README.md` and a `SKILL.md` for agents (read it before using the t
 apple-notes-video/     # Any text -> iPhone Apple Notes typing video. Bun + Chrome + ffmpeg, local, no credits
 stamp-carousel/        # iPhone stamp swipe of the user's pictures, background + alpha outputs. Python + ffmpeg, local.
                        #   Skill: .claude/skills/stamp-carousel
+liquid-thorn-logo/     # Any word -> black-metal chrome logo smeared by a WebGL fluid under a cursor. Bun + Chrome + ffmpeg,
+                       #   local, no credits. Skill: .claude/skills/liquid-thorn-logo -> ../../liquid-thorn-logo
 varg_jsx/              # varg SDK JSX templates (one .tsx per video, rendered through the varg API, costs credits)
   ├── hello.tsx               # Hello world — simplest possible template
   ├── talking-head.tsx        # Lipsync talking head + captions
