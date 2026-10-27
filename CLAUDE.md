@@ -13,6 +13,8 @@ stamp-carousel/        # iPhone stamp swipe of the user's pictures, background +
                        #   Skill: .claude/skills/stamp-carousel
 liquid-thorn-logo/     # Any word -> black-metal chrome logo smeared by a WebGL fluid under a cursor. Bun + Chrome + ffmpeg,
                        #   local, no credits. Skill: .claude/skills/liquid-thorn-logo -> ../../liquid-thorn-logo
+iphone-duo-fold/       # Your screens on the foldable iPhone Duo, unfolding in 3D (three.js port of jadon7/iphone-duo).
+                       #   Bun + Chrome + ffmpeg, local, no credits. Skill: .claude/skills/iphone-duo-fold -> ../../iphone-duo-fold
 varg_jsx/              # varg SDK JSX templates (one .tsx per video, rendered through the varg API, costs credits)
   ├── hello.tsx               # Hello world — simplest possible template
   ├── talking-head.tsx        # Lipsync talking head + captions

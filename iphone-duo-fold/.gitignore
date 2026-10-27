@@ -1,0 +1,12 @@
+node_modules
+out/*
+!out/.gitkeep
+# Apple's AR model is downloaded by `bun render.ts --setup` and must never be committed.
+assets/*
+*.mp4
+*.mov
+*.webm
+*.png
+*.webp
+*.usdz
+.DS_Store

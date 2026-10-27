@@ -1,0 +1,30 @@
+<!doctype html>
+<!-- Example cover screen (folded phone). Rendered at 581×844 CSS px, 2× → 1162×1688. Everything is CSS: no images. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 581px; height: 844px; overflow: hidden; }
+  body { color: #fff; font-family: -apple-system, "SF Pro Display", Inter, system-ui, sans-serif;
+    background: linear-gradient(180deg, #f9b16e 0%, #e2566a 45%, #5b2a6e 80%, #24132f 100%); position: relative; }
+  .sun { position: absolute; width: 150px; height: 150px; border-radius: 50%; right: 70px; top: 300px; background: #ffe6a8; box-shadow: 0 0 90px #ffd27a; }
+  .ridge { position: absolute; left: -10%; right: -10%; bottom: 0; }
+  .time { position: absolute; top: 70px; width: 100%; text-align: center; }
+  .time small { font-size: 21px; font-weight: 600; opacity: 0.9; }
+  .time b { display: block; font-size: 128px; font-weight: 700; letter-spacing: -0.02em; line-height: 1; margin-top: 4px; }
+  .widget { position: absolute; left: 32px; right: 32px; bottom: 36px; padding: 20px 22px; border-radius: 26px;
+    background: rgba(20, 12, 30, 0.42); backdrop-filter: blur(18px); display: flex; align-items: center; gap: 16px; }
+  .dot { width: 54px; height: 54px; border-radius: 16px; background: linear-gradient(140deg, #ff8a3d, #e23a6f); flex: none; }
+  .widget b { font-size: 22px; display: block; }
+  .widget p { font-size: 16px; opacity: 0.8; margin-top: 2px; }
+</style>
+</head>
+<body>
+  <div class="sun"></div>
+  <div class="ridge" style="height: 36%; background: #3b1f4f; clip-path: polygon(0 55%, 22% 25%, 45% 50%, 70% 15%, 100% 45%, 100% 100%, 0 100%);"></div>
+  <div class="ridge" style="height: 22%; background: #24132f; clip-path: polygon(0 40%, 30% 70%, 60% 30%, 100% 60%, 100% 100%, 0 100%);"></div>
+  <div class="time"><small>Friday, October 31</small><b>9:41</b></div>
+  <div class="widget"><div class="dot"></div><div><b>Kyoto in 2 days</b><p>Check-in opens at 10:00</p></div></div>
+</body>
+</html>

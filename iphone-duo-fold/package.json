@@ -1,0 +1,22 @@
+{
+  "name": "iphone-duo-fold",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "puppeteer-core": "^24.0.0",
+    "three": "0.186.0"
+  },
+  "bin": {
+    "iphone-duo-fold": "render.ts"
+  },
+  "scripts": {
+    "render": "bun render.ts",
+    "preview": "bun render.ts --serve"
+  }
+}

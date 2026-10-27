@@ -40,6 +40,7 @@ Every template at the root is a folder named after it, holding the code that mak
 | [`apple-notes-video/`](apple-notes-video/) | Any text typed live in an iPhone Apple Notes screen | Bun + Chrome + ffmpeg, local, no credits |
 | [`stamp-carousel/`](stamp-carousel/) | iPhone mockup swiping through your pictures as postage stamps | Python + ffmpeg, local, no credits |
 | [`liquid-thorn-logo/`](liquid-thorn-logo/) | Any word as a black-metal chrome logo that a cursor smears with liquid | Bun + Chrome + ffmpeg, local, no credits |
+| [`iphone-duo-fold/`](iphone-duo-fold/) | Your app on the foldable iPhone Duo, unfolding in 3D with the progressive-blur fold | Bun + Chrome + ffmpeg, local, no credits |
 
 ### `apple-notes-video/` -- Apple Notes typing video
 
@@ -78,6 +79,22 @@ bun render.ts --text "NOCTURNE" --size 1080x1920 --logo-only
 ```
 
 See [`liquid-thorn-logo/README.md`](liquid-thorn-logo/README.md).
+
+### `iphone-duo-fold/` -- iPhone Duo fold
+
+<img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_a8638c0ff4e9.webp" width="480" alt="iPhone Duo fold: a folded phone opens into a travel app, the moving half blurring as it turns">
+
+Your screens on Apple's foldable iPhone, rendered in 3D. The cover shows while it's folded and the inner screen
+when it's open, and the moving half blurs and darkens as it turns. Screens can be images, screen recordings, HTML
+pages or URLs. Presets: unfold, fold, loop and reveal. Any size, an optional title, and MP4 or transparent ProRes/WebM out. Port of
+[jadon7/iphone-duo](https://github.com/jadon7/iphone-duo) (MIT). Apple's AR model is downloaded on first run, never bundled.
+
+```bash
+cd iphone-duo-fold && bun install
+bun render.ts --screen my-app.png --title "Meet Foldy" --size 1080x1920
+```
+
+See [`iphone-duo-fold/README.md`](iphone-duo-fold/README.md).
 
 ## varg JSX templates (`varg_jsx/`)
 

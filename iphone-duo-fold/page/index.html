@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>iPhone Duo Fold</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./duo.css">
+  <script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+</head>
+<body>
+  <div id="stage">
+    <div id="viewport"></div>
+    <div id="caption" hidden><h1 id="title"></h1><p id="subtitle"></p></div>
+  </div>
+  <div id="scrub" hidden>
+    <button id="play" aria-label="Play or pause">❚❚</button>
+    <input id="time" type="range" min="0" max="1" step="0.001" value="0" aria-label="Time">
+    <span id="clock">0.00 s</span>
+  </div>
+  <script type="module" src="./duo.js"></script>
+</body>
+</html>
