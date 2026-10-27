@@ -23,6 +23,8 @@ liquid-thorn-logo/     # Any word -> black-metal chrome logo smeared by a WebGL 
 card-catalog-explainer/ # Config-driven HyperFrames explainer: a wall of template renders, then one request through a card
                        #   catalog to its source and the mp4. Bun + HyperFrames, local, no credits.
                        #   Skill: .claude/skills/card-catalog-explainer -> ../../card-catalog-explainer
+iphone-duo-fold/       # Your screens on the foldable iPhone Duo, unfolding in 3D (three.js port of jadon7/iphone-duo).
+                       #   Bun + Chrome + ffmpeg, local, no credits. Skill: .claude/skills/iphone-duo-fold -> ../../iphone-duo-fold
 varg_jsx/              # varg SDK JSX templates (one .tsx per video, rendered through the varg API, costs credits)
   ├── hello.tsx               # Hello world — simplest possible template
   ├── talking-head.tsx        # Lipsync talking head + captions

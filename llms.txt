@@ -14,6 +14,7 @@ Read a template's SKILL.md before using it. AGENTS.md has the index and the rule
 - [varg-music-video](https://github.com/vargHQ/code2video-templates/tree/master/varg-music-video): AI music video from a song: song map, beat-grid storyboard, Seedance scenes, frame-exact cut, generations cost credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/code2video-templates/master/varg-music-video/SKILL.md)
 - [varg-previz](https://github.com/vargHQ/code2video-templates/tree/master/varg-previz): three.js grey-box previz of every shot, then Seedance 2.5 video-to-video per scene, generations cost credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/code2video-templates/master/varg-previz/SKILL.md)
 - [card-catalog-explainer](https://github.com/vargHQ/code2video-templates/tree/master/card-catalog-explainer): a 56 s HyperFrames explainer of a catalog, registry or marketplace, driven by one config.json, local, no credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/code2video-templates/master/card-catalog-explainer/SKILL.md)
+- [iphone-duo-fold](https://github.com/vargHQ/code2video-templates/tree/master/iphone-duo-fold): your screens on the foldable iPhone Duo, unfolding in 3D with its progressive blur, any image, screen recording or HTML page, MP4 or transparent, local, no credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/code2video-templates/master/iphone-duo-fold/SKILL.md)
 
 ## AI footage (varg JSX)
 

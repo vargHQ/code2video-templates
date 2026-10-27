@@ -1,0 +1,26 @@
+<!doctype html>
+<!-- One picture for both screens (pass it with --screen). Rendered at 1200×844 CSS px, 2× → 2400×1688.
+     The cover shows the right half, so the clock and the cabin sit there; unfolding reveals the lake on the left.
+     The photo is a varg generation (gpt_image_2_5), hosted on s3.varg.ai. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 844px; overflow: hidden; background: #050812; }
+  body { position: relative; color: #fff; font-family: -apple-system, "SF Pro Display", Inter, system-ui, sans-serif; }
+  img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+  .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3, 6, 18, 0.35) 0%, rgba(3, 6, 18, 0) 32%); }
+  .clock { position: absolute; top: 58px; left: 600px; width: 600px; text-align: center; text-shadow: 0 2px 24px rgba(0, 10, 30, 0.35); }
+  .clock small { font-size: 21px; font-weight: 600; letter-spacing: 0.01em; opacity: 0.9; }
+  .clock b { display: block; margin-top: 2px; font-size: 132px; font-weight: 600; letter-spacing: -0.03em; line-height: 1; opacity: 0.94; }
+  .pill { position: absolute; left: 816px; bottom: 34px; width: 168px; height: 6px; border-radius: 3px; background: rgba(255, 255, 255, 0.85); }
+</style>
+</head>
+<body>
+  <img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_c1f31a85b806.png" alt="">
+  <div class="shade"></div>
+  <div class="clock"><small>Tuesday, October 27</small><b>9:41</b></div>
+  <div class="pill"></div>
+</body>
+</html>

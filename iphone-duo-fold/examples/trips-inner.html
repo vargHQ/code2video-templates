@@ -1,0 +1,69 @@
+<!doctype html>
+<!-- Example inner screen (open phone). Rendered at 1200×844 CSS px, 2× → 2400×1688. Everything is CSS: no images. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 844px; overflow: hidden; }
+  body { background: #0f1115; color: #f4f2ee; font-family: -apple-system, "SF Pro Display", Inter, system-ui, sans-serif;
+    display: grid; grid-template-columns: 300px 1fr; }
+  aside { padding: 64px 28px 28px 40px; background: #16191f; display: flex; flex-direction: column; gap: 26px; }
+  .brand { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; }
+  .brand span { color: #ff8a3d; }
+  nav { display: flex; flex-direction: column; gap: 6px; }
+  nav a { padding: 12px 14px; border-radius: 12px; font-size: 18px; color: #b8b4ac; }
+  nav a.on { background: #262a33; color: #fff; }
+  .next { margin-top: auto; padding: 18px; border-radius: 18px; background: linear-gradient(140deg, #ff8a3d, #e23a6f); }
+  .next small { font-size: 13px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.08em; }
+  .next b { display: block; font-size: 24px; margin-top: 6px; }
+  .next p { font-size: 15px; opacity: 0.9; margin-top: 4px; }
+  main { padding: 64px 48px 32px 40px; display: flex; flex-direction: column; gap: 22px; }
+  header { display: flex; align-items: baseline; justify-content: space-between; }
+  h1 { font-size: 44px; font-weight: 700; letter-spacing: -0.03em; }
+  header span { font-size: 18px; color: #8f8b84; }
+  .grid { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 1.2fr 1fr; gap: 16px; }
+  .card { position: relative; border-radius: 22px; overflow: hidden; padding: 18px; display: flex; flex-direction: column; justify-content: flex-end; }
+  .card.big { grid-column: span 2; }
+  .card b { font-size: 26px; letter-spacing: -0.02em; text-shadow: 0 2px 12px rgba(0,0,0,0.35); }
+  .card p { font-size: 15px; opacity: 0.88; margin-top: 2px; }
+  .sun { position: absolute; border-radius: 50%; }
+  .ridge { position: absolute; left: -10%; right: -10%; bottom: 0; }
+</style>
+</head>
+<body>
+  <aside>
+    <div class="brand">trip<span>fold</span></div>
+    <nav><a class="on">Trips</a><a>Saved places</a><a>Bookings</a><a>Shared albums</a></nav>
+    <div class="next"><small>Next trip</small><b>Kyoto</b><p>Oct 31 · 6 nights</p></div>
+  </aside>
+  <main>
+    <header><h1>Autumn trips</h1><span>4 itineraries</span></header>
+    <div class="grid">
+      <div class="card big" style="background: linear-gradient(180deg, #f9b16e 0%, #e2566a 55%, #5b2a6e 100%);">
+        <div class="sun" style="width: 160px; height: 160px; right: 120px; top: 50px; background: #ffe6a8; box-shadow: 0 0 80px #ffd27a;"></div>
+        <div class="ridge" style="height: 46%; background: #3b1f4f; clip-path: polygon(0 60%, 18% 30%, 32% 52%, 50% 12%, 66% 48%, 80% 28%, 100% 55%, 100% 100%, 0 100%);"></div>
+        <div class="ridge" style="height: 28%; background: #24132f; clip-path: polygon(0 40%, 22% 70%, 40% 30%, 62% 65%, 84% 35%, 100% 60%, 100% 100%, 0 100%);"></div>
+        <b style="position: relative;">Kyoto, Japan</b><p style="position: relative;">Temples, maple valleys, night markets</p>
+      </div>
+      <div class="card" style="background: linear-gradient(200deg, #6ad0ff, #2b6fd6 60%, #18315e);">
+        <div class="sun" style="width: 90px; height: 90px; left: 30px; top: 40px; background: #fff7d6;"></div>
+        <div class="ridge" style="height: 35%; background: #0f2747; clip-path: polygon(0 50%, 30% 20%, 55% 60%, 80% 25%, 100% 45%, 100% 100%, 0 100%);"></div>
+        <b style="position: relative;">Reykjavík</b><p style="position: relative;">Northern lights</p>
+      </div>
+      <div class="card" style="background: linear-gradient(160deg, #ffd56b, #f08a24 60%, #a8401a);">
+        <div class="ridge" style="height: 40%; background: #6a2a12; clip-path: polygon(0 70%, 25% 40%, 50% 65%, 75% 30%, 100% 55%, 100% 100%, 0 100%);"></div>
+        <b style="position: relative;">Lisbon</b><p style="position: relative;">Tiles &amp; trams</p>
+      </div>
+      <div class="card" style="background: linear-gradient(180deg, #8de3c3, #2a9d8f 55%, #164e4f);">
+        <div class="ridge" style="height: 45%; background: #0d3438; clip-path: polygon(0 45%, 20% 70%, 45% 25%, 70% 60%, 100% 30%, 100% 100%, 0 100%);"></div>
+        <b style="position: relative;">Patagonia</b><p style="position: relative;">Glacier treks</p>
+      </div>
+      <div class="card" style="background: linear-gradient(170deg, #c9a7ff, #7a4ddb 60%, #2f1d63);">
+        <div class="sun" style="width: 70px; height: 70px; right: 40px; top: 36px; background: #f3e9ff;"></div>
+        <b style="position: relative;">Marrakesh</b><p style="position: relative;">Riads &amp; souks</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

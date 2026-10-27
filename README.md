@@ -9,13 +9,14 @@ nano-banana and ElevenLabs through [varg](https://varg.ai).
 
 <table>
 <tr>
+<td><a href="iphone-duo-fold/"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_78fc62c86c30.webp" height="240" alt="iphone-duo-fold: a folded phone opens to an aurora panorama, the moving half blurring as it turns"></a></td>
 <td><a href="apple-notes-video/"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_c18871a17715.webp" height="240" alt="apple-notes-video: a note typed live in an iPhone Notes screen"></a></td>
 <td><a href="stamp-carousel/"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_dd29b8bcc93a.gif" height="240" alt="stamp-carousel: an iPhone swiping through pictures as postage stamps"></a></td>
 <td><a href="liquid-thorn-logo/"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_6c082ea3d212.webp" height="240" alt="liquid-thorn-logo: a black chrome logo smeared by a WebGL fluid"></a></td>
 <td><a href="card-catalog-explainer/"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_40bf292107cb.webp" height="240" alt="card-catalog-explainer: a wall of code-made videos"></a></td>
 </tr>
 <tr>
-<td><code>apple-notes-video</code></td><td><code>stamp-carousel</code></td><td><code>liquid-thorn-logo</code></td><td><code>card-catalog-explainer</code></td>
+<td><code>iphone-duo-fold</code></td><td><code>apple-notes-video</code></td><td><code>stamp-carousel</code></td><td><code>liquid-thorn-logo</code></td><td><code>card-catalog-explainer</code></td>
 </tr>
 </table>
 
@@ -43,6 +44,7 @@ My request: <what you want to see>
 | [`stamp-carousel/`](stamp-carousel/) | An iPhone swiping through your pictures as postage stamps, with or without background | Python + ffmpeg | free, local |
 | [`liquid-thorn-logo/`](liquid-thorn-logo/) | Any word as a black-metal chrome logo that a cursor smears with liquid (WebGL) | Bun + Chrome + ffmpeg | free, local |
 | [`card-catalog-explainer/`](card-catalog-explainer/) | A 56 s explainer: a wall of code-made videos, then one request through a card catalog to the MP4 | Bun + HyperFrames + ffmpeg | free, local |
+| [`iphone-duo-fold/`](iphone-duo-fold/) | Your screens on the foldable iPhone Duo, unfolding in 3D with its progressive-blur fold; any image, screen recording or HTML page | Bun + Chrome + ffmpeg | free, local |
 | [`anime-jp-subtitles/`](anime-jp-subtitles/) | Japanese anime captions over any video: fansub + karaoke, TV telop, tategaki, katakana SFX | Python + HyperFrames + ffmpeg | free, local |
 | [`anime-triple-split/`](anime-triple-split/) | Manga three-panel split screen that slams in on the beat | Python + HyperFrames + ffmpeg | free, local |
 | [`varg-music-video/`](varg-music-video/) | An AI music video from a song: beat grid, story, Seedance scenes, frame-exact cut, graphics | Agent skill + Python scripts | credits |
@@ -136,6 +138,22 @@ bun render.ts --text "NOCTURNE" --size 1080x1920 --logo-only
 ```
 
 See [`liquid-thorn-logo/README.md`](liquid-thorn-logo/README.md).
+
+### `iphone-duo-fold/` -- iPhone Duo fold
+
+<img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_78fc62c86c30.webp" width="480" alt="iPhone Duo fold: a folded phone with an aurora lock screen opens to the whole horizon, the moving half blurring as it turns">
+
+Your screens on Apple's foldable iPhone, rendered in 3D. The cover shows while it's folded and the inner screen
+when it's open, and the moving half blurs and darkens as it turns. Screens can be images, screen recordings, HTML
+pages or URLs. Presets: unfold, fold, loop and reveal. Any size, an optional title, and MP4 or transparent ProRes/WebM out. Port of
+[jadon7/iphone-duo](https://github.com/jadon7/iphone-duo) (MIT). Apple's AR model is downloaded on first run, never bundled.
+
+```bash
+cd iphone-duo-fold && bun install
+bun render.ts --screen my-app.png --title "Meet Foldy" --size 1080x1920
+```
+
+See [`iphone-duo-fold/README.md`](iphone-duo-fold/README.md).
 
 ### `card-catalog-explainer/` -- Card catalog explainer
 

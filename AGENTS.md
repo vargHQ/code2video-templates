@@ -18,6 +18,7 @@ vargHQ/code2video-templates is a library of code2video templates. Each top-level
 | `stamp-carousel/` | iPhone swiping through pictures as postage stamps; background or alpha | `bash make.command` | no |
 | `liquid-thorn-logo/` | any word as a black-metal chrome logo smeared by a WebGL fluid | `bun render.ts --text "WORD"` | no |
 | `card-catalog-explainer/` | 56 s explainer: wall of renders, then one request through a card catalog to the MP4; any catalog via `config.json` | `bash make.command` | no |
+| `iphone-duo-fold/` | your screens (image, screen recording, HTML, URL) on the foldable iPhone Duo, unfolding in 3D with its progressive blur; MP4 any size or transparent | `bun render.ts --screen app.png` | no |
 | `anime-jp-subtitles/` | Japanese anime captions over a video: fansub + karaoke, TV telop, tategaki, katakana SFX | `bash make.command` | no |
 | `anime-triple-split/` | manga three-panel split screen that slams in on the beat | `bash make.command` | no |
 | `varg-music-video/` | AI music video from a song: song map, beat-grid storyboard, Seedance scenes, frame-exact cut | agent skill, see `SKILL.md` | yes |
