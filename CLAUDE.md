@@ -1,6 +1,8 @@
-# Varg SDK Templates Repository
+# varg code2video templates
 
-Public templates and examples for the varg AI video generation SDK.
+Public code2video templates: every root folder renders an MP4 from code. `AGENTS.md` is the index agents read
+first; `varg_jsx/` holds the varg SDK JSX templates (AI footage, costs credits), documented below and in
+`varg_jsx/README.md`.
 
 ## Structure
 
