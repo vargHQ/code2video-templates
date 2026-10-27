@@ -16,10 +16,10 @@
     "agent-skills",
     "varg"
   ],
-  "homepage": "https://github.com/vargHQ/templates",
+  "homepage": "https://github.com/vargHQ/code2video-templates",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vargHQ/templates.git"
+    "url": "https://github.com/vargHQ/code2video-templates.git"
   },
   "private": true,
   "type": "module",

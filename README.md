@@ -24,7 +24,7 @@ nano-banana and ElevenLabs through [varg](https://varg.ai).
 Paste this into Claude Code, Codex or Cursor:
 
 ```text
-Clone https://github.com/vargHQ/templates. Pick the template that fits my request from AGENTS.md,
+Clone https://github.com/vargHQ/code2video-templates. Pick the template that fits my request from AGENTS.md,
 read its SKILL.md, ask me for anything it needs, then render the video in the background.
 My request: <what you want to see>
 ```
@@ -173,7 +173,7 @@ heads, product videos, character montages and a 15-minute episode. They generate
 `VARG_API_KEY` and cost credits. Quick start, models and components: [`varg_jsx/README.md`](varg_jsx/README.md).
 
 ```bash
-git clone --recursive https://github.com/vargHQ/templates.git && cd templates && bun install
+git clone --recursive https://github.com/vargHQ/code2video-templates.git && cd code2video-templates && bun install
 cp .env.example .env   # set VARG_API_KEY
 bun run render varg_jsx/hello.tsx
 ```
