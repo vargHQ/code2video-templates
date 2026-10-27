@@ -1,0 +1,18 @@
+{
+  "text": "VARG",
+  "font": "grenze",
+  "color": "#2a14e0",
+  "seed": 7,
+  "cap1": "any text you want",
+  "cap2": "drag your cursor through it",
+  "link": "varg.ai",
+  "logo_only": false,
+  "cursor": true,
+  "path_seed": 1,
+  "size": "1920x1080",
+  "fps": 60,
+  "duration": 10,
+  "crf": 16,
+  "audio": "",
+  "out": ""
+}
