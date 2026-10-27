@@ -1,0 +1,303 @@
+{
+  "version": 1,
+  "templates": [
+    {
+      "slug": "hello",
+      "name": "Hello World",
+      "description": "Simplest possible varg template. Generates a character portrait and animates a hello wave. Great starting point.",
+      "file": "varg_jsx/hello.tsx",
+      "category": "demo",
+      "tags": ["demo", "minimal", "getting-started"],
+      "variables": [
+        { "name": "imagePrompt", "type": "string", "description": "Character image prompt", "required": false, "default": "Editorial portrait photo of a cheerful young woman with bright orange hair" },
+        { "name": "videoPrompt", "type": "string", "description": "Animation motion prompt", "required": false, "default": "She waves hello warmly, smiling at the camera" },
+        { "name": "duration", "type": "number", "description": "Clip duration in seconds", "required": false, "default": 5 }
+      ]
+    },
+    {
+      "slug": "talking-head",
+      "name": "Talking Head",
+      "description": "AI-generated talking head with lipsync, voiceover, captions, and background music. Full pipeline: character generation, speech, lipsync, and composition.",
+      "file": "varg_jsx/talking-head.tsx",
+      "category": "ugc",
+      "tags": ["talking-head", "lipsync", "captions", "tts", "character", "ugc"],
+      "variables": [
+        { "name": "character", "type": "string", "description": "Character appearance description for image generation", "required": true },
+        { "name": "script", "type": "string", "description": "Voiceover text / what the character says", "required": true },
+        { "name": "voice", "type": "string", "description": "ElevenLabs voice name or ID", "required": false, "default": "rachel" },
+        { "name": "musicPrompt", "type": "string", "description": "Background music description", "required": false, "default": "upbeat lo-fi background, chill electronic, podcast vibes" },
+        { "name": "musicVolume", "type": "number", "description": "Music volume 0-1", "required": false, "default": 0.1 },
+        { "name": "captionStyle", "type": "string", "description": "Caption style (tiktok, karaoke, etc.)", "required": false, "default": "tiktok" },
+        { "name": "captionColor", "type": "string", "description": "Caption text color hex", "required": false, "default": "#ffffff" }
+      ]
+    },
+    {
+      "slug": "talking-head-with-logo",
+      "name": "Talking Head with Logo",
+      "description": "Talking head with VEED lipsync plus a picture-in-picture logo overlay. Includes captions and background music.",
+      "file": "varg_jsx/talking-head-varg-promo.tsx",
+      "category": "ugc",
+      "tags": ["talking-head", "lipsync", "logo", "overlay", "promo"],
+      "variables": [
+        { "name": "character", "type": "string", "description": "Character appearance description", "required": true },
+        { "name": "script", "type": "string", "description": "Voiceover text", "required": true },
+        { "name": "voice", "type": "string", "description": "ElevenLabs voice name or ID", "required": false, "default": "rachel" },
+        { "name": "logoUrl", "type": "string", "description": "Logo image URL for picture-in-picture overlay", "required": false },
+        { "name": "musicPrompt", "type": "string", "description": "Background music description", "required": false, "default": "upbeat lo-fi background, chill electronic, podcast vibes" },
+        { "name": "captionStyle", "type": "string", "description": "Caption style", "required": false, "default": "tiktok" },
+        { "name": "captionColor", "type": "string", "description": "Caption text color hex", "required": false, "default": "#ffffff" },
+        { "name": "captionActiveColor", "type": "string", "description": "Active/highlighted caption word color", "required": false, "default": "#22d3ee" }
+      ]
+    },
+    {
+      "slug": "product-showcase",
+      "name": "Product Showcase",
+      "description": "4-scene product advertisement: hero shot, features overlay, lifestyle scene, result reveal, and packshot with CTA. Classic commercial formula.",
+      "file": "varg_jsx/product-showcase.tsx",
+      "category": "commercial",
+      "tags": ["product", "commercial", "showcase", "packshot", "features", "advertisement"],
+      "variables": [
+        { "name": "productName", "type": "string", "description": "Product name for packshot and titles", "required": true },
+        { "name": "productDescription", "type": "string", "description": "Product description for image generation prompts", "required": true },
+        { "name": "script", "type": "string", "description": "Full voiceover script for the commercial", "required": true },
+        { "name": "character", "type": "string", "description": "Character description for lifestyle scenes", "required": false, "default": "young professional woman, late 20s, confident smile" },
+        { "name": "features", "type": "string[]", "description": "List of product features for text overlay", "required": false },
+        { "name": "musicPrompt", "type": "string", "description": "Background music description", "required": false, "default": "uplifting corporate, modern, inspiring, clean" },
+        { "name": "voice", "type": "string", "description": "ElevenLabs voice name or ID", "required": false, "default": "adam" },
+        { "name": "ctaText", "type": "string", "description": "Call-to-action button text", "required": false, "default": "Shop Now" },
+        { "name": "captionStyle", "type": "string", "description": "Caption style", "required": false, "default": "karaoke" }
+      ]
+    },
+    {
+      "slug": "slideshow",
+      "name": "Slideshow",
+      "description": "Data-driven array slideshow. Define items in a list, generate images for each, animate them, and stitch together with background music and a finale group shot.",
+      "file": "varg_jsx/slideshow.tsx",
+      "category": "creative",
+      "tags": ["slideshow", "array", "data-driven", "animation", "montage"],
+      "variables": [
+        { "name": "items", "type": "object[]", "description": "Array of items, each with 'name' and 'prompt' fields for image generation", "required": true },
+        { "name": "style", "type": "string", "description": "Shared visual style applied to all item images", "required": false, "default": "kawaii 3D plush toy style" },
+        { "name": "groupPrompt", "type": "string", "description": "Prompt for the finale group image showing all items together", "required": false },
+        { "name": "musicPrompt", "type": "string", "description": "Background music description", "required": false, "default": "cute baby song, playful xylophone, kawaii vibes" },
+        { "name": "musicVolume", "type": "number", "description": "Music volume 0-1", "required": false, "default": 0.7 }
+      ]
+    },
+    {
+      "slug": "adventure-showcase",
+      "name": "Adventure Showcase",
+      "description": "Multi-environment character showcase. 3 dramatic shots per scene (wide, close-up, hero) across different environments like skydiving, arctic, desert. Batch-renderable via sceneIndex.",
+      "file": "varg_jsx/adventure-showcase.tsx",
+      "category": "creative",
+      "tags": ["adventure", "showcase", "multi-scene", "character", "environments", "packshot"],
+      "variables": [
+        { "name": "character", "type": "string", "description": "Character appearance description for consistent generation", "required": true },
+        { "name": "scenes", "type": "object[]", "description": "Scene definitions: [{name, music, a: {image, motion}, b: {image, motion}, c: {image, motion}}]", "required": false },
+        { "name": "sceneIndex", "type": "number", "description": "Which scene to render (0-indexed). Omit to render scene 0.", "required": false, "default": 0 },
+        { "name": "brandName", "type": "string", "description": "Brand name for packshot", "required": false, "default": "YOUR BRAND" },
+        { "name": "ctaText", "type": "string", "description": "Call-to-action text", "required": false, "default": "Watch More" },
+        { "name": "ctaColor", "type": "string", "description": "CTA button color hex", "required": false, "default": "#FF6B00" }
+      ]
+    },
+    {
+      "slug": "fashion-photoshoot",
+      "name": "Fashion Photoshoot",
+      "description": "Studio + editorial fashion photography pipeline. Generates character and garment reference images, then produces 3 studio shots and 3 editorial shots with animation. Dual-reference consistency.",
+      "file": "varg_jsx/fashion-photoshoot.tsx",
+      "category": "fashion",
+      "tags": ["fashion", "photoshoot", "studio", "editorial", "catalog", "garment", "clothing"],
+      "variables": [
+        { "name": "garment", "type": "string", "description": "Garment description (e.g. 'oversized vintage band tee, washed black, distressed graphic print')", "required": true },
+        { "name": "character", "type": "string", "description": "Model/character description", "required": false, "default": "Young man, mid-20s, sharp cheekbones, tousled dark hair, light stubble" },
+        { "name": "characterUrl", "type": "string", "description": "Pre-generated character image URL (skips character generation)", "required": false },
+        { "name": "productUrl", "type": "string", "description": "Pre-generated garment product image URL (skips garment generation)", "required": false },
+        { "name": "studioShots", "type": "string[]", "description": "Custom studio shot prompt descriptions (3 shots)", "required": false },
+        { "name": "editorialShots", "type": "string[]", "description": "Custom editorial shot prompt descriptions (3 shots)", "required": false }
+      ]
+    },
+    {
+      "slug": "cinematic-tribute",
+      "name": "Cinematic Tribute",
+      "description": "8-scene character montage with reference-based consistency, per-clip trimming, fade transitions, dramatic voiceover, and TikTok-style captions. Vintage film grain aesthetic.",
+      "file": "varg_jsx/cinematic-tribute.tsx",
+      "category": "creative",
+      "tags": ["cinematic", "tribute", "montage", "character", "voiceover", "captions", "film"],
+      "variables": [
+        { "name": "character", "type": "string", "description": "Character appearance description for base portrait", "required": true },
+        { "name": "style", "type": "string", "description": "Visual style (film grain, color tones, etc.)", "required": false, "default": "vintage color photograph, film grain, desaturated warm tones" },
+        { "name": "scenes", "type": "object[]", "description": "Array of scene definitions: [{imagePrompt, motionPrompt}]", "required": false },
+        { "name": "script", "type": "string", "description": "Voiceover narration text", "required": true },
+        { "name": "voice", "type": "string", "description": "ElevenLabs voice name or ID", "required": false, "default": "adam" },
+        { "name": "musicPrompt", "type": "string", "description": "Background music description", "required": false, "default": "dark melancholic rock, heavy reverb, slow tempo, raw electric guitar" },
+        { "name": "captionStyle", "type": "string", "description": "Caption style", "required": false, "default": "tiktok" }
+      ]
+    },
+    {
+      "slug": "claymation-ugc",
+      "name": "Claymation UGC",
+      "description": "Plasticine stop-motion product testimonial. 8 scenes with a character-consistent clay figure, voiceover-synced fast cuts, and warm vintage aesthetic.",
+      "file": "varg_jsx/claymation-ugc.tsx",
+      "category": "ugc",
+      "tags": ["claymation", "ugc", "stop-motion", "clay", "testimonial", "product"],
+      "variables": [
+        { "name": "productName", "type": "string", "description": "Product name (appears on clay bottle prop)", "required": true },
+        { "name": "script", "type": "string", "description": "Voiceover testimonial script", "required": true },
+        { "name": "voice", "type": "string", "description": "ElevenLabs voice name or ID", "required": false, "default": "josh" },
+        { "name": "musicPrompt", "type": "string", "description": "Background music description", "required": false, "default": "quirky upbeat indie, xylophone, handclaps, playful" },
+        { "name": "characterPrompt", "type": "string", "description": "Base clay character description", "required": false, "default": "clay office worker, neat hair, tiny glasses, cheerful expression" },
+        { "name": "captionColor", "type": "string", "description": "Caption text color hex", "required": false, "default": "#DCC8A0" }
+      ]
+    },
+    {
+      "slug": "ugc-testimonial",
+      "name": "UGC Testimonial",
+      "description": "Influencer-style product testimonial with segmented voiceover, per-segment lipsync, b-roll product intercuts, and TikTok captions. Portrait format for social.",
+      "file": "varg_jsx/ugc-testimonial.tsx",
+      "category": "ugc",
+      "tags": ["ugc", "testimonial", "lipsync", "product", "influencer", "tiktok", "social"],
+      "variables": [
+        { "name": "character", "type": "string", "description": "Character/influencer appearance description", "required": true },
+        { "name": "productImageUrl", "type": "string", "description": "Product reference image URL for b-roll generation", "required": true },
+        { "name": "scriptSegments", "type": "string[]", "description": "Voiceover segments (array of phrases, each gets its own lipsync clip)", "required": true },
+        { "name": "voice", "type": "string", "description": "ElevenLabs voice name or ID", "required": false },
+        { "name": "musicPrompt", "type": "string", "description": "Background music description", "required": false, "default": "gentle lo-fi, warm acoustic guitar, soft beats" },
+        { "name": "brollPrompt", "type": "string", "description": "B-roll product closeup image prompt", "required": false },
+        { "name": "captionStyle", "type": "string", "description": "Caption style", "required": false, "default": "tiktok" }
+      ]
+    },
+    {
+      "slug": "negative-marketing",
+      "name": "Negative Marketing",
+      "description": "Fear-hook product advertisement. Expert talking head delivers alarming opener, dramatic b-roll intercuts, then product solution reveal with packshot and CTA.",
+      "file": "varg_jsx/negative-marketing.tsx",
+      "category": "commercial",
+      "tags": ["negative-marketing", "fear-hook", "product", "lipsync", "talking-head", "packshot", "commercial"],
+      "variables": [
+        { "name": "expert", "type": "string", "description": "Expert/presenter character description", "required": true },
+        { "name": "productName", "type": "string", "description": "Product name for packshot", "required": true },
+        { "name": "productImageUrl", "type": "string", "description": "Product reference image URL", "required": true },
+        { "name": "scriptSegments", "type": "string[]", "description": "Voiceover segments (array, first segment is the fear hook)", "required": true },
+        { "name": "ctaText", "type": "string", "description": "Call-to-action text", "required": false, "default": "Upgrade Now" },
+        { "name": "voice", "type": "string", "description": "ElevenLabs voice name or ID", "required": false },
+        { "name": "musicPrompt", "type": "string", "description": "Background music description", "required": false, "default": "dark tense underscore, cinematic, suspenseful, low bass" }
+      ]
+    },
+    {
+      "slug": "podcast",
+      "name": "Podcast",
+      "description": "Two AI characters in a podcast conversation. Per-line speech generation with different voices, VEED Fabric lipsync, alternating speaker close-ups with fade transitions.",
+      "file": "varg_jsx/podcast.tsx",
+      "category": "content",
+      "tags": ["podcast", "conversation", "two-speakers", "lipsync", "dialogue"],
+      "variables": [
+        { "name": "host", "type": "object", "description": "Host character: {description: string, voice: string}", "required": true },
+        { "name": "guest", "type": "object", "description": "Guest character: {description: string, voice: string}", "required": true },
+        { "name": "dialogue", "type": "object[]", "description": "Dialogue lines: [{speaker: 'host'|'guest', text: string}]", "required": true },
+        { "name": "room", "type": "string", "description": "Podcast studio room description", "required": false, "default": "modern minimalist podcast studio, warm lighting, acoustic panels" },
+        { "name": "musicPrompt", "type": "string", "description": "Background music description", "required": false, "default": "lo-fi podcast background, subtle warm pads, minimal" }
+      ]
+    },
+    {
+      "slug": "biodance-reporter",
+      "name": "Breaking News Reporter",
+      "description": "9-scene breaking news UGC format. Reporter character breaks from serious news delivery to rave about a product. Intercut with crowd b-roll and product closeups.",
+      "file": "varg_jsx/HQ/biodance-reporter.tsx",
+      "category": "ugc",
+      "tags": ["reporter", "news", "ugc", "lipsync", "b-roll", "product", "comedy"],
+      "variables": [
+        { "name": "productName", "type": "string", "description": "Product name", "required": true },
+        { "name": "productImageUrl", "type": "string", "description": "Product reference image URL", "required": true },
+        { "name": "scriptSegments", "type": "string[]", "description": "9 voiceover segments (start serious, pivot to product excitement)", "required": true },
+        { "name": "voice", "type": "string", "description": "ElevenLabs voice name or ID", "required": false },
+        { "name": "location", "type": "string", "description": "News report location", "required": false, "default": "Fifth Avenue" },
+        { "name": "musicPrompt", "type": "string", "description": "Background music description", "required": false, "default": "subtle breaking news broadcast underscore, tense, urgent" },
+        { "name": "reporterPrompt", "type": "string", "description": "Reporter character appearance description", "required": false }
+      ]
+    },
+    {
+      "slug": "layouts",
+      "name": "Layout Demos",
+      "description": "Demonstrates Split, Grid, Slider, and Packshot layout components. Four layout patterns in sequence: before/after split, 2x2 grid, side-by-side slider, and branded packshot.",
+      "file": "varg_jsx/layouts.tsx",
+      "category": "demo",
+      "tags": ["layouts", "split", "grid", "slider", "packshot", "demo"],
+      "variables": [
+        { "name": "character", "type": "string", "description": "Character for before/after split comparison", "required": false, "default": "woman in her 30s, brown hair, green eyes" },
+        { "name": "splitTitle", "type": "string", "description": "Title for split section", "required": false, "default": "Monday vs Friday" },
+        { "name": "gridItems", "type": "object[]", "description": "Items for 2x2 grid: [{name, prompt}]", "required": false },
+        { "name": "gridTitle", "type": "string", "description": "Title for grid section", "required": false, "default": "Four Elements" },
+        { "name": "brandName", "type": "string", "description": "Brand name for packshot", "required": false, "default": "YOUR BRAND" },
+        { "name": "ctaText", "type": "string", "description": "CTA text for packshot", "required": false, "default": "Get Started" },
+        { "name": "musicPrompt", "type": "string", "description": "Background music description", "required": false }
+      ]
+    },
+    {
+      "slug": "phota-single",
+      "name": "Phota Single Clip",
+      "description": "Single image-to-video clip for testing different model combinations. Select image model and video model via variables.",
+      "file": "varg_jsx/phota-single.tsx",
+      "category": "demo",
+      "tags": ["phota", "model-test", "single-clip", "comparison"],
+      "variables": [
+        { "name": "imagePrompt", "type": "string", "description": "Image generation prompt", "required": true },
+        { "name": "videoPrompt", "type": "string", "description": "Video animation/motion prompt", "required": true },
+        { "name": "imageModel", "type": "string", "description": "Image model: phota, grok, nb2", "required": false, "default": "phota" },
+        { "name": "videoModel", "type": "string", "description": "Video model: grok, kling", "required": false, "default": "grok" }
+      ]
+    },
+    {
+      "slug": "phota-comparison",
+      "name": "Phota Comparison Grid",
+      "description": "Full 3x2 model comparison grid. Tests 3 image models x 2 video models = 6 labeled clips with music.",
+      "file": "varg_jsx/phota-comparison.tsx",
+      "category": "demo",
+      "tags": ["phota", "comparison", "grid", "model-test", "benchmark"],
+      "variables": [
+        { "name": "imagePrompt", "type": "string", "description": "Image generation prompt (same across all models)", "required": true },
+        { "name": "videoPrompt", "type": "string", "description": "Video animation prompt (same across all models)", "required": true },
+        { "name": "musicPrompt", "type": "string", "description": "Background music description", "required": false, "default": "lo-fi chill beats, warm pads, gentle rhythm" }
+      ]
+    },
+    {
+      "slug": "phota-elements",
+      "name": "Phota Elements",
+      "description": "Image generation + edit showcase. Generates a base scene then transforms into elemental variants (water, lava) and animates as a fast-cut montage.",
+      "file": "varg_jsx/phota-elements.tsx",
+      "category": "demo",
+      "tags": ["phota", "elements", "edit", "transformation", "montage"],
+      "variables": [
+        { "name": "basePrompt", "type": "string", "description": "Base scene image prompt", "required": true },
+        { "name": "transformations", "type": "object[]", "description": "Elemental transformations: [{name, imagePrompt, videoPrompt}]", "required": false },
+        { "name": "musicPrompt", "type": "string", "description": "Background music description", "required": false, "default": "epic cinematic orchestral, building tension, drums" }
+      ]
+    },
+    {
+      "slug": "sync-comparison",
+      "name": "Lipsync Comparison",
+      "description": "Lipsync model comparison. Tests VEED Fabric base with optional sync-v2/v3 re-lipsync at different framing distances (extreme-closeup, mid, far).",
+      "file": "varg_jsx/sync-comparison.tsx",
+      "category": "demo",
+      "tags": ["lipsync", "sync", "comparison", "test", "veed"],
+      "variables": [
+        { "name": "shot", "type": "string", "description": "Framing distance: extreme-closeup, mid, far", "required": false, "default": "mid" },
+        { "name": "syncModel", "type": "string", "description": "Re-lipsync model: none, sync-v2-pro, sync-v3", "required": false, "default": "none" },
+        { "name": "voiceId", "type": "string", "description": "ElevenLabs voice ID", "required": false },
+        { "name": "speechText", "type": "string", "description": "Text for speech generation", "required": false }
+      ]
+    },
+    {
+      "slug": "sync-v3-test",
+      "name": "Sync v3 Test",
+      "description": "Full-body lipsync test. Generates a base talking video then re-lipsyncs with different text using sync-v3.",
+      "file": "varg_jsx/sync-v3-test.tsx",
+      "category": "demo",
+      "tags": ["sync-v3", "lipsync", "test"],
+      "variables": [
+        { "name": "voiceId", "type": "string", "description": "ElevenLabs voice ID", "required": false },
+        { "name": "imageUrl", "type": "string", "description": "Source character image URL", "required": false },
+        { "name": "baseSpeechText", "type": "string", "description": "Base speech text for initial animation", "required": false },
+        { "name": "relipSpeechText", "type": "string", "description": "New text for re-lipsync", "required": false }
+      ]
+    }
+  ]
+}
