@@ -1,0 +1,16 @@
+Act as my motion director, designer, animator, and render engineer. Use Opus 5.5 in Claude Code to build an original product launch film from my brief and assets. Use the eight harness files below; finish with an exported video and editable project.
+
+**1. Turn the brief into a visual idea**
+Read CLAUDE.md and BRIEF.md. Inspect the actual product, screens, logo, and fonts. Ask only essential questions. Propose three distinct opening shots, choose the strongest direction, and record its palette, typography, materials, and composition in STYLE.md. Map supplied files and real UI states in ASSETS.md.
+
+**2. Design every scene before animating**
+Build a 20-second, 1920x1080, 60 fps film unless my brief says otherwise. Use STORYBOARD.md for global frames, object anchors, entrances, reading holds, transitions, and exits. Render one polished still per scene. Demonstrate one real product action and let its result breathe.
+
+**3. Give the film a shared motion language**
+Follow MOTION.md. Derive motion from useCurrentFrame(); centralize timing and layout. Use deliberate easing, restrained overshoot, and object-led transitions. Keep text sharp on holds. Clip reflections to their surfaces. When a mascot belongs in the brief, animate its expression or pose consistently with the supplied artwork.
+
+**4. Build the sound and complete the render**
+Follow SOUND.md: separate music, voice, and effects; align audible hits to visual events. Use permitted audio or deliver an explicitly silent pass. Follow DELIVERY.md to export the full H.264 film, cover, contact sheet, editable source, and exact run commands. Inspect the encoded result and repair specific defects.
+
+**5. Use official implementation resources**
+Read Remotion's coding-agent and animation docs, Claude Code's model and project-memory docs, and the linked references in the harness. Install Remotion Agent Skills with npx remotion skills add when setting up the project. Preserve existing project instructions. Return actual files and name any remaining blocker.

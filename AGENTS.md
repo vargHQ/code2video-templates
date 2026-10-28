@@ -19,6 +19,7 @@ vargHQ/code2video-templates is a library of code2video templates. Each top-level
 | `liquid-thorn-logo/` | any word as a black-metal chrome logo smeared by a WebGL fluid | `bun render.ts --text "WORD"` | no |
 | `card-catalog-explainer/` | 56 s explainer: wall of renders, then one request through a card catalog to the MP4; any catalog via `config.json` | `bash make.command` | no |
 | `iphone-duo-fold/` | your screens (image, screen recording, HTML, URL) on the foldable iPhone Duo, unfolding in 3D with its progressive blur; MP4 any size or transparent | `bun render.ts --screen app.png` | no |
+| `motion-studio-launch-film/` | 20 s product launch film (1920x1080, 60 fps) from real screen captures, built with @beamnxw's Opus 5.5 Motion Studio Harness: brief, style, storyboard, frame-driven camera + cursor, synthesized sound, checked render. Example: varg how to | `bun install && bun run setup && bun run render` | no |
 | `anime-jp-subtitles/` | Japanese anime captions over a video: fansub + karaoke, TV telop, tategaki, katakana SFX | `bash make.command` | no |
 | `anime-triple-split/` | manga three-panel split screen that slams in on the beat | `bash make.command` | no |
 | `varg-music-video/` | AI music video from a song: song map, beat-grid storyboard, Seedance scenes, frame-exact cut | agent skill, see `SKILL.md` | yes |

@@ -1,0 +1,36 @@
+Act as my motion director, art director, animator, sound designer, and render engineer. Build an original product launch film with Opus 5.5 in Claude Code. Work from my brief, screenshots, recordings, logo, and fonts. Deliver an actual rendered film and editable source.
+
+**01 / Establish the production contract**
+Read the project before changing it. Ask up to three essential questions together: product outcome, audience, and missing assets. Default to a 20-second, 1920x1080, 60 fps film with 1200 frames, numbered 0-1199. Use my requested format instead when supplied. Record factual inputs, creative assumptions, and outputs in BRIEF.md.
+
+**02 / Build the eight-file harness**
+Create CLAUDE.md for workflow and decisions; BRIEF.md for the outcome; STYLE.md for visual tokens; ASSETS.md for files and real product states; STORYBOARD.md for scene and event frames; MOTION.md for animation rules; SOUND.md for audio cues; DELIVERY.md for export and handoff. Read each file when its stage begins. Keep one source of truth for timing. Preserve existing project guidance rather than replacing it.
+
+**03 / Choose a direction worth watching**
+Propose three tailored concepts with different opening shots, materials, typography, and transition ideas. Recommend one and proceed unless my brief requires approval. Define palette, fonts, spacing, depth, lighting, and a clear focal point. Use authentic product assets. Keep screenshot content intact and presentation overlays separate. Never invent a feature, result screen, metric, or customer claim.
+
+**04 / Storyboard the actual transformation**
+Build four scenes: hook at 0-3s; product action at 3-8s; visible result at 8-15s; closing at 15-20s. Adapt these timings to the brief. For each scene, specify global frame interval, layout, entrance, landing, reading hold, main action, exit, and outgoing state. Give transitions an owner object that carries the viewer into the next scene. Render polished stills before detailed animation.
+
+**05 / Implement frame-driven motion**
+Add skills once: npx remotion skills add. Use current APIs. Derive every animated property from useCurrentFrame(). Keep layout, durations, and easing editable. Sequence frames are local: convert deliberately when using global events. Use clamped interpolation, tuned springs, and fixed seeds. Avoid wall-clock timers, autonomous CSS animation, and mutable carried state. Use restrained overshoot on containers, sharp typography during holds, and reflections clipped to their surfaces. If a supplied mascot is part of the brief, give it a consistent pose cycle and a clean loop.
+
+**06 / Make sound follow the action**
+Use supplied or permitted music and effects; keep voice, music, and UI sounds separate. Store each cue's global event frame, source trim, audible onset, gain, and fades in SOUND.md. Align the audible hit with the visual event, including silence at the start of a source file. Preserve narration clarity and a clean ending. When audio is unavailable, label the silent pass explicitly.
+
+**07 / Render the finished film**
+Register the Launch composition with the chosen dimensions, fps, and duration. Render using npx remotion render Launch out/final.mp4 --codec=h264. Export an actual cover frame with npx remotion still Launch out/cover.png --frame=540, choosing another frame when it reads better. Build a scene contact sheet. Watch the encoded result; fix specific framing, typography, timing, transition, and sound problems. Recompose additional aspect ratios when requested.
+
+**08 / Deliver a project I can reuse**
+Return final.mp4, cover.png, contact-sheet.png, source, dependency lockfile, permitted assets, and updated harness files. Include exact preview and render commands. Expose copy, colors, assets, and timings for the next launch. If rendering is blocked, retain the project and identify the exact blocker. Finish with files, not just a concept or storyboard.
+
+**Official resources / read before implementation**
+https://www.remotion.dev/docs/ai/coding-agents
+https://www.remotion.dev/docs/animating-properties
+https://www.remotion.dev/docs/sequence
+https://www.remotion.dev/docs/spring
+https://www.remotion.dev/docs/cli/render
+https://www.remotion.dev/docs/cli/still
+https://code.claude.com/docs/en/model-config
+https://code.claude.com/docs/en/memory
+https://github.com/anthropics/skills
