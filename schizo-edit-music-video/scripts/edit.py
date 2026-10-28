@@ -36,6 +36,7 @@ TOTAL = int(cfg["duration"] * FPS)
 TITLE = cfg["title"].upper()
 TITLE_FROM = int(cfg["title_from"] * FPS)
 OUT = a.out or os.path.join(P, f"{cfg['title'].lower()}.mp4")
+os.makedirs(os.path.dirname(os.path.abspath(OUT)), exist_ok=True)
 rnd = random.Random(a.seed if a.seed is not None else cfg.get("seed", 7))
 SX, SY = W / 720, H / 1280  # the effect constants were tuned at 720x1280
 

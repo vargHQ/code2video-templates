@@ -5,5 +5,6 @@ set -euo pipefail
 cd "$(dirname "$0")"
 CONFIG="${1:-examples/halofall.json}"
 NAME="$(basename "$CONFIG" .json)"
+mkdir -p out
 python3 scripts/generate.py "$CONFIG" --project "work/$NAME"
 uv run scripts/edit.py "$CONFIG" --project "work/$NAME" --out "out/$NAME.mp4"
