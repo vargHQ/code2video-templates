@@ -21,6 +21,7 @@ vargHQ/code2video-templates is a library of code2video templates. Each top-level
 | `iphone-duo-fold/` | your screens (image, screen recording, HTML, URL) on the foldable iPhone Duo, unfolding in 3D with its progressive blur; MP4 any size or transparent | `bun render.ts --screen app.png` | no |
 | `anime-jp-subtitles/` | Japanese anime captions over a video: fansub + karaoke, TV telop, tategaki, katakana SFX | `bash make.command` | no |
 | `anime-triple-split/` | manga three-panel split screen that slams in on the beat | `bash make.command` | no |
+| `schizo-edit-music-video/` | 16 s vertical AI music video cut 3-4 times per beat: generated stills + clips in one look, a random effect per shot, the title built letter by letter. Example: Halofall | `bash schizo-edit-music-video/make.command` (example, no credits); new videos via `SKILL.md` | yes (new videos) |
 | `varg-music-video/` | AI music video from a song: song map, beat-grid storyboard, Seedance scenes, frame-exact cut | agent skill, see `SKILL.md` | yes |
 | `varg-previz/` | three.js grey-box previz of every shot, then Seedance 2.5 video-to-video per scene | `python3 varg-previz/scripts/new_previz.py <dir>` | yes |
 | `movie-homage-launch-film/` | 45-60 s cinematic launch film as an homage to one movie scene: three.js styled previz, Seedance v2v, on-camera lip-sync, a music video with a real song, product UI + live site demo + end card in code. Example: varg's "I know how" | `bash movie-homage-launch-film/make.command` (example, no credits); new films via `SKILL.md` | yes (new films) |

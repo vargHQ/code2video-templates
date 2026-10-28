@@ -47,6 +47,7 @@ My request: <what you want to see>
 | [`iphone-duo-fold/`](iphone-duo-fold/) | Your screens on the foldable iPhone Duo, unfolding in 3D with its progressive-blur fold; any image, screen recording or HTML page | Bun + Chrome + ffmpeg | free, local |
 | [`anime-jp-subtitles/`](anime-jp-subtitles/) | Japanese anime captions over any video: fansub + karaoke, TV telop, tategaki, katakana SFX | Python + HyperFrames + ffmpeg | free, local |
 | [`anime-triple-split/`](anime-triple-split/) | Manga three-panel split screen that slams in on the beat | Python + HyperFrames + ffmpeg | free, local |
+| [`schizo-edit-music-video/`](schizo-edit-music-video/) | A 16 s fast-cut AI music video: ~70 cuts on the beat, one effect per shot, the title built letter by letter (example: Halofall) | Python + ffmpeg + varg | free example, credits for new videos |
 | [`varg-music-video/`](varg-music-video/) | An AI music video from a song: beat grid, story, Seedance scenes, frame-exact cut, graphics | Agent skill + Python scripts | credits |
 | [`varg-previz/`](varg-previz/) | A three.js grey-box previz of every shot, then Seedance 2.5 video-to-video per scene | Python + browser, local | credits |
 | [`movie-homage-launch-film/`](movie-homage-launch-film/) | A cinematic launch film as an homage to one movie scene (varg's "I know how"); every prompt, the previz, the Seedance pack and the edit | HyperFrames + varg | credits for new films |

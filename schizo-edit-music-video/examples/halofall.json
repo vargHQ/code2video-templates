@@ -1,0 +1,373 @@
+{
+  "title": "HALOFALL",
+  "duration": 16,
+  "fps": 24,
+  "width": 720,
+  "height": 1280,
+  "title_from": 12.0,
+  "seed": 7,
+  "models": {
+    "image": "google:nano_banana_2",
+    "video": "piapi:seedance-2-mini",
+    "music": "eleven_music_v2_5"
+  },
+  "look": "surreal sacred dark art, deep violet and molten gold palette, high contrast, cinematic lighting, film grain, vertical composition",
+  "clip_tail": "Keep the exact look, colors and composition of the image. No text, no new people.",
+  "music": {
+    "prompt": "Dark ethereal hyperpop / breakcore instrumental, 89 BPM half-time feel with fast chopped 178 BPM breakbeats from the very first second (no intro), wordless angelic female choir pads, glitchy stuttered vocal chops (no words), shimmering harp arpeggios, heavy distorted 808 sub bass, cathedral reverb, sacred and euphoric, constant high energy, short breath at 12 seconds then slams back in for the final hit",
+    "duration": 20,
+    "url": "https://s3.varg.ai/files/72c55813-c0fa-4cf2-9f64-ec4f7ed0e7ae/file_46b8cab9ca65.mp3"
+  },
+  "stills": [
+    {
+      "id": "01",
+      "prompt": "Classical white marble bust of a young woman, a crack across her forehead with molten gold dripping out and glowing, deep violet void background, faint horizontal scanlines",
+      "url": "https://s3.varg.ai/files/72c55813-c0fa-4cf2-9f64-ec4f7ed0e7ae/file_001125a22576.jpg"
+    },
+    {
+      "id": "02",
+      "prompt": "Endless white marble staircase climbing into a swirling violet and molten gold vortex portal in a dark sky, glowing rings of fire",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_413575736dc6.jpg"
+    },
+    {
+      "id": "03",
+      "prompt": "A choir of hooded white marble figures standing in a dark cathedral, a column of white-gold fire rising between them to the ceiling",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e8f27fcc0061.jpg"
+    },
+    {
+      "id": "04",
+      "prompt": "Two pale marble hands cupped together catching a falling beam of golden light, thin concentric halo rings around them, violet void",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_d40bf697b6ed.jpg"
+    },
+    {
+      "id": "05",
+      "prompt": "A golden harp with strings made of light floating in a violet cosmic nebula, sparks drifting",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_5674a5ee4242.jpg"
+    },
+    {
+      "id": "06",
+      "prompt": "Marble face of a man cracking apart into floating shards, warm gold light pouring out from inside the cracks, dark violet background",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_970becee3eff.jpg"
+    },
+    {
+      "id": "07",
+      "prompt": "Marble praying hands slowly dissolving into curling golden smoke, dark violet background, glowing edges",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e1dc763b2945.jpg"
+    },
+    {
+      "id": "08",
+      "prompt": "Marble head of a woman tilted up toward the sky, eyes closed in ecstasy, purple storm sky with golden lightning veins behind",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e55cb34c8465.jpg"
+    },
+    {
+      "id": "09",
+      "prompt": "Extreme close-up of a human eye with a spiraling molten gold iris, thin orbit rings and sacred geometry around it, violet tint",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_74e6de1694fc.jpg"
+    },
+    {
+      "id": "10",
+      "prompt": "A giant angel wing made of broken stained glass shards against a violet storm sky, a tiny dark figure standing below",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_92249e792686.jpg"
+    },
+    {
+      "id": "11",
+      "prompt": "White marble statue face with a glowing golden moth resting on its closed lips, violet background",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_a9395e2e1b18.jpg"
+    },
+    {
+      "id": "12",
+      "prompt": "Glowing golden line-art statue head with a halo of gold petals, pure black background, neon gold outlines",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_3a201c2d838d.jpg"
+    },
+    {
+      "id": "13",
+      "prompt": "A tall tower of stacked golden masks dissolving upward into golden sparks, black background",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_594849177312.jpg"
+    },
+    {
+      "id": "14",
+      "prompt": "Marble bust with a black void hole in the center of its face, a single glowing eye floating inside the void",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_83f77e5f2c06.jpg"
+    },
+    {
+      "id": "15",
+      "prompt": "Symmetrical kaleidoscope mirror of a marble face reflected top and bottom, glowing gold seam in the middle, violet",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_6df0e99b53b2.jpg"
+    },
+    {
+      "id": "16",
+      "prompt": "A blazing golden sun mandala with radiating concentric rings in deep violet space, sacred geometry",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_69b86c38fcb6.jpg"
+    },
+    {
+      "id": "17",
+      "prompt": "Silhouette crowd at a rave inside a gothic cathedral, cathedral of violet light beams and golden lasers from above",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_0b30e1ac0fac.jpg"
+    },
+    {
+      "id": "18",
+      "prompt": "Two marble hands reaching up with fingertips touching, a pillar of golden light shooting up between them, violet cosmos",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_2356117d0c0e.jpg"
+    },
+    {
+      "id": "19",
+      "prompt": "Weeping marble angel statue, tears of liquid glowing gold running down its cheeks, violet background",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_b426f7c7dcfb.jpg"
+    },
+    {
+      "id": "20",
+      "prompt": "A burning golden halo crown floating above an empty marble pedestal, violet smoke",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_c189607ddab9.jpg"
+    },
+    {
+      "id": "21",
+      "prompt": "A figure falling backwards through violet clouds, white wings shedding glowing feathers, gold light from above",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_9668f0c2f943.jpg"
+    },
+    {
+      "id": "22",
+      "prompt": "Ancient stone archway opening onto an endless sea of blinding golden light, violet night around it",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_ef14a2357af6.jpg"
+    },
+    {
+      "id": "23",
+      "prompt": "Cracked white marble torso with glowing golden circuitry lines inside the cracks, violet backdrop",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e367bae1696e.jpg"
+    },
+    {
+      "id": "24",
+      "prompt": "Close-up of marble lips open as if singing, a breath of golden glowing particles flowing out, violet backdrop",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_dbce6a489aed.jpg"
+    },
+    {
+      "id": "25",
+      "prompt": "Inverted negative photo look: a woman's marble face with glowing violet skin and golden eyes, thin light rays across",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_6b51f9469398.jpg"
+    },
+    {
+      "id": "26",
+      "prompt": "Golden ASCII-like particle silhouette of a cathedral spire on pure black, sparse and glitchy",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e0b810a85782.jpg"
+    }
+  ],
+  "clips": [
+    {
+      "id": "02",
+      "prompt": "Fast camera push up the marble staircase into the spinning violet-gold vortex, the fire rings rotate, embers fly past the lens.",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_282aba4104ca.mp4"
+    },
+    {
+      "id": "03",
+      "prompt": "The column of white-gold fire roars and surges upward, flames flicker light across the hooded statues, slow push-in.",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_08ddfe4c0e87.mp4"
+    },
+    {
+      "id": "07",
+      "prompt": "Golden smoke curls and rises from the praying marble hands, sparks drift upward, slow push-in.",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_0b8c425a5484.mp4"
+    },
+    {
+      "id": "08",
+      "prompt": "Golden lightning flashes across the purple storm clouds behind the marble head, light strobes on the stone face, slow orbit.",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_68aa5d18d53d.mp4"
+    },
+    {
+      "id": "09",
+      "prompt": "The molten gold spiral iris spins and pulses, orbit rings rotate, slow crash zoom into the pupil.",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_90d81501e3a7.mp4"
+    },
+    {
+      "id": "13",
+      "prompt": "The golden masks dissolve upward into a storm of golden sparks, camera tilts up the tower.",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_42f849eb19da.mp4"
+    },
+    {
+      "id": "17",
+      "prompt": "The crowd jumps to the beat, golden lasers sweep across the cathedral, violet light beams strobe, handheld camera shake.",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_ad9cb6f16bac.mp4"
+    },
+    {
+      "id": "21",
+      "prompt": "The winged figure tumbles backwards through the violet clouds, glowing feathers scatter toward the camera.",
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_820ffda2b67a.mp4"
+    }
+  ],
+  "sections": [
+    {
+      "from": 0,
+      "shots": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "02",
+        "05"
+      ],
+      "fx": [
+        "none",
+        "none",
+        "scan",
+        "rings",
+        "flash",
+        "rgb",
+        "double"
+      ],
+      "split": [
+        [
+          0.333,
+          0.333,
+          0.334
+        ],
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        [
+          0.5,
+          0.25,
+          0.25
+        ],
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "from": 4,
+      "shots": [
+        "09",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "07",
+        "04",
+        "06",
+        "08"
+      ],
+      "fx": [
+        "none",
+        "scan",
+        "rings",
+        "neg",
+        "rgb",
+        "double",
+        "mirror",
+        "flash"
+      ],
+      "split": [
+        [
+          0.333,
+          0.333,
+          0.334
+        ],
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        [
+          0.5,
+          0.25,
+          0.25
+        ],
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "from": 8,
+      "shots": [
+        "15",
+        "16",
+        "19",
+        "20",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "12",
+        "05",
+        "14"
+      ],
+      "fx": [
+        "neg",
+        "mirror",
+        "kaleido",
+        "pix",
+        "rgb",
+        "rays",
+        "double",
+        "rings",
+        "glitch"
+      ],
+      "split": [
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        [
+          0.333,
+          0.333,
+          0.334
+        ],
+        [
+          0.25,
+          0.25,
+          0.5
+        ]
+      ]
+    },
+    {
+      "from": 12,
+      "shots": [
+        "17",
+        "18",
+        "21",
+        "25",
+        "16",
+        "26",
+        "09",
+        "17",
+        "22"
+      ],
+      "fx": [
+        "rays",
+        "neg",
+        "rings",
+        "pix",
+        "double",
+        "rays",
+        "glitch",
+        "none"
+      ],
+      "split": [
+        [
+          1
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    }
+  ]
+}

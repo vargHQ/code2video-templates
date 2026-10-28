@@ -28,6 +28,9 @@ iphone-duo-fold/       # Your screens on the foldable iPhone Duo, unfolding in 3
 movie-homage-launch-film/ # Cinematic launch film as an homage to one movie scene (example: varg "I know how"): storyboard,
                        #   three.js styled previz, Seedance v2v, lip-sync, music video, edit in HyperFrames. Credits for new films.
                        #   Skill: .claude/skills/movie-homage-launch-film -> ../../movie-homage-launch-film
+schizo-edit-music-video/ # 16 s fast-cut AI music video: stills + clips on varg (generate.py), beat-grid cut with one effect
+                       #   per shot and a letter-by-letter title (edit.py, ffmpeg). Example Halofall renders free.
+                       #   Skill: .claude/skills/schizo-edit-music-video -> ../../schizo-edit-music-video
 varg_jsx/              # varg SDK JSX templates (one .tsx per video, rendered through the varg API, costs credits)
   ├── hello.tsx               # Hello world — simplest possible template
   ├── talking-head.tsx        # Lipsync talking head + captions
