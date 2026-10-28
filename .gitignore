@@ -53,3 +53,9 @@ Thumbs.db
 # Local only: licensed fonts and internal ops scripts
 assets/
 scripts/
+
+# movie-homage-launch-film: downloaded at render time
+movie-homage-launch-film/out/
+movie-homage-launch-film/example/edit/assets/fonts/aeonik-*.woff2
+movie-homage-launch-film/example/edit/.hyperframes/
+movie-homage-launch-film/example/previz/vendor/

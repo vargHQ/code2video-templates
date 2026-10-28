@@ -23,6 +23,7 @@ vargHQ/code2video-templates is a library of code2video templates. Each top-level
 | `anime-triple-split/` | manga three-panel split screen that slams in on the beat | `bash make.command` | no |
 | `varg-music-video/` | AI music video from a song: song map, beat-grid storyboard, Seedance scenes, frame-exact cut | agent skill, see `SKILL.md` | yes |
 | `varg-previz/` | three.js grey-box previz of every shot, then Seedance 2.5 video-to-video per scene | `python3 varg-previz/scripts/new_previz.py <dir>` | yes |
+| `movie-homage-launch-film/` | 45-60 s cinematic launch film as an homage to one movie scene: three.js styled previz, Seedance v2v, on-camera lip-sync, a music video with a real song, product UI + live site demo + end card in code. Example: varg's "I know how" | `bash movie-homage-launch-film/make.command` (example, no credits); new films via `SKILL.md` | yes (new films) |
 | `varg_jsx/*.tsx` | AI-footage videos (Seedance, Kling, Veo, ElevenLabs): UGC ads, talking heads, product videos, explainers | `bun run render varg_jsx/<file>.tsx` | yes |
 
 Skills for Claude Code are linked in `.claude/skills/<name>` → `../../<name>`. `varg_jsx/README.md` documents the JSX
