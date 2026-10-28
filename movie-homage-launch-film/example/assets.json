@@ -1,37 +1,119 @@
 {
  "about": "Every finished asset the example edit plays, on public storage. make.command downloads them into example/edit/assets/. Generated on varg; see ../PROMPTS.md for the prompt and model of each.",
  "files": {
-  "clips/A.mp4":        {"url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_1eeaf2fe33df.mp4", "what": "run A · loft, the android (s01, s04, s06, s13) · seedance_2_5 v2v 720p"},
-  "clips/B2.mp4":       {"url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_8f2bcfdda8ad.mp4", "what": "s02 · hands typing · kling_v4 image-to-video"},
-  "clips/C.mp4":        {"url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_1b8ad33fe843.mp4", "what": "run C · the white construct (first 2.6 s used) · seedance_2_5 v2v"},
-  "clips/s07_sync.mp4": {"url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_9f694a5354fe.mp4", "what": "s07 · operator says 'Show me.' · seedance_2_5 + sync_v3"},
-  "clips/s11_sync.mp4": {"url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_f5272a2c1e53.mp4", "what": "s11 · operator says 'What else?' · seedance_2_5 + sync_v3"},
-  "clips/mv1.mp4":      {"url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_b2c32cfc4010.mp4", "what": "music video 1 · singing MCU · kling_v4 + sync_v3"},
-  "clips/mv2.mp4":      {"url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_837999a8fdac.mp4", "what": "music video 2 · boot in the puddle · seedance_2_5 i2v"},
-  "clips/mv3.mp4":      {"url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_d2b3afc070d3.mp4", "what": "music video 3 · the android films her · seedance_2_5 i2v"},
-  "clips/mv4.mp4":      {"url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_7c952288cee3.mp4", "what": "music video 4 · singing CU · kling_v4 + sync_v3"},
-  "clips/demo_scroll.mp4": {"url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e525b5857005.mp4", "what": "product demo · varg.ai/how-to scrolling, recorded with record-site.mjs"},
-  "audio/cue1_tension.mp3": {"url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_ffb800da297e.mp3", "what": "score 0–21 s · eleven_music_v2_5"},
-  "audio/cue2_drop.mp3":    {"url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_eb2f0f3d42b0.mp3", "what": "score ending · eleven_music_v2_5"},
-  "audio/song_mv.mp3":      {"url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_c89b4b5b941b.mp3", "what": "song 'this one's mine' · eleven_music_v2_5 with vocals"},
-  "audio/vo_agent_know.mp3":{"url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_4bed478b27e7.mp3", "what": "android: 'I know how to make a music video.' · eleven_v3, voice Adam"},
-  "audio/vo_agent_ask.mp3": {"url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_40eadfa28ce9.mp3", "what": "android: 'Just ask.' · eleven_v3, voice Adam"},
-  "previews/karpathy-3d-story.mp4":           {"url": "https://s3.varg.ai/how-to/previews/42da29528d22/karpathy-3d-story.mp4", "what": "real varg how to preview (loading montage)"},
-  "previews/motion-graphics-music-video.mp4": {"url": "https://s3.varg.ai/how-to/previews/de274146ac77/motion-graphics-music-video.mp4", "what": "real varg how to preview"},
-  "previews/varg-previz.mp4":                 {"url": "https://s3.varg.ai/how-to/previews/2f5f2d60dd84/varg-previz.mp4", "what": "real varg how to preview"},
-  "previews/video-shotcraft.mp4":             {"url": "https://s3.varg.ai/how-to/previews/2debe3ea5ec0/video-shotcraft.mp4", "what": "real varg how to preview"},
-  "previews/fal-storytelling.mp4":            {"url": "https://s3.varg.ai/how-to/previews/6ed608385efd/fal-storytelling.mp4", "what": "real varg how to preview"},
-  "fonts/aeonik-regular.woff2":  {"url": "https://varg.ai/how-to/fonts/aeonik-regular.woff2", "what": "varg brand font (licensed to varg; swap in your own brand font)"},
-  "fonts/aeonik-medium.woff2":   {"url": "https://varg.ai/how-to/fonts/aeonik-medium.woff2", "what": "varg brand font"},
-  "fonts/aeonik-semibold.woff2": {"url": "https://varg.ai/how-to/fonts/aeonik-semibold.woff2", "what": "varg brand font"}
+  "clips/A.mp4": {
+   "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_1eeaf2fe33df.mp4",
+   "what": "run A · loft, the android (s01, s04, s06, s13) · seedance_2_5 v2v 720p"
+  },
+  "clips/B2.mp4": {
+   "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_8f2bcfdda8ad.mp4",
+   "what": "s02 · hands typing · kling_v4 image-to-video"
+  },
+  "clips/C.mp4": {
+   "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_1b8ad33fe843.mp4",
+   "what": "run C · the white construct (first 2.6 s used) · seedance_2_5 v2v"
+  },
+  "clips/s07_sync.mp4": {
+   "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_9f694a5354fe.mp4",
+   "what": "s07 · operator says 'Show me.' · seedance_2_5 + sync_v3"
+  },
+  "clips/s11_sync.mp4": {
+   "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_f5272a2c1e53.mp4",
+   "what": "s11 · operator says 'What else?' · seedance_2_5 + sync_v3"
+  },
+  "clips/mv1.mp4": {
+   "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_b2c32cfc4010.mp4",
+   "what": "music video 1 · singing MCU · kling_v4 + sync_v3"
+  },
+  "clips/mv2.mp4": {
+   "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_837999a8fdac.mp4",
+   "what": "music video 2 · boot in the puddle · seedance_2_5 i2v"
+  },
+  "clips/mv3.mp4": {
+   "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_d2b3afc070d3.mp4",
+   "what": "music video 3 · the android films her · seedance_2_5 i2v"
+  },
+  "clips/mv4.mp4": {
+   "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_7c952288cee3.mp4",
+   "what": "music video 4 · singing CU · kling_v4 + sync_v3"
+  },
+  "clips/demo_scroll.mp4": {
+   "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e525b5857005.mp4",
+   "what": "product demo · varg.ai/how-to scrolling, recorded with record-site.mjs"
+  },
+  "audio/cue1_tension.mp3": {
+   "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_ffb800da297e.mp3",
+   "what": "score 0–21 s · eleven_music_v2_5"
+  },
+  "audio/cue2_drop.mp3": {
+   "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_eb2f0f3d42b0.mp3",
+   "what": "score ending · eleven_music_v2_5"
+  },
+  "audio/song_mv.mp3": {
+   "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_c89b4b5b941b.mp3",
+   "what": "song 'this one's mine' · eleven_music_v2_5 with vocals"
+  },
+  "audio/vo_agent_know.mp3": {
+   "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_4bed478b27e7.mp3",
+   "what": "android: 'I know how to make a music video.' · eleven_v3, voice Adam"
+  },
+  "audio/vo_agent_ask.mp3": {
+   "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_40eadfa28ce9.mp3",
+   "what": "android: 'Just ask.' · eleven_v3, voice Adam"
+  },
+  "previews/karpathy-3d-story.mp4": {
+   "url": "https://s3.varg.ai/how-to/previews/42da29528d22/karpathy-3d-story.mp4",
+   "what": "real varg how to preview (loading montage)"
+  },
+  "previews/motion-graphics-music-video.mp4": {
+   "url": "https://s3.varg.ai/how-to/previews/de274146ac77/motion-graphics-music-video.mp4",
+   "what": "real varg how to preview"
+  },
+  "previews/varg-previz.mp4": {
+   "url": "https://s3.varg.ai/how-to/previews/2f5f2d60dd84/varg-previz.mp4",
+   "what": "real varg how to preview"
+  },
+  "previews/video-shotcraft.mp4": {
+   "url": "https://s3.varg.ai/how-to/previews/2debe3ea5ec0/video-shotcraft.mp4",
+   "what": "real varg how to preview"
+  },
+  "previews/fal-storytelling.mp4": {
+   "url": "https://s3.varg.ai/how-to/previews/6ed608385efd/fal-storytelling.mp4",
+   "what": "real varg how to preview"
+  },
+  "fonts/aeonik-regular.woff2": {
+   "url": "https://varg.ai/how-to/fonts/aeonik-regular.woff2",
+   "what": "varg brand font (licensed to varg; swap in your own brand font)"
+  },
+  "fonts/aeonik-medium.woff2": {
+   "url": "https://varg.ai/how-to/fonts/aeonik-medium.woff2",
+   "what": "varg brand font"
+  },
+  "fonts/aeonik-semibold.woff2": {
+   "url": "https://varg.ai/how-to/fonts/aeonik-semibold.woff2",
+   "what": "varg brand font"
+  },
+  "fonts/fragment-mono-400.woff2": {
+   "url": "https://fonts.gstatic.com/s/fragmentmono/v6/4iCr6K5wfMRRjxp0DA6-2CLnB4NHhqcL71Q.woff2",
+   "what": "Fragment Mono (SIL OFL), from Google Fonts"
+  }
  },
  "film": {
   "master": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_291d768132f5.mp4",
   "animatic_threejs": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_dd99b62ca242.mp4",
   "anchors": {
-   "agent_sheet": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_8c23ad8bc796.png", "operator_sheet": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_40d3f8227027.png", "singer_sheet": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_2d7d3a466be9.png",
-   "M_loft": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_a419a436e456.jpg", "M_construct": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_d8bf48a517fc.jpg", "M_street": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_dba5e20d9945.jpg",
-   "mv_stills": ["https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e94dec7fabda.png", "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_20586032361b.png", "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_464ed9c68b06.png", "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_16fa4a69ae28.png"]
+   "agent_sheet": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_8c23ad8bc796.png",
+   "operator_sheet": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_40d3f8227027.png",
+   "singer_sheet": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_2d7d3a466be9.png",
+   "M_loft": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_a419a436e456.jpg",
+   "M_construct": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_d8bf48a517fc.jpg",
+   "M_street": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_dba5e20d9945.jpg",
+   "mv_stills": [
+    "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e94dec7fabda.png",
+    "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_20586032361b.png",
+    "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_464ed9c68b06.png",
+    "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_16fa4a69ae28.png"
+   ]
   }
  }
 }
