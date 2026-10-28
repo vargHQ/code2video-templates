@@ -25,6 +25,9 @@ card-catalog-explainer/ # Config-driven HyperFrames explainer: a wall of templat
                        #   Skill: .claude/skills/card-catalog-explainer -> ../../card-catalog-explainer
 iphone-duo-fold/       # Your screens on the foldable iPhone Duo, unfolding in 3D (three.js port of jadon7/iphone-duo).
                        #   Bun + Chrome + ffmpeg, local, no credits. Skill: .claude/skills/iphone-duo-fold -> ../../iphone-duo-fold
+movie-homage-launch-film/ # Cinematic launch film as an homage to one movie scene (example: varg "I know how"): storyboard,
+                       #   three.js styled previz, Seedance v2v, lip-sync, music video, edit in HyperFrames. Credits for new films.
+                       #   Skill: .claude/skills/movie-homage-launch-film -> ../../movie-homage-launch-film
 varg_jsx/              # varg SDK JSX templates (one .tsx per video, rendered through the varg API, costs credits)
   ├── hello.tsx               # Hello world — simplest possible template
   ├── talking-head.tsx        # Lipsync talking head + captions

@@ -1,0 +1,41 @@
+{
+ "title": "varg how to · I know how",
+ "model": "byteplus:dreamina-seedance-2-5-260628",
+ "resolution": "720p",
+ "credits_per_second": 27.75,
+ "look": "photoreal live-action cinema, 35mm anamorphic film, fine grain, shallow depth of field, deep crushed blacks, a restrained late-1990s thriller grade.",
+ "refs": {
+  "agent_sheet": {"file": "agent_sheet.png", "copy_from": "stills/agent_sheet.png", "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_8c23ad8bc796.png",
+   "role": "the android's character sheet: a porcelain android of human height, smooth matte white ceramic bald head and hands with fine seam lines, closed sculpted lips that never move, charcoal knit sweater, black trousers, black shoes, a cable socket with an amber ring at the base of the skull."},
+  "operator_sheet": {"file": "operator_sheet.png", "copy_from": "stills/operator_sheet.png", "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_40d3f8227027.png",
+   "role": "the woman's character sheet: mid-forties, cropped silver hair, thin gold wire-rim glasses, a one-ear black headset, black roll-neck, worn dark charcoal wool coat."},
+  "singer_sheet": {"file": "singer_sheet.png", "copy_from": "stills/singer_sheet.png", "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_2d7d3a466be9.png",
+   "role": "the singer's character sheet: mid-twenties, sleek wet black bob, pale skin, dark red lips, glossy cherry-red vinyl trench coat belted at the waist, black boots."},
+  "M_loft": {"file": "M_loft.jpg", "copy_from": "stills/M_loft.jpg", "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_a419a436e456.jpg",
+   "role": "the master shot of the loft: tall rainy steel-framed windows across the back, the console with three amber CRT monitors at the left, the oxblood leather armchair with the android in the middle under the hanging lamp, raw concrete, night."},
+  "M_construct": {"file": "M_construct.jpg", "copy_from": "stills/M_construct.jpg", "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_d8bf48a517fc.jpg",
+   "role": "the master shot of the white void: infinite pure white space, soft shadowless light, the android standing alone with a faint reflection on the white floor."},
+  "M_street": {"file": "M_street.jpg", "copy_from": "stills/M_street.jpg", "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_dba5e20d9945.jpg",
+   "role": "the master shot of the music-video street: narrow, wet black asphalt, brick walls, red and amber neon tubes, heavy rain, steam."}
+ },
+ "runs": [
+  {"key": "A", "title": "Loft · the android", "shots": ["s01", "s04", "s06", "s13"], "refs": ["agent_sheet", "operator_sheet", "M_loft"],
+   "notes": ["Inside the loft at night. Only two people exist: the woman at the console and the porcelain android in the armchair.",
+             "The android is perfectly still; its lips never move and it never speaks. Its eyes stay closed until shot 3, where they open.",
+             "Light: the amber glow of the CRT monitors and the warm work lamp over the armchair, rain streaming down the windows, blue night outside."]},
+  {"key": "B", "title": "Loft · the operator", "shots": ["s02", "s07", "s11"], "refs": ["operator_sheet", "M_loft"],
+   "notes": ["Inside the loft at night, at the console. Only the woman is in these shots; every hand is hers.",
+             "She does not speak on screen; keep her mouth closed or in a small smile.",
+             "Light: amber CRT glow on her face and hands from the monitors in front of her, the dark rainy windows behind."]},
+  {"key": "C", "title": "Construct · the street rises", "shots": ["s08", "s09"], "refs": ["agent_sheet", "M_construct", "M_street"],
+   "notes": ["Only the android is here, nobody else.",
+             "Shot 1 is pure white space. In shot 2 the white turns into the night street of the third image: walls rise out of the white floor, neon switches on, rain starts; by the end it is night.",
+             "The android's lips never move."]},
+  {"key": "D", "title": "Street · the music video", "shots": ["s10"], "refs": ["singer_sheet", "M_street"],
+   "notes": ["A music video shot. Only the singer is in frame.",
+             "Light: red and amber neon, heavy rain, steam, deep black night."]}
+ ],
+ "reuse": {},
+ "lipsync": [],
+ "actions": {}
+}

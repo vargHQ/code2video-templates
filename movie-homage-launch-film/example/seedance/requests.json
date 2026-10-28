@@ -1,0 +1,127 @@
+{
+ "note": "Seedance video-to-video requests (varg call_tool). NOT RUN. Before running: upload the reference videos and the refs marked <upload \u2026>, paste their URLs, then estimate_cost and get a go.",
+ "requests": {
+  "01_A": {
+   "tool": "video",
+   "input": {
+    "model": "byteplus:dreamina-seedance-2-5-260628",
+    "prompt": "@video1 is a grey-box 3D previz of this sequence. Copy from @video1 ONLY the camera (framing, lens, camera position and movement), the hard-cut timing and the blocking (where everyone is and what they do). Do not copy its look: no flat grey shapes, no 3D render style, none of its colours.\n@image1 is the android's character sheet: a porcelain android of human height, smooth matte white ceramic bald head and hands with fine seam lines, closed sculpted lips that never move, charcoal knit sweater, black trousers, black shoes, a cable socket with an amber ring at the base of the skull.\n@image2 is the woman's character sheet: mid-forties, cropped silver hair, thin gold wire-rim glasses, a one-ear black headset, black roll-neck, worn dark charcoal wool coat.\n@image3 is the master shot of the loft: tall rainy steel-framed windows across the back, the console with three amber CRT monitors at the left, the oxblood leather armchair with the android in the middle under the hanging lamp, raw concrete, night.\nInside the loft at night. Only two people exist: the woman at the console and the porcelain android in the armchair.\nThe android is perfectly still; its lips never move and it never speaks. Its eyes stay closed until shot 3, where they open.\nLight: the amber glow of the CRT monitors and the warm work lamp over the armchair, rain streaming down the windows, blue night outside.\nLook: photoreal live-action cinema, 35mm anamorphic film, fine grain, shallow depth of field, deep crushed blacks, a restrained late-1990s thriller grade.\n\n4 shots, hard cuts exactly as in @video1:\n1. 0.0\u20134.0 s. Rain runs down the tall windows. The porcelain android sits motionless in the oxblood leather armchair, eyes closed, a cable running from the back of its head across the floor to the console. At the console on the left the woman types, lit by the amber screens. The camera pushes in slowly.\n2. 4.0\u20136.0 s. The porcelain android's face, eyes closed, completely still; a band of amber light sweeps over the porcelain from left to right as the load begins.\n3. 6.0\u20139.0 s. Extreme close-up of the porcelain android's eyes: the porcelain eyelids open slowly, revealing eyes of dark glass with a small ember-orange glint. It does not blink.\n4. 9.0\u201312.0 s. Close-up: the porcelain android slowly turns its head from the woman to look straight into the lens, eyes of dark glass with the ember glint; perfectly calm.\n\nCamera: one move per shot, as in @video1. Full-bleed 16:9 frame, no borders, no letterbox. No text, letters, numbers, logos or UI anywhere in the frame (all graphics are added later). No dialogue, no lip-sync.",
+    "files": [
+     {
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_8c23ad8bc796.png"
+     },
+     {
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_40d3f8227027.png"
+     },
+     {
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_a419a436e456.jpg"
+     },
+     {
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_323291ae2f3c.mp4"
+     }
+    ],
+    "aspect_ratio": "16:9",
+    "resolution": "720p",
+    "duration": 12,
+    "audio": false,
+    "provider_options": {
+     "byteplus": {
+      "omni_reference_task_type": "reference",
+      "generate_audio": false,
+      "watermark": false
+     }
+    }
+   }
+  },
+  "02_B": {
+   "tool": "video",
+   "input": {
+    "model": "byteplus:dreamina-seedance-2-5-260628",
+    "prompt": "@video1 is a grey-box 3D previz of this sequence. Copy from @video1 ONLY the camera (framing, lens, camera position and movement), the hard-cut timing and the blocking (where everyone is and what they do). Do not copy its look: no flat grey shapes, no 3D render style, none of its colours.\n@image1 is the woman's character sheet: mid-forties, cropped silver hair, thin gold wire-rim glasses, a one-ear black headset, black roll-neck, worn dark charcoal wool coat.\n@image2 is the master shot of the loft: tall rainy steel-framed windows across the back, the console with three amber CRT monitors at the left, the oxblood leather armchair with the android in the middle under the hanging lamp, raw concrete, night.\nInside the loft at night, at the console. Only the woman is in these shots; every hand is hers.\nShe does not speak on screen; keep her mouth closed or in a small smile.\nLight: amber CRT glow on her face and hands from the monitors in front of her, the dark rainy windows behind.\nLook: photoreal live-action cinema, 35mm anamorphic film, fine grain, shallow depth of field, deep crushed blacks, a restrained late-1990s thriller grade.\n\n3 shots, hard cuts exactly as in @video1:\n1. 0.0\u20132.5 s. Close-up of the woman's hands typing fast on a heavy mechanical keyboard, amber monitor light on her fingers; the last key is struck firmly.\n2. 2.5\u20135.0 s. The woman at the console turns her head from the screens toward the android, takes off one side of her headset, and gives a small dry half smile.\n3. 5.0\u20138.0 s. Close-up of the woman at the console, amber light on her glasses; she raises her eyebrows, impressed, and leans back toward the keyboard.\n\nCamera: one move per shot, as in @video1. Full-bleed 16:9 frame, no borders, no letterbox. No text, letters, numbers, logos or UI anywhere in the frame (all graphics are added later). No dialogue, no lip-sync.",
+    "files": [
+     {
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_40d3f8227027.png"
+     },
+     {
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_a419a436e456.jpg"
+     },
+     {
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_b884ee33b7d9.mp4"
+     }
+    ],
+    "aspect_ratio": "16:9",
+    "resolution": "720p",
+    "duration": 8,
+    "audio": false,
+    "provider_options": {
+     "byteplus": {
+      "omni_reference_task_type": "reference",
+      "generate_audio": false,
+      "watermark": false
+     }
+    }
+   }
+  },
+  "03_C": {
+   "tool": "video",
+   "input": {
+    "model": "byteplus:dreamina-seedance-2-5-260628",
+    "prompt": "@video1 is a grey-box 3D previz of this sequence. Copy from @video1 ONLY the camera (framing, lens, camera position and movement), the hard-cut timing and the blocking (where everyone is and what they do). Do not copy its look: no flat grey shapes, no 3D render style, none of its colours.\n@image1 is the android's character sheet: a porcelain android of human height, smooth matte white ceramic bald head and hands with fine seam lines, closed sculpted lips that never move, charcoal knit sweater, black trousers, black shoes, a cable socket with an amber ring at the base of the skull.\n@image2 is the master shot of the white void: infinite pure white space, soft shadowless light, the android standing alone with a faint reflection on the white floor.\n@image3 is the master shot of the music-video street: narrow, wet black asphalt, brick walls, red and amber neon tubes, heavy rain, steam.\nOnly the android is here, nobody else.\nShot 1 is pure white space. In shot 2 the white turns into the night street of the third image: walls rise out of the white floor, neon switches on, rain starts; by the end it is night.\nThe android's lips never move.\nLook: photoreal live-action cinema, 35mm anamorphic film, fine grain, shallow depth of field, deep crushed blacks, a restrained late-1990s thriller grade.\n\n2 shots, hard cuts exactly as in @video1:\n1. 0.0\u20133.5 s. An infinite white void with soft shadowless light. The porcelain android stands alone in the centre, small in the frame, its faint reflection on the white floor. The camera cranes down slowly.\n2. 3.5\u20137.0 s. The porcelain android raises its right hand calmly. Around it the white void turns into a wet night street: walls rise from the floor, red and amber neon lights switch on one by one, rain starts to fall.\n\nCamera: one move per shot, as in @video1. Full-bleed 16:9 frame, no borders, no letterbox. No text, letters, numbers, logos or UI anywhere in the frame (all graphics are added later). No dialogue, no lip-sync.",
+    "files": [
+     {
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_8c23ad8bc796.png"
+     },
+     {
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_d8bf48a517fc.jpg"
+     },
+     {
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_dba5e20d9945.jpg"
+     },
+     {
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_40a1aebad2f7.mp4"
+     }
+    ],
+    "aspect_ratio": "16:9",
+    "resolution": "720p",
+    "duration": 7,
+    "audio": false,
+    "provider_options": {
+     "byteplus": {
+      "omni_reference_task_type": "reference",
+      "generate_audio": false,
+      "watermark": false
+     }
+    }
+   }
+  },
+  "04_D": {
+   "tool": "video",
+   "input": {
+    "model": "byteplus:dreamina-seedance-2-5-260628",
+    "prompt": "@video1 is a grey-box 3D previz of this sequence. Copy from @video1 ONLY the camera (framing, lens, camera position and movement), the hard-cut timing and the blocking (where everyone is and what they do). Do not copy its look: no flat grey shapes, no 3D render style, none of its colours.\n@image1 is the singer's character sheet: mid-twenties, sleek wet black bob, pale skin, dark red lips, glossy cherry-red vinyl trench coat belted at the waist, black boots.\n@image2 is the master shot of the music-video street: narrow, wet black asphalt, brick walls, red and amber neon tubes, heavy rain, steam.\nA music video shot. Only the singer is in frame.\nLight: red and amber neon, heavy rain, steam, deep black night.\nLook: photoreal live-action cinema, 35mm anamorphic film, fine grain, shallow depth of field, deep crushed blacks, a restrained late-1990s thriller grade.\n\nOne continuous shot, as in @video1:\n1. 0.0\u20134.0 s. Music video shot: the singer in the glossy red vinyl coat walks toward the camera down the wet street in the rain, under red and amber neon, steam rising, her wet black bob swinging; she stops and looks straight into the lens on the beat.\n\nCamera: one move per shot, as in @video1. Full-bleed 16:9 frame, no borders, no letterbox. No text, letters, numbers, logos or UI anywhere in the frame (all graphics are added later). No dialogue, no lip-sync.",
+    "files": [
+     {
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_2d7d3a466be9.png"
+     },
+     {
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_dba5e20d9945.jpg"
+     },
+     {
+      "url": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_dcaed21581e2.mp4"
+     }
+    ],
+    "aspect_ratio": "16:9",
+    "resolution": "720p",
+    "duration": 4,
+    "audio": false,
+    "provider_options": {
+     "byteplus": {
+      "omni_reference_task_type": "reference",
+      "generate_audio": false,
+      "watermark": false
+     }
+    }
+   }
+  }
+ }
+}

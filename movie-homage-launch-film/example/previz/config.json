@@ -1,0 +1,38 @@
+{
+ "title": "varg how to \u00b7 I know how",
+ "storyboard": "../storyboard.json",
+ "audio": null,
+ "bpm": 90.0,
+ "aspect": "16:9",
+ "stills": null,
+ "scenes": {
+  "A_loft": {
+   "label": "A \u00b7 loft",
+   "color": "#ff5315"
+  },
+  "B_construct": {
+   "label": "B \u00b7 construct",
+   "color": "#e8e6e0"
+  },
+  "C_street": {
+   "label": "C \u00b7 street (music video)",
+   "color": "#ff2a3d"
+  },
+  "X_screen": {
+   "label": "X \u00b7 insert (edit)",
+   "color": "#8f96a3"
+  }
+ },
+ "scale": {
+  "human": 1.8
+ },
+ "hud": [
+  {
+   "text": "Homage: the skill-loading scene, in varg ember",
+   "from": 0,
+   "to": 4,
+   "pos": "top"
+  }
+ ],
+ "planFile": "camera_plan.md"
+}
