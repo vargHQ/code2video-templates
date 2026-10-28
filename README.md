@@ -45,6 +45,7 @@ My request: <what you want to see>
 | [`liquid-thorn-logo/`](liquid-thorn-logo/) | Any word as a black-metal chrome logo that a cursor smears with liquid (WebGL) | Bun + Chrome + ffmpeg | free, local |
 | [`card-catalog-explainer/`](card-catalog-explainer/) | A 56 s explainer: a wall of code-made videos, then one request through a card catalog to the MP4 | Bun + HyperFrames + ffmpeg | free, local |
 | [`iphone-duo-fold/`](iphone-duo-fold/) | Your screens on the foldable iPhone Duo, unfolding in 3D with its progressive-blur fold; any image, screen recording or HTML page | Bun + Chrome + ffmpeg | free, local |
+| [`motion-studio-launch-film/`](motion-studio-launch-film/) | A 20 s product launch film from your real screen captures, built by Opus 5.5 with @beamnxw's Motion Studio Harness (example: varg how to) | Bun + Remotion + ffmpeg | free, local |
 | [`anime-jp-subtitles/`](anime-jp-subtitles/) | Japanese anime captions over any video: fansub + karaoke, TV telop, tategaki, katakana SFX | Python + HyperFrames + ffmpeg | free, local |
 | [`anime-triple-split/`](anime-triple-split/) | Manga three-panel split screen that slams in on the beat | Python + HyperFrames + ffmpeg | free, local |
 | [`schizo-edit-music-video/`](schizo-edit-music-video/) | A 16 s fast-cut AI music video: ~70 cuts on the beat, one effect per shot, the title built letter by letter (example: Halofall) | Python + ffmpeg + varg | free example, credits for new videos |
@@ -156,6 +157,21 @@ bun render.ts --screen my-app.png --title "Meet Foldy" --size 1080x1920
 ```
 
 See [`iphone-duo-fold/README.md`](iphone-duo-fold/README.md).
+
+### `motion-studio-launch-film/` -- Motion Studio launch film
+
+<a href="https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_12540de8467b.mp4"><img src="https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_accf745e09ee.png" width="640" alt="Motion Studio launch film: the varg how to guide for UGC ads in a dark product card"></a>
+
+A 20-second, 60 fps launch film made from real screen captures by Opus 5.5 in Claude Code, following
+[@beamnxw](https://x.com/beamnxw)'s Opus 5.5 Motion Studio Harness (eight stage files, MIT). The example shows a
+search on varg how to: one captured state per typed character, a camera that follows the fitted screen, a cut on
+the click, synthesized sound and a closing mark. Swap the captures, copy and event frames for your own product.
+
+```bash
+cd motion-studio-launch-film && bun install && bun run setup && bun run render   # out/final.mp4
+```
+
+See [`motion-studio-launch-film/README.md`](motion-studio-launch-film/README.md).
 
 ### `card-catalog-explainer/` -- Card catalog explainer
 

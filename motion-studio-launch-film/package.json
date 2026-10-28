@@ -1,0 +1,33 @@
+{
+  "name": "motion-studio-launch-film",
+  "version": "1.0.0",
+  "description": "Launch film built with the Opus 5.5 Motion Studio Harness (@beamnxw) on Remotion; example: varg how to",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@remotion/cli": "4.0.539",
+    "@remotion/google-fonts": "4.0.539",
+    "@remotion/media": "4.0.539",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.539"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.539",
+    "@types/react": "19.2.7",
+    "@types/web": "0.0.166",
+    "eslint": "10.12.0",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3",
+    "puppeteer-core": "24.10.0",
+    "@types/bun": "1.3.1"
+  },
+  "scripts": {
+    "setup": "bun tools/setup.ts",
+    "dev": "remotion studio",
+    "render": "remotion render Launch out/final.mp4 --codec=h264",
+    "cover": "remotion still Launch out/cover.png --frame=600",
+    "capture": "bun tools/capture-ref.ts public/screens",
+    "lint": "eslint src && tsc"
+  }
+}
