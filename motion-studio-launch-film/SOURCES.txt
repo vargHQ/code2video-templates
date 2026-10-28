@@ -1,0 +1,43 @@
+OFFICIAL RESOURCES / checked 2026-10-21
+
+This eight-file harness is an original @beamnxw workflow. The following sources document the underlying tools; they do not endorse this package or establish a best-in-class result.
+
+Project guidance
+https://code.claude.com/docs/en/memory
+
+Agent workflow
+https://www.remotion.dev/docs/ai/coding-agents
+
+Remotion compositions
+https://www.remotion.dev/docs/composition
+
+Frame-driven animation
+https://www.remotion.dev/docs/animating-properties
+
+Static assets
+https://www.remotion.dev/docs/staticfile
+
+Sequence and local frames
+https://www.remotion.dev/docs/sequence
+
+Springs
+https://www.remotion.dev/docs/spring
+
+Current audio component guidance
+https://www.remotion.dev/docs/html5-audio
+
+Render CLI
+https://www.remotion.dev/docs/cli/render
+
+Still CLI
+https://www.remotion.dev/docs/cli/still
+
+Model selection
+https://code.claude.com/docs/en/model-config
+
+Anthropic skill examples (optional reference, separate from Remotion Agent Skills)
+https://github.com/anthropics/skills
+
+Official Clawd artwork
+https://claude.dev/shared/img/clawd-mark.png
+https://claude.dev/
