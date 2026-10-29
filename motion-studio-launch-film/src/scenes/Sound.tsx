@@ -14,7 +14,8 @@ const cues: Cue[] = [
   { id: "click-crumb", file: "sfx/click.wav", at: ev.pressCrumb, gain: 0.5 },
   { id: "reveal-grid", file: "sfx/reveal.wav", at: ev.gridCut, gain: 0.35 },
   { id: "whoosh-out", file: "sfx/whoosh.wav", at: ev.cardOut[0] - 15 + 20, gain: 0.25 },
-  { id: "resolve", file: "sfx/resolve.wav", at: ev.logoIn[0] + 12, gain: 0.4 },
+  { id: "resolve", file: "sfx/resolve.wav", at: ev.pillIn[0] + 2, gain: 0.42 },
+  { id: "shine", file: "sfx/reveal.wav", at: ev.pillGlare[0] + 4, gain: 0.16 },
 ];
 
 export const Sound: React.FC = () => (

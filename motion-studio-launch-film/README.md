@@ -2,7 +2,7 @@
 
 <img src="https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_985cdacca5a1.png" width="600" alt="A dark product card of varg how to: product-ad reels playing in the Ads & UGC grid">
 
-[MP4 with sound](https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_faad77b61839.mp4) · [preview](https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_8ff2737684d5.mp4) · rendered from this folder with `bash make.command`.
+[MP4 with sound](https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_787509b04aa2.mp4) · [preview](https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_621fee5b4a0f.mp4) · rendered from this folder with `bash make.command`.
 
 A 20-second product launch film (1920×1080, 60 fps) made by Opus 5.5 in Claude Code with
 [@beamnxw](https://x.com/beamnxw)'s **Opus 5.5 Motion Studio Harness**: eight Markdown files that walk the agent
@@ -45,7 +45,7 @@ Or double-click `make.command` (macOS).
 | `CLAUDE.md`, `BRIEF.md`, `STYLE.md`, `ASSETS.md`, `STORYBOARD.md`, `MOTION.md`, `SOUND.md`, `DELIVERY.md` | the harness (by @beamnxw, MIT), with this film's filled sections appended |
 | `LAUNCH-PROMPT.txt`, `FULL-PROMPT.txt`, `START.txt`, `SOURCES.txt` | the harness prompts and sources, unchanged |
 | `src/config/` | tokens, content, event timeline, camera, easing: one source of truth for each |
-| `src/components/`, `src/scenes/` | card, cursor, background; opening, result, closing, sound |
+| `src/components/`, `src/scenes/` | card, cursor, background, `LiquidPill` (the chrome how-to pill); opening, result, closing, sound |
 | `tools/setup.ts`, `tools/assets.json`, `tools/sfx.sh` | fetch screens and preview clips, synthesize sounds (no media in git) |
 | `tools/capture-ref.ts` | the capture script for the example screens |
 

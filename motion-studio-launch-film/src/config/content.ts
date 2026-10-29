@@ -37,9 +37,9 @@ export const content = {
       { src: "clips/file_d45406f8d0db.mp4", rect: css(663.66, 722.91, 360.67, 224.66), fit: "cover", seconds: 7, /* loop the hook only: the 58 s reel turns to the laptop at 7 s */ radius: 28, keep: [{ ...css(673.66, 732.91, 45.8, 22), r: 44 }] },
     ] as Clip[],
   },
-  logo: "logo.png", // 300x80 crop of the real sidebar logo
   source: { w: 2880, h: 1800 },
   anchors: {
+    heroPill: { x: 560, y: 128, w: 549.75, h: 167.19 }, // hero "How to" pill, 6 px chrome ring
     searchBox: { x: 300, y: 172 }, // sidebar "Search skills" field
     paletteFocus: { x: 1440, y: 560 }, // upper half of the open command palette
     skillRow: { x: 1150, y: 404 }, // "Turn a product into a dropshipping guide reel · Skill · best match"

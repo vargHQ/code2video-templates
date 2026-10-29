@@ -39,4 +39,8 @@ For a luminous product direction, use one broad low-contrast reflection plus one
 ## Decision (2026-10-28)
 
 Directions offered: (1) Editorial: giant "How to" type with the screen as a detail; (2) Product stage: one card on the site's own dark dot field, the search is the action; (3) Tactile: paper cut-outs of result cards. Chosen: **2, product stage**, because the screens are the proof and the site is already dark and typographic.
+Closing (revised 2026-10-29, founder: the "how to" button looked flat and still): built in vector, not a logo crop.
+The mark is the site's SVG; "how to" is `LiquidPill`, a frame-driven chrome conic ring (2.2 deg/frame) around a dark
+core with white-to-silver letters, a moving glare and an orange bloom on its entrance; the URL is a solid accent
+button (#ff7a45 -> #fc5215 -> #e2450c) with its own glare. The same ring is laid over the captured hero pill.
 Tokens (src/config/tokens.ts): bg #070708, accent #fc5215 (sampled pixel), fg #fff, fg2 #a1a1aa, line rgba(255,255,255,.13), radius 22, safe 96. Type: Geist 500 (substitute for the site's licensed Aeonik), display 68 px, labels 58 px, tracking -0.03em. One broad sheen (4.5% white) clipped to the card + 1 px top rim; contact shadow 40/90.

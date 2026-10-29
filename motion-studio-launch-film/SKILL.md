@@ -5,7 +5,7 @@ description: >
   @beamnxw's Opus 5.5 Motion Studio Harness: eight stage files (brief, style, assets, storyboard, motion, sound,
   delivery) that the agent follows to a checked render. Ships a finished example (varg how to: search "dropshipping",
   open the dropship-reel skill with its reel playing, scroll the Ads & UGC page to nine product reels playing) with frame-driven camera,
-  cursor, selection rings, synthesized sound and a closing mark. Local
+  cursor, selection rings, synthesized sound and a closing mark with a liquid-metal "how to" pill. Local
   Bun + Remotion + ffmpeg, no credits. Use when the user wants a product launch film, a UI demo video, an app
   walkthrough or a feature reveal made from their own screenshots, or asks for the Opus 5.5 motion harness. NOT
   for AI-generated footage or people on camera (use varg-ai) or vertical shorts out of the box (16:9 by default).
@@ -21,7 +21,7 @@ metadata:
   varg.engine: "Remotion 4 + ffmpeg"
   varg.legal: "Harness text by @beamnxw (MIT, THIRD_PARTY_NOTICES.md); Remotion license applies to companies over 3 people"
   varg.source: "github.com/beamnxw/my_works opus55-motion-studio-harness.zip"
-  varg.preview: "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_8ff2737684d5.mp4"
+  varg.preview: "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_621fee5b4a0f.mp4"
 ---
 
 # Motion Studio launch film
