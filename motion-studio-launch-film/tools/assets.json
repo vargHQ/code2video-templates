@@ -1,12 +1,19 @@
 {
   "logo.png": "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_43910009d286.png",
-  "screens/guide.png": "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_fb934a31ddb0.png",
-  "screens/home.png": "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_a3c8194bc259.png",
-  "screens/palette-empty.png": "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_ef63b0f17d02.png",
-  "screens/type-1.png": "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_a40b01eb6f2e.png",
-  "screens/type-2.png": "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_653b65be7c99.png",
-  "screens/type-3.png": "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_760be56d4814.png",
-  "screens/type-4.png": "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_676df5dcda10.png",
-  "screens/type-5.png": "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_4a323a70150e.png",
-  "screens/type-6.png": "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_c58f2d81a6a5.png"
+  "screens/home.png": "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_25dbb1f2b83a.png",
+  "screens/palette-empty.png": "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_3ef7baa49865.png",
+  "screens/type-1.png": "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_346338b5e515.png",
+  "screens/type-2.png": "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_751368e83cf9.png",
+  "screens/type-3.png": "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_a3e2b80b6d94.png",
+  "screens/type-4.png": "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_ba19e00dc380.png",
+  "screens/type-5.png": "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_d8e9c974c76a.png",
+  "screens/type-6.png": "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_41f03b9c130f.png",
+  "screens/skill.png": "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_5aebe729cdfe.png",
+  "screens/ads.png": "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_c6b238b79a65.png",
+  "clips/varg-studio-ugc-ads.mp4": "https://s3.varg.ai/how-to/previews/7446ec754170/varg-studio-ugc-ads.mp4",
+  "clips/marketingskills-video.mp4": "https://s3.varg.ai/how-to/previews/cb03ab790642/marketingskills-video.mp4",
+  "clips/fal-ugc.mp4": "https://s3.varg.ai/how-to/previews/414e4a210c1c/fal-ugc.mp4",
+  "clips/krea-marketing.mp4": "https://s3.varg.ai/how-to/previews/175ca41da029/krea-marketing.mp4",
+  "clips/business-motion-film.mp4": "https://s3.varg.ai/how-to/previews/110bcad9773a/business-motion-film.mp4",
+  "clips/flux-3-product-ads.mp4": "https://s3.varg.ai/how-to/previews/49a0bfd6f70b/flux-3-product-ads.mp4"
 }

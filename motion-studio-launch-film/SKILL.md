@@ -4,7 +4,8 @@ description: >
   Builds a 20-second product launch film (1920x1080, 60 fps, Remotion) from real product screen captures with
   @beamnxw's Opus 5.5 Motion Studio Harness: eight stage files (brief, style, assets, storyboard, motion, sound,
   delivery) that the agent follows to a checked render. Ships a finished example (varg how to: search "ugc ad",
-  open the guide) with frame-driven camera, cursor, selection ring, synthesized sound and a closing mark. Local
+  open the skill with its video playing, then the category grid with every card playing) with frame-driven camera,
+  cursor, selection rings, synthesized sound and a closing mark. Local
   Bun + Remotion + ffmpeg, no credits. Use when the user wants a product launch film, a UI demo video, an app
   walkthrough or a feature reveal made from their own screenshots, or asks for the Opus 5.5 motion harness. NOT
   for AI-generated footage or people on camera (use varg-ai) or vertical shorts out of the box (16:9 by default).
@@ -20,7 +21,7 @@ metadata:
   varg.engine: "Remotion 4 + ffmpeg"
   varg.legal: "Harness text by @beamnxw (MIT, THIRD_PARTY_NOTICES.md); Remotion license applies to companies over 3 people"
   varg.source: "github.com/beamnxw/my_works opus55-motion-studio-harness.zip"
-  varg.preview: "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_4f8e7b8ac193.mp4"
+  varg.preview: "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_106cc549213f.mp4"
 ---
 
 # Motion Studio launch film
@@ -62,4 +63,8 @@ bun run render && bun run cover        # out/final.mp4, out/cover.png
 
 - A crossfade between two screens while the camera moves double-exposes both. A link click is a cut.
 - Overlays (ring, cursor, ripple) must be gone by the cut frame, or they float over the next screen.
+- A capture freezes a page's videos. Lay the real file back over the DOM box (same object-fit and radius) from the
+  cut frame, and redraw any UI the page paints over it (`keep` rects) or it disappears under the clip.
+- Land on screens that move. A page of text reads as a document, not a product; pick results with real media.
+- The text slot sits above the card; fade labels out before a push brings the card up under them.
 - `useCurrentFrame()` inside a `Sequence` is local; the layers here are global on purpose.

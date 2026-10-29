@@ -6,11 +6,13 @@ import { ev } from "../config/timeline";
 // except whoosh, whose peak sits 15 frames in, so it starts 15 frames early.
 type Cue = { id: string; file: string; at: number; gain: number };
 const cues: Cue[] = [
-  { id: "whoosh-in", file: "sfx/whoosh.wav", at: ev.cardIn[0] - 15 + 18, gain: 0.18 },
+  { id: "whoosh-in", file: "sfx/whoosh.wav", at: Math.max(0, ev.cardIn[1] - 15), gain: 0.18 },
   { id: "click-search", file: "sfx/click.wav", at: ev.pressSearch, gain: 0.55 },
   ...ev.typing.map((at, i) => ({ id: `key-${i + 1}`, file: "sfx/key.wav", at, gain: 0.4 })),
   { id: "click-row", file: "sfx/click.wav", at: ev.pressRow, gain: 0.55 },
-  { id: "reveal-guide", file: "sfx/reveal.wav", at: ev.guideCut, gain: 0.35 },
+  { id: "reveal-skill", file: "sfx/reveal.wav", at: ev.skillCut, gain: 0.3 },
+  { id: "click-crumb", file: "sfx/click.wav", at: ev.pressCrumb, gain: 0.5 },
+  { id: "reveal-grid", file: "sfx/reveal.wav", at: ev.gridCut, gain: 0.35 },
   { id: "whoosh-out", file: "sfx/whoosh.wav", at: ev.cardOut[0] - 15 + 20, gain: 0.25 },
   { id: "resolve", file: "sfx/resolve.wav", at: ev.logoIn[0] + 12, gain: 0.4 },
 ];
