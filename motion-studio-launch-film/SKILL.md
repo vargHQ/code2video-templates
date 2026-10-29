@@ -69,6 +69,8 @@ bun run render && bun run cover        # out/final.mp4, out/cover.png
 - A scroll is a sequence of real captures at eased offsets (`capture-ref.ts` takes 24), shown one per frame or two.
 - Show what a skill does: click its Copy prompt and paste the real clipboard text into the agent; never invent the
   agent's reply.
+- To show volume, scroll a whole captured page (`captureBeyondViewport` screenshot) under the fixed sidebar taken from
+  the viewport capture, and mount only the previews in view (`src/examples/Examples.tsx`).
 - Long reels in a grid: loop the hook (`seconds`), or by mid-film every card shows the same laptop shot.
 - The text slot sits above the card; fade labels out before a push brings the card up under them.
 - `useCurrentFrame()` inside a `Sequence` is local; the layers here are global on purpose.

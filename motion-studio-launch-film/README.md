@@ -25,6 +25,13 @@ bun run cover      # out/cover.png
 
 Or double-click `make.command` (macOS).
 
+A second composition, **`Examples`**, is the "lots of examples" cut: the sidebar's **Recent** feed (149 today, 824
+this week, 253 publishers) scrolls with every card's preview playing, then **Make a video** (278 results) does the
+same. The pages are captured whole and scroll under the fixed sidebar; 84 previews play in their own boxes.
+`bun run render:examples` → `out/examples.mp4`.
+[MP4 with sound](https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_612bed149105.mp4) ·
+[preview](https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_826a4e548fb8.mp4)
+
 ## Make your own film
 
 1. Capture your product's real states (before → action → after) at 2880×1800 into `public/screens/`.
@@ -49,6 +56,7 @@ Or double-click `make.command` (macOS).
 | `src/components/`, `src/scenes/` | card, cursor, background, `LiquidPill` (the chrome how-to pill); opening, result, closing, sound |
 | `tools/setup.ts`, `tools/assets.json`, `tools/sfx.sh` | fetch screens and preview clips, synthesize sounds (no media in git) |
 | `tools/capture-ref.ts` | the capture script for the example screens |
+| `src/examples/` | the `Examples` composition: whole-page captures scrolling under the fixed sidebar, previews in page coordinates |
 
 ## Credits
 
