@@ -9,7 +9,9 @@ const pad2 = (n: number) => String(n).padStart(2, "0");
 
 export const content = {
   opening: { before: "Every AI ", accent: "video", after: ", one search away." },
-  results: ["Every skill shows what it makes.", "Real ads, made with the skills."],
+  results: ["Every skill shows what it makes.", "Copy the prompt. Your agent makes the reel.", "Real ads, made with the skills."],
+  // Exactly what the skill page's "Copy prompt" button put on the clipboard at capture time.
+  prompt: "Use the \"varg-dropship-reel\" skill by varg on my material.\nIf it is not installed yet, install it first: claude plugin marketplace add vargHQ/skills && claude plugin install varg@varg\n\nMy footage / photos / brief: <paste links or file paths, or describe what to make>\nThe look I want: The faceless \"comment GUIDE\" reel: product hook, a marker pointing at cost and price on a laptop, a skyline ending.\n\nShow me a short draft or a still first. If anything costs varg credits, estimate it and wait for my approval.",
   closingLine: "Make any video with AI agents.",
   closingUrl: "varg.ai/how-to",
   query: "dropshipping",
@@ -18,6 +20,7 @@ export const content = {
     palette: "screens/palette-empty.png",
     typed: Array.from({ length: 12 }, (_, i) => `screens/type-${pad2(i + 1)}.png`), // "d" .. "dropshipping"
     skill: "screens/skill.png", // /how-to/skills/varg-dropship-reel
+    skillCopied: "screens/skill-copied.png", // the same page 120 ms after "Copy prompt": the button reads "Prompt copied"
     scroll: Array.from({ length: 24 }, (_, i) => `screens/scroll/s-${pad2(i)}.png`), // /how-to/browse/skills/ads, eased scroll 0 -> 1190 px
     grid: "screens/grid.png", // the same page at 1190 px: the product-ad reels
   },
@@ -45,6 +48,8 @@ export const content = {
     skillRow: { x: 1150, y: 404 }, // "Turn a product into a dropshipping guide reel · Skill · best match"
     skillRowRect: { x: 838, y: 348, w: 1204, h: 110 },
     videoFocus: { x: 2181, y: 681 }, // centre of the skill page's example reel
+    copyPrompt: { x: 714, y: 895 }, // "Copy prompt" button
+    copyPromptRect: { x: 556, y: 847, w: 317, h: 96 },
     crumb: { x: 912, y: 84 }, // breadcrumb "Ads & UGC"
     crumbRect: { x: 832, y: 54, w: 160, h: 60 },
     gridFocus: { x: 1688, y: 940 }, // centre of the product-ad reels

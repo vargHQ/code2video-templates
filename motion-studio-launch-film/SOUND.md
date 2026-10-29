@@ -50,10 +50,13 @@ An audible onset 6 frames into the source needs an adjusted start or trim to lan
 | key-1..12 | 92..158 | sfx/key.wav | 0.4 |
 | click-row | 186 | sfx/click.wav | 0.55 |
 | reveal-skill | 194 | sfx/reveal.wav | 0.3 |
-| click-crumb | 452 | sfx/click.wav | 0.5 |
-| reveal-grid | 460 | sfx/reveal.wav | 0.35 |
+| click-copy | 386 | sfx/click.wav | 0.55 |
+| paste | 404 | sfx/key.wav | 0.5 |
+| enter | 462 | sfx/click.wav | 0.45 |
+| click-crumb | 550 | sfx/click.wav | 0.5 |
+| reveal-grid | 558 | sfx/reveal.wav | 0.35 |
 | whoosh-out | 905 (peak ~920) | sfx/whoosh.wav | 0.25 |
 | resolve | 936 (the pill pops) | sfx/resolve.wav | 0.42 |
 | shine | 972 (glare over the pill) | sfx/reveal.wav | 0.16 |
 
-The previews are muted. Measured on the export: mean -23.1 dB, max -4.6 dB, no clipping.
+The previews are muted. Measured on the export: mean -23.1 dB, max -4.3 dB, no clipping.

@@ -4,7 +4,7 @@ description: >
   Builds a 20-second product launch film (1920x1080, 60 fps, Remotion) from real product screen captures with
   @beamnxw's Opus 5.5 Motion Studio Harness: eight stage files (brief, style, assets, storyboard, motion, sound,
   delivery) that the agent follows to a checked render. Ships a finished example (varg how to: search "dropshipping",
-  open the dropship-reel skill with its reel playing, scroll the Ads & UGC page to nine product reels playing) with frame-driven camera,
+  open the dropship-reel skill with its reel playing, copy its prompt into Claude Code, scroll the Ads & UGC page to nine product reels playing) with frame-driven camera,
   cursor, selection rings, synthesized sound and a closing mark with a liquid-metal "how to" pill. Local
   Bun + Remotion + ffmpeg, no credits. Use when the user wants a product launch film, a UI demo video, an app
   walkthrough or a feature reveal made from their own screenshots, or asks for the Opus 5.5 motion harness. NOT
@@ -21,7 +21,7 @@ metadata:
   varg.engine: "Remotion 4 + ffmpeg"
   varg.legal: "Harness text by @beamnxw (MIT, THIRD_PARTY_NOTICES.md); Remotion license applies to companies over 3 people"
   varg.source: "github.com/beamnxw/my_works opus55-motion-studio-harness.zip"
-  varg.preview: "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_621fee5b4a0f.mp4"
+  varg.preview: "https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_0591d2bc3b2c.mp4"
 ---
 
 # Motion Studio launch film
@@ -67,6 +67,8 @@ bun run render && bun run cover        # out/final.mp4, out/cover.png
   cut frame, and redraw any UI the page paints over it (`keep` rects) or it disappears under the clip.
 - Land on screens that move. A page of text reads as a document, not a product; pick results with real media.
 - A scroll is a sequence of real captures at eased offsets (`capture-ref.ts` takes 24), shown one per frame or two.
+- Show what a skill does: click its Copy prompt and paste the real clipboard text into the agent; never invent the
+  agent's reply.
 - Long reels in a grid: loop the hook (`seconds`), or by mid-film every card shows the same laptop shot.
 - The text slot sits above the card; fade labels out before a push brings the card up under them.
 - `useCurrentFrame()` inside a `Sequence` is local; the layers here are global on purpose.

@@ -14,6 +14,7 @@ const screenAt = (f: number): string => {
     const i = Math.floor(((f - ev.scroll[0]) / (ev.scroll[1] - ev.scroll[0])) * s.scroll.length);
     return s.scroll[Math.min(s.scroll.length - 1, i)];
   }
+  if (f >= ev.copied[0] && f < ev.copied[1]) return s.skillCopied;
   if (f >= ev.skillCut) return s.skill;
   if (f < ev.pressSearch + 4) return s.home;
   if (f < ev.typing[0]) return s.palette;
