@@ -1,0 +1,30 @@
+{
+  "title": "Jess",
+  "theme": "dark",
+  "pace": 1.8,
+  "openDay": "Yesterday",
+  "time": "11:48 PM",
+  "senders": {
+    "me":   { "name": "you",  "initial": "Y", "me": true },
+    "jess": { "name": "Jess", "initial": "J", "grad": ["#C7A6E0", "#9C7BC4"] }
+  },
+  "messages": [
+    { "from": "jess", "text": "are you awake" },
+    { "from": "jess", "text": "i need to tell you something about the wedding" },
+    { "from": "me",   "text": "jess it's midnight" },
+    { "from": "me",   "text": "what happened" },
+    { "from": "jess", "text": "the venue called" },
+    { "from": "jess", "text": "someone cancelled OUR booking", "tapback": { "emoji": "‼️", "by": "me" } },
+    { "from": "me",   "text": "WHAT. who??" },
+    { "from": "jess", "text": "they wouldn't say. but the email came from a gmail" },
+    { "from": "jess", "text": "with your sister's initials 🙃" },
+    { "from": "me",   "text": "no." },
+    { "from": "me",   "text": "she wouldn't" },
+    { "timestamp": "Today 12:07 AM", "wait": 30 },
+    { "from": "jess", "text": "she just posted a story" },
+    { "from": "jess", "text": "at OUR venue. tasting menu. same date 💀", "tapback": { "emoji": "😱", "by": "me" } },
+    { "from": "me",   "text": "i'm calling her" },
+    { "from": "jess", "text": "wait don't" },
+    { "from": "jess", "text": "there's something else you need to see first", "wait": 20 }
+  ]
+}

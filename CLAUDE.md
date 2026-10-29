@@ -10,6 +10,8 @@ Main templates live at the root, one folder per template named after it. Each fo
 the video, a `README.md` and a `SKILL.md` for agents (read it before using the template). New templates go here.
 
 ```
+imessage-video/        # JSON chat -> iPhone iMessage screen recording (typing, tapbacks, group, dark, sounds). Bun + Chrome +
+                       #   ffmpeg, local, no credits. Skill: .claude/skills/imessage-video -> ../../imessage-video
 apple-notes-video/     # Any text -> iPhone Apple Notes typing video. Bun + Chrome + ffmpeg, local, no credits
 stamp-carousel/        # iPhone stamp swipe of the user's pictures, background + alpha outputs. Python + ffmpeg, local.
                        #   Skill: .claude/skills/stamp-carousel

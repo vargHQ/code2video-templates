@@ -14,6 +14,7 @@ vargHQ/code2video-templates is a library of code2video templates. Each top-level
 
 | folder | makes | render | credits |
 |---|---|---|---|
+| `imessage-video/` | a JSON chat as an iPhone iMessage screen recording: typing indicators, input-bar typing, tapbacks, receipts, photos, videos, link cards, group chats, light or dark, synthesized message sounds; text stories, chat ads | `bun render.ts examples/drama.json --sfx` | no |
 | `apple-notes-video/` | any text typed live in an iPhone Apple Notes screen, 9:16 | `bun notes-video.ts --text … --out out/x.mp4` | no |
 | `stamp-carousel/` | iPhone swiping through pictures as postage stamps; background or alpha | `bash make.command` | no |
 | `liquid-thorn-logo/` | any word as a black-metal chrome logo smeared by a WebGL fluid | `bun render.ts --text "WORD"` | no |

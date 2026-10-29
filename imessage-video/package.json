@@ -1,0 +1,21 @@
+{
+  "name": "imessage-video",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "puppeteer-core": "^24.0.0"
+  },
+  "bin": {
+    "imessage-video": "render.ts"
+  },
+  "scripts": {
+    "render": "bun render.ts",
+    "preview": "bun render.ts --serve"
+  }
+}

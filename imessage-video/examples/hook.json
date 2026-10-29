@@ -1,0 +1,19 @@
+{
+  "title": "Maya",
+  "pace": 2.2,
+  "time": "9:41 AM",
+  "senders": {
+    "me":   { "name": "you",  "initial": "Y", "grad": ["#A9B0BB", "#8E959F"], "me": true },
+    "maya": { "name": "Maya", "initial": "M", "grad": ["#C2A9BC", "#A883A0"] }
+  },
+  "messages": [
+    { "from": "maya", "text": "how are you posting a new video every day??" },
+    { "from": "me",   "text": "i stopped filming lol" },
+    { "from": "maya", "text": "?????" },
+    { "from": "me",   "text": "varg. i type the idea, it makes the video" },
+    { "from": "maya", "text": "no way that looks real" },
+    { "from": "me",   "image": { "src": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e441982a4a69.jpg", "height": 1180 } },
+    { "from": "maya", "text": "ok i'm actually shook", "tapback": { "emoji": "😮", "by": "me" } },
+    { "from": "me",   "text": "varg.ai 🚀" }
+  ]
+}
