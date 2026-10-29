@@ -50,11 +50,11 @@ The four-scene default is an initial structure, not a mandate to stretch weak ma
 ## This project: recorded schedule (src/config/timeline.ts)
 
 - Opening [0,76): headline [0,14); card rises [4,30); cursor in at 30, to search [36,66), press 72.
-- Search [76,172): palette at 76; headline out [64,78); camera 1 -> 1.85 [76,108); keys at 92..132 (8 f each, one
-  real capture per character); cursor to "UGC Ad" [138,160), ring, press 164; ring + cursor gone by 172.
-- Skill [172,446): **cut at 172**, the example video starts; camera back [166,196) then into the video 1 -> 1.7
-  [200,256); label 1 [184,210) .. [392,406); pull back [372,406); cursor to breadcrumb [404,432), press 438.
-- Grid [446,900): **cut at 446**, five previews start; label 2 [456,482) .. [612,630) (out before the push brings the
-  card under the text slot, a collision seen at frame 760 in the first pass); push 1 -> 1.28 on the grid [590,880).
+- Search [76,194): palette at 76; headline out [64,78); camera 1 -> 1.85 [76,108); keys at 92..158 (6 f each, one
+  real capture per character of "dropshipping"); cursor to the first row [162,182), ring, press 186; gone by 194.
+- Skill [194,460): **cut at 194**, the reel starts; camera back [188,218) then into the reel 1 -> 1.7 [222,276);
+  label 1 [206,232) .. [404,418); pull back [386,420); cursor to the breadcrumb [418,446), press 452.
+- Grid [460,900): **cut at 460**; 24 real scroll captures over [460,492); the nine previews start at 492; label 2
+  [496,522) .. [640,658); push 1 -> 1.25 on the reels [620,880).
 - Closing [900,1200): card shrinks 1 -> 0.18 and fades [900,942); logo [918,960); line [948,978); URL [972,1002);
   hold to 1199.

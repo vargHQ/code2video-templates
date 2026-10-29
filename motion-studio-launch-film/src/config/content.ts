@@ -5,32 +5,36 @@ export type Rect = { x: number; y: number; w: number; h: number };
 export type Clip = { src: string; rect: Rect; fit: "cover" | "contain"; seconds: number; radius: number; keep?: (Rect & { r: number })[] };
 
 const css = (x: number, y: number, w: number, h: number): Rect => ({ x: x * 2, y: y * 2, w: w * 2, h: h * 2 });
-const badge = (x: number, y: number) => ({ ...css(x + 10, y + 10, 64, 22), r: 22 }); // "Workflow" pill over a card
+const pad2 = (n: number) => String(n).padStart(2, "0");
 
 export const content = {
   opening: { before: "Every AI ", accent: "video", after: ", one search away." },
-  results: ["Every skill shows what it makes.", "667 skills. Each with a real example."],
+  results: ["Every skill shows what it makes.", "Real ads, made with the skills."],
   closingLine: "Make any video with AI agents.",
   closingUrl: "varg.ai/how-to",
-  query: "ugc ad",
+  query: "dropshipping",
   screens: {
     home: "screens/home.png",
     palette: "screens/palette-empty.png",
-    typed: ["screens/type-1.png", "screens/type-2.png", "screens/type-3.png", "screens/type-4.png", "screens/type-5.png", "screens/type-6.png"],
-    skill: "screens/skill.png", // /how-to/skills/varg-studio-ugc-ads
-    grid: "screens/ads.png", // /how-to/browse/skills/ads
+    typed: Array.from({ length: 12 }, (_, i) => `screens/type-${pad2(i + 1)}.png`), // "d" .. "dropshipping"
+    skill: "screens/skill.png", // /how-to/skills/varg-dropship-reel
+    scroll: Array.from({ length: 24 }, (_, i) => `screens/scroll/s-${pad2(i)}.png`), // /how-to/browse/skills/ads, eased scroll 0 -> 1190 px
+    grid: "screens/grid.png", // the same page at 1190 px: the product-ad reels
   },
   // The previews the pages autoplay, laid back over their own boxes (the captures hold one still frame).
   clips: {
     skill: [
-      { src: "clips/varg-studio-ugc-ads.mp4", rect: css(774.33, 84.5, 632.66, 394.66), fit: "contain", seconds: 9, radius: 36, keep: [{ ...css(786.33, 435.16, 32, 32), r: 16 }] },
+      { src: "clips/varg-dropship-reel.mp4", rect: css(774.33, 143.42, 632.66, 394.66), fit: "contain", seconds: 9.0, radius: 36, keep: [{ ...css(786.33, 494.08, 32, 32), r: 16 }] },
     ] as Clip[],
     grid: [
-      { src: "clips/marketingskills-video.mp4", rect: css(281, 359.63, 360.66, 224.66), fit: "contain", seconds: 12, radius: 28, keep: [badge(281, 359.63)] },
-      { src: "clips/fal-ugc.mp4", rect: css(663.66, 359.63, 360.67, 224.66), fit: "cover", seconds: 3.958, radius: 28, keep: [badge(663.66, 359.63)] },
-      { src: "clips/krea-marketing.mp4", rect: css(281, 670.28, 360.66, 224.66), fit: "cover", seconds: 9.041, radius: 28, keep: [badge(281, 670.28)] },
-      { src: "clips/business-motion-film.mp4", rect: css(663.66, 670.28, 360.67, 224.66), fit: "cover", seconds: 8, radius: 28, keep: [badge(663.66, 670.28)] },
-      { src: "clips/flux-3-product-ads.mp4", rect: css(1046.33, 670.28, 360.66, 224.66), fit: "cover", seconds: 10, radius: 28, keep: [badge(1046.33, 670.28)] },
+      { src: "clips/varg-studio-cinematic.mp4", rect: css(281, 101.59, 360.66, 224.66), fit: "contain", seconds: 6.583, radius: 28, keep: [{ ...css(291, 111.59, 52.55, 22), r: 44 }, { ...css(349.55, 111.59, 64, 22), r: 44 }] },
+      { src: "clips/varg-studio-ad-hooks.mp4", rect: css(663.66, 101.59, 360.67, 224.66), fit: "cover", seconds: 3.417, radius: 28, keep: [{ ...css(673.66, 111.59, 52.55, 22), r: 44 }, { ...css(732.2, 111.59, 74.7, 22), r: 44 }] },
+      { src: "clips/varg-dropship-reel.mp4", rect: css(1046.33, 101.59, 360.66, 224.66), fit: "contain", seconds: 9.0, radius: 28, keep: [{ ...css(1056.33, 111.59, 64, 22), r: 44 }] },
+      { src: "clips/varg-product-hook.mp4", rect: css(281, 412.25, 360.66, 224.66), fit: "contain", seconds: 6.0, radius: 28, keep: [{ ...css(291, 422.25, 64, 22), r: 44 }] },
+      { src: "clips/file_565f31d99f3a.mp4", rect: css(663.66, 412.25, 360.67, 224.66), fit: "cover", seconds: 5, /* loop the hook only: the 56 s reel turns to the laptop at 5 s */ radius: 28, keep: [{ ...css(673.66, 422.25, 45.8, 22), r: 44 }] },
+      { src: "clips/file_a2aa0853b683.mp4", rect: css(1046.33, 412.25, 360.66, 224.66), fit: "cover", seconds: 20.9, radius: 28, keep: [{ ...css(1056.33, 422.25, 45.8, 22), r: 44 }] },
+      { src: "clips/file_b1f093b28659.mp4", rect: css(281, 722.91, 360.66, 224.66), fit: "cover", seconds: 15.042, radius: 28, keep: [{ ...css(291, 732.91, 45.8, 22), r: 44 }] },
+      { src: "clips/file_d45406f8d0db.mp4", rect: css(663.66, 722.91, 360.67, 224.66), fit: "cover", seconds: 7, /* loop the hook only: the 58 s reel turns to the laptop at 7 s */ radius: 28, keep: [{ ...css(673.66, 732.91, 45.8, 22), r: 44 }] },
     ] as Clip[],
   },
   logo: "logo.png", // 300x80 crop of the real sidebar logo
@@ -38,12 +42,12 @@ export const content = {
   anchors: {
     searchBox: { x: 300, y: 172 }, // sidebar "Search skills" field
     paletteFocus: { x: 1440, y: 560 }, // upper half of the open command palette
-    skillRow: { x: 1150, y: 404 }, // "UGC Ad · Skill" row
-    skillRowRect: { x: 840, y: 352, w: 1200, h: 104 },
-    videoFocus: { x: 2181, y: 563 }, // centre of the skill page's example video
+    skillRow: { x: 1150, y: 404 }, // "Turn a product into a dropshipping guide reel · Skill · best match"
+    skillRowRect: { x: 838, y: 348, w: 1204, h: 110 },
+    videoFocus: { x: 2181, y: 681 }, // centre of the skill page's example reel
     crumb: { x: 912, y: 84 }, // breadcrumb "Ads & UGC"
     crumbRect: { x: 832, y: 54, w: 160, h: 60 },
-    gridFocus: { x: 1688, y: 1180 }, // centre of the card grid
+    gridFocus: { x: 1688, y: 940 }, // centre of the product-ad reels
   },
 } as const;
 
