@@ -3,6 +3,7 @@ import { camera } from "../config/camera";
 import { cardBox, Clip, content, fitScale } from "../config/content";
 import { ev } from "../config/timeline";
 import { track, inOut } from "../config/ease";
+import { LiquidPill } from "./LiquidPill";
 import { canvas, tokens } from "../config/tokens";
 
 // Which real captured state is on screen at a global frame.
@@ -89,6 +90,19 @@ export const ProductCard: React.FC = () => {
           }}
         >
           <Img src={staticFile(screenAt(f))} style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }} />
+          {f < ev.pressSearch + 4 && (
+            // the hero "How to" pill: on the site its chrome ring is a live shader, frozen in the capture
+            <div style={{ ...box(content.anchors.heroPill), display: "block" }}>
+              <LiquidPill
+                f={f}
+                width={content.anchors.heroPill.w * k}
+                height={content.anchors.heroPill.h * k}
+                ring={6 * k}
+                ringOnly
+                glare={interpolate(f, ev.heroGlare as unknown as number[], [0, 1])}
+              />
+            </div>
+          )}
           <Sequence from={ev.skillCut} durationInFrames={ev.gridCut - ev.skillCut} layout="none">
             {content.clips.skill.map((clip) => <PlayingClip key={clip.src} clip={clip} screen={content.screens.skill} />)}
           </Sequence>

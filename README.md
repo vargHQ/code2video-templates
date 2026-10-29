@@ -179,13 +179,13 @@ See [`imessage-video/README.md`](imessage-video/README.md).
 
 ### `motion-studio-launch-film/` -- Motion Studio launch film
 
-<a href="https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_faad77b61839.mp4"><img src="https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_985cdacca5a1.png" width="640" alt="Motion Studio launch film: product-ad reels playing on varg how to, in a dark product card"></a>
+<a href="https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_787509b04aa2.mp4"><img src="https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_985cdacca5a1.png" width="640" alt="Motion Studio launch film: product-ad reels playing on varg how to, in a dark product card"></a>
 
 A 20-second, 60 fps launch film made from real screen captures by Opus 5.5 in Claude Code, following
 [@beamnxw](https://x.com/beamnxw)'s Opus 5.5 Motion Studio Harness (eight stage files, MIT). The example shows a
 search for "dropshipping" on varg how to: one captured state per typed character, the dropship-reel skill page with
 its reel playing, then a real scroll down the Ads & UGC page to nine product-ad reels, all playing (the site's own
-previews laid back over their boxes), synthesized sound and a closing mark. Swap the captures, copy and event frames for your own product.
+previews laid back over their boxes), synthesized sound and a closing mark with a liquid-metal "how to" pill. Swap the captures, copy and event frames for your own product.
 
 ```bash
 cd motion-studio-launch-film && bun install && bun run setup && bun run render   # out/final.mp4

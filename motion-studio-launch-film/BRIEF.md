@@ -58,7 +58,7 @@ OUTCOME = typing "dropshipping" lands on the skill and on real product ads made 
 REAL_ACTION = home -> click "Search skills" -> type "dropshipping" -> click "Turn a product into a dropshipping guide
               reel" (skill page, its reel plays) -> breadcrumb "Ads & UGC" -> scroll to the product-ad reels, all playing
 ASSETS = public/screens/*.png + screens/scroll/*.png (real captures, 2880x1800), public/clips/*.mp4 (the previews those
-         pages autoplay), public/logo.png (crop of the real sidebar logo)
+         pages autoplay)
 OPENING = "Every AI video, one search away." (6 words)
 CLOSING = "Make any video with AI agents." + varg.ai/how-to
 CANVAS = 1920x1080 / FPS = 60 / DURATION = 1200 frames

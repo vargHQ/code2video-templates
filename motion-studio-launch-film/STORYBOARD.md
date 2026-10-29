@@ -56,5 +56,7 @@ The four-scene default is an initial structure, not a mandate to stretch weak ma
   label 1 [206,232) .. [404,418); pull back [386,420); cursor to the breadcrumb [418,446), press 452.
 - Grid [460,900): **cut at 460**; 24 real scroll captures over [460,492); the nine previews start at 492; label 2
   [496,522) .. [640,658); push 1 -> 1.25 on the reels [620,880).
-- Closing [900,1200): card shrinks 1 -> 0.18 and fades [900,942); logo [918,960); line [948,978); URL [972,1002);
-  hold to 1199.
+- Closing [900,1200): card shrinks 1 -> 0.18 and fades [900,942); the mark lands and its star turns [910,940); "varg"
+  [920,948); the liquid-metal "how to" pill springs out from behind "varg" with an orange bloom [934,970); a glare runs
+  over the pill [968,1010); line [972,1000); solid orange URL button [994,1030), its glare [1040,1080); hold to 1199.
+- Opening extra: the captured hero "How to" pill gets its live chrome back (rotating ring + glare [10,58]).

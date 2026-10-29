@@ -48,7 +48,6 @@ If Clawd or another supplied mascot is used, preserve the source artwork and ide
 | scroll | public/screens/scroll/s-00..23.png | PNG 2880x1800 | the scroll, eased 0 -> 1190 px | /how-to/browse/skills/ads, one capture per step | same |
 | grid | public/screens/grid.png | PNG 2880x1800 | after action 2 | the same page at 1190 px | same |
 | clips | public/clips/*.mp4 | MP4 404-720 px, 24 fps | the previews those pages autoplay | s3.varg.ai (catalog previews, varg-made reels) | laid over their DOM boxes, page's own object-fit and radius, looped |
-| logo | public/logo.png | PNG 300x80 | closing mark | crop of the real sidebar logo | centred, 690x184 |
 | sfx/* | public/sfx/*.wav | WAV 48 kHz | click, key, reveal, whoosh, resolve, pad | synthesized with ffmpeg (original) | onsets 0 except whoosh (peak at 15 f) |
 
 Anchors (source px, from the DOM at capture): search field (300,172); palette focus (1440,560); first result row

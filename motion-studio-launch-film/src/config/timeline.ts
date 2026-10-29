@@ -36,7 +36,12 @@ export const ev = {
   pushGrid: [620, 880],
   closingStart: 900,
   cardOut: [900, 942],
-  logoIn: [918, 960],
-  lineIn: [948, 978],
-  urlIn: [972, 1002],
+  markIn: [910, 940], // the mark lands, the star turns
+  vargIn: [920, 948],
+  pillIn: [934, 970], // "how to" springs out from behind "varg", the orange bloom peaks on it
+  pillGlare: [968, 1010], // a glare runs across the pill and its letters
+  lineIn: [972, 1000],
+  urlIn: [994, 1030], // solid orange button
+  urlGlare: [1040, 1080],
+  heroGlare: [10, 58], // the opening: a glare over the captured hero "How to" pill
 } as const;
