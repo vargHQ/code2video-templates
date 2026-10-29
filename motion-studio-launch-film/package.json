@@ -28,6 +28,7 @@
     "render": "remotion render Launch out/final.mp4 --codec=h264",
     "cover": "remotion still Launch out/cover.png --frame=820",
     "capture": "bun tools/capture-ref.ts public/screens",
-    "lint": "eslint src && tsc"
+    "lint": "eslint src && tsc",
+    "render:examples": "remotion render Examples out/examples.mp4 --codec=h264"
   }
 }
