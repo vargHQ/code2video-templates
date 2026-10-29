@@ -52,10 +52,13 @@ The four-scene default is an initial structure, not a mandate to stretch weak ma
 - Opening [0,76): headline [0,14); card rises [4,30); cursor in at 30, to search [36,66), press 72.
 - Search [76,194): palette at 76; headline out [64,78); camera 1 -> 1.85 [76,108); keys at 92..158 (6 f each, one
   real capture per character of "dropshipping"); cursor to the first row [162,182), ring, press 186; gone by 194.
-- Skill [194,460): **cut at 194**, the reel starts; camera back [188,218) then into the reel 1 -> 1.7 [222,276);
-  label 1 [206,232) .. [404,418); pull back [386,420); cursor to the breadcrumb [418,446), press 452.
-- Grid [460,900): **cut at 460**; 24 real scroll captures over [460,492); the nine previews start at 492; label 2
-  [496,522) .. [640,658); push 1 -> 1.25 on the reels [620,880).
+- Skill [194,558): **cut at 194**, the reel starts; camera back [188,218) then into the reel 1 -> 1.7 [222,276);
+  label 1 [206,232) .. [320,334); pull back [326,356). "Copy prompt": cursor to the button [356,380), ring, press 386;
+  the real "Prompt copied" capture [388,440); label "Copy the prompt. Your agent makes the reel." [372,398) ..
+  [500,514); a Claude Code window slides in [394,420), the copied prompt is pasted line by line [404,416), Enter at
+  462, window out [500,520). Cursor to the breadcrumb [516,544), press 550.
+- Grid [558,900): **cut at 558**; 24 real scroll captures over [558,590); the nine previews start at 590; label 2
+  [594,620) .. [714,732); push 1 -> 1.25 on the reels [700,880).
 - Closing [900,1200): card shrinks 1 -> 0.18 and fades [900,942); the mark lands and its star turns [910,940); "varg"
   [920,948); the liquid-metal "how to" pill springs out from behind "varg" with an orange bloom [934,970); a glare runs
   over the pill [968,1010); line [972,1000); solid orange URL button [994,1030), its glare [1040,1080); hold to 1199.

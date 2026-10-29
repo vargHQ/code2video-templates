@@ -10,10 +10,11 @@ type R = { x: number; y: number; w: number; h: number };
 const A = content.anchors;
 
 // Three clicks. Waypoints are source pixels, so the cursor and rings follow the fitted, zoomed screen.
-const passes: { show: [number, number]; from: P; to: P; move: readonly [number, number]; press: number; ring?: R; end: number }[] = [
+const passes: { show: [number, number]; from: P; to: P; move: readonly [number, number]; press: number; ring?: R; ringRadius?: number; end: number }[] = [
   { show: [ev.cursorIn, ev.pressSearch + 14], from: { x: 1500, y: 1250 }, to: A.searchBox, move: ev.cursorToSearch, press: ev.pressSearch, end: ev.pressSearch + 14 },
   { show: [ev.cursorToRow[0] - 6, ev.skillCut], from: { x: 1820, y: 900 }, to: A.skillRow, move: ev.cursorToRow, press: ev.pressRow, ring: A.skillRowRect, end: ev.skillCut },
-  { show: [ev.cursorToCrumb[0] - 6, ev.gridCut], from: { x: 1500, y: 1150 }, to: A.crumb, move: ev.cursorToCrumb, press: ev.pressCrumb, ring: A.crumbRect, end: ev.gridCut },
+  { show: [ev.cursorToCopy[0] - 6, ev.pressCopy + 14], from: { x: 1300, y: 1250 }, to: A.copyPrompt, move: ev.cursorToCopy, press: ev.pressCopy, ring: A.copyPromptRect, ringRadius: 999, end: ev.pressCopy + 14 },
+  { show: [ev.cursorToCrumb[0] - 6, ev.gridCut], from: { x: 1100, y: 700 }, to: A.crumb, move: ev.cursorToCrumb, press: ev.pressCrumb, ring: A.crumbRect, end: ev.gridCut },
 ];
 
 const dip = (f: number, at: number) =>
@@ -47,7 +48,7 @@ export const Cursor: React.FC = () => {
               top: tl.y,
               width: pass.ring.w * kk,
               height: pass.ring.h * kk,
-              borderRadius: 14,
+              borderRadius: pass.ringRadius ?? 14,
               boxShadow: `0 0 0 3px ${tokens.accent}, 0 0 40px rgba(252,82,21,0.35)`,
               opacity: ringO,
             }}

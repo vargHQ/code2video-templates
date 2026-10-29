@@ -2,13 +2,14 @@
 
 <img src="https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_985cdacca5a1.png" width="600" alt="A dark product card of varg how to: product-ad reels playing in the Ads & UGC grid">
 
-[MP4 with sound](https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_787509b04aa2.mp4) · [preview](https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_621fee5b4a0f.mp4) · rendered from this folder with `bash make.command`.
+[MP4 with sound](https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_eb4a4e5ef4b4.mp4) · [preview](https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_0591d2bc3b2c.mp4) · rendered from this folder with `bash make.command`.
 
 A 20-second product launch film (1920×1080, 60 fps) made by Opus 5.5 in Claude Code with
 [@beamnxw](https://x.com/beamnxw)'s **Opus 5.5 Motion Studio Harness**: eight Markdown files that walk the agent
 from brief to style, storyboard, motion, sound and a checked render. The example is varg's own product: real
 captures of [varg.ai/how-to](https://varg.ai/how-to): a search for "dropshipping" (one captured state per typed
-character) opens the dropshipping guide reel skill with its reel playing, then the breadcrumb opens Ads & UGC and the
+character) opens the dropshipping guide reel skill with its reel playing; "Copy prompt" pastes the skill's real prompt into a
+Claude Code window; then the breadcrumb opens Ads & UGC and the
 page scrolls (24 real captures) down to nine product-ad reels, all playing. The previews are the site's own files, laid back over their boxes; a camera follows the fitted screen, each
 click is a cut, and it ends on the mark.
 

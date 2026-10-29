@@ -2,14 +2,15 @@
 export const scenes = {
   opening: [0, 76],
   search: [76, 194],
-  skill: [194, 460],
-  grid: [460, 900],
+  skill: [194, 558],
+  grid: [558, 900],
   closing: [900, 1200],
 } as const;
 
 export const ev = {
   headlineIn: [0, 14],
   cardIn: [4, 30],
+  heroGlare: [10, 58], // the opening: a glare over the captured hero "How to" pill
   // search
   cursorIn: 30,
   cursorToSearch: [36, 66],
@@ -24,16 +25,26 @@ export const ev = {
   // skill page: the example reel plays
   label1In: [206, 232],
   pushVideo: [222, 276],
-  pullBack: [386, 420],
-  label1Out: [404, 418],
-  cursorToCrumb: [418, 446],
-  pressCrumb: 452,
-  gridCut: 460, // "Ads & UGC" breadcrumb -> the category page
-  scroll: [460, 492], // 24 real captures of an eased scroll down to the product-ad reels
+  label1Out: [320, 334],
+  pullBack: [326, 356],
+  // "Copy prompt": the button reads "Prompt copied" (real capture) and the prompt lands in Claude Code
+  cursorToCopy: [356, 380],
+  pressCopy: 386,
+  copied: [388, 440],
+  label1bIn: [372, 398],
+  panelIn: [394, 420],
+  paste: [404, 416], // Cmd+V: the copied prompt appears line by line
+  enter: 462,
+  panelOut: [500, 520],
+  label1bOut: [500, 514],
+  cursorToCrumb: [516, 544],
+  pressCrumb: 550,
+  gridCut: 558, // "Ads & UGC" breadcrumb -> the category page
+  scroll: [558, 590], // 24 real captures of an eased scroll down to the product-ad reels
   // grid
-  label2In: [496, 522],
-  label2Out: [640, 658], // gone before the push brings the card up under the text slot
-  pushGrid: [620, 880],
+  label2In: [594, 620],
+  label2Out: [714, 732], // gone before the push brings the card up under the text slot
+  pushGrid: [700, 880],
   closingStart: 900,
   cardOut: [900, 942],
   markIn: [910, 940], // the mark lands, the star turns
@@ -43,5 +54,4 @@ export const ev = {
   lineIn: [972, 1000],
   urlIn: [994, 1030], // solid orange button
   urlGlare: [1040, 1080],
-  heroGlare: [10, 58], // the opening: a glare over the captured hero "How to" pill
 } as const;

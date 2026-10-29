@@ -45,6 +45,8 @@ If Clawd or another supplied mascot is used, preserve the source artwork and ide
 | palette | public/screens/palette-empty.png | PNG 2880x1800 | button response | capture after clicking Search | same |
 | type-01..12 | public/screens/type-NN.png | PNG 2880x1800 | typing states "d".."dropshipping" | one capture per character | same |
 | skill | public/screens/skill.png | PNG 2880x1800 | after action 1 | /how-to/skills/varg-dropship-reel | same |
+| skill-copied | public/screens/skill-copied.png | PNG 2880x1800 | button response | the skill page 120 ms after "Copy prompt" ("Prompt copied") | same |
+| prompt | src/config/content.ts `prompt` | text, 511 chars | what the button copies | read from the clipboard at capture | shown pasted into a Claude Code window; no agent reply is shown |
 | scroll | public/screens/scroll/s-00..23.png | PNG 2880x1800 | the scroll, eased 0 -> 1190 px | /how-to/browse/skills/ads, one capture per step | same |
 | grid | public/screens/grid.png | PNG 2880x1800 | after action 2 | the same page at 1190 px | same |
 | clips | public/clips/*.mp4 | MP4 404-720 px, 24 fps | the previews those pages autoplay | s3.varg.ai (catalog previews, varg-made reels) | laid over their DOM boxes, page's own object-fit and radius, looped |
