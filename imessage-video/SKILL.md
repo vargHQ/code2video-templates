@@ -9,8 +9,6 @@ description: >
   message story, a viral chat drama video for TikTok/Reels/Shorts, an "iMessage ad", a fake text conversation as an
   ad or skit, or a chat screen recording mockup. NOT for other messengers' look (WhatsApp, Telegram), phone mockups
   of an app (use iphone-duo-fold or stamp-carousel) or a typed note (use apple-notes-video).
-  Russian triggers include "переписка в айфоне", "видео переписки", "аймесседж", "чат-история для тиктока",
-  "сторис из переписки", "фейковая переписка для рекламы".
 license: MIT
 metadata:
   version: "1.0.0"
@@ -75,7 +73,7 @@ The run prints the output path as its last line; that line means the file is com
 - **A `timestamp` divider** with `"wait": 30` shows time passing ("Today 12:07 AM").
 - **Pace, not delays.** Change `pace` (1.6–2.4 for social, 1 for real speed), not individual waits. Length is about
   1 s per short message at pace 2; 15–30 messages make a 20–45 s story.
-- Write in the user's language; emoji and any script render correctly. Set `time` so the clock fits the story.
+- Emoji render correctly. Set `time` so the clock fits the story.
 
 ## Request → flags
 
