@@ -43,14 +43,16 @@ If Clawd or another supplied mascot is used, preserve the source artwork and ide
 | --- | --- | --- | --- | --- | --- |
 | home | public/screens/home.png | PNG 2880x1800 | before action | varg.ai/how-to capture, own product | contain into 1216x760 at (352,220), k=0.4222 |
 | palette | public/screens/palette-empty.png | PNG 2880x1800 | button response | capture after clicking Search | same |
-| type-1..6 | public/screens/type-N.png | PNG 2880x1800 | typing states "u".."ugc ad" | one capture per character | same |
-| skill | public/screens/skill.png | PNG 2880x1800 | after action 1 | /how-to/skills/varg-studio-ugc-ads | same |
-| grid | public/screens/ads.png | PNG 2880x1800 | after action 2 | /how-to/browse/skills/ads | same |
-| clips | public/clips/*.mp4 | MP4 720 px, 24 fps, 4-12 s | the previews those pages autoplay | s3.varg.ai/how-to/previews (catalog previews) | laid over their DOM boxes, page's own object-fit and radius, looped |
+| type-01..12 | public/screens/type-NN.png | PNG 2880x1800 | typing states "d".."dropshipping" | one capture per character | same |
+| skill | public/screens/skill.png | PNG 2880x1800 | after action 1 | /how-to/skills/varg-dropship-reel | same |
+| scroll | public/screens/scroll/s-00..23.png | PNG 2880x1800 | the scroll, eased 0 -> 1190 px | /how-to/browse/skills/ads, one capture per step | same |
+| grid | public/screens/grid.png | PNG 2880x1800 | after action 2 | the same page at 1190 px | same |
+| clips | public/clips/*.mp4 | MP4 404-720 px, 24 fps | the previews those pages autoplay | s3.varg.ai (catalog previews, varg-made reels) | laid over their DOM boxes, page's own object-fit and radius, looped |
 | logo | public/logo.png | PNG 300x80 | closing mark | crop of the real sidebar logo | centred, 690x184 |
 | sfx/* | public/sfx/*.wav | WAV 48 kHz | click, key, reveal, whoosh, resolve, pad | synthesized with ffmpeg (original) | onsets 0 except whoosh (peak at 15 f) |
 
-Anchors (source px, measured from the DOM at capture): search field (300,172); palette focus (1440,560); "UGC Ad"
-row (1150,404), rect x840 y352 w1200 h104; video centre (2181,563); breadcrumb "Ads & UGC" (912,84), rect x832 y54
-w160 h60; grid centre (1688,1180). UI drawn over the videos (the play button, "Workflow" pills) is restored from the
-capture on top of each clip. Substitution: Aeonik -> Geist (OFL). Captures taken 2026-10-29 in one session.
+Anchors (source px, from the DOM at capture): search field (300,172); palette focus (1440,560); first result row
+(1150,404), rect x838 y348 w1204 h110; reel centre (2181,681); breadcrumb "Ads & UGC" (912,84); grid centre (1688,940).
+UI the page draws over a video (play button, Draft/Workflow/Guide pills) is restored from the capture on top of each
+clip. Two 56-58 s reels (gloves, solar light) loop only their hook (5 s, 7 s): played in full they turn to the laptop
+walkthrough mid-film. Substitution: Aeonik -> Geist (OFL). Captures taken 2026-10-29 in one session.

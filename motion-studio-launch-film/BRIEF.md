@@ -53,16 +53,16 @@ Convert vague requests such as "make it premium" into visible decisions: larger 
 
 ```text
 PRODUCT = varg how to (varg.ai/how-to): a catalog of AI-video skills and how-to guides for agents
-AUDIENCE = people making AI video with Claude Code / Codex who know what they want, not which skill
-OUTCOME = typing what you want lands on skills that show real videos
-REAL_ACTION = home -> click "Search skills" -> type "ugc ad" -> click "UGC Ad" (skill page, its example video plays)
-              -> breadcrumb "Ads & UGC" -> category grid, every card playing
-ASSETS = public/screens/*.png (real captures, 2880x1800), public/clips/*.mp4 (the previews those pages autoplay),
-         public/logo.png (crop of the real sidebar logo)
+AUDIENCE = sellers and creators making product ads with Claude Code / Codex who know the format, not the skill
+OUTCOME = typing "dropshipping" lands on the skill and on real product ads made with skills
+REAL_ACTION = home -> click "Search skills" -> type "dropshipping" -> click "Turn a product into a dropshipping guide
+              reel" (skill page, its reel plays) -> breadcrumb "Ads & UGC" -> scroll to the product-ad reels, all playing
+ASSETS = public/screens/*.png + screens/scroll/*.png (real captures, 2880x1800), public/clips/*.mp4 (the previews those
+         pages autoplay), public/logo.png (crop of the real sidebar logo)
 OPENING = "Every AI video, one search away." (6 words)
 CLOSING = "Make any video with AI agents." + varg.ai/how-to
 CANVAS = 1920x1080 / FPS = 60 / DURATION = 1200 frames
 TONE = product stage (STYLE.md)
 ```
-Revision 2026-10-29 (founder): faster opening; the clicks must open good-looking videos, not a page of text. The UGC
-guide page was replaced by the skill page and the category grid. "667 skills" is read from the captured sidebar.
+Revisions 2026-10-29 (founder): faster opening; clicks must open good-looking videos, not text; then: search
+"dropshipping" and click varg-dropship-reel, show product reels rather than AI UGC.

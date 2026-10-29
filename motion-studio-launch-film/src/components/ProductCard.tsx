@@ -8,7 +8,11 @@ import { canvas, tokens } from "../config/tokens";
 // Which real captured state is on screen at a global frame.
 const screenAt = (f: number): string => {
   const s = content.screens;
-  if (f >= ev.gridCut) return s.grid;
+  if (f >= ev.scroll[1]) return s.grid;
+  if (f >= ev.gridCut) {
+    const i = Math.floor(((f - ev.scroll[0]) / (ev.scroll[1] - ev.scroll[0])) * s.scroll.length);
+    return s.scroll[Math.min(s.scroll.length - 1, i)];
+  }
   if (f >= ev.skillCut) return s.skill;
   if (f < ev.pressSearch + 4) return s.home;
   if (f < ev.typing[0]) return s.palette;
@@ -88,7 +92,7 @@ export const ProductCard: React.FC = () => {
           <Sequence from={ev.skillCut} durationInFrames={ev.gridCut - ev.skillCut} layout="none">
             {content.clips.skill.map((clip) => <PlayingClip key={clip.src} clip={clip} screen={content.screens.skill} />)}
           </Sequence>
-          <Sequence from={ev.gridCut} layout="none">
+          <Sequence from={ev.scroll[1]} layout="none">
             {content.clips.grid.map((clip) => <PlayingClip key={clip.src} clip={clip} screen={content.screens.grid} />)}
           </Sequence>
           <div

@@ -47,12 +47,12 @@ An audible onset 6 frames into the source needs an adjusted start or trim to lan
 | pad | 0-1199 | sfx/pad.wav (fade in 1.5 s, out 1.4 s) | 0.32 |
 | whoosh-in | 15 (peak ~30, card landing) | sfx/whoosh.wav | 0.18 |
 | click-search | 72 | sfx/click.wav | 0.55 |
-| key-1..6 | 92..132 | sfx/key.wav | 0.4 |
-| click-row | 164 | sfx/click.wav | 0.55 |
-| reveal-skill | 172 | sfx/reveal.wav | 0.3 |
-| click-crumb | 438 | sfx/click.wav | 0.5 |
-| reveal-grid | 446 | sfx/reveal.wav | 0.35 |
+| key-1..12 | 92..158 | sfx/key.wav | 0.4 |
+| click-row | 186 | sfx/click.wav | 0.55 |
+| reveal-skill | 194 | sfx/reveal.wav | 0.3 |
+| click-crumb | 452 | sfx/click.wav | 0.5 |
+| reveal-grid | 460 | sfx/reveal.wav | 0.35 |
 | whoosh-out | 905 (peak ~920) | sfx/whoosh.wav | 0.25 |
 | resolve | 930 | sfx/resolve.wav | 0.4 |
 
-The previews are muted. Measured on the export: mean -23.1 dB, max -4.3 dB, no clipping.
+The previews are muted. Measured on the export: mean -23.1 dB, max -4.6 dB, no clipping.
