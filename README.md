@@ -179,12 +179,13 @@ See [`imessage-video/README.md`](imessage-video/README.md).
 
 ### `motion-studio-launch-film/` -- Motion Studio launch film
 
-<a href="https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_12540de8467b.mp4"><img src="https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_accf745e09ee.png" width="640" alt="Motion Studio launch film: the varg how to guide for UGC ads in a dark product card"></a>
+<a href="https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_6b7f82b24012.mp4"><img src="https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_37bbd3df2034.png" width="640" alt="Motion Studio launch film: the varg how to Ads & UGC grid with every card playing, in a dark product card"></a>
 
 A 20-second, 60 fps launch film made from real screen captures by Opus 5.5 in Claude Code, following
 [@beamnxw](https://x.com/beamnxw)'s Opus 5.5 Motion Studio Harness (eight stage files, MIT). The example shows a
-search on varg how to: one captured state per typed character, a camera that follows the fitted screen, a cut on
-the click, synthesized sound and a closing mark. Swap the captures, copy and event frames for your own product.
+search on varg how to that lands on videos: one captured state per typed character, then the skill page with its
+example playing and the category grid with every card playing (the real previews laid back over their boxes), a camera
+that follows the fitted screen, synthesized sound and a closing mark. Swap the captures, copy and event frames for your own product.
 
 ```bash
 cd motion-studio-launch-film && bun install && bun run setup && bun run render   # out/final.mp4

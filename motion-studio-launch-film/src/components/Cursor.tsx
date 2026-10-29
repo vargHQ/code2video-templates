@@ -6,85 +6,68 @@ import { inOut, track } from "../config/ease";
 import { tokens } from "../config/tokens";
 
 type P = { x: number; y: number };
-const lerpP = (a: P, b: P, t: number): P => ({ x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t });
+type R = { x: number; y: number; w: number; h: number };
+const A = content.anchors;
 
-// Waypoints in source pixels, so cursor and highlights follow the fitted, zoomed screen.
-const START: P = { x: 2435, y: 1280 };
-const PALETTE_REST: P = { x: 1760, y: 900 };
-const ROW = content.anchors.guideRow;
-const ROW_RECT = { x: 840, y: 461, w: 1200, h: 108 }; // "How to make a UGC ad video with AI"
+// Three clicks. Waypoints are source pixels, so the cursor and rings follow the fitted, zoomed screen.
+const passes: { show: [number, number]; from: P; to: P; move: readonly [number, number]; press: number; ring?: R; end: number }[] = [
+  { show: [ev.cursorIn, ev.pressSearch + 14], from: { x: 1500, y: 1250 }, to: A.searchBox, move: ev.cursorToSearch, press: ev.pressSearch, end: ev.pressSearch + 14 },
+  { show: [ev.cursorToRow[0] - 6, ev.skillCut], from: { x: 1820, y: 900 }, to: A.skillRow, move: ev.cursorToRow, press: ev.pressRow, ring: A.skillRowRect, end: ev.skillCut },
+  { show: [ev.cursorToCrumb[0] - 6, ev.gridCut], from: { x: 1500, y: 1150 }, to: A.crumb, move: ev.cursorToCrumb, press: ev.pressCrumb, ring: A.crumbRect, end: ev.gridCut },
+];
 
-const sourcePoint = (f: number): P => {
-  if (f < ev.pressSearch + 8) {
-    // a slight arc: ease on x, a touch later on y
-    const tx = track(f, ev.cursorToSearch, 0, 1, inOut);
-    const ty = track(f, [ev.cursorToSearch[0] + 4, ev.cursorToSearch[1]], 0, 1, inOut);
-    return { x: START.x + (content.anchors.searchBox.x - START.x) * tx, y: START.y + (content.anchors.searchBox.y - START.y) * ty };
-  }
-  return lerpP(PALETTE_REST, ROW, track(f, ev.cursorToRow, 0, 1, inOut));
-};
-
-const visibility = (f: number) => {
-  const a = track(f, [ev.cursorIn, ev.cursorIn + 16], 0, 1) * (1 - track(f, [ev.pressSearch + 6, ev.pressSearch + 18], 0, 1));
-  const b = track(f, [410, 420], 0, 1) * (1 - track(f, [ev.pressRow + 2, ev.guideCut], 0, 1));
-  return f < 380 ? a : b;
-};
-
-const pressDip = (f: number, at: number) =>
+const dip = (f: number, at: number) =>
   1 - 0.14 * interpolate(f, [at - 4, at, at + 8], [0, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-
-const Ripple: React.FC<{ at: number; p: P; life?: number }> = ({ at, p, life = 24 }) => {
-  const f = useCurrentFrame();
-  if (f < at || f >= at + life) return null;
-  const t = track(f, [at, at + life], 0, 1);
-  const r = 10 + 46 * t;
-  return (
-    <div
-      style={{
-        position: "absolute",
-        left: p.x - r,
-        top: p.y - r,
-        width: r * 2,
-        height: r * 2,
-        borderRadius: "50%",
-        border: `3px solid ${tokens.accent}`,
-        opacity: 1 - t,
-      }}
-    />
-  );
-};
 
 export const Cursor: React.FC = () => {
   const f = useCurrentFrame();
-  if (f < ev.cursorIn || f >= ev.guideCut) return null;
+  const pass = passes.find((p) => f >= p.show[0] && f < p.show[1]);
+  if (!pass) return null;
   const c = camera(f);
-  const p = toComp(base(sourcePoint(f)), c);
-  const o = visibility(f);
-  const scale = pressDip(f, ev.pressSearch) * pressDip(f, ev.pressRow);
+  const tx = track(f, pass.move, 0, 1, inOut);
+  const ty = track(f, [pass.move[0] + 3, pass.move[1]], 0, 1, inOut); // slight arc
+  const src = { x: pass.from.x + (pass.to.x - pass.from.x) * tx, y: pass.from.y + (pass.to.y - pass.from.y) * ty };
+  const p = toComp(base(src), c);
+  const o = track(f, [pass.show[0], pass.show[0] + 8], 0, 1) * (1 - track(f, [pass.press + 2, pass.end], 0, 1));
 
-  // Selection ring around the chosen result row (presentation overlay, screenshot untouched).
-  const ring = track(f, [ev.pressRow - 14, ev.pressRow], 0, 1) * (1 - track(f, [ev.pressRow + 2, ev.guideCut], 0, 1));
-  const tl = toComp(base({ x: ROW_RECT.x, y: ROW_RECT.y }), c);
-  const k = fitScale * c.s;
+  const ringO = track(f, [pass.press - 12, pass.press], 0, 1) * (1 - track(f, [pass.press + 2, pass.end], 0, 1));
+  const rippleT = track(f, [pass.press, pass.end], 0, 1);
+  const pressAt = toComp(base(pass.to), c);
+  const kk = fitScale * c.s;
 
   return (
     <AbsoluteFill>
-      {ring > 0 && (
+      {pass.ring && ringO > 0 && (() => {
+        const tl = toComp(base(pass.ring), c);
+        return (
+          <div
+            style={{
+              position: "absolute",
+              left: tl.x,
+              top: tl.y,
+              width: pass.ring.w * kk,
+              height: pass.ring.h * kk,
+              borderRadius: 14,
+              boxShadow: `0 0 0 3px ${tokens.accent}, 0 0 40px rgba(252,82,21,0.35)`,
+              opacity: ringO,
+            }}
+          />
+        );
+      })()}
+      {f >= pass.press && f < pass.end && (
         <div
           style={{
             position: "absolute",
-            left: tl.x,
-            top: tl.y,
-            width: ROW_RECT.w * k,
-            height: ROW_RECT.h * k,
-            borderRadius: 14,
-            boxShadow: `0 0 0 3px ${tokens.accent}, 0 0 40px rgba(252,82,21,0.35)`,
-            opacity: ring,
+            left: pressAt.x - (10 + 40 * rippleT),
+            top: pressAt.y - (10 + 40 * rippleT),
+            width: 2 * (10 + 40 * rippleT),
+            height: 2 * (10 + 40 * rippleT),
+            borderRadius: "50%",
+            border: `3px solid ${tokens.accent}`,
+            opacity: 1 - rippleT,
           }}
         />
       )}
-      <Ripple at={ev.pressSearch} p={toComp(base(content.anchors.searchBox), camera(ev.pressSearch))} />
-      <Ripple at={ev.pressRow} p={toComp(base(ROW), c)} life={ev.guideCut - ev.pressRow} />
       <svg
         width={34}
         height={46}
@@ -95,7 +78,7 @@ export const Cursor: React.FC = () => {
           top: p.y - 2,
           opacity: o,
           transformOrigin: "2px 2px",
-          transform: `scale(${scale})`,
+          transform: `scale(${dip(f, pass.press)})`,
           filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.55))",
         }}
       >

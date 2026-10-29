@@ -1,28 +1,38 @@
 // Global event frames (STORYBOARD.md). Intervals are [start, endExclusive).
 export const scenes = {
-  opening: [0, 180],
-  action: [180, 480],
-  result: [480, 900],
+  opening: [0, 76],
+  search: [76, 172],
+  skill: [172, 446],
+  grid: [446, 900],
   closing: [900, 1200],
 } as const;
 
 export const ev = {
-  headlineIn: [0, 24],
-  cardIn: [20, 57],
-  cursorIn: 220,
-  cursorToSearch: [240, 289],
-  pressSearch: 300,
-  headlineOut: [288, 306],
-  zoomPalette: [304, 346],
-  typing: [330, 345, 360, 375, 390, 405], // one real captured state per character
-  cursorToRow: [416, 445],
-  pressRow: 450,
-  guideCut: 462, // the click navigates: instant cut to the guide screen
-  zoomOut: [452, 484],
-  result1In: [492, 522],
-  pushGuide: [560, 840],
-  result1Out: [672, 690],
-  result2In: [690, 720],
+  headlineIn: [0, 14],
+  cardIn: [4, 30],
+  // search
+  cursorIn: 30,
+  cursorToSearch: [36, 66],
+  pressSearch: 72,
+  headlineOut: [64, 78],
+  zoomPalette: [76, 108],
+  typing: [92, 100, 108, 116, 124, 132], // one real captured state per character
+  cursorToRow: [138, 160],
+  pressRow: 164,
+  skillCut: 172, // the click navigates: cut to the skill page, its video starts
+  zoomOut: [166, 196],
+  // skill page: the example video plays
+  label1In: [184, 210],
+  pushVideo: [200, 256],
+  pullBack: [372, 406],
+  label1Out: [392, 406],
+  cursorToCrumb: [404, 432],
+  pressCrumb: 438,
+  gridCut: 446, // "Ads & UGC" breadcrumb -> the category grid, every card playing
+  // grid
+  label2In: [456, 482],
+  label2Out: [612, 630], // gone before the push brings the card up under the text slot
+  pushGrid: [590, 880],
   closingStart: 900,
   cardOut: [900, 942],
   logoIn: [918, 960],

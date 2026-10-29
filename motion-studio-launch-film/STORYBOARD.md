@@ -49,7 +49,12 @@ The four-scene default is an initial structure, not a mandate to stretch weak ma
 
 ## This project: recorded schedule (src/config/timeline.ts)
 
-- Opening [0,180): headline [0,24); card rises [20,57); hold.
-- Action [180,480): cursor in 220, to search [240,289), press 300 -> palette 304; headline out [288,306); camera 1 -> 1.85 on the palette [304,346); keys at 330/345/360/375/390/405 (one real capture each); cursor to row [416,445), ring [436,450), press 450; ring + cursor gone by 462; **cut to the guide at 462** (a link click navigates; the earlier crossfade double-exposed both screens at 463, fixed); camera back to 1 [452,484).
-- Result [480,900): label 1 [492,522) -> out [672,690); label 2 [690,720); slow push 1 -> 1.22 on "What works now" [560,840).
-- Closing [900,1200): card shrinks 1 -> 0.18 and fades [900,942) (owner object becomes the mark); logo [918,960); line [948,978); URL [972,1002); hold to 1199.
+- Opening [0,76): headline [0,14); card rises [4,30); cursor in at 30, to search [36,66), press 72.
+- Search [76,172): palette at 76; headline out [64,78); camera 1 -> 1.85 [76,108); keys at 92..132 (8 f each, one
+  real capture per character); cursor to "UGC Ad" [138,160), ring, press 164; ring + cursor gone by 172.
+- Skill [172,446): **cut at 172**, the example video starts; camera back [166,196) then into the video 1 -> 1.7
+  [200,256); label 1 [184,210) .. [392,406); pull back [372,406); cursor to breadcrumb [404,432), press 438.
+- Grid [446,900): **cut at 446**, five previews start; label 2 [456,482) .. [612,630) (out before the push brings the
+  card under the text slot, a collision seen at frame 760 in the first pass); push 1 -> 1.28 on the grid [590,880).
+- Closing [900,1200): card shrinks 1 -> 0.18 and fades [900,942); logo [918,960); line [948,978); URL [972,1002);
+  hold to 1199.

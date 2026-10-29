@@ -44,9 +44,13 @@ If Clawd or another supplied mascot is used, preserve the source artwork and ide
 | home | public/screens/home.png | PNG 2880x1800 | before action | varg.ai/how-to capture, own product | contain into 1216x760 at (352,220), k=0.4222 |
 | palette | public/screens/palette-empty.png | PNG 2880x1800 | button response | capture after clicking Search | same |
 | type-1..6 | public/screens/type-N.png | PNG 2880x1800 | typing states "u".."ugc ad" | one capture per character | same |
-| guide | public/screens/guide.png | PNG 2880x1800 | after action | /how-to/make-a-ugc-ad-video | same |
+| skill | public/screens/skill.png | PNG 2880x1800 | after action 1 | /how-to/skills/varg-studio-ugc-ads | same |
+| grid | public/screens/ads.png | PNG 2880x1800 | after action 2 | /how-to/browse/skills/ads | same |
+| clips | public/clips/*.mp4 | MP4 720 px, 24 fps, 4-12 s | the previews those pages autoplay | s3.varg.ai/how-to/previews (catalog previews) | laid over their DOM boxes, page's own object-fit and radius, looped |
 | logo | public/logo.png | PNG 300x80 | closing mark | crop of the real sidebar logo | centred, 690x184 |
 | sfx/* | public/sfx/*.wav | WAV 48 kHz | click, key, reveal, whoosh, resolve, pad | synthesized with ffmpeg (original) | onsets 0 except whoosh (peak at 15 f) |
 
-Anchors (source px, measured): search field (330,170); palette centre (1440,560); guide row "How to make a UGC ad video with AI" (1150,514), rect x840 y461 w1200 h108; guide focus (1300,900).
-Substitution: Aeonik -> Geist (OFL). Captures taken 2026-10-28; result order in the palette is the live ranking at that time.
+Anchors (source px, measured from the DOM at capture): search field (300,172); palette focus (1440,560); "UGC Ad"
+row (1150,404), rect x840 y352 w1200 h104; video centre (2181,563); breadcrumb "Ads & UGC" (912,84), rect x832 y54
+w160 h60; grid centre (1688,1180). UI drawn over the videos (the play button, "Workflow" pills) is restored from the
+capture on top of each clip. Substitution: Aeonik -> Geist (OFL). Captures taken 2026-10-29 in one session.

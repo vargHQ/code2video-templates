@@ -49,17 +49,20 @@ Convert vague requests such as "make it premium" into visible decisions: larger 
 
 - [Remotion compositions](https://www.remotion.dev/docs/composition)
 
-## This project (filled 2026-10-28)
+## This project (filled 2026-10-28, revised 2026-10-29)
 
 ```text
 PRODUCT = varg how to (varg.ai/how-to): a catalog of AI-video skills and how-to guides for agents
 AUDIENCE = people making AI video with Claude Code / Codex who know what they want, not which skill
-OUTCOME = typing what you want returns the exact how-to guide
-REAL_ACTION = home -> click "Search skills" -> type "ugc ad" -> click "How to make a UGC ad video with AI" -> guide page
-ASSETS = public/screens/*.png (real captures, 2880x1800), public/logo.png (crop of the real sidebar logo)
+OUTCOME = typing what you want lands on skills that show real videos
+REAL_ACTION = home -> click "Search skills" -> type "ugc ad" -> click "UGC Ad" (skill page, its example video plays)
+              -> breadcrumb "Ads & UGC" -> category grid, every card playing
+ASSETS = public/screens/*.png (real captures, 2880x1800), public/clips/*.mp4 (the previews those pages autoplay),
+         public/logo.png (crop of the real sidebar logo)
 OPENING = "Every AI video, one search away." (6 words)
 CLOSING = "Make any video with AI agents." + varg.ai/how-to
 CANVAS = 1920x1080 / FPS = 60 / DURATION = 1200 frames
 TONE = product stage (STYLE.md)
 ```
-Silent-claims check: counts on screen (39 guides, 646 skills) are read from the captured sidebar.
+Revision 2026-10-29 (founder): faster opening; the clicks must open good-looking videos, not a page of text. The UGC
+guide page was replaced by the skill page and the category grid. "667 skills" is read from the captured sidebar.
