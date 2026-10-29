@@ -6,6 +6,7 @@ Read a template's SKILL.md before using it. AGENTS.md has the index and the rule
 
 ## Templates
 
+- [imessage-video](https://github.com/vargHQ/code2video-templates/tree/master/imessage-video): a JSON conversation as an iPhone iMessage screen recording (text story or chat ad): typing indicators, input-bar typing, tapbacks, read receipts, day dividers, photos, videos and link cards in bubbles, group chats, light or dark mode, synthesized message sounds, 9:16 or native, local, no credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/code2video-templates/master/imessage-video/SKILL.md)
 - [apple-notes-video](https://github.com/vargHQ/code2video-templates/tree/master/apple-notes-video): any text typed live in an iPhone Apple Notes screen, 9:16, local, no credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/code2video-templates/master/apple-notes-video/SKILL.md)
 - [stamp-carousel](https://github.com/vargHQ/code2video-templates/tree/master/stamp-carousel): an iPhone swiping through your pictures as postage stamps, with or without background, local, no credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/code2video-templates/master/.claude/skills/stamp-carousel/SKILL.md)
 - [liquid-thorn-logo](https://github.com/vargHQ/code2video-templates/tree/master/liquid-thorn-logo): any word as a black-metal chrome logo smeared by a WebGL fluid, any size, local, no credits. Agent guide: [SKILL.md](https://raw.githubusercontent.com/vargHQ/code2video-templates/master/liquid-thorn-logo/SKILL.md)

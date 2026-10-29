@@ -1,0 +1,27 @@
+{
+  "title": "ski trip ⛷️",
+  "avatarEmoji": "⛷️",
+  "pace": 1.6,
+  "time": "6:12 PM",
+  "senders": {
+    "me":   { "name": "you",  "initial": "Y", "grad": ["#A9B0BB", "#8E959F"], "me": true },
+    "sam":  { "name": "Sam",  "initial": "S", "grad": ["#9BA8C2", "#7E8CA8"] },
+    "dana": { "name": "Dana", "initial": "D", "grad": ["#B4AB9E", "#9A917F"] },
+    "leo":  { "name": "Leo",  "initial": "L", "grad": ["#A6C1B3", "#849C90"] }
+  },
+  "messages": [
+    { "from": "sam",  "text": "who's actually in for the weekend?? 🏔️" },
+    { "from": "dana", "text": "me!! already packed lol" },
+    { "from": "leo",  "text": "wait what weekend" },
+    { "from": "sam",  "text": "the ski trip leo 🙄", "tapback": { "emoji": "😂", "by": "dana" } },
+    { "from": "me",   "text": "i'm in. who's making the clip for the group?" },
+    { "from": "dana", "text": "not it" },
+    { "from": "leo",  "text": "not it" },
+    { "from": "sam",  "text": "just make one with varg, takes 2 min" },
+    { "from": "me",   "text": "on it 🫡" },
+    { "from": "me",   "image": { "src": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e441982a4a69.jpg", "height": 1120 } },
+    { "from": "dana", "text": "ok that's actually clean", "tapback": { "emoji": "🔥", "by": "me" } },
+    { "from": "leo",  "text": "wait you made that in 2 minutes??" },
+    { "from": "me",   "linkCard": { "title": "varg: type a prompt, get a video", "domain": "varg.ai", "src": "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_e441982a4a69.jpg", "height": 420 }, "text": "varg.ai" }
+  ]
+}

@@ -1,0 +1,924 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>iMessage video</title>
+<style>
+  :root {
+    /* iOS 26 palette */
+    --ios-blue: #0A7CFF;              /* iOS 26 send blue (brighter than legacy) */
+    --bubble-them: #E9E9EB;
+    --bubble-them-text: #000;
+    --bubble-me-text: #fff;
+    --bg: #FFFFFF;
+    --bar-bg: rgba(255, 255, 255, 0.62);
+    --glass-highlight: rgba(255, 255, 255, 0.65);
+    --glass-shadow: rgba(0, 0, 0, 0.06);
+    --fill: rgba(120, 120, 128, 0.12);   /* systemFill — chips, glass buttons */
+    --hairline: rgba(60, 60, 67, 0.16);
+    --label: #000;
+    --secondary: rgba(60, 60, 67, 0.60);
+    --separator: rgba(60, 60, 67, 0.22);
+    --bubble-radius: 54px;            /* 18pt */
+    --bubble-radius-tail: 18px;       /* 6pt */
+    --bubble-pad-v: 25px;
+    --bubble-pad-h: 38px;
+    --bubble-font: 51px;              /* 17pt */
+    --bubble-line: 1.29;
+    --max-bubble: 825px;
+    --tapback-bg: #fff;
+    --card-bg: #F2F2F7;
+    --card-title: #000;
+    --typing-dot: #8E8E93;
+  }
+  /* iOS dark appearance: "theme": "dark" in the conversation */
+  #stage.dark {
+    --bubble-them: #262628;
+    --bubble-them-text: #fff;
+    --bg: #000;
+    --bar-bg: rgba(28, 28, 30, 0.62);
+    --glass-highlight: rgba(255, 255, 255, 0.10);
+    --glass-shadow: rgba(0, 0, 0, 0.30);
+    --hairline: rgba(84, 84, 88, 0.45);
+    --label: #fff;
+    --secondary: rgba(235, 235, 245, 0.60);
+    --tapback-bg: #2C2C2E;
+    --card-bg: #262628;
+    --card-title: #fff;
+    --typing-dot: #8E8E93;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  html, body {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #000;
+    color: var(--label);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  #stage {
+    position: relative;
+    width: 1170px; height: 2532px;
+    background: var(--bg);
+    overflow: hidden;
+    margin: 0 auto;
+  }
+
+  /* ---------- Status bar ---------- */
+  .statusbar {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 162px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 66px 0 72px;
+    font-size: 54px; font-weight: 600; letter-spacing: -0.5px;
+    color: var(--label); z-index: 30; pointer-events: none;
+  }
+  .statusbar .time { font-variant-numeric: tabular-nums; min-width: 220px; }
+  .statusbar .right { display: flex; align-items: center; gap: 10px; }
+  .statusbar .signal { display: flex; align-items: flex-end; gap: 5px; height: 36px; }
+  .statusbar .signal i { display: block; width: 10px; background: var(--label); border-radius: 2px; }
+  .statusbar .signal i:nth-child(1){ height: 9px; }
+  .statusbar .signal i:nth-child(2){ height: 15px; }
+  .statusbar .signal i:nth-child(3){ height: 21px; }
+  .statusbar .signal i:nth-child(4){ height: 28px; }
+  .statusbar .wifi { width: 52px; height: 38px; color: var(--label); }
+  .statusbar .battery { position: relative; width: 108px; height: 48px; border: 3px solid var(--label); border-radius: 13px; opacity: 0.9; }
+  .statusbar .battery::after { content: ""; position: absolute; right: -7px; top: 15px; width: 5px; height: 18px; background: var(--label); border-radius: 0 3px 3px 0; }
+  .statusbar .battery .fill { position: absolute; inset: 3px; width: 82%; background: var(--label); border-radius: 8px; }
+
+  /* ---------- Nav bar (avatar stacked above name) ---------- */
+  .navbar {
+    position: absolute; top: 162px; left: 0; right: 0;
+    height: 306px;
+    background: var(--bar-bg);
+    backdrop-filter: saturate(200%) blur(50px);
+    -webkit-backdrop-filter: saturate(200%) blur(50px);
+    border-bottom: 1px solid var(--hairline);
+    box-shadow: inset 0 1.5px 0 var(--glass-highlight), 0 2px 12px var(--glass-shadow);
+    z-index: 25;
+  }
+  .navbar .back { position: absolute; left: 30px; top: 84px; display: flex; align-items: center; color: var(--ios-blue); }
+  .navbar .back .chev { width: 30px; height: 30px; border-left: 6px solid var(--ios-blue); border-bottom: 6px solid var(--ios-blue); transform: rotate(45deg); }
+  .navbar .facetime { position: absolute; right: 42px; top: 78px; width: 66px; height: 42px; }
+  .navbar .facetime svg { width: 100%; height: 100%; display: block; }
+  .navbar .center { position: absolute; left: 0; right: 0; top: 42px; display: flex; flex-direction: column; align-items: center; }
+  .navbar .center .avatar {
+    width: 150px; height: 150px; border-radius: 50%;
+    background: linear-gradient(180deg, #B8BDC7 0%, #9AA0AC 100%);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; color: #fff;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.04);
+  }
+  .navbar .center .avatar .initials { font-size: 66px; font-weight: 500; letter-spacing: 0.5px; line-height: 1; }
+  .navbar .center .avatar .emoji { font-size: 78px; line-height: 1; }
+  .navbar .center .avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .navbar .center .name { margin-top: 12px; display: flex; align-items: center; gap: 8px; font-size: 33px; font-weight: 400; color: var(--label); letter-spacing: -0.3px; }
+  .navbar .center .name .disc { width: 18px; height: 18px; border-right: 5px solid var(--secondary); border-bottom: 5px solid var(--secondary); transform: rotate(-45deg); margin-left: 2px; }
+
+  /* ---------- Chat viewport ---------- */
+  .chat {
+    position: absolute;
+    top: 468px; left: 0; right: 0; bottom: 216px;
+    overflow: hidden;
+    padding: 24px 30px 20px;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 60px);
+            mask-image: linear-gradient(to bottom, transparent 0, #000 60px);
+  }
+  .chat-inner {
+    position: absolute; left: 30px; right: 30px; bottom: 20px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+  }
+
+  /* rows / slots */
+  .slot { display: flex; flex-direction: column; overflow: hidden; }
+  .slot.tap-room { overflow: visible; }
+  .row { display: flex; align-items: flex-end; }
+  .row.me { justify-content: flex-end; }
+  .row.them { justify-content: flex-start; }
+  /* in a group, leave a gap between the avatar and the bubble so the tail
+     tucks into the gap instead of running under the avatar circle */
+  .row.them .gutter + .bubble { margin-left: 22px; }
+
+  /* sender name label (group) */
+  /* group sender name — aligned over the start of the bubble, not the avatar.
+     gutter(96) + bubble margin-left(22) + bubble padding-left(38) = 156 */
+  .name-label { font-size: 30px; color: var(--secondary); font-weight: 400; margin: 0 0 6px 156px; letter-spacing: -0.2px; }
+
+  /* group avatar gutter */
+  .gutter { width: 96px; flex: 0 0 96px; display: flex; align-items: flex-end; justify-content: flex-start; padding-left: 6px; }
+  .gutter .adot {
+    width: 76px; height: 76px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 34px; font-weight: 500;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.04);
+    position: relative; z-index: 2;  /* sit above any tail bleed */
+  }
+
+  .bubble {
+    max-width: var(--max-bubble);
+    padding: var(--bubble-pad-v) var(--bubble-pad-h);
+    font-size: var(--bubble-font);
+    line-height: var(--bubble-line);
+    letter-spacing: -0.2px;
+    word-wrap: break-word;
+    position: relative;
+    transform-origin: left bottom;
+    will-change: transform, opacity;
+  }
+  .row.them .bubble { background: var(--bubble-them); color: var(--bubble-them-text); border-radius: var(--bubble-radius); }
+  .row.me   .bubble { background: var(--ios-blue);   color: var(--bubble-me-text);  border-radius: var(--bubble-radius); transform-origin: right bottom; }
+
+  /* grouping corners */
+  .row.them .bubble.g-first  { border-bottom-left-radius: var(--bubble-radius-tail); }
+  .row.them .bubble.g-middle { border-top-left-radius: var(--bubble-radius-tail); border-bottom-left-radius: var(--bubble-radius-tail); }
+  .row.them .bubble.g-last   { border-top-left-radius: var(--bubble-radius-tail); }
+  .row.me   .bubble.g-first  { border-bottom-right-radius: var(--bubble-radius-tail); }
+  .row.me   .bubble.g-middle { border-top-right-radius: var(--bubble-radius-tail); border-bottom-right-radius: var(--bubble-radius-tail); }
+  .row.me   .bubble.g-last   { border-top-right-radius: var(--bubble-radius-tail); }
+
+  /* tails — classic two-part iOS shape (original, correct silhouette):
+     a coloured curl (::before) with a page-background circle (::after) that
+     carves the concave notch. */
+  .bubble.tail::before, .bubble.tail::after { content: ""; position: absolute; bottom: 0; height: 45px; width: 45px; }
+  .row.them .bubble.tail::before { left: -18px; border-bottom-right-radius: 45px 42px; background: var(--bubble-them); }
+  .row.them .bubble.tail::after  { left: -30px; width: 30px; border-bottom-right-radius: 30px; background: var(--bg); }
+  .row.me   .bubble.tail::before { right: -18px; border-bottom-left-radius: 45px 42px; background: var(--ios-blue); }
+  .row.me   .bubble.tail::after  { right: -30px; width: 30px; border-bottom-left-radius: 30px; background: var(--bg); }
+  .bubble.tail::before { z-index: -2; } .bubble.tail::after { z-index: -1; } .bubble { z-index: 0; }
+
+  /* image bubble */
+  .bubble.image { padding: 0; overflow: visible; background: transparent !important; border-radius: 40px; }
+  .bubble.image .imgwrap { display: block; width: 100%; height: 100%; overflow: hidden; border-radius: 40px; background: #111; }
+  .bubble.image .imgwrap img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+  /* link card */
+  .bubble.card { padding: 0; overflow: visible; background: transparent !important; border-radius: 40px; width: 720px; max-width: 720px; }
+  .bubble.card .cardwrap { overflow: hidden; border-radius: 40px; background: var(--card-bg); }
+  .bubble.card .card-content { width: 100%; background: #fff; overflow: hidden; }
+  .bubble.card .card-content img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .bubble.card .card-foot { padding: 22px 30px; }
+  .bubble.card .card-foot .title { font-size: 34px; font-weight: 600; color: var(--card-title); letter-spacing: -0.3px; }
+  .bubble.card .card-foot .domain { font-size: 28px; color: var(--secondary); margin-top: 4px; }
+
+  /* timestamp */
+  .timestamp { text-align: center; font-size: 33px; color: var(--secondary); font-weight: 400; letter-spacing: -0.1px; margin: 6px 0 24px; }
+  .timestamp b { font-weight: 600; }
+  .timestamp.mid { margin: 0; }
+
+  /* receipt */
+  .receipt { font-size: 30px; color: var(--secondary); font-weight: 400; letter-spacing: -0.1px; text-align: right; padding: 0 8px; }
+  .receipt b { font-weight: 600; }
+
+  /* typing indicator */
+  .typing { align-self: flex-start; background: var(--bubble-them); border-radius: 54px; padding: 24px 34px; display: flex; gap: 13px; height: 96px; align-items: center; position: relative; transform-origin: left bottom; }
+  .typing .dot { width: 25px; height: 25px; border-radius: 50%; background: var(--typing-dot); }
+  /* typing tail (two decreasing circles) */
+  .typing::before, .typing::after { content: ""; position: absolute; background: var(--bubble-them); border-radius: 50%; }
+  .typing::before { width: 28px; height: 28px; left: -10px; bottom: 4px; }
+  .typing::after  { width: 13px; height: 13px; left: -22px; bottom: -4px; }
+
+  /* tapback balloon — sits on the top corner that faces the middle of the screen,
+     like iOS: top-right of a received bubble, top-left of a sent one */
+  .tapback {
+    position: absolute; top: -72px;
+    width: 100px; height: 100px; border-radius: 50%;
+    background: var(--tapback-bg); box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 52px; z-index: 5; transform-origin: center bottom;
+  }
+  .tapback.me   { left: -26px; }
+  .tapback.them { right: -26px; }
+  /* thought-trail dots step down toward the bubble */
+  .tapback::before, .tapback::after { content: ""; position: absolute; background: var(--tapback-bg); border-radius: 50%; box-shadow: 0 3px 8px rgba(0,0,0,0.10); }
+  .tapback.me::before { width: 28px; height: 28px; bottom: -14px; left: 10px; }
+  .tapback.me::after  { width: 14px; height: 14px; bottom: -30px; left: -2px; }
+  .tapback.them::before { width: 28px; height: 28px; bottom: -14px; right: 10px; }
+  .tapback.them::after  { width: 14px; height: 14px; bottom: -30px; right: -2px; }
+  /* reactor mini-avatar (group) */
+  .tapback .reactor {
+    position: absolute; bottom: -10px; width: 46px; height: 46px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 22px; font-weight: 600; border: 3px solid var(--tapback-bg);
+  }
+  .tapback.me .reactor   { right: -14px; }
+  .tapback.them .reactor { left: -14px; }
+
+  /* ---------- Input bar (iOS 26 glass, floating controls) ---------- */
+  .inputbar {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    height: 216px;
+    background: transparent;
+    display: flex; align-items: flex-end; gap: 24px;
+    padding: 0 33px 72px;
+    z-index: 25;
+  }
+  .inputbar .plus {
+    position: relative; width: 96px; height: 96px; border-radius: 50%; flex: 0 0 auto;
+    background: var(--bar-bg);
+    backdrop-filter: saturate(200%) blur(50px);
+    -webkit-backdrop-filter: saturate(200%) blur(50px);
+    box-shadow: inset 0 1.5px 0 var(--glass-highlight), 0 3px 14px var(--glass-shadow);
+  }
+  .inputbar .plus::before, .inputbar .plus::after { content: ""; position: absolute; top: 50%; left: 50%; background: var(--secondary); border-radius: 3px; }
+  .inputbar .plus::before { width: 38px; height: 5px; transform: translate(-50%,-50%); }
+  .inputbar .plus::after  { width: 5px; height: 38px; transform: translate(-50%,-50%); }
+  .inputbar .field {
+    flex: 1; min-height: 96px; max-height: 380px; height: auto; border-radius: 48px;
+    display: flex; align-items: center; padding: 10px 12px 10px 36px;
+    font-size: var(--bubble-font); line-height: 1.29; color: var(--label);
+    background: var(--bar-bg);
+    backdrop-filter: saturate(200%) blur(50px);
+    -webkit-backdrop-filter: saturate(200%) blur(50px);
+    box-shadow: inset 0 1.5px 0 var(--glass-highlight), 0 3px 14px var(--glass-shadow);
+    overflow: hidden; position: relative;
+    transition: border-radius 0.12s;
+  }
+  .inputbar .field .placeholder { color: var(--secondary); }
+  .inputbar .field .typed { color: var(--label); word-break: break-word; min-width: 0; flex: 1 1 0; line-height: 1.29; }
+  .inputbar .field .caret { display: inline-block; width: 3px; height: 56px; background: var(--ios-blue); vertical-align: middle; margin-left: 1px; border-radius: 1.5px; }
+  .inputbar .field .mic { margin-left: auto; width: 44px; height: 44px; color: var(--secondary); flex: 0 0 auto; }
+  .inputbar .send {
+    margin-left: auto; width: 72px; height: 72px; border-radius: 50%;
+    background: var(--ios-blue); color: #fff; font-size: 42px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; flex: 0 0 auto;
+  }
+
+  .home-indicator { position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); width: 330px; height: 11px; border-radius: 5.5px; background: var(--label); opacity: 0.85; z-index: 40; }
+  .footnote { position: absolute; bottom: 4px; left: 0; right: 0; text-align: center; font-size: 24px; color: var(--secondary); z-index: 40; }
+  .preloader { position: absolute; left: -9999px; top: -9999px; opacity: 0; }
+  /* off-screen copy of the chat column, used to measure real bubble heights */
+  .measure { position: absolute; left: 30px; top: 0; width: 1110px; visibility: hidden; pointer-events: none; }
+  .measure .row { margin-bottom: 0; }
+  /* browser preview (bun render.ts --serve): fit the phone to the window */
+  body.preview { display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+</style>
+</head>
+<body>
+  <div id="stage">
+    <div class="statusbar">
+      <div class="time" id="clock">9:41</div>
+      <div class="right">
+        <div class="signal"><i></i><i></i><i></i><i></i></div>
+        <svg class="wifi" viewBox="0 0 64 48" fill="none">
+          <path d="M4 18 C 20 4, 44 4, 60 18" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+          <path d="M14 28 C 24 18, 40 18, 50 28" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+          <path d="M24 38 C 28 32, 36 32, 40 38" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="32" cy="44" r="4" fill="currentColor"/>
+        </svg>
+        <div class="battery"><div class="fill"></div></div>
+      </div>
+    </div>
+
+    <div class="navbar">
+      <div class="back"><span class="chev"></span></div>
+      <div class="center">
+        <div class="avatar" id="navAvatar"><span class="initials" id="navInitials">J</span></div>
+        <div class="name"><span id="navName">Jake</span><span class="disc"></span></div>
+      </div>
+      <div class="facetime">
+        <svg viewBox="0 0 66 42" fill="none">
+          <rect x="1.5" y="4.5" width="42" height="33" rx="10.5" stroke="#0A7CFF" stroke-width="5"/>
+          <path d="M50 15.5 L62 8.5 V33.5 L50 26.5 Z" fill="none" stroke="#0A7CFF" stroke-width="5" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="chat" id="chat">
+      <div class="chat-inner" id="chatInner"></div>
+    </div>
+
+    <div class="inputbar">
+      <div class="plus"></div>
+      <div class="field" id="field"><span class="placeholder" id="fieldPlaceholder">iMessage</span></div>
+    </div>
+
+    <div class="home-indicator"></div>
+    <div class="footnote" id="footnote"></div>
+    <div class="preloader" id="preloader"></div>
+  </div>
+
+<script>
+/* =======================================================================
+ * iOS 26 deterministic iMessage engine (frame = pure function).
+ * Cadence and spring model adapted from nikosmaheras-code/remotion-imessage
+ * (MIT, see THIRD_PARTY_NOTICES.md) into vanilla JS driven by an external
+ * frame clock: render.ts calls window.__renderFrame(f) once per frame.
+ * ===================================================================== */
+
+const FPS = 30;
+const W = 1170;
+
+// ---- geometry constants (3x pt) -------------------------------------
+const LINE_H   = 69;    // 23pt line
+const PAD_V    = 25;
+const PAD_H    = 38;
+const RADIUS   = 54;
+const GAP_NEW  = 30;    // between different senders
+const GAP_GROUP= 12;    // burst (same sender)
+const NAME_H   = 42;    // sender name label (group)
+const IND_H    = 124;   // typing-indicator slot height (incl gap)
+const TAP_ROOM = 64;    // vertical push a tapback makes
+const IMG_H_DEFAULT  = 1200;
+const CARD_H_DEFAULT = 620;
+const GUTTER = 96;
+
+// ---- spring configs (Remotion parity) -------------------------------
+const POP     = { damping: 18, stiffness: 190, mass: 1   };
+const GROW    = { damping: 24, stiffness: 190, mass: 1   };
+const IND_POP = { damping: 16, stiffness: 240, mass: 0.8 };
+const TAP_POP = { damping: 12, stiffness: 230, mass: 0.7 };
+
+// analytic critically/under-damped spring value 0..~1.06, settling to 1.
+function spring(frame, cfg) {
+  if (frame <= 0) return 0;
+  const { damping: c, stiffness: k, mass: m } = cfg;
+  const t = frame / FPS;
+  const w0 = Math.sqrt(k / m);
+  const zeta = c / (2 * Math.sqrt(k * m));
+  let x;
+  if (zeta < 1) {
+    const wd = w0 * Math.sqrt(1 - zeta * zeta);
+    const A = 1, B = (zeta * w0) / wd;
+    x = 1 - Math.exp(-zeta * w0 * t) * (A * Math.cos(wd * t) + B * Math.sin(wd * t));
+  } else {
+    // critically damped
+    x = 1 - Math.exp(-w0 * t) * (1 + w0 * t);
+  }
+  return x;
+}
+const clamp01 = (v) => Math.max(0, Math.min(1, v));
+const clampN  = (lo, v, hi) => Math.max(lo, Math.min(v, hi));
+
+// ---- helpers --------------------------------------------------------
+function el(tag, cls, html) { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+// user text goes into the DOM escaped, with \n as a line break
+function textHtml(s) { return escapeHtml(s).replace(/\n/g, "<br>"); }
+function absSrc(src) {
+  if (!src) return src;
+  if (/^(https?:)?\/\//.test(src) || src.startsWith("/") || src.startsWith("data:")) return src;
+  return "/" + src.replace(/^\.?\//, "");
+}
+
+// normalise a legacy or new-format conversation into { senders, group, messages }
+function normalize(conv) {
+  let senders = conv.senders;
+  if (!senders) {
+    // legacy: from "me"/"them"
+    senders = {
+      me:   { name: conv.meName || "you", initial: (conv.meName || "Y")[0].toUpperCase(), grad: ["#A9B0BB", "#8E959F"], me: true },
+      them: { name: conv.title || "them",  initial: (conv.initials || (conv.title || "T")[0]).toUpperCase(), grad: ["#B8BDC7", "#9AA0AC"] },
+    };
+  }
+  const isMe = (from) => !!senders[from] && senders[from].me;
+  const group = Object.values(senders).filter((s) => !s.me).length > 1;
+
+  // map messages to a common shape
+  const messages = conv.messages.map((m) => {
+    const out = { from: m.from, wait: m.wait || 0, tapback: m.tapback || null };
+    if (m.timestamp) {
+      // centred "Today 2:14 AM" divider between messages; belongs to no sender
+      out.from = null;
+      out.timestamp = String(m.timestamp);
+    } else if (m.video) {
+      out.video = { dir: m.video.dir, count: m.video.count || 1, loop: m.video.loop, height: m.video.height || IMG_H_DEFAULT };
+    } else if (m.type === "image" || m.image) {
+      const src = m.image?.src || m.src;
+      out.image = { src, height: m.image?.height || IMG_H_DEFAULT };
+    } else if (m.linkCard) {
+      out.linkCard = m.linkCard;
+      out.text = m.text || m.linkCard.title || "";
+    } else {
+      out.text = m.text || "";
+    }
+    return out;
+  });
+  return { senders, group, isMe, messages, title: conv.title, subtitle: conv.subtitle,
+           avatar: conv.avatar, avatarEmoji: conv.avatarEmoji, initials: conv.initials,
+           pace: conv.pace || 1, intro: conv.intro, outro: conv.outro,
+           openDay: conv.openDay, time: conv.time, footnote: conv.footnote,
+           theme: conv.theme === "dark" ? "dark" : "light",
+           readReceipts: conv.readReceipts !== false };
+}
+
+function contentHeight(m) {
+  if (m.measuredH) return m.measuredH;
+  if (m.video)    return m.video.height || IMG_H_DEFAULT;
+  if (m.image)    return m.image.height || IMG_H_DEFAULT;
+  if (m.linkCard) return (m.linkCard.height || CARD_H_DEFAULT) + 104;
+  return LINE_H + PAD_V * 2; // text bubbles are measured in measure(); this is a fallback
+}
+
+// ---- timeline compiler (port of createChat) -------------------------
+function buildTimeline(norm) {
+  const { messages, isMe, group } = norm;
+  const fps = FPS;
+  const p = norm.pace || 1;
+  const intro = norm.intro ?? 26;
+  const outro = norm.outro ?? 90;
+
+  const prevLen = (m) => (m && m.text ? m.text.length : 20);
+  const readGapF = (prev) => Math.round(clampN(0.6 / p, (prevLen(prev) * 0.05 * 0.7) / p, 1.5 / p) * fps);
+  const typingF  = (m) => Math.round(clampN(0.9 / p, ((m.text || "").length * 0.05 * 0.85) / p, 2.6 / p) * fps);
+  const inputF   = (m) => Math.max(Math.round(24 / p), Math.round(((m.text || "").length * 2) / p));
+
+  const items = [];
+  let f = intro;
+
+  messages.forEach((m, i) => {
+    const prev = messages[i - 1];
+    const next = messages[i + 1];
+    const me = isMe(m.from);
+    const burst = !!prev && prev.from === m.from;
+    const firstOfGroup = !prev || prev.from !== m.from;
+    const lastOfGroup  = !next || next.from !== m.from;
+
+    if (m.timestamp) {
+      f += (prev ? Math.round(15 / p) : 0) + (m.wait || 0);
+      items.push({
+        i, msg: m, from: null, me: false, group, stamp: true,
+        firstOfGroup: true, lastOfGroup: true, gClass: "g-none", tail: false,
+        indicatorStart: -1, inputStart: -1, inputDur: 0, slotStart: f, pop: f,
+        gap: GAP_NEW, nameH: 0, contentH: contentHeight(m), tapbackAt: Infinity,
+        showReceipt: false, receiptStart: -1, receiptEnd: Infinity, readAt: Infinity,
+      });
+      f += Math.round(12 / p);
+      return;
+    }
+
+    // gap before
+    f += (!prev ? 0 : burst ? Math.round(9 / p) : readGapF(prev)) + (m.wait || 0);
+
+    let indicatorStart = -1, inputStart = -1, inputDur = 0, slotStart;
+    if (m.image || m.linkCard || m.video) {
+      slotStart = f;
+      f += Math.round((me ? 20 : 16) / p);
+    } else if (!me) {
+      indicatorStart = f;
+      slotStart = f;
+      f += typingF(m);
+    } else {
+      inputStart = f;
+      inputDur = inputF(m);
+      slotStart = f;
+      f += inputDur;
+    }
+    const pop = f;
+    const gap = firstOfGroup ? GAP_NEW : GAP_GROUP;
+    const nameH = (group && !me && firstOfGroup) ? NAME_H : 0;
+    const gClass = firstOfGroup && lastOfGroup ? "g-none" : firstOfGroup ? "g-first" : lastOfGroup ? "g-last" : "g-middle";
+    const tail = (gClass === "g-last" || gClass === "g-none");
+
+    items.push({
+      i, msg: m, from: m.from, me, group,
+      firstOfGroup, lastOfGroup, gClass, tail,
+      indicatorStart, inputStart, inputDur, slotStart, pop,
+      gap, nameH,
+      contentH: contentHeight(m),
+      tapbackAt: m.tapback ? pop + 45 : Infinity,
+      showReceipt: false, receiptStart: -1, receiptEnd: Infinity, readAt: Infinity,
+    });
+    f = pop + 2;
+  });
+
+  // read receipts (1:1 only)
+  if (norm.readReceipts && !group) {
+    items.forEach((it) => {
+      const next = items[it.i + 1];
+      it.showReceipt = it.me && (!next || !next.me);
+    });
+    items.forEach((it) => {
+      if (!it.showReceipt) return;
+      it.receiptStart = it.pop + 8;
+      const nextReceipt = items.find((o) => o.i > it.i && o.showReceipt);
+      if (nextReceipt) it.receiptEnd = nextReceipt.pop + 8;
+      const nextThem = items.find((o) => o.i > it.i && o.indicatorStart >= 0);
+      if (nextThem) it.readAt = nextThem.indicatorStart + 4;
+    });
+  }
+
+  const duration = f + outro;
+  return { items, duration, ...norm };
+}
+
+// ======================= RENDERER (frame -> DOM) =====================
+let TL = null;         // compiled timeline
+let imgCache = {};
+
+async function preload([key, src]) {
+  const abs = absSrc(src);
+  const im = new Image();
+  im.decoding = "sync";
+  im.src = abs;
+  imgCache[key] = im;
+  document.getElementById("preloader").appendChild(im);
+  // decode() resolves only after the bitmap is actually rasterized —
+  // onload alone still allows async decode → white flashes in screenshots.
+  try { await im.decode(); } catch (e) { /* broken image: keep going */ }
+}
+
+function applyHeader(norm) {
+  document.getElementById("navName").textContent = norm.title || (norm.group ? "Group" : "Contact");
+  const av = document.getElementById("navAvatar");
+  if (norm.avatarEmoji || norm.group) {
+    av.innerHTML = '<span class="emoji">' + escapeHtml(norm.avatarEmoji || "\uD83D\uDC65") + '</span>';
+    av.style.background = "linear-gradient(180deg,#D6E8F7 0%,#AFD2EE 100%)";
+  } else if (norm.avatar) {
+    av.innerHTML = ""; const img = new Image(); img.src = absSrc(norm.avatar); av.appendChild(img);
+  } else {
+    const name = norm.title || "T";
+    const initials = (norm.initials || name.split(/\s+/).map((w) => w[0] || "").slice(0, 2).join("")).toUpperCase();
+    av.innerHTML = '<span class="initials">' + escapeHtml(initials) + '</span>';
+  }
+}
+
+function initialOf(sender) { return (sender.initial || graphemes(sender.name || "?")[0] || "?").toUpperCase(); }
+
+function avatarStyle(sender) {
+  const g = sender.grad || ["#B8BDC7", "#9AA0AC"];
+  return `background:linear-gradient(180deg,${g[0]} 0%,${g[1]} 100%)`;
+}
+
+// frame file name inside a video sequence dir: f_000001.jpg
+function vidFrameSrc(v, frame, popFrame) {
+  const count = Math.max(1, v.count || 1);
+  let i = Math.max(0, frame - popFrame);
+  i = v.loop === false ? Math.min(i, count - 1) : i % count;
+  return absSrc(v.dir.replace(/\/$/, "") + "/f_" + String(i + 1).padStart(6, "0") + ".jpg");
+}
+
+// return the ORIGINAL preloaded+decoded <img> node from the cache.
+// Moving a node keeps its decoded bitmap; cloning or re-creating forces an
+// async re-decode in Chrome → white flashes. The node is re-parented into
+// the bubble each frame (renderFrame rebuilds the DOM from scratch anyway).
+// Keyed by message index + src: one DOM node can only sit in one bubble, so
+// the same picture in two messages needs two nodes.
+function cachedImg(i, src) {
+  const key = i + ":" + absSrc(src);
+  const c = imgCache[key];
+  if (c) return c;
+  const im = new Image(); im.decoding = "sync"; im.src = absSrc(src);
+  imgCache[key] = im;
+  return im;
+}
+
+// build the bubble inner element for a message
+function bubbleEl(it, frame) {
+  const m = it.msg;
+  if (m.video) {
+    const b = el("div", "bubble image " + it.gClass);
+    b.style.width = "780px"; b.style.height = (m.video.height || IMG_H_DEFAULT) + "px";
+    const w = el("div", "imgwrap");
+    w.appendChild(cachedImg(it.i, vidFrameSrc(m.video, frame, it.pop)));
+    b.appendChild(w);
+    return b;
+  }
+  if (m.image) {
+    const b = el("div", "bubble image " + it.gClass);
+    b.style.width = "780px"; b.style.height = (m.image.height || IMG_H_DEFAULT) + "px";
+    const w = el("div", "imgwrap");
+    w.appendChild(cachedImg(it.i, m.image.src));
+    b.appendChild(w);
+    return b;
+  }
+  if (m.linkCard) {
+    const b = el("div", "bubble card " + it.gClass);
+    const wrap = el("div", "cardwrap");
+    const c = el("div", "card-content"); c.style.height = (m.linkCard.height || CARD_H_DEFAULT) + "px";
+    if (m.linkCard.src) { c.appendChild(cachedImg(it.i, m.linkCard.src)); }
+    wrap.appendChild(c);
+    wrap.appendChild(el("div", "card-foot", `<div class="title">${escapeHtml(m.linkCard.title || "")}</div><div class="domain">${escapeHtml(m.linkCard.domain || "")}</div>`));
+    b.appendChild(wrap);
+    return b;
+  }
+  return el("div", "bubble " + it.gClass + (it.tail ? " tail" : ""), textHtml(m.text));
+}
+
+// Render one full frame from scratch (deterministic).
+function renderFrame(frame) {
+  const inner = document.getElementById("chatInner");
+  inner.innerHTML = "";
+  const norm = TL;
+  const senders = norm.senders;
+
+  // --- opening timestamp ---
+  const ts = el("div", "timestamp", (norm.openDayHTML || openDayHTML(norm)));
+  inner.appendChild(ts);
+
+  // --- each message slot ---
+  norm.items.forEach((it) => {
+    if (it.stamp) {
+      if (frame < it.pop) return;
+      const s = spring(frame - it.pop, GROW);
+      const slot = el("div", "slot");
+      slot.style.height = Math.max(0, (it.gap + it.contentH) * s) + "px";
+      slot.style.paddingTop = it.gap + "px";
+      const t = el("div", "timestamp mid", stampHtml(it.msg.timestamp));
+      t.style.opacity = String(clamp01((frame - it.pop) / 8));
+      slot.appendChild(t);
+      inner.appendChild(slot);
+      return;
+    }
+    // "me" messages with inputStart: don't show slot until pop (sent),
+    // not during the typing-in-input-bar phase.
+    const hasInput = it.inputStart >= 0;
+    const slotVisibleAt = hasInput ? it.pop : it.slotStart;
+    if (frame < slotVisibleAt - 2 && it.indicatorStart < 0) {
+      // not started; still reserve nothing (append nothing)
+      return;
+    }
+    const sender = senders[it.from] || {};
+    const slot = el("div", "slot");
+
+    // slot height animation (morph)
+    let h = 0;
+    const started = frame >= slotVisibleAt || (it.indicatorStart >= 0 && frame >= it.indicatorStart);
+    if (!started) return;
+
+    const bubbleLanded = frame >= it.pop;
+    // typing indicator (received text only, before pop)
+    let showIndicator = it.indicatorStart >= 0 && frame < it.pop;
+
+    // compute animated slot height
+    if (it.indicatorStart >= 0) {
+      const sInd = spring(frame - it.indicatorStart, IND_POP);
+      const sMorph = spring(frame - it.pop, GROW);
+      const full = it.contentH + it.nameH;
+      h = it.gap + IND_H * sInd + (full - IND_H) * sMorph;
+    } else {
+      // "me" messages pop in at send time (pop), not at inputStart
+      const s = spring(frame - slotVisibleAt, POP);
+      h = it.gap + (it.contentH + it.nameH) * s;
+    }
+    // tapback pushes the stack apart (room appears above the bubble)
+    let tapGrow = 0;
+    if (isFinite(it.tapbackAt) && frame >= it.tapbackAt) {
+      tapGrow = TAP_ROOM * spring(frame - it.tapbackAt, TAP_POP);
+      h += tapGrow;
+      slot.classList.add("tap-room");
+    }
+    slot.style.height = Math.max(0, h) + "px";
+    slot.style.paddingTop = (it.gap + tapGrow) + "px";
+
+    // name label (group, received, first of group)
+    if (it.nameH && !showIndicator) {
+      slot.appendChild(el("div", "name-label", escapeHtml(sender.name || it.from)));
+    }
+
+    const row = el("div", "row " + (it.me ? "me" : "them"));
+
+    // group gutter (received)
+    if (norm.group && !it.me) {
+      const g = el("div", "gutter");
+      if (it.lastOfGroup) {
+        const dot = el("div", "adot", escapeHtml(initialOf(sender)));
+        dot.style.cssText += ";" + avatarStyle(sender);
+        g.appendChild(dot);
+      }
+      row.appendChild(g);
+    }
+
+    if (showIndicator) {
+      const t = el("div", "typing");
+      t.innerHTML = '<span class="dot"></span><span class="dot"></span><span class="dot"></span>';
+      // breathing + dot fade (cosine, deterministic)
+      const tt = (frame - it.indicatorStart) / FPS;
+      const popOut = frame >= it.pop ? clamp01((frame - it.pop) / 6) : 0;
+      const breathe = 1.02 + 0.02 * Math.cos((2 * Math.PI * tt) / 2.0);
+      const popIn = spring(frame - it.indicatorStart, IND_POP);
+      t.style.transform = `scale(${(1 - popOut) * breathe * (0.7 + 0.3 * popIn)})`;
+      t.style.opacity = String(1 - popOut);
+      const dots = t.querySelectorAll(".dot");
+      dots.forEach((d, k) => { d.style.opacity = String(0.75 + 0.25 * Math.cos(2 * Math.PI * (tt - k * 0.33))); });
+      row.appendChild(t);
+    } else {
+      const b = bubbleEl(it, frame);
+      // spring-in transform
+      const pop = spring(frame - it.pop, POP);
+      const ty = it.me ? (1 - pop) * 80 : (1 - pop) * 20;
+      const sc = it.me ? 0.7 + 0.3 * pop : 0.8 + 0.2 * pop;
+      b.style.transform = `translateY(${ty}px) scale(${sc})`;
+      b.style.opacity = String(clamp01(pop * 2.5));
+
+      // tapback balloon
+      if (it.msg.tapback && frame >= it.tapbackAt) {
+        const tb = el("div", "tapback " + (it.me ? "me" : "them"), escapeHtml(it.msg.tapback.emoji || "\u2764\uFE0F"));
+        const ts2 = spring(frame - it.tapbackAt, TAP_POP);
+        tb.style.transform = `scale(${clamp01(ts2)})`;
+        if (norm.group && it.msg.tapback.by) {
+          const rs = senders[it.msg.tapback.by] || {};
+          const rv = el("div", "reactor", escapeHtml(initialOf(rs)));
+          rv.style.cssText += ";" + avatarStyle(rs);
+          tb.appendChild(rv);
+        }
+        b.appendChild(tb);
+      }
+      row.appendChild(b);
+    }
+
+    slot.appendChild(row);
+
+    // clip tall images while their slot grows (avoid painting over earlier msgs)
+    if ((it.msg.image || it.msg.linkCard || it.msg.video) && frame < it.pop + 12) slot.style.overflow = "hidden";
+
+    inner.appendChild(slot);
+
+    // receipt
+    if (it.showReceipt && frame >= it.receiptStart && frame < it.receiptEnd) {
+      const read = frame >= it.readAt;
+      const swap = read ? clamp01((frame - it.readAt) / 8) : 0;
+      const label = read
+        ? `<b>Read</b> ${escapeHtml(fmtTimeNorm(norm))}`
+        : "Delivered";
+      const r = el("div", "receipt", label);
+      r.style.opacity = String(clamp01((frame - it.receiptStart) / 8) * (read ? 1 : 1));
+      inner.appendChild(r);
+    }
+  });
+
+  // --- input bar typing state ---
+  renderInputBar(frame);
+}
+
+// conversation time: "time" in the JSON, else 9:41 AM so renders stay reproducible
+function fmtTimeNorm(norm) { return norm.time || "9:41 AM"; }
+// the status bar shows the time without AM/PM, like iOS
+function statusTime(norm) { return fmtTimeNorm(norm).replace(/\s*[AP]\.?M\.?$/i, ""); }
+function openDayHTML(norm) {
+  const day = norm.openDay || "Today";
+  return `<b>${escapeHtml(day)}</b> ${escapeHtml(fmtTimeNorm(norm))}`;
+}
+// "Yesterday 11:58 PM" -> day in semibold, time regular
+function stampHtml(str) {
+  const m = /^(\D+?)\s+(\d.*)$/.exec(str);
+  return m ? `<b>${escapeHtml(m[1])}</b> ${escapeHtml(m[2])}` : `<b>${escapeHtml(str)}</b>`;
+}
+
+// split a string into grapheme clusters so emoji (surrogate pairs, ZWJ
+// sequences, skin-tone modifiers, flags) never get cut mid-character.
+const _seg = (typeof Intl !== "undefined" && Intl.Segmenter)
+  ? new Intl.Segmenter(undefined, { granularity: "grapheme" }) : null;
+function graphemes(str) {
+  if (!str) return [];
+  if (_seg) return Array.from(_seg.segment(str), (s) => s.segment);
+  return Array.from(str); // code-point fallback (handles basic surrogate pairs)
+}
+
+function renderInputBar(frame) {
+  const field = document.getElementById("field");
+  const norm = TL;
+  // find the sent-text item currently typing
+  const typing = norm.items.find((it) => it.inputStart >= 0 && frame >= it.inputStart && frame < it.pop);
+  if (typing) {
+    const g = typing._graphemes || (typing._graphemes = graphemes(typing.msg.text || ""));
+    const prog = clamp01((frame - typing.inputStart) / Math.max(1, typing.inputDur));
+    const shown = g.slice(0, Math.floor(prog * g.length)).join("");
+    const caretOn = Math.floor(frame / 16) % 2 === 0;
+    const caretHtml = caretOn ? '<span class="caret"></span>' : '<span class="caret" style="opacity:0"></span>';
+    field.innerHTML = `<span class="typed">${escapeHtml(shown)}${caretHtml}</span>` +
+                      `<div class="send">&#8593;</div>`;
+    // pill for single line, rounded rect when text wraps (field grows)
+    field.style.borderRadius = field.offsetHeight > 110 ? "28px" : "48px";
+    return;
+  }
+  // idle placeholder
+  field.style.borderRadius = "48px";
+  field.innerHTML = '<span class="placeholder">iMessage</span>' +
+    '<svg class="mic" viewBox="0 0 24 24" fill="none"><rect x="9" y="3" width="6" height="12" rx="3" stroke="currentColor" stroke-width="2"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+}
+function escapeHtml(s) { return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+
+// Lay every text bubble and divider out once in an off-screen copy of the chat
+// column and keep its real height, so wrapping never clips or leaves gaps
+// whatever the font, language or emoji.
+function measure(norm) {
+  const box = el("div", "measure");
+  document.getElementById("stage").appendChild(box);
+  norm.messages.forEach((m) => {
+    if (m.timestamp) {
+      const t = el("div", "timestamp mid", stampHtml(m.timestamp));
+      box.appendChild(t);
+      m.measuredH = Math.ceil(t.getBoundingClientRect().height);
+      box.removeChild(t);
+      return;
+    }
+    if (m.image || m.video || m.linkCard) return;
+    const me = norm.isMe(m.from);
+    const row = el("div", "row " + (me ? "me" : "them"));
+    if (norm.group && !me) row.appendChild(el("div", "gutter"));
+    const b = el("div", "bubble g-none", textHtml(m.text));
+    row.appendChild(b);
+    box.appendChild(row);
+    m.measuredH = Math.ceil(b.getBoundingClientRect().height);
+    box.removeChild(row);
+  });
+  box.remove();
+}
+
+// ======================= BOOTSTRAP ===================================
+async function boot() {
+  let conv = window.__CONVERSATION;
+  if (!conv) { try { conv = await (await fetch("/conversation.json")).json(); } catch (e) { document.getElementById("chatInner").innerHTML = '<div class="timestamp">no conversation.json</div>'; return; } }
+  const norm = normalize(conv);
+  norm.openDayHTML = openDayHTML(norm);
+  if (norm.theme === "dark") document.getElementById("stage").classList.add("dark");
+  applyHeader(norm);
+  document.getElementById("clock").textContent = statusTime(norm);
+  if (norm.footnote) document.getElementById("footnote").textContent = norm.footnote;
+
+  // preload images/cards + all video frame sequences
+  const srcs = []; // [cache key, src]
+  const add = (i, src) => srcs.push([i + ":" + absSrc(src), src]);
+  norm.messages.forEach((m, i) => {
+    if (m.image?.src) add(i, m.image.src);
+    if (m.linkCard?.src) add(i, m.linkCard.src);
+    if (m.video?.dir) {
+      const dir = m.video.dir.replace(/\/$/, "");
+      for (let k = 1; k <= (m.video.count || 1); k++) add(i, dir + "/f_" + String(k).padStart(6, "0") + ".jpg");
+    }
+  });
+  await Promise.all(srcs.map(preload));
+  if (document.fonts && document.fonts.ready) await document.fonts.ready;
+  measure(norm);
+
+  TL = buildTimeline(norm);
+  window.__DURATION = TL.duration;
+  window.__FPS = FPS;
+  window.__TL = TL;   // exposed for debugging/probing
+
+  // expose the frame renderer to the external clock (record.ts)
+  window.__renderFrame = (f) => renderFrame(f);
+
+  // if no external driver, self-play in real time for browser preview
+  if (!window.__EXTERNAL_CLOCK) {
+    document.body.classList.add("preview");
+    const fit = () => { document.getElementById("stage").style.zoom = String(Math.min(innerWidth / 1170, innerHeight / 2532)); };
+    fit(); addEventListener("resize", fit);
+    let start = null;
+    let lastF = -1;
+    function loop(ts) {
+      if (start == null) start = ts;
+      const f = Math.min(TL.duration, Math.round(((ts - start) / 1000) * FPS));
+      // rAF fires ~60Hz but the timeline is 30fps — skip duplicate frames,
+      // rebuilding the whole DOM twice per frame causes visible jank.
+      if (f !== lastF) { renderFrame(f); lastF = f; }
+      if (f < TL.duration) requestAnimationFrame(loop);
+      else if (window.__done) window.__done();
+    }
+    requestAnimationFrame(loop);
+  } else {
+    // render final frame so a bare screenshot shows the full thread
+    renderFrame(Math.max(0, TL.duration - 1));
+    if (window.__ready) window.__ready();
+  }
+}
+
+window.__boot = boot;
+const autoStart = !new URLSearchParams(location.search).has("noplay");
+if (autoStart) boot();
+</script>
+</body>
+</html>

@@ -9,6 +9,7 @@ nano-banana and ElevenLabs through [varg](https://varg.ai).
 
 <table>
 <tr>
+<td><a href="imessage-video/"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_7b1066466f31.webp" height="240" alt="imessage-video: a dark-mode iMessage text story with tapbacks and a day divider"></a></td>
 <td><a href="iphone-duo-fold/"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_78fc62c86c30.webp" height="240" alt="iphone-duo-fold: a folded phone opens to an aurora panorama, the moving half blurring as it turns"></a></td>
 <td><a href="apple-notes-video/"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_c18871a17715.webp" height="240" alt="apple-notes-video: a note typed live in an iPhone Notes screen"></a></td>
 <td><a href="stamp-carousel/"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_dd29b8bcc93a.gif" height="240" alt="stamp-carousel: an iPhone swiping through pictures as postage stamps"></a></td>
@@ -16,7 +17,7 @@ nano-banana and ElevenLabs through [varg](https://varg.ai).
 <td><a href="card-catalog-explainer/"><img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_40bf292107cb.webp" height="240" alt="card-catalog-explainer: a wall of code-made videos"></a></td>
 </tr>
 <tr>
-<td><code>iphone-duo-fold</code></td><td><code>apple-notes-video</code></td><td><code>stamp-carousel</code></td><td><code>liquid-thorn-logo</code></td><td><code>card-catalog-explainer</code></td>
+<td><code>imessage-video</code></td><td><code>iphone-duo-fold</code></td><td><code>apple-notes-video</code></td><td><code>stamp-carousel</code></td><td><code>liquid-thorn-logo</code></td><td><code>card-catalog-explainer</code></td>
 </tr>
 </table>
 
@@ -40,6 +41,7 @@ My request: <what you want to see>
 
 | Template | Makes | Runs | Cost |
 |----------|-------|------|------|
+| [`imessage-video/`](imessage-video/) | A JSON chat as an iPhone iMessage screen recording: typing, tapbacks, receipts, photos, videos, link cards, group chats, light or dark, message sounds | Bun + Chrome + ffmpeg | free, local |
 | [`apple-notes-video/`](apple-notes-video/) | Any text typed live in an iPhone Apple Notes screen, 9:16 | Bun + Chrome + ffmpeg | free, local |
 | [`stamp-carousel/`](stamp-carousel/) | An iPhone swiping through your pictures as postage stamps, with or without background | Python + ffmpeg | free, local |
 | [`liquid-thorn-logo/`](liquid-thorn-logo/) | Any word as a black-metal chrome logo that a cursor smears with liquid (WebGL) | Bun + Chrome + ffmpeg | free, local |
@@ -157,6 +159,23 @@ bun render.ts --screen my-app.png --title "Meet Foldy" --size 1080x1920
 ```
 
 See [`iphone-duo-fold/README.md`](iphone-duo-fold/README.md).
+
+### `imessage-video/` -- iMessage video
+
+<img src="https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_1982eaa83e5f.webp" width="720" alt="Three iMessage screens: a one-to-one chat with a sent screenshot, a dark-mode text story, a group chat with a link card">
+
+A conversation written as JSON becomes a vertical video that looks like an iPhone screen recording of iMessage.
+Replies show a typing indicator, your messages type out in the input bar, and bubbles, tapbacks, read receipts,
+day dividers, photos, videos and link previews land like on iOS 26. One-to-one or group, light or dark, with
+synthesized message sounds and an optional music bed. Reply timing comes from message length, so one `pace` value
+sets the rhythm. For text stories, chat ads and skits.
+
+```bash
+cd imessage-video && bun install
+bun render.ts examples/drama.json --sfx --size 1080x1920
+```
+
+See [`imessage-video/README.md`](imessage-video/README.md).
 
 ### `motion-studio-launch-film/` -- Motion Studio launch film
 

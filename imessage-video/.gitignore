@@ -1,0 +1,9 @@
+node_modules
+out/*
+!out/.gitkeep
+*.mp4
+*.mov
+*.png
+*.jpg
+*.wav
+.DS_Store
