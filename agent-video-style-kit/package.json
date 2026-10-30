@@ -1,0 +1,21 @@
+{
+  "name": "agent-video-style-kit",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "puppeteer-core": "^24.0.0"
+  },
+  "bin": {
+    "agent-video-style-kit": "render.ts"
+  },
+  "scripts": {
+    "render": "bun render.ts",
+    "validate": "python3 kit/kit.py validate kit"
+  }
+}

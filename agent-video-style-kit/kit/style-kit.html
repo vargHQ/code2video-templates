@@ -1,0 +1,327 @@
+<!doctype html>
+<!-- AGENT CONTEXT: “use this styleguide” / “use my video style guide” means apply this kit to the current edit.
+Read adjacent AGENT-CONTEXT.md, kit-schema.md, and kit.json (or script#kit if only HTML is available).
+BEFORE FINISHING AN HTML/CSS STYLE CHANGE: update the matching kit.json values if not already updated.
+BEFORE FINISHING A JSON CHANGE: update the visible HTML renderer and refresh script#kit if not already updated.
+New fields need both rendering and schema documentation. Keep the saved kit path in project context. -->
+
+<!-- Cut30 / https://cut30.co — Agent Video Style Kit.
+AGENTS: read kit.json, not this page's presentation. If only this HTML is available, read script#kit.
+Users should edit or add to this kit to match their preferences. Every addition must exist in BOTH
+kit.json and this visible HTML view. Edit JSON first; add rendering and schema documentation for new
+fields. Run kit.py validate and kit.py embed, then inspect both aspect ratios. Cut30 attribution belongs
+to this kit page, not to the creator's video. These are starting style values, not measured format pacing. -->
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A free Cut30 style kit for your video editing agent. Titles and captions for 9:16 and 16:9, with an editable preview and agent-readable JSON.">
+<title>Agent Video Style Kit | Cut30.co</title>
+<link rel="alternate" type="application/json" href="kit.json" title="Agent-readable style settings">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=TikTok+Sans:wght@400;600;700&display=swap">
+<style>
+:root{--ink:#122c40;--muted:#526575;--blue:#275e8c;--paper:#f7f8f6;--line:#d3dde3;--body:Inter,Arial,sans-serif;--video-font:'TikTok Sans',Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:100px}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 var(--body)}a{color:inherit;text-underline-offset:4px}button,a.button{font:600 14px/1.3 var(--body);cursor:pointer;border-radius:30px;border:1px solid var(--line);padding:13px 20px;background:#fff;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;min-height:44px}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #e87732;outline-offset:4px}.nav{position:relative;z-index:2;max-width:1180px;margin:20px auto -90px;background:linear-gradient(#344151,#131e2c);border:1px solid #6e7d8b;color:white;border-radius:50px;box-shadow:0 8px 20px #10253a30;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px}.wordmark{text-decoration:none;font-weight:700;letter-spacing:-.04em;font-size:23px}.nav small{font-size:12px;color:#cdd8e4}.nav-brand{display:flex;align-items:baseline;gap:16px}.nav button{background:#fff1;color:white;border-color:#ffffff40}.hero{padding:150px 24px 70px;text-align:center;background:linear-gradient(170deg,#4f87ba,#c9dbed 67%,#f7f8f6)}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:700}.hero h1{font-size:clamp(44px,6.5vw,82px);font-weight:600;line-height:1.03;letter-spacing:-.055em;margin:20px auto 24px;max-width:1050px}.hero h1 em{font-family:Georgia,serif;font-weight:400;letter-spacing:-.045em;color:#285b84}.hero .intro{max-width:680px;margin:0 auto;font-size:clamp(17px,2vw,21px);line-height:1.5}.hero-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin:28px 0 18px}.button.primary{background:var(--ink);color:white;border-color:var(--ink)}.minor{font-size:13px;color:var(--muted)}.formats-nav{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:30px}.formats-nav a{padding:8px 18px;background:#fff9;border:1px solid #fff;border-radius:30px;text-decoration:none;font-size:14px}main{max-width:1180px;margin:auto;padding:0 28px 60px}section{margin:48px 0 70px;padding-top:30px;border-top:1px solid var(--line)}h2{font-size:clamp(30px,4vw,48px);line-height:1.1;letter-spacing:-.035em;font-weight:600;margin:14px 0 20px}h3{font-size:20px;margin:0 0 10px}.section-top{display:flex;justify-content:space-between;gap:24px;align-items:center}.section-top p{max-width:610px}.format-label{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);font-weight:700}.ratio{font-family:Georgia,serif;font-size:42px;color:var(--blue);white-space:nowrap}.examples{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:30px}.example{min-width:0}.example-intro{margin-bottom:20px}.example-intro p{color:var(--muted);margin:0}.preview{position:relative;overflow:hidden;border-radius:14px;background:#243d4b;box-shadow:0 8px 22px #233c4e1c;width:100%;max-width:100%}.portrait .preview{width:min(100%,310px)}.scene{position:absolute;left:0;top:0;transform-origin:0 0;font-family:var(--video-font);overflow:hidden}.scene svg{position:absolute;inset:0;width:100%;height:100%}.video-text{position:absolute;text-align:center;white-space:pre-line}.video-text span{display:inline-block;max-width:100%;box-decoration-break:clone}.caption span{paint-order:stroke fill;filter:drop-shadow(0 2px 2px #0006)}.safe-zone{position:absolute;background:#ffffff26;border:2px dashed #ffffffb3;pointer-events:none}.safe-zone.hidden{display:none}.preview-note{margin:12px 0 22px;font-size:12px;color:var(--muted)}.specs{width:100%;border-collapse:collapse;font-size:13px;margin:18px 0}.specs th,.specs td{padding:9px 0;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.specs th{width:38%;font-weight:500;color:var(--muted)}.specs td{font-variant-numeric:tabular-nums;overflow-wrap:anywhere}.rules{padding-left:20px;font-size:14px}.rules li{margin:8px 0}.safe-note{font-size:13px;color:var(--muted);margin:22px 0 0;max-width:780px}.customize{max-width:840px}.customize p{font-size:17px}.customize ol{padding-left:22px}.customize li{padding-left:8px;margin:12px 0}.sample-inputs{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px}.sample-inputs label{font-size:13px;font-weight:600}.sample-inputs input{display:block;width:100%;margin-top:8px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:white;font:15px var(--body);color:var(--ink)}.safe-toggle{display:flex;align-items:center;gap:10px;margin-top:20px;font-size:13px}.safe-toggle input{width:18px;height:18px;accent-color:var(--blue)}footer{border-top:1px solid var(--line);padding:30px 28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;max-width:1180px;margin:auto;font-size:13px}.status{min-height:22px;margin-top:8px;font-size:13px;color:var(--ink)}.prompt-fallback{width:100%;min-height:200px;font:13px/1.5 monospace;margin-top:12px}.hidden{display:none!important}
+@media(max-width:700px){.nav{margin:12px 12px -82px;padding:10px 14px}.nav small{display:none}.nav button{font-size:12px;padding:12px}.hero{padding-top:130px}.hero h1{font-size:48px}.examples{grid-template-columns:1fr;gap:42px}.portrait .preview{width:min(100%,320px)}.sample-inputs{grid-template-columns:1fr}main{padding:0 20px 35px}.section-top{align-items:flex-start}.ratio{font-size:28px}.hero-actions>*{width:100%;max-width:320px}.specs{font-size:12px}.specs th{width:34%}section{margin-top:30px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Cut30 Style Kit"><div class="nav-brand"><a class="wordmark" href="https://cut30.co">Cut30</a><small>Agent Video Style Kit</small></div><button type="button" data-copy>Copy setup prompt</button></nav>
+<header class="hero"><div class="eyebrow">A free kit from Cut30.co</div><h1>Agent <em>Video Style Kit</em></h1><p class="intro">Title and caption settings for 9:16 and 16:9 video.<br>HTML previews and editable JSON for your editing agent.</p><div class="hero-actions"><button class="button primary" type="button" data-copy>Copy setup prompt</button><a class="button" href="https://cut30.co/agent-video-style-kit/agent-video-style-kit.zip" download>Download the kit</a></div><p class="minor">Download the kit or copy the setup prompt for your agent.</p><p class="status" id="copy-status" role="status"></p><textarea id="prompt-fallback" class="prompt-fallback hidden" aria-label="Setup prompt to copy manually" readonly></textarea><nav class="formats-nav" aria-label="Kit sections"><a href="#vertical">9:16 · Vertical</a><a href="#landscape">16:9 · Landscape</a><a href="#make-it-yours">Customize the kit</a></nav></header>
+<main>
+<div class="sample-inputs"><label>Try your title<input id="title-preview" type="text" maxlength="80" placeholder="Example video title"></label><label>Try a caption<input id="caption-preview" type="text" maxlength="45" placeholder="sample caption text"></label></div><p class="minor">Try wording here. These previews do not save your settings; ask your agent to update your kit.</p><label class="safe-toggle"><input type="checkbox" id="safe-toggle" checked>Show suggested safe zones</label>
+<div id="formats"></div>
+<section class="customize" id="make-it-yours"><div class="eyebrow">HTML + JSON</div><h2>Customize the kit</h2><p>Edit or add to this Cut30 kit to match your preferences. Every change belongs in both the visual HTML preview and the agent-readable JSON.</p><ol><li><strong>Give your agent direction.</strong> Share your preferred font, title treatment, caption size, or placement. Use these defaults as a starting point.</li><li><strong>Update the JSON first.</strong> Your agent reads <a href="kit.json">kit.json</a> for the actual values. New fields or sections also need visible HTML rendering and documentation in <a href="kit-schema.md">kit-schema.md</a>.</li><li><strong>Keep the preview in sync.</strong> Have your agent validate the kit, refresh the HTML’s embedded JSON, and review both aspect ratios. Then log the change.</li></ol><p class="minor">Cut30 / Cut30.co attribution stays on this kit page. It does not belong on your videos.</p></section>
+</main>
+<footer><a href="https://cut30.co"><strong>Cut30</strong> · Cut30.co</a><span>Agent Video Style Kit · <span id="version"></span></span><a href="README.md">How to use this kit</a></footer>
+<script type="application/json" id="kit">
+{
+  "schemaVersion": 1,
+  "kitVersion": "1.0.1",
+  "name": "Agent Video Style Kit",
+  "edition": "lead-mag",
+  "creator": "Your name",
+  "publisher": {
+    "name": "Cut30",
+    "website": "https://cut30.co",
+    "attribution": "Keep Cut30 / Cut30.co on the kit page, not on the creator’s videos."
+  },
+  "units": "Pixels at each format’s canvas size. Scale every coordinate, size, and outline together for other resolutions. Font weights are numeric; lineHeight is a multiplier.",
+  "font": {
+    "family": "TikTok Sans",
+    "fallback": "Arial, sans-serif",
+    "source": "https://fonts.google.com/specimen/TikTok+Sans",
+    "license": "SIL Open Font License",
+    "note": "Use one font for titles and captions. Install or package the chosen font in your editing engine; a browser font is not automatically available to the editor."
+  },
+  "customization": {
+    "guidance": "Edit or add to this kit to match your preferences. Every change or addition must exist in both the visible HTML preview and the agent-readable kit.json.",
+    "workflow": [
+      "Read kit.json before styling a video; select the matching format, not a stretched version of the other one.",
+      "Edit kit.json first. New fields or sections also need visible HTML rendering and documentation in kit-schema.md.",
+      "Run python3 kit.py validate . and python3 kit.py embed . from the kit folder. The embedded JSON must match kit.json.",
+      "Review both aspect ratios after any change. Log the change and bump kitVersion. Never keep preferences only in HTML, CSS, or comments."
+    ]
+  },
+  "formats": {
+    "9:16": {
+      "label": "Vertical",
+      "canvas": [
+        1080,
+        1920
+      ],
+      "safeZones": {
+        "top": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 250
+        },
+        "right": {
+          "x": 930,
+          "y": 250,
+          "width": 150,
+          "height": 1210
+        },
+        "bottom": {
+          "x": 0,
+          "y": 1460,
+          "width": 1080,
+          "height": 460
+        }
+      },
+      "safeZoneNote": "Conservative starting margins for vertical social videos. Check the actual platform’s UI before exporting.",
+      "titles": {
+        "fontSize": 96,
+        "fontWeight": 700,
+        "lineHeight": 1.2,
+        "color": "#111111",
+        "background": "#FFFFFF",
+        "padding": 20,
+        "radius": 16,
+        "maxLines": 3,
+        "anchor": "top",
+        "placement": {
+          "x": 90,
+          "y": 320,
+          "width": 800
+        },
+        "example": "Example\nvideo title",
+        "rules": [
+          "Keep the title in the top half and clear of the face.",
+          "Use a short hook, not a paragraph. If it wraps beyond three lines, shorten the wording.",
+          "Check the actual line boxes, padding, and safe zones after rendering."
+        ]
+      },
+      "captions": {
+        "fontSize": 64,
+        "fontWeight": 700,
+        "lineHeight": 1.2,
+        "color": "#FFFFFF",
+        "outlineColor": "#111111",
+        "outlineWidth": 8,
+        "maxLines": 2,
+        "wordsPerChunk": [
+          2,
+          3
+        ],
+        "anchor": "top",
+        "placement": {
+          "x": 90,
+          "y": 1250,
+          "width": 800
+        },
+        "alternative": {
+          "x": 90,
+          "y": 720,
+          "width": 800,
+          "when": "Above the head, only when that area is clear of the face and the title."
+        },
+        "example": "sample caption text",
+        "rules": [
+          "Place below the chin when the face fills the middle; never cover the face.",
+          "Use the alternative position only when the subject is low in frame or absent.",
+          "Keep the final caption line above y=1460 and clear of the right rail.",
+          "Use the real transcript and verify timing against the audio."
+        ]
+      }
+    },
+    "16:9": {
+      "label": "Landscape",
+      "canvas": [
+        1920,
+        1080
+      ],
+      "safeZones": {
+        "top": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 54
+        },
+        "left": {
+          "x": 0,
+          "y": 54,
+          "width": 96,
+          "height": 918
+        },
+        "right": {
+          "x": 1824,
+          "y": 54,
+          "width": 96,
+          "height": 918
+        },
+        "bottom": {
+          "x": 0,
+          "y": 972,
+          "width": 1920,
+          "height": 108
+        }
+      },
+      "safeZoneNote": "Starting margins: 5% top and sides, 10% bottom. These are design defaults, not a guarantee for every player, device, or platform. Check the intended destination.",
+      "titles": {
+        "fontSize": 80,
+        "fontWeight": 700,
+        "lineHeight": 1.15,
+        "color": "#111111",
+        "background": "#FFFFFF",
+        "padding": 20,
+        "radius": 16,
+        "maxLines": 2,
+        "anchor": "top",
+        "placement": {
+          "x": 160,
+          "y": 110,
+          "width": 1600
+        },
+        "example": "Example video title",
+        "rules": [
+          "Use the open upper area; keep the title clear of faces and important visuals.",
+          "Limit the hook to two lines. Shorten it before shrinking it.",
+          "Reposition within the safe area when the subject occupies the default title position."
+        ]
+      },
+      "captions": {
+        "fontSize": 56,
+        "fontWeight": 700,
+        "lineHeight": 1.2,
+        "color": "#FFFFFF",
+        "outlineColor": "#111111",
+        "outlineWidth": 6,
+        "maxLines": 2,
+        "wordsPerChunk": [
+          2,
+          3
+        ],
+        "anchor": "top",
+        "placement": {
+          "x": 280,
+          "y": 810,
+          "width": 1360
+        },
+        "alternative": {
+          "x": 280,
+          "y": 690,
+          "width": 1360,
+          "when": "Move up when lower-thirds or player controls occupy the default caption area; check the face stays clear."
+        },
+        "example": "sample caption text",
+        "rules": [
+          "Center captions in the lower part of the frame, inside the safe area.",
+          "Keep the last line, including its outline, above y=972.",
+          "Keep captions clear of titles, lower-thirds, faces, and important visuals.",
+          "Use the real transcript and verify timing against the audio."
+        ]
+      }
+    }
+  },
+  "review": [
+    "Choose the intended aspect ratio before placing text.",
+    "Render frames with the actual text and font; text measurement and wrapping can differ by editing engine.",
+    "Check contrast, safe areas, faces, title/caption collisions, and readability at the final display size.",
+    "Watch the full video with sound and verify every caption against the transcript and audio."
+  ],
+  "changelog": [
+    {
+      "date": "2026-10-30",
+      "version": "1.0.1",
+      "change": "Safe-zone preview shading is now a neutral white veil instead of orange, so it reads on any brand colour."
+    },
+    {
+      "date": "2026-10-29",
+      "version": "1.0.0",
+      "change": "Standalone Cut30 kit with separate 9:16 and 16:9 title and caption specifications."
+    }
+  ],
+  "agentContext": {
+    "file": "AGENT-CONTEXT.md",
+    "triggers": [
+      "use this styleguide",
+      "use this style guide",
+      "use my video style guide"
+    ],
+    "action": "Read this JSON and the adjacent agent context, then apply all applicable style settings to the current edit.",
+    "sync": "HTML style change: update matching JSON. JSON change: update visible HTML and embedded JSON. New fields: update renderer and schema.",
+    "discovery": "Record this kit path in existing project context during setup so future sessions can find it."
+  }
+}
+</script>
+<script type="application/json" id="setup-prompt">
+"Set up my Agent Video Style Kit from Cut30. This is only a style kit, not the AI Video Editor plugin.\n\n1. Download https://cut30.co/agent-video-style-kit/agent-video-style-kit.zip and its checksum at https://cut30.co/agent-video-style-kit/agent-video-style-kit.zip.sha256. Verify the SHA-256 before extracting. No account or install code is needed.\n2. Extract it into an agent-video-style-kit folder in my current project. If that folder already exists, preserve my customized files and use a new folder rather than overwriting them. Do not install an editor, plugin, MCP server, or paid tool.\n3. Read AGENT-CONTEXT.md, README.md, kit-schema.md, and kit.json. Inspect kit.py before running it, then validate the kit with python3 kit.py validate . from the kit folder. If Python is unavailable, parse the JSON and verify its canvas and text settings with your existing tools; don't install software just to open this kit.\n4. Open style-kit.html locally and show me the 9:16 and 16:9 title and caption examples. Ask which aspect ratio I use and what preferences I want to change. The kit works with the defaults too.\n5. Keep every change or addition in both kit.json and the visible HTML preview. JSON is the source of truth. New fields or sections need HTML rendering and schema documentation. Run python3 kit.py validate . and python3 kit.py embed . after edits, then inspect both aspect ratios. Log the change and bump kitVersion. Preserve Cut30 / Cut30.co attribution on the kit page, not in my videos.\n6. For future video work, read the selected format's JSON before placing titles or captions. Use the matching canvas and its own measurements. Check the actual render for readable text, safe zones, and collisions with faces or other elements.\n\nRecord the actual kit path in my existing project brief or agent instructions. When I say \u201cuse this styleguide\u201d or \u201cuse my video style guide\u201d, read that kit and apply its settings to the current edit. Preserve unrelated project instructions.\n\nTell me where the kit was saved. Keep the setup explanation short and in plain language.\n"
+</script>
+<script>
+'use strict';
+const $ = selector => document.querySelector(selector);
+const escapeHtml = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let kit = JSON.parse($('#kit').textContent);
+const observer = new ResizeObserver(entries => entries.forEach(({target}) => {
+  const scene = target.querySelector('.scene');
+  scene.style.transform = `scale(${target.clientWidth / Number(target.dataset.width)})`;
+}));
+function sceneArtwork(width, height) {
+  // Schematic subject, not a photograph. Face stays clear of the default title and caption positions.
+  const portrait = height > width, cx = width / 2, cy = portrait ? 920 : 480, r = portrait ? 155 : 125;
+  return `<svg viewBox="0 0 ${width} ${height}" aria-hidden="true"><rect width="100%" height="100%" fill="#486775"/><path d="M0 ${height*.6} L${width} ${height*.25} V${height} H0Z" fill="#3c5965"/><rect x="${width*.07}" y="${height*.1}" width="${width*.24}" height="${height*.5}" rx="20" fill="#aac1c2" opacity=".12"/><ellipse cx="${cx}" cy="${portrait ? 1620 : 1030}" rx="${portrait ? 360 : 350}" ry="${portrait ? 520 : 400}" fill="#1f3545"/><rect x="${cx-r*.4}" y="${cy+r*.55}" width="${r*.8}" height="${r*.9}" rx="35" fill="#bfa08a"/><ellipse cx="${cx}" cy="${cy}" rx="${r}" ry="${r*1.2}" fill="#d8bba3"/><path d="M${cx-r} ${cy-r*.3} Q${cx-r*1.1} ${cy-r*1.6} ${cx} ${cy-r*1.3} Q${cx+r*1.1} ${cy-r*1.4} ${cx+r} ${cy-r*.3} Q${cx} ${cy-r*.9} ${cx-r} ${cy-r*.3}" fill="#2c3036"/></svg>`;
+}
+function textStyle(spec, kind) {
+  return `left:${spec.placement.x}px;top:${spec.placement.y}px;width:${spec.placement.width}px;font-size:${spec.fontSize}px;font-weight:${spec.fontWeight};line-height:${spec.lineHeight};color:${spec.color};`;
+}
+function specs(spec, format) {
+  const p = spec.placement;
+  const rows = [['Font', `${kit.font.family} · ${spec.fontWeight}`], ['Size / line height', `${spec.fontSize}px / ${spec.lineHeight}`], ['Position', `x ${p.x}, y ${p.y} · top anchor`], ['Text box width', `${p.width}px`], ['Maximum lines', spec.maxLines], ['Text color', spec.color]];
+  if (spec.background) rows.push(['Title bar', `${spec.background} · ${spec.padding}px padding · ${spec.radius}px radius`]);
+  if (spec.outlineWidth) rows.push(['Outline', `${spec.outlineWidth}px · ${spec.outlineColor}`]);
+  if (spec.wordsPerChunk) rows.push(['Words per caption', spec.wordsPerChunk.join('–')]);
+  if (spec.alternative) rows.push(['Alternative position', `x ${spec.alternative.x}, y ${spec.alternative.y}, width ${spec.alternative.width}px. ${spec.alternative.when}`]);
+  return `<table class="specs"><caption class="minor">Values at ${format.canvas.join(' × ')} pixels</caption><tbody>${rows.map(([label,value])=>`<tr><th scope="row">${escapeHtml(label)}</th><td>${escapeHtml(value)}</td></tr>`).join('')}</tbody></table>`;
+}
+function example(format, key, ratio) {
+  const spec = format[key], [w,h] = format.canvas, kind = key === 'titles' ? 'title' : 'caption';
+  const span = key === 'titles' ? `background:${spec.background};padding:${spec.padding}px;border-radius:${spec.radius}px` : `-webkit-text-stroke:${spec.outlineWidth}px ${spec.outlineColor}`;
+  return `<article class="example"><div class="example-intro"><h3>${key === 'titles' ? 'Titles' : 'Captions'}</h3><p>${key === 'titles' ? 'Font, size, background, and position.' : 'Font, outline, position, and words per caption.'}</p></div><div class="preview" data-width="${w}" style="aspect-ratio:${w}/${h}" role="img" aria-label="${ratio} ${kind} placement preview"><div class="scene" style="width:${w}px;height:${h}px">${sceneArtwork(w,h)}<div class="video-text ${kind}" data-example="${kind}" style="${textStyle(spec,kind)}"><span style="${span}">${escapeHtml(spec.example)}</span></div>${Object.values(format.safeZones).map(z=>`<div class="safe-zone" style="left:${z.x}px;top:${z.y}px;width:${z.width}px;height:${z.height}px"></div>`).join('')}</div></div><p class="preview-note">Layout illustration · shaded edges are suggested safe zones.</p>${specs(spec,format)}<ul class="rules">${spec.rules.map(rule=>`<li>${escapeHtml(rule)}</li>`).join('')}</ul></article>`;
+}
+function render() {
+  document.documentElement.style.setProperty('--video-font', `"${kit.font.family.replace(/["\\]/g,'')}", ${kit.font.fallback}`);
+  $('#formats').innerHTML = Object.entries(kit.formats).map(([ratio,format])=>`<section class="${ratio==='9:16'?'portrait':'landscape'}" id="${ratio==='9:16'?'vertical':'landscape'}"><div class="section-top"><div><div class="format-label">${escapeHtml(format.label)} · ${format.canvas.join(' × ')}</div><h2>${ratio==='9:16'?'Vertical titles and captions':'Landscape titles and captions'}</h2><p>${ratio==='9:16'?'Settings for a 1080 × 1920 canvas.':'Settings for a 1920 × 1080 canvas.'}</p></div><span class="ratio">${ratio}</span></div><div class="examples">${example(format,'titles',ratio)}${example(format,'captions',ratio)}</div><p class="safe-note">${escapeHtml(format.safeZoneNote)}</p></section>`).join('');
+  $('#version').textContent = kit.kitVersion;
+
+  observer.disconnect(); document.querySelectorAll('.preview').forEach(p=>observer.observe(p));
+  updatePreviews();
+}
+function updatePreviews() {
+  for (const [kind, key] of [['title','titles'],['caption','captions']]) {
+    const value = $(`#${kind}-preview`).value;
+    document.querySelectorAll(`[data-example="${kind}"] span`).forEach((node,i)=>node.textContent = value || Object.values(kit.formats)[i][key].example);
+  }
+  document.querySelectorAll('.safe-zone').forEach(zone=>zone.classList.toggle('hidden',!$('#safe-toggle').checked));
+}
+$('#title-preview').addEventListener('input',updatePreviews);$('#caption-preview').addEventListener('input',updatePreviews);$('#safe-toggle').addEventListener('change',updatePreviews);
+document.querySelectorAll('[data-copy]').forEach(button=>button.addEventListener('click',async()=>{
+  const prompt = JSON.parse($('#setup-prompt').textContent);
+  try { await navigator.clipboard.writeText(prompt); $('#copy-status').textContent='Copied. Paste it into your agent to download and set up the kit.'; }
+  catch { $('#prompt-fallback').value=prompt; $('#prompt-fallback').classList.remove('hidden'); $('#prompt-fallback').select(); $('#copy-status').textContent='Select and copy the prompt below.'; }
+}));
+render();
+if (location.protocol.startsWith('http')) fetch('kit.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(data=>{if(data){kit=data;render();}}).catch(()=>{});
+</script>
+</body></html>

@@ -1,0 +1,12 @@
+Set up my Agent Video Style Kit from Cut30. This is only a style kit, not the AI Video Editor plugin.
+
+1. Download https://cut30.co/agent-video-style-kit/agent-video-style-kit.zip and its checksum at https://cut30.co/agent-video-style-kit/agent-video-style-kit.zip.sha256. Verify the SHA-256 before extracting. No account or install code is needed.
+2. Extract it into an agent-video-style-kit folder in my current project. If that folder already exists, preserve my customized files and use a new folder rather than overwriting them. Do not install an editor, plugin, MCP server, or paid tool.
+3. Read AGENT-CONTEXT.md, README.md, kit-schema.md, and kit.json. Inspect kit.py before running it, then validate the kit with python3 kit.py validate . from the kit folder. If Python is unavailable, parse the JSON and verify its canvas and text settings with your existing tools; don't install software just to open this kit.
+4. Open style-kit.html locally and show me the 9:16 and 16:9 title and caption examples. Ask which aspect ratio I use and what preferences I want to change. The kit works with the defaults too.
+5. Keep every change or addition in both kit.json and the visible HTML preview. JSON is the source of truth. New fields or sections need HTML rendering and schema documentation. Run python3 kit.py validate . and python3 kit.py embed . after edits, then inspect both aspect ratios. Log the change and bump kitVersion. Preserve Cut30 / Cut30.co attribution on the kit page, not in my videos.
+6. For future video work, read the selected format's JSON before placing titles or captions. Use the matching canvas and its own measurements. Check the actual render for readable text, safe zones, and collisions with faces or other elements.
+
+Record the actual kit path in my existing project brief or agent instructions. When I say “use this styleguide” or “use my video style guide”, read that kit and apply its settings to the current edit. Preserve unrelated project instructions.
+
+Tell me where the kit was saved. Keep the setup explanation short and in plain language.

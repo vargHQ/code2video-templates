@@ -12,6 +12,9 @@ the video, a `README.md` and a `SKILL.md` for agents (read it before using the t
 ```
 imessage-video/        # JSON chat -> iPhone iMessage screen recording (typing, tapbacks, group, dark, sounds). Bun + Chrome +
                        #   ffmpeg, local, no credits. Skill: .claude/skills/imessage-video -> ../../imessage-video
+agent-video-style-kit/ # Cut30's title/caption style kit (kit/, unmodified, source cut30.co/guides/agent-video-style-kit) + render.ts
+                       #   that burns it onto footage (words.json/SRT). Bun + Chrome + ffmpeg, local, no credits.
+                       #   Skill: .claude/skills/agent-video-style-kit -> ../../agent-video-style-kit
 apple-notes-video/     # Any text -> iPhone Apple Notes typing video. Bun + Chrome + ffmpeg, local, no credits
 stamp-carousel/        # iPhone stamp swipe of the user's pictures, background + alpha outputs. Python + ffmpeg, local.
                        #   Skill: .claude/skills/stamp-carousel

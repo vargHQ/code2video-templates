@@ -42,6 +42,7 @@ My request: <what you want to see>
 | Template | Makes | Runs | Cost |
 |----------|-------|------|------|
 | [`imessage-video/`](imessage-video/) | A JSON chat as an iPhone iMessage screen recording: typing, tapbacks, receipts, photos, videos, link cards, group chats, light or dark, message sounds | Bun + Chrome + ffmpeg | free, local |
+| [`agent-video-style-kit/`](agent-video-style-kit/) | Your title and caption style as a file the agent applies: [Cut30's Agent Video Style Kit](https://cut30.co/guides/agent-video-style-kit) for 9:16 and 16:9, burned onto your footage from a transcript or SRT | Bun + Chrome + ffmpeg | free, local |
 | [`apple-notes-video/`](apple-notes-video/) | Any text typed live in an iPhone Apple Notes screen, 9:16 | Bun + Chrome + ffmpeg | free, local |
 | [`stamp-carousel/`](stamp-carousel/) | An iPhone swiping through your pictures as postage stamps, with or without background | Python + ffmpeg | free, local |
 | [`liquid-thorn-logo/`](liquid-thorn-logo/) | Any word as a black-metal chrome logo that a cursor smears with liquid (WebGL) | Bun + Chrome + ffmpeg | free, local |

@@ -1,0 +1,230 @@
+{
+  "schemaVersion": 1,
+  "kitVersion": "1.0.1",
+  "name": "Agent Video Style Kit",
+  "edition": "lead-mag",
+  "creator": "Your name",
+  "publisher": {
+    "name": "Cut30",
+    "website": "https://cut30.co",
+    "attribution": "Keep Cut30 / Cut30.co on the kit page, not on the creator\u2019s videos."
+  },
+  "units": "Pixels at each format\u2019s canvas size. Scale every coordinate, size, and outline together for other resolutions. Font weights are numeric; lineHeight is a multiplier.",
+  "font": {
+    "family": "TikTok Sans",
+    "fallback": "Arial, sans-serif",
+    "source": "https://fonts.google.com/specimen/TikTok+Sans",
+    "license": "SIL Open Font License",
+    "note": "Use one font for titles and captions. Install or package the chosen font in your editing engine; a browser font is not automatically available to the editor."
+  },
+  "customization": {
+    "guidance": "Edit or add to this kit to match your preferences. Every change or addition must exist in both the visible HTML preview and the agent-readable kit.json.",
+    "workflow": [
+      "Read kit.json before styling a video; select the matching format, not a stretched version of the other one.",
+      "Edit kit.json first. New fields or sections also need visible HTML rendering and documentation in kit-schema.md.",
+      "Run python3 kit.py validate . and python3 kit.py embed . from the kit folder. The embedded JSON must match kit.json.",
+      "Review both aspect ratios after any change. Log the change and bump kitVersion. Never keep preferences only in HTML, CSS, or comments."
+    ]
+  },
+  "formats": {
+    "9:16": {
+      "label": "Vertical",
+      "canvas": [
+        1080,
+        1920
+      ],
+      "safeZones": {
+        "top": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 250
+        },
+        "right": {
+          "x": 930,
+          "y": 250,
+          "width": 150,
+          "height": 1210
+        },
+        "bottom": {
+          "x": 0,
+          "y": 1460,
+          "width": 1080,
+          "height": 460
+        }
+      },
+      "safeZoneNote": "Conservative starting margins for vertical social videos. Check the actual platform\u2019s UI before exporting.",
+      "titles": {
+        "fontSize": 96,
+        "fontWeight": 700,
+        "lineHeight": 1.2,
+        "color": "#111111",
+        "background": "#FFFFFF",
+        "padding": 20,
+        "radius": 16,
+        "maxLines": 3,
+        "anchor": "top",
+        "placement": {
+          "x": 90,
+          "y": 320,
+          "width": 800
+        },
+        "example": "Example\nvideo title",
+        "rules": [
+          "Keep the title in the top half and clear of the face.",
+          "Use a short hook, not a paragraph. If it wraps beyond three lines, shorten the wording.",
+          "Check the actual line boxes, padding, and safe zones after rendering."
+        ]
+      },
+      "captions": {
+        "fontSize": 64,
+        "fontWeight": 700,
+        "lineHeight": 1.2,
+        "color": "#FFFFFF",
+        "outlineColor": "#111111",
+        "outlineWidth": 8,
+        "maxLines": 2,
+        "wordsPerChunk": [
+          2,
+          3
+        ],
+        "anchor": "top",
+        "placement": {
+          "x": 90,
+          "y": 1250,
+          "width": 800
+        },
+        "alternative": {
+          "x": 90,
+          "y": 720,
+          "width": 800,
+          "when": "Above the head, only when that area is clear of the face and the title."
+        },
+        "example": "sample caption text",
+        "rules": [
+          "Place below the chin when the face fills the middle; never cover the face.",
+          "Use the alternative position only when the subject is low in frame or absent.",
+          "Keep the final caption line above y=1460 and clear of the right rail.",
+          "Use the real transcript and verify timing against the audio."
+        ]
+      }
+    },
+    "16:9": {
+      "label": "Landscape",
+      "canvas": [
+        1920,
+        1080
+      ],
+      "safeZones": {
+        "top": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 54
+        },
+        "left": {
+          "x": 0,
+          "y": 54,
+          "width": 96,
+          "height": 918
+        },
+        "right": {
+          "x": 1824,
+          "y": 54,
+          "width": 96,
+          "height": 918
+        },
+        "bottom": {
+          "x": 0,
+          "y": 972,
+          "width": 1920,
+          "height": 108
+        }
+      },
+      "safeZoneNote": "Starting margins: 5% top and sides, 10% bottom. These are design defaults, not a guarantee for every player, device, or platform. Check the intended destination.",
+      "titles": {
+        "fontSize": 80,
+        "fontWeight": 700,
+        "lineHeight": 1.15,
+        "color": "#111111",
+        "background": "#FFFFFF",
+        "padding": 20,
+        "radius": 16,
+        "maxLines": 2,
+        "anchor": "top",
+        "placement": {
+          "x": 160,
+          "y": 110,
+          "width": 1600
+        },
+        "example": "Example video title",
+        "rules": [
+          "Use the open upper area; keep the title clear of faces and important visuals.",
+          "Limit the hook to two lines. Shorten it before shrinking it.",
+          "Reposition within the safe area when the subject occupies the default title position."
+        ]
+      },
+      "captions": {
+        "fontSize": 56,
+        "fontWeight": 700,
+        "lineHeight": 1.2,
+        "color": "#FFFFFF",
+        "outlineColor": "#111111",
+        "outlineWidth": 6,
+        "maxLines": 2,
+        "wordsPerChunk": [
+          2,
+          3
+        ],
+        "anchor": "top",
+        "placement": {
+          "x": 280,
+          "y": 810,
+          "width": 1360
+        },
+        "alternative": {
+          "x": 280,
+          "y": 690,
+          "width": 1360,
+          "when": "Move up when lower-thirds or player controls occupy the default caption area; check the face stays clear."
+        },
+        "example": "sample caption text",
+        "rules": [
+          "Center captions in the lower part of the frame, inside the safe area.",
+          "Keep the last line, including its outline, above y=972.",
+          "Keep captions clear of titles, lower-thirds, faces, and important visuals.",
+          "Use the real transcript and verify timing against the audio."
+        ]
+      }
+    }
+  },
+  "review": [
+    "Choose the intended aspect ratio before placing text.",
+    "Render frames with the actual text and font; text measurement and wrapping can differ by editing engine.",
+    "Check contrast, safe areas, faces, title/caption collisions, and readability at the final display size.",
+    "Watch the full video with sound and verify every caption against the transcript and audio."
+  ],
+  "changelog": [
+    {
+      "date": "2026-10-30",
+      "version": "1.0.1",
+      "change": "Safe-zone preview shading is now a neutral white veil instead of orange, so it reads on any brand colour."
+    },
+    {
+      "date": "2026-10-29",
+      "version": "1.0.0",
+      "change": "Standalone Cut30 kit with separate 9:16 and 16:9 title and caption specifications."
+    }
+  ],
+  "agentContext": {
+    "file": "AGENT-CONTEXT.md",
+    "triggers": [
+      "use this styleguide",
+      "use this style guide",
+      "use my video style guide"
+    ],
+    "action": "Read this JSON and the adjacent agent context, then apply all applicable style settings to the current edit.",
+    "sync": "HTML style change: update matching JSON. JSON change: update visible HTML and embedded JSON. New fields: update renderer and schema.",
+    "discovery": "Record this kit path in existing project context during setup so future sessions can find it."
+  }
+}
