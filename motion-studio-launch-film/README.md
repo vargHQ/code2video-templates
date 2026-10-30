@@ -32,6 +32,11 @@ Markup), each skill page playing its example. The pages are captured whole and s
 preview plays in its own box.
 `bun run render:examples` → `out/examples.mp4`.
 
+**`Showcase`** (16:9, 18 s): five AI dropshipping ads (solar flood light, cut-resistant gloves, LED pet nail clipper,
+heated neck massager, car seat gap filler), each made by `varg-dropship-reel` from one product photo, pop in side by
+side and play their hooks; "About $8.60 an ad. 100% AI."; then "With varg how to you can scale ads."
+`bun run render:showcase` → `out/showcase.mp4`. [MP4](https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_c49b92edc3d4.mp4)
+
 A third, **`BeforeAfter`** (9:16), is the proof: *before*, the one line the dropshipping tutorial says to send
 ("Make a dropshipping guide reel for this product: <photo>") and the skill `varg-dropship-reel` found on varg how to;
 an orange wipe; *after*, the original 58 s reel that skill made (solar flood light), untouched, with its own sound;
@@ -63,6 +68,7 @@ then "Made with varg how to". `bun run render:before-after` → `out/before-afte
 | `src/components/`, `src/scenes/` | card, cursor, background, `LiquidPill` (the chrome how-to pill); opening, result, closing, sound |
 | `tools/setup.ts`, `tools/assets.json`, `tools/sfx.sh` | fetch screens and preview clips, synthesize sounds (no media in git) |
 | `tools/capture-ref.ts` | the capture script for the example screens |
+| `src/showcase/` | the `Showcase` composition: five AI ads made with varg-dropship-reel side by side, "With varg how to you can scale ads." |
 | `src/before-after/` | the `BeforeAfter` composition (1080x1920, 30 fps): the one-line prompt + the skill from varg how to, then the original reel it made, untouched |
 | `src/examples/` | the `Examples` composition: whole-page captures scrolling under the fixed sidebar, previews in page coordinates |
 

@@ -30,6 +30,7 @@
     "capture": "bun tools/capture-ref.ts public/screens",
     "lint": "eslint src && tsc",
     "render:examples": "remotion render Examples out/examples.mp4 --codec=h264",
-    "render:before-after": "remotion render BeforeAfter out/before-after.mp4 --codec=h264"
+    "render:before-after": "remotion render BeforeAfter out/before-after.mp4 --codec=h264",
+    "render:showcase": "remotion render Showcase out/showcase.mp4 --codec=h264"
   }
 }
