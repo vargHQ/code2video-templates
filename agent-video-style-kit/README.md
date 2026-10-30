@@ -1,4 +1,4 @@
-# Agent Video Style Kit
+# Agent Video Style Kit by Cut30
 
 Your video's title and caption style as a file an agent reads and applies. The kit is
 [Cut30's Agent Video Style Kit](https://cut30.co/guides/agent-video-style-kit) (in `kit/`, unmodified): separate
