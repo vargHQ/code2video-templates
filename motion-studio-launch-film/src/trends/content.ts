@@ -57,3 +57,23 @@ export const tr = {
   { src: "tr/clips/f5ba9b9976-f20dd9e0-deb5-44b0-a172-bd99401da78f.mp4", rect: css(1231, 4986.5, 176, 96.8), fit: "contain", seconds: 12, radius: 28, keep: [{ ...css(1352.09, 5053.55, 44.91, 19.75), r: 24 }] },
   ] as Clip[],
 } as const;
+
+// Discover "Viral formats, and how to make your own", parked at scroll 2120 CSS px, and the Remake this modal of two
+// formats (captured the same day, 1440x900 CSS at 2x, modal video hidden so the film plays the clip in its place).
+export const fm = {
+  park: 2120, // CSS px: the heading and both rows of format cards in view
+  formats: [
+    {
+      // Agent-directed music video with the lyrics built into the world
+      button: css(483, 2580.69 - 2120, 100.34, 25.25), // its "Remake this" pill, in the viewport at the park scroll
+      screen: "tr/modal-music.png",
+      video: { src: "tr/clips/0621e65dc4-zWxaCweAccef32uj.mp4", rect: css(221, 66.84, 360, 202.5), radius: 28 },
+    },
+    {
+      // Caught-on-phone stunt (one-take fake phone footage)
+      button: css(673, 2580.69 - 2120, 100.34, 25.25),
+      screen: "tr/modal-stunt.png",
+      video: { src: "tr/clips/5a11036c98-SOvsobmkmmAbaFwV.mp4", rect: css(221, 58.25, 360, 480), radius: 28 },
+    },
+  ],
+} as const;
