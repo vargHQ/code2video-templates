@@ -1,5 +1,5 @@
 import { Audio } from "@remotion/media";
-import { AbsoluteFill, interpolate, Loop, OffthreadVideo, Sequence, spring, staticFile, useCurrentFrame } from "remotion";
+import { AbsoluteFill, interpolate, OffthreadVideo, Sequence, spring, staticFile, useCurrentFrame } from "remotion";
 import { Background } from "../components/Background";
 import { fontFamily as sans, TopLine } from "../components/Copy";
 import { Cursor as LaunchCursor } from "../components/Cursor";
@@ -35,34 +35,47 @@ export const s = {
   closing: [1720, introFrames], // the shared liquid-metal end card
 } as const;
 
-const W = (src: string) => staticFile(`intro/wall/${src}`);
-const portrait = ["varg-dropship-reel.mp4", "varg-product-hook.mp4", "file_942e9a6efa1c.mp4", "varg-studio-product.mp4", "file_b1f093b28659.mp4", "file_a2aa0853b683.mp4"];
-const landscape = ["c036b982f4-remotion-create.mp4", "bf6f621a34-higgsfield-video-explainer.mp4", "78537348b6-gsap-core.mp4", "fal-commercial.mp4"];
+const W = (src: string) => staticFile(`intro/wall2/${src}.mp4`);
+// The opening wall: what people make with skills from varg how to. `trim` skips a slow first second (seconds).
+const portrait = [
+  { src: "luxury", trim: 0 }, // luxury product commercial
+  { src: "stunt", trim: 0 }, // caught-on-phone stunt
+  { src: "cctv", trim: 0 }, // backyard security-cam product hook (solar flood light)
+  { src: "familyfilm", trim: 0 }, // 3D animated family film
+  { src: "catclipper", trim: 0 }, // LED pet nail clipper hook
+  { src: "exploded", trim: 0 }, // 3D product exploded-view reveal
+  { src: "theproblem", trim: 0 }, // problem → Vs → solution (car seat gap filler)
+  { src: "character3d", trim: 0 }, // 3D character animation built by an agent
+];
+const landscape = [
+  { src: "duo", trim: 3 }, // iPhone Duo fold
+  { src: "musicvideo", trim: 0 }, // agent-directed music video, lyrics in the world
+  { src: "speccommercial", trim: 2 }, // AI spec commercial
+  { src: "p5paint", trim: 1.2 }, // p5 paint animation
+];
 
-const Tile: React.FC<{ src: string; x: number; y: number; w: number; h: number; i: number }> = ({ src, x, y, w, h, i }) => {
+const Tile: React.FC<{ src: string; trim: number; x: number; y: number; w: number; h: number; i: number }> = ({ src, trim, x, y, w, h, i }) => {
   const f = useCurrentFrame();
   const pop = spring({ frame: f + 40 - i * 2, fps: canvas.fps, config: { damping: 16, stiffness: 140 } }); // settled at frame 0
   return (
-    <div style={{ position: "absolute", left: x, top: y, width: w, height: h, borderRadius: 18, overflow: "hidden", boxShadow: `0 0 0 1px ${tokens.line2}, 0 20px 50px rgba(0,0,0,0.5)`, transform: `scale(${0.9 + 0.1 * pop})` }}>
-      <Loop durationInFrames={360}>
-        <OffthreadVideo src={W(src)} muted style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-      </Loop>
+    <div style={{ position: "absolute", left: x, top: y, width: w, height: h, borderRadius: 16, overflow: "hidden", boxShadow: `0 0 0 1px ${tokens.line2}, 0 20px 50px rgba(0,0,0,0.5)`, transform: `scale(${0.9 + 0.1 * pop})` }}>
+      <OffthreadVideo src={W(src)} muted trimBefore={Math.round(trim * canvas.fps)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
     </div>
   );
 };
 
 const Wall: React.FC = () => {
   const f = useCurrentFrame();
-  const pw = 296, ph = 526, gap = 14, lw = 455, lh = 256;
+  const gap = 12, pw = 222, ph = 395, lw = 456, lh = 256;
   const top = (1080 - (ph + gap + lh)) / 2;
-  const x0p = (1920 - (6 * pw + 5 * gap)) / 2;
+  const x0p = (1920 - (8 * pw + 7 * gap)) / 2;
   const x0l = (1920 - (4 * lw + 3 * gap)) / 2;
   const push = interpolate(f, [0, s.type[1]], [1, 1.07]);
   const dim = track(f, [s.type[0], s.type[0] + 14], 0, 1);
   return (
     <AbsoluteFill style={{ transform: `scale(${push})`, filter: `blur(${dim * 7}px)` }}>
-      {portrait.map((src, i) => <Tile key={src} src={src} i={i} x={x0p + i * (pw + gap)} y={top} w={pw} h={ph} />)}
-      {landscape.map((src, i) => <Tile key={src} src={src} i={i + 6} x={x0l + i * (lw + gap)} y={top + ph + gap} w={lw} h={lh} />)}
+      {portrait.map((t, i) => <Tile key={t.src} {...t} i={i} x={x0p + i * (pw + gap)} y={top} w={pw} h={ph} />)}
+      {landscape.map((t, i) => <Tile key={t.src} {...t} i={i + 8} x={x0l + i * (lw + gap)} y={top + ph + gap} w={lw} h={lh} />)}
       <AbsoluteFill style={{ background: `rgba(7,7,8,${0.8 * dim})` }} />
     </AbsoluteFill>
   );
