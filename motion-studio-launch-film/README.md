@@ -29,6 +29,11 @@ A second composition, **`Examples`**, is the "lots of examples" cut: the sidebar
 this week, 253 publishers) scrolls with every card's preview playing, then **Make a video** (278 results) does the
 same. The pages are captured whole and scroll under the fixed sidebar; 84 previews play in their own boxes.
 `bun run render:examples` → `out/examples.mp4`.
+
+A third, **`BeforeAfter`** (9:16), is the proof: *before*, the one line the dropshipping tutorial says to send
+("Make a dropshipping guide reel for this product: <photo>") and the skill `varg-dropship-reel` found on varg how to;
+an orange wipe; *after*, the original 58 s reel that skill made (solar flood light), untouched, with its own sound;
+then "Made with varg how to". `bun run render:before-after` → `out/before-after.mp4`. [MP4](https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_b8b1cfab4302.mp4)
 [MP4 with sound](https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_612bed149105.mp4) ·
 [preview](https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_826a4e548fb8.mp4)
 
@@ -56,6 +61,7 @@ same. The pages are captured whole and scroll under the fixed sidebar; 84 previe
 | `src/components/`, `src/scenes/` | card, cursor, background, `LiquidPill` (the chrome how-to pill); opening, result, closing, sound |
 | `tools/setup.ts`, `tools/assets.json`, `tools/sfx.sh` | fetch screens and preview clips, synthesize sounds (no media in git) |
 | `tools/capture-ref.ts` | the capture script for the example screens |
+| `src/before-after/` | the `BeforeAfter` composition (1080x1920, 30 fps): the one-line prompt + the skill from varg how to, then the original reel it made, untouched |
 | `src/examples/` | the `Examples` composition: whole-page captures scrolling under the fixed sidebar, previews in page coordinates |
 
 ## Credits
