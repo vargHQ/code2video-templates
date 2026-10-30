@@ -25,17 +25,19 @@ bun run cover      # out/cover.png
 
 Or double-click `make.command` (macOS).
 
-A second composition, **`Examples`**, is the "lots of examples" cut: the sidebar's **Recent** feed (149 today, 824
-this week, 253 publishers) scrolls with every card's preview playing, then **Make a video** (278 results) does the
-same. The pages are captured whole and scroll under the fixed sidebar; 84 previews play in their own boxes.
+A second composition, **`Examples`**, is the "lots of examples" cut: the sidebar's **Recent** feed (825 this week, 254
+publishers) scrolls with every card's preview playing, then **Make a video** (278 results) does the
+same, then the cursor opens four cards in a row (Remotion Create, Higgsfield Video Explainer, GSAP Core, Remotion
+Markup), each skill page playing its example. The pages are captured whole and scroll under the fixed sidebar; every
+preview plays in its own box.
 `bun run render:examples` → `out/examples.mp4`.
 
 A third, **`BeforeAfter`** (9:16), is the proof: *before*, the one line the dropshipping tutorial says to send
 ("Make a dropshipping guide reel for this product: <photo>") and the skill `varg-dropship-reel` found on varg how to;
 an orange wipe; *after*, the original 58 s reel that skill made (solar flood light), untouched, with its own sound;
 then "Made with varg how to". `bun run render:before-after` → `out/before-after.mp4`. [MP4](https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_b8b1cfab4302.mp4)
-[MP4 with sound](https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_612bed149105.mp4) ·
-[preview](https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_826a4e548fb8.mp4)
+[MP4 with sound](https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_6ff6349569e6.mp4) ·
+[preview](https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_9f52ba5f4ade.mp4)
 
 ## Make your own film
 

@@ -9,17 +9,25 @@ export const xt = {
   headlineOut: [50, 64],
   recentCut: 64, // sidebar "Recent" -> the live feed, every card starts
   label1In: [72, 98],
-  zoomIn: [120, 200], // a gentle push so the tiles read bigger
-  scrollRecent: [150, 590], // 0 -> 5200 CSS px down the feed
-  label1Out: [560, 574],
-  zoomOut: [570, 604],
-  cursorToMake: [598, 626],
-  pressMake: 632,
-  makeCut: 640, // sidebar "Make a video" -> 278 results
-  label2In: [648, 674],
-  zoomIn2: [660, 720],
-  scrollMake: [680, 886], // 0 -> 2700 CSS px
-  label2Out: [862, 878],
+  zoomIn: [110, 190], // a gentle push so the tiles read bigger
+  scrollRecent: [130, 420], // 0 -> 3600 CSS px down the feed
+  label1Out: [396, 410],
+  zoomOut: [404, 436],
+  cursorToMake: [430, 458],
+  pressMake: 464,
+  makeCut: 472, // sidebar "Make a video" -> 278 results
+  label2In: [480, 506],
+  zoomIn2: [476, 520],
+  scrollMake: [486, 530], // 0 -> 600 CSS px: the cards to open come into view
+  label2Out: [540, 554],
+  label3In: [556, 582],
+  label3Out: [876, 890],
+  // the click-through: card i is clicked at clickStart + i*clickStep + 22, its skill page shows from +26 to the next step
+  clickStart: 536,
+  clickStep: 90,
+  clickMove: 18,
+  clickPress: 22,
+  clickCut: 26,
 } as const;
 
-export const scroll = { recent: 5200, make: 2700 }; // CSS px
+export const scroll = { recent: 3600, make: 600 }; // CSS px

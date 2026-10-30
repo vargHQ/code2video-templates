@@ -1,4 +1,4 @@
-// The "lots of examples" film: real captures of varg.ai/how-to taken 2026-10-29 in one session (1440x900 CSS at 2x).
+// The "lots of examples" film: real captures of varg.ai/how-to taken 2026-10-30 in one session (1440x900 CSS at 2x).
 // Pages are captured whole (recent: 6400 CSS px, make-a-video: 3600 CSS px) and scrolled under the fixed sidebar;
 // every preview the pages autoplay is laid back over its own box, in page (document) coordinates, source px.
 import type { Clip, Rect } from "../config/content";
@@ -7,7 +7,8 @@ const css = (x: number, y: number, w: number, h: number): Rect => ({ x: x * 2, y
 
 export const ex = {
   opening: { before: "New AI video skills, ", accent: "every day", after: "." },
-  labels: ["824 new this week, from 253 publishers.", "278 ways to make a video with AI."], // read from the captured pages
+  // read from the captured pages: Recent "825 this week / 254 publishers", Make a video "278 results"
+  labels: ["825 new this week, from 254 publishers.", "278 ways to make a video with AI.", "Open any card. It shows what it makes."],
   screens: {
     home: "ex/home.png",
     recentTop: "ex/recent-top.png", // the viewport at scroll 0: supplies the fixed sidebar
@@ -19,16 +20,24 @@ export const ex = {
   sidebarW: 496, // source px; everything right of it scrolls
   anchors: {
     heroPill: { x: 560, y: 128, w: 549.75, h: 167.19 },
-    recentLink: { x: 247, y: 340 }, // sidebar "Recent 824"
-    recentLinkRect: { x: 24, y: 304, w: 446, h: 72 },
-    makeLink: { x: 215, y: 641 }, // sidebar "Make a video 278"
-    makeLinkRect: { x: 24, y: 605, w: 382, h: 72 },
+    recentLink: { x: 247, y: 340 }, // sidebar "Recent"
+    recentLinkRect: css(12, 152, 223, 36),
+    makeLink: { x: 215, y: 713 }, // sidebar "Make a video 278"
+    makeLinkRect: css(12, 338.5, 191, 36),
   },
+  // The click-through: four cards on Make a video (page coordinates), each opening its skill page with its example playing.
+  skills: [
+    { slug: "remotion-create", screen: "ex/skills/remotion-create.png", card: css(662.66, 669.28, 362.67, 226.66), clip: { src: "ex/clips/c036b982f4-remotion-create.mp4", rect: css(774.33, 84.5, 632.66, 394.66), fit: "cover", seconds: 6.083, radius: 36, keep: [{ ...css(786.33, 435.16, 32, 32), r: 16 }] } },
+    { slug: "higgsfield-video-explainer", screen: "ex/skills/higgsfield-video-explainer.png", card: css(1045.33, 979.94, 362.66, 226.66), clip: { src: "ex/clips/bf6f621a34-higgsfield-video-explainer.mp4", rect: css(774.33, 118.95, 632.66, 394.66), fit: "cover", seconds: 8.0, radius: 36, keep: [{ ...css(786.33, 469.61, 32, 32), r: 16 }] } },
+    { slug: "gsap-core", screen: "ex/skills/gsap-core.png", card: css(662.66, 1290.59, 362.67, 226.66), clip: { src: "ex/clips/78537348b6-gsap-core.mp4", rect: css(774.33, 84.5, 632.66, 394.66), fit: "cover", seconds: 5.0, radius: 36, keep: [{ ...css(786.33, 435.16, 32, 32), r: 16 }] } },
+    { slug: "remotion-markup", screen: "ex/skills/remotion-markup.png", card: css(1045.33, 669.28, 362.66, 226.66), clip: { src: "ex/clips/4a9ecb191b-remotion-markup.mp4", rect: css(774.33, 84.5, 632.66, 394.66), fit: "cover", seconds: 10.0, radius: 36, keep: [{ ...css(786.33, 435.16, 32, 32), r: 16 }] } },
+  ] as { slug: string; screen: string; card: Rect; clip: Clip }[],
   clips: {
     recent: [
   { src: "ex/clips/f311fd587b-_HV6gKxwuy1B_Wbt.mp4", rect: css(497, 564.16, 288.66, 179.66), fit: "contain", seconds: 12, radius: 28, keep: [{ ...css(507, 574.16, 67.34, 22), r: 44 }] },
   { src: "ex/clips/604abd02fb-eGeCwh1PpcMYUz--.mp4", rect: css(807.66, 564.16, 288.67, 179.66), fit: "contain", seconds: 12, radius: 28, keep: [{ ...css(817.66, 574.16, 67.34, 22), r: 44 }] },
   { src: "ex/clips/6c8d70a25c-vO6A-5rCYMUdQ4WC.mp4", rect: css(1118.33, 564.16, 288.66, 179.66), fit: "cover", seconds: 12, radius: 28, keep: [{ ...css(1128.33, 574.16, 67.34, 22), r: 44 }] },
+  { src: "ex/clips/6b78f35f4c-file_8eb82edbc04b.mp4", rect: css(1118.33, 863.81, 288.66, 179.66), fit: "contain", seconds: 7.0, radius: 28, keep: [{ ...css(1128.33, 873.81, 45.11, 22), r: 44 }] },
   { src: "ex/clips/1ad950a354-YXNPdAR8yh0dbtmt.mp4", rect: css(518, 1582.88, 134.66, 83.41), fit: "cover", seconds: 12, radius: 20, keep: [] },
   { src: "ex/clips/7dec3f8103-OJRLk-iR0nddxfuC.mp4", rect: css(664.66, 1582.88, 134.67, 83.41), fit: "cover", seconds: 12, radius: 20, keep: [] },
   { src: "ex/clips/3c176fe593-file_04cc0c0dbf3d.mp4", rect: css(518, 2023.19, 134.66, 83.41), fit: "cover", seconds: 12, radius: 20, keep: [] },
