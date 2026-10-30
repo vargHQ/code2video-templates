@@ -23,7 +23,7 @@ metadata:
   varg.preview: "https://s3.varg.ai/files/194b94d0-58ff-4e8b-91de-4f1959d04013/file_aa8ec79f83b6.mp4"
 ---
 
-# Agent Video Style Kit
+# Agent Video Style Kit by Cut30
 
 Source: [Agent Video Style Kit](https://cut30.co/guides/agent-video-style-kit) by [Cut30](https://cut30.co). The
 kit is in `kit/` exactly as Cut30 ships it; this folder adds a renderer that applies it.

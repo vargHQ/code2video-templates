@@ -15,7 +15,7 @@ vargHQ/code2video-templates is a library of code2video templates. Each top-level
 | folder | makes | render | credits |
 |---|---|---|---|
 | `imessage-video/` | a JSON chat as an iPhone iMessage screen recording: typing indicators, input-bar typing, tapbacks, receipts, photos, videos, link cards, group chats, light or dark, synthesized message sounds; text stories, chat ads | `bun render.ts examples/drama.json --sfx` | no |
-| `agent-video-style-kit/` | your title and caption style applied to any video: Cut30's Agent Video Style Kit (9:16 + 16:9 specs: font, title bar, outlined 2-3 word captions, positions, safe zones) burned onto footage from words.json or SRT, with line-limit and safe-zone checks | `bun render.ts --video in.mp4 --captions words.json` | no |
+| `agent-video-style-kit/` | by Cut30 (cut30.co): your title and caption style applied to any video, Cut30's Agent Video Style Kit (9:16 + 16:9 specs: font, title bar, outlined 2-3 word captions, positions, safe zones) burned onto footage from words.json or SRT, with line-limit and safe-zone checks | `bun render.ts --video in.mp4 --captions words.json` | no |
 | `apple-notes-video/` | any text typed live in an iPhone Apple Notes screen, 9:16 | `bun notes-video.ts --text … --out out/x.mp4` | no |
 | `stamp-carousel/` | iPhone swiping through pictures as postage stamps; background or alpha | `bash make.command` | no |
 | `liquid-thorn-logo/` | any word as a black-metal chrome logo smeared by a WebGL fluid | `bun render.ts --text "WORD"` | no |
