@@ -37,6 +37,15 @@ heated neck massager, car seat gap filler), each made by `varg-dropship-reel` fr
 side and play their hooks; "About $8.60 an ad. 100% AI."; then "With varg how to you can scale ads."
 `bun run render:showcase` → `out/showcase.mp4`. [MP4](https://s3.varg.ai/files/60c50c05-1e93-46b9-ae75-47be786b4ff0/file_c49b92edc3d4.mp4)
 
+**`Intro`** is the "Introducing varg how to" film (32 s, 60 fps). It is cut on the beat grid of its own track:
+ElevenLabs Music, 120 BPM, first beat at 0.015 s, a break at 15 s and the drop at 16 s. `B(n)` in
+`src/intro/Intro.tsx` is the frame of beat n, and every cut and click lands on one. The film reuses the other
+compositions as pieces: a wall of real outputs, "How to make any video with AI agents" word by word, search → skill →
+Copy prompt (Launch), the Before/After wipe, the five-up Showcase, "Introducing" on the break and the liquid-metal
+**varg how to** on the drop, Discover trends, the Make a video click-through, the Recent feed and the shared end card.
+It follows varg.ai/how-to/make-a-saas-launch-video: product on screen by second 3, shots of 1.4–3.5 s, readable with
+the sound off, -14 LUFS. `bun run render:intro` writes `out/intro.mp4`.
+
 A third, **`BeforeAfter`** (9:16), is the proof: *before*, the one line the dropshipping tutorial says to send
 ("Make a dropshipping guide reel for this product: <photo>") and the skill `varg-dropship-reel` found on varg how to;
 an orange wipe; *after*, the original 58 s reel that skill made (solar flood light), untouched, with its own sound;
@@ -70,6 +79,8 @@ then "Made with varg how to". `bun run render:before-after` → `out/before-afte
 | `tools/capture-ref.ts` | the capture script for the example screens |
 | `src/showcase/` | the `Showcase` composition: five AI ads made with varg-dropship-reel side by side, "With varg how to you can scale ads." |
 | `src/before-after/` | the `BeforeAfter` composition (1080x1920, 30 fps): the one-line prompt + the skill from varg how to, then the original reel it made, untouched |
+| `src/intro/` | the `Intro` composition: the launch film cut on its track's beat grid, built from the other pieces |
+| `src/trends/content.ts` | the Discover trends capture (whole page, every post's preview box) used by `Intro` |
 | `src/examples/` | the `Examples` composition: whole-page captures scrolling under the fixed sidebar, previews in page coordinates |
 
 ## Credits
