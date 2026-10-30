@@ -1,17 +1,17 @@
 import { Audio } from "@remotion/media";
-import { AbsoluteFill, interpolate, OffthreadVideo, Sequence, spring, staticFile, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Img, interpolate, OffthreadVideo, Sequence, spring, staticFile, useCurrentFrame } from "remotion";
 import { Background } from "../components/Background";
 import { fontFamily as sans, TopLine } from "../components/Copy";
 import { Cursor as LaunchCursor } from "../components/Cursor";
 import { LiquidPill } from "../components/LiquidPill";
 import { ProductCard } from "../components/ProductCard";
-import { cardBox } from "../config/content";
+import { cardBox, fitScale as k } from "../config/content";
 import { inOut, track } from "../config/ease";
 import { canvas, tokens } from "../config/tokens";
-import { Card as ExamplesCard, Cursor as ExamplesCursor, ScrollingPage } from "../examples/Examples";
+import { Card as ExamplesCard, ScrollingPage } from "../examples/Examples";
 import { Closing } from "../scenes/Closing";
 import { PromptPanel } from "../scenes/PromptPanel";
-import { tr } from "../trends/content";
+import { fm, tr } from "../trends/content";
 
 // Introducing varg how to: 32 s at 60 fps, cut on the beat grid of its own track (ElevenLabs Music, 120 BPM,
 // first beat 0.015 s, beat 0.501 s, break at 15 s, drop at 16 s). Reuses the Launch, Examples, Before/After and
@@ -29,8 +29,8 @@ export const s = {
   ba: [B(20), B(26)], // Before/After: the wipe on beat 21, the reel it made
   showcase: [B(26), B(30)], // five ads, one photo each
   intro: [B(30), B(36)], // break: "Introducing" on beat 30, the name on the drop (beat 32), sub-line on beat 33
-  trends: [B(36), B(42)], // Discover trends scrolling, every post playing
-  catalog: [B(42), B(50)], // Make a video: cards clicked on beats 44 and 47
+  trends: [B(36), B(42)], // Discover trends scrolling, every post playing, settling on the viral formats grid
+  formats: [B(42), B(50)], // viral formats: Remake this on beat 44 (music video) and beat 47 (phone stunt)
   recent: [B(50), 1720], // the Recent feed drifting: new skills every day
   closing: [1720, introFrames], // the shared liquid-metal end card
 } as const;
@@ -197,16 +197,74 @@ const IntroTitle: React.FC = () => {
   );
 };
 
-// Discover trends: the whole captured page drifting under the sidebar, every post playing.
-const TrendsShot: React.FC = () => {
-  const f = useCurrentFrame(); // local
-  const len = s.trends[1] - s.trends[0];
-  const sc = interpolate(f, [0, len], [1.04, 1.12]);
+// Discover trends, one camera from B36 to B50: the posts drift by, the page settles on "Viral formats", then two
+// formats open on the beat (Remake this → the site's modal, its clip playing, the Copy prompt button beside it).
+const opens = [B(44) + 2, B(47) + 2]; // modal in, 2 frames after each press
+const shuts = [B(46), s.formats[1]];
+const modalAt = (f: number) => opens.findIndex((o, i) => f >= o && f < shuts[i]);
+const onCard = (r: { x: number; y: number }) => ({ x: cardBox.x + r.x * k, y: cardBox.y + r.y * k });
+const mid = (r: { x: number; y: number; w: number; h: number }) => onCard({ x: r.x + r.w / 2, y: r.y + r.h / 2 });
+
+const FormatsCursor: React.FC = () => {
+  const f = useCurrentFrame();
+  const [a, b] = fm.formats.map((x) => mid(x.button));
+  const start = { x: cardBox.x + cardBox.w * 0.86, y: cardBox.y + cardBox.h * 0.93 };
+  const p1 = track(f, [B(42) - 6, B(44) - 8], 0, 1, inOut);
+  const p2 = track(f, [B(46) + 4, B(47) - 6], 0, 1, inOut);
+  const x = start.x + (a.x - start.x) * p1 + (b.x - a.x) * p2;
+  const y = start.y + (a.y - start.y) * track(f, [B(42) - 3, B(44) - 8], 0, 1, inOut) + (b.y - a.y) * p2;
+  // visible on the grid only: in before the first press, out under each modal
+  const o = track(f, [B(42) - 12, B(42) - 2], 0, 1) * (1 - track(f, [opens[0], opens[0] + 6], 0, 1)) + track(f, [shuts[0] + 2, shuts[0] + 8], 0, 1) * (1 - track(f, [opens[1], opens[1] + 6], 0, 1));
+  const press = f < B(46) ? B(44) : B(47);
+  const btn = fm.formats[f < B(46) ? 0 : 1].button;
+  const ring = track(f, [press - 12, press], 0, 1) * (1 - track(f, [press + 2, press + 8], 0, 1));
+  const tl = onCard(btn);
+  const dip = 1 - 0.14 * interpolate(f, [press - 4, press, press + 8], [0, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  if (o <= 0) return null;
+  return (
+    <AbsoluteFill>
+      <div style={{ position: "absolute", left: tl.x, top: tl.y, width: btn.w * k, height: btn.h * k, borderRadius: 999, boxShadow: `0 0 0 3px ${tokens.accent}, 0 0 40px rgba(252,82,21,0.35)`, opacity: ring * o }} />
+      <svg width={30} height={40} viewBox="0 0 17 23" style={{ position: "absolute", left: x - 2, top: y - 2, opacity: o, transformOrigin: "2px 2px", transform: `scale(${dip})`, filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.55))" }}>
+        <path d="M1 1 L1 18.5 L5.6 14.2 L8.6 21 L11.6 19.7 L8.7 13 L15 13 Z" fill="#fff" stroke="#000" strokeWidth={1.2} strokeLinejoin="round" />
+      </svg>
+    </AbsoluteFill>
+  );
+};
+
+const FormatModal: React.FC<{ i: number }> = ({ i }) => {
+  const f = useCurrentFrame();
+  const m = fm.formats[i];
+  const a = track(f, [opens[i], opens[i] + 8], 0, 1, inOut) * (1 - track(f, [shuts[i], shuts[i] + 8], 0, 1, inOut));
+  if (a <= 0) return null;
+  const v = m.video.rect;
+  return (
+    <div style={{ position: "absolute", inset: 0, opacity: a, transform: `translateY(${(1 - a) * 14}px)` }}>
+      <Img src={staticFile(m.screen)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }} />
+      <div style={{ position: "absolute", left: v.x * k, top: v.y * k, width: v.w * k, height: v.h * k, borderRadius: m.video.radius * k, overflow: "hidden", background: "#000" }}>
+        <Sequence from={opens[i]} layout="none">
+          <OffthreadVideo src={staticFile(m.video.src)} muted style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        </Sequence>
+      </div>
+    </div>
+  );
+};
+
+const DiscoverShot: React.FC = () => {
+  const f = useCurrentFrame(); // global
+  const sc = interpolate(f, [s.trends[0], s.formats[1]], [1.04, 1.1]);
+  // a push toward the open modal's clip and title
+  const zoom = 1 + 0.16 * Math.max(...opens.map((o, i) => track(f, [o, o + 30], 0, 1, inOut) * (1 - track(f, [shuts[i] - 6, shuts[i] + 6], 0, 1, inOut))));
+  const focus = onCard({ x: 1150, y: 640 });
+  const open = modalAt(f) >= 0 || zoom > 1.001;
   return (
     <AbsoluteFill style={{ transformOrigin: "960px 600px", transform: `scale(${sc})` }}>
-      <div style={{ position: "absolute", left: cardBox.x, top: cardBox.y, width: cardBox.w, height: cardBox.h, borderRadius: tokens.radius, overflow: "hidden", backgroundColor: tokens.bg, boxShadow: `0 0 0 1px ${tokens.line2}, 0 40px 90px rgba(0,0,0,0.65)` }}>
-        <ScrollingPage page={tr.screens.page} top={tr.screens.top} pageH={tr.pageH} clips={tr.clips as never} scrollPx={track(f, [0, len], 250, 2600, inOut)} />
-      </div>
+      <AbsoluteFill style={{ transformOrigin: `${focus.x}px ${focus.y}px`, transform: `scale(${zoom})` }}>
+        <div style={{ position: "absolute", left: cardBox.x, top: cardBox.y, width: cardBox.w, height: cardBox.h, borderRadius: tokens.radius, overflow: "hidden", backgroundColor: tokens.bg, boxShadow: `0 0 0 1px ${tokens.line2}, 0 40px 90px rgba(0,0,0,0.65)` }}>
+          <ScrollingPage page={tr.screens.page} top={tr.screens.top} pageH={tr.pageH} clips={tr.clips as never} scrollPx={track(f, [s.trends[0], B(41) + 10], 250, fm.park, inOut)} />
+          {open && fm.formats.map((_, i) => <FormatModal key={i} i={i} />)}
+        </div>
+        <FormatsCursor />
+      </AbsoluteFill>
     </AbsoluteFill>
   );
 };
@@ -229,9 +287,7 @@ export const Intro: React.FC = () => {
       <Sequence from={s.ba[0]} durationInFrames={L(s.ba)} layout="none"><BeforeAfterShot /></Sequence>
       <Sequence from={s.showcase[0]} durationInFrames={L(s.showcase)} layout="none"><ShowcaseShot /></Sequence>
       <Sequence from={s.intro[0]} durationInFrames={L(s.intro)} layout="none"><Sequence from={-s.intro[0]} layout="none"><IntroTitle /></Sequence></Sequence>
-      <Sequence from={s.trends[0]} durationInFrames={L(s.trends)} layout="none"><TrendsShot /></Sequence>
-      {/* Examples: card presses at its frames 648 and 738 land on beats 44 and 47 */}
-      <Seg at={s.catalog[0]} len={L(s.catalog)} from={s.catalog[0] - (B(44) - 648)}><ExamplesCard /><ExamplesCursor /></Seg>
+      <Sequence from={s.trends[0]} durationInFrames={s.formats[1] - s.trends[0]} layout="none"><Sequence from={-s.trends[0]} layout="none"><DiscoverShot /></Sequence></Sequence>
       <Seg at={s.recent[0]} len={L(s.recent)} from={180}><ExamplesCard /></Seg>
       <Sequence from={s.closing[0] - 910} layout="none"><Closing /></Sequence>
 
@@ -241,8 +297,8 @@ export const Intro: React.FC = () => {
       <Chip span={[B(19), s.copy[1]]}>You approve the price first.</Chip>
       <Line span={s.showcase}>Every product gets its own video ad.</Line>
       <Line span={s.trends}>Remake what's trending.</Line>
-      <Line span={s.catalog}>2,000+ AI video skills, updated daily.</Line>
-      <Line span={s.recent}>Every skill shows a real example.</Line>
+      <Line span={s.formats}>Every viral format comes with its prompt.</Line>
+      <Line span={s.recent}>2,000+ AI video skills, updated daily.</Line>
 
       {/* the track: 32 s, a short fade on the last beat */}
       <Audio src={staticFile("intro/music.mp3")} volume={(fr) => interpolate(fr, [0, introFrames - 40, introFrames], [0.9, 0.9, 0], { extrapolateRight: "clamp" })} />
