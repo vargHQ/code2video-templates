@@ -23,7 +23,7 @@ const CY = cardBox.y + cardBox.h / 2;
 const toComp = (p: P, s: number) => ({ x: CX + (cardBox.x + p.x * k - CX) * s, y: CY + (cardBox.y + p.y * k - CY) * s });
 
 // A whole captured page scrolling under the fixed sidebar, with its previews playing in place.
-const ScrollingPage: React.FC<{ page: string; top: string; pageH: number; clips: Clip[]; scrollPx: number }> = ({ page, top, pageH, clips, scrollPx }) => {
+export const ScrollingPage: React.FC<{ page: string; top: string; pageH: number; clips: Clip[]; scrollPx: number }> = ({ page, top, pageH, clips, scrollPx }) => {
   const sy = scrollPx * 2; // source px
   const view = { top: sy - 400, bottom: sy + 1800 + 400 };
   return (
@@ -88,7 +88,7 @@ const SkillPage: React.FC<{ i: number }> = ({ i }) => {
   );
 };
 
-const Card: React.FC = () => {
+export const Card: React.FC = () => {
   const f = useCurrentFrame();
   const s = camScale(f);
   const enter = track(f, xt.cardIn, 0, 1);
@@ -180,7 +180,7 @@ const passes: { show: [number, number]; from: P; to: P; move: readonly [number, 
   ...cardPasses,
 ];
 
-const Cursor: React.FC = () => {
+export const Cursor: React.FC = () => {
   const f = useCurrentFrame();
   const pass = passes.find((p) => f >= p.show[0] && f < p.show[1]);
   if (!pass) return null;
