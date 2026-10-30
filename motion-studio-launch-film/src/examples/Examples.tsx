@@ -58,6 +58,36 @@ const ScrollingPage: React.FC<{ page: string; top: string; pageH: number; clips:
   );
 };
 
+// Which skill page of the click-through is open at frame f (-1 = the grid).
+const skillAt = (f: number) => {
+  const i = Math.floor((f - xt.clickStart) / xt.clickStep);
+  if (i < 0) return -1;
+  const last = ex.skills.length - 1;
+  const idx = Math.min(i, last);
+  const opened = xt.clickStart + idx * xt.clickStep + xt.clickCut;
+  return f >= opened ? idx : -1;
+};
+
+const SkillPage: React.FC<{ i: number }> = ({ i }) => {
+  const s = ex.skills[i];
+  const c = s.clip;
+  return (
+    <>
+      <Img src={staticFile(s.screen)} style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }} />
+      <div style={{ ...box(c.rect), borderRadius: c.radius * k, overflow: "hidden" }}>
+        <Loop durationInFrames={Math.max(24, Math.round(c.seconds * canvas.fps))}>
+          <OffthreadVideo src={staticFile(c.src)} muted style={{ width: "100%", height: "100%", objectFit: c.fit }} />
+        </Loop>
+      </div>
+      {c.keep?.map((r, j) => (
+        <div key={j} style={{ ...box(r), borderRadius: r.r * k, overflow: "hidden" }}>
+          <Img src={staticFile(s.screen)} style={{ position: "absolute", left: -r.x * k, top: -r.y * k, width: cardBox.w, height: cardBox.h, maxWidth: "none" }} />
+        </div>
+      ))}
+    </>
+  );
+};
+
 const Card: React.FC = () => {
   const f = useCurrentFrame();
   const s = camScale(f);
@@ -107,8 +137,19 @@ const Card: React.FC = () => {
             <ScrollingPage page={ex.screens.recentPage} top={ex.screens.recentTop} pageH={ex.pageH.recent} clips={ex.clips.recent} scrollPx={recentScroll} />
           </Sequence>
           <Sequence from={xt.makeCut} layout="none">
-            <ScrollingPage page={ex.screens.makePage} top={ex.screens.makeTop} pageH={ex.pageH.make} clips={ex.clips.make} scrollPx={makeScroll} />
+            {skillAt(f) < 0 && (
+              <ScrollingPage page={ex.screens.makePage} top={ex.screens.makeTop} pageH={ex.pageH.make} clips={ex.clips.make} scrollPx={makeScroll} />
+            )}
           </Sequence>
+          {ex.skills.map((_, i) => {
+            const from = xt.clickStart + i * xt.clickStep + xt.clickCut;
+            const to = i === ex.skills.length - 1 ? 1200 : xt.clickStart + (i + 1) * xt.clickStep;
+            return (
+              <Sequence key={i} from={from} durationInFrames={to - from} layout="none">
+                <SkillPage i={i} />
+              </Sequence>
+            );
+          })}
           <div
             style={{
               position: "absolute",
@@ -123,9 +164,20 @@ const Card: React.FC = () => {
   );
 };
 
-const passes: { show: [number, number]; from: P; to: P; move: readonly [number, number]; press: number; ring: R; end: number }[] = [
+const MAKE_SCROLL_SRC = scroll.make * 2;
+const cardInView = (r: R): R => ({ x: r.x, y: r.y - MAKE_SCROLL_SRC, w: r.w, h: r.h });
+const center = (r: R): P => ({ x: r.x + r.w / 2, y: r.y + r.h * 0.45 });
+const cardPasses = ex.skills.map((s, i) => {
+  const base = xt.clickStart + i * xt.clickStep;
+  const ring = cardInView(s.card);
+  const from = i === 0 ? { x: 1700, y: 1500 } : center(cardInView(ex.skills[i - 1].card));
+  return { show: [base, base + xt.clickCut] as [number, number], from, to: center(ring), move: [base, base + xt.clickMove] as const, press: base + xt.clickPress, ring, ringRadius: 14, end: base + xt.clickCut };
+});
+
+const passes: { show: [number, number]; from: P; to: P; move: readonly [number, number]; press: number; ring: R; ringRadius?: number; end: number }[] = [
   { show: [xt.cursorIn, xt.recentCut], from: { x: 1500, y: 1200 }, to: ex.anchors.recentLink, move: xt.cursorToRecent, press: xt.pressRecent, ring: ex.anchors.recentLinkRect, end: xt.recentCut },
   { show: [xt.cursorToMake[0] - 6, xt.makeCut], from: { x: 1500, y: 1100 }, to: ex.anchors.makeLink, move: xt.cursorToMake, press: xt.pressMake, ring: ex.anchors.makeLinkRect, end: xt.makeCut },
+  ...cardPasses,
 ];
 
 const Cursor: React.FC = () => {
@@ -150,7 +202,7 @@ const Cursor: React.FC = () => {
             top: tl.y,
             width: pass.ring.w * k * s,
             height: pass.ring.h * k * s,
-            borderRadius: 10,
+            borderRadius: pass.ringRadius ?? 10,
             boxShadow: `0 0 0 3px ${tokens.accent}, 0 0 40px rgba(252,82,21,0.35)`,
             opacity: ringO,
           }}
@@ -173,6 +225,7 @@ const Copy: React.FC = () => {
   const h = track(f, xt.headlineIn, 0, 1) * (1 - track(f, xt.headlineOut, 0, 1));
   const a = track(f, xt.label1In, 0, 1) * (1 - track(f, xt.label1Out, 0, 1));
   const b = track(f, xt.label2In, 0, 1) * (1 - track(f, xt.label2Out, 0, 1));
+  const c3 = track(f, xt.label3In, 0, 1) * (1 - track(f, xt.label3Out, 0, 1));
   const o = ex.opening;
   return (
     <>
@@ -193,6 +246,11 @@ const Copy: React.FC = () => {
           {ex.labels[1]}
         </TopLine>
       )}
+      {f >= xt.label3In[0] && f < xt.label3Out[1] && (
+        <TopLine opacity={c3} y={(1 - c3) * 22} size={tokens.labelSize + 6}>
+          {ex.labels[2]}
+        </TopLine>
+      )}
     </>
   );
 };
@@ -204,7 +262,14 @@ const cues: { id: string; file: string; at: number; gain: number }[] = [
   { id: "scroll-1", file: "sfx/whoosh.wav", at: xt.scrollRecent[0] - 10, gain: 0.14 },
   { id: "click-make", file: "sfx/click.wav", at: xt.pressMake, gain: 0.55 },
   { id: "reveal-make", file: "sfx/reveal.wav", at: xt.makeCut, gain: 0.3 },
-  { id: "scroll-2", file: "sfx/whoosh.wav", at: xt.scrollMake[0] - 10, gain: 0.14 },
+  { id: "scroll-2", file: "sfx/whoosh.wav", at: xt.scrollMake[0] - 10, gain: 0.12 },
+  ...ex.skills.flatMap((_, i) => {
+    const base = xt.clickStart + i * xt.clickStep;
+    return [
+      { id: `click-card-${i}`, file: "sfx/click.wav", at: base + xt.clickPress, gain: 0.5 },
+      { id: `reveal-card-${i}`, file: "sfx/reveal.wav", at: base + xt.clickCut, gain: 0.18 },
+    ];
+  }),
   { id: "whoosh-out", file: "sfx/whoosh.wav", at: ev.cardOut[0] + 5, gain: 0.25 },
   { id: "resolve", file: "sfx/resolve.wav", at: ev.pillIn[0] + 2, gain: 0.42 },
   { id: "shine", file: "sfx/reveal.wav", at: ev.pillGlare[0] + 4, gain: 0.16 },
